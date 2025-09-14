@@ -86,6 +86,27 @@
         "set_pause": 0
       },
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140734887105296,
+      "repr": "LFO1",
+      "paused": true,
+      "running": true,
+      "config": {
+        "output": 87.97900727011348,
+        "set_pause": 1,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -589,6 +610,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734743660976,
+      "src": {
+        "device": 140734887105296,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734887397840,
+          "device": 140734887105296,
+          "to_min": 0,
+          "to_max": 128,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734744457776,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            128
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

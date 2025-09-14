@@ -12,26 +12,12 @@
       "class": "TrevorBus"
     },
     {
-      "id": 140732682463824,
-      "repr": "WindowDetector1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 0,
-        "upperbound": 127,
-        "lowerbound": 0,
-        "type": "ondemand"
-      },
-      "class": "WindowDetector"
-    },
-    {
       "id": 140732682463488,
       "repr": "LFO1",
       "paused": false,
       "running": true,
       "config": {
-        "output": 88.99375529499252,
+        "output": 22.581838006783325,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -55,8 +41,153 @@
         "set_pause": 0
       },
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140732682457104,
+      "repr": "EnvelopeSlew1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 22.520719098498255,
+        "set_pause": 0,
+        "input": 22.581838006783325,
+        "attack": 50.0,
+        "release": 50.0,
+        "type": "envelope",
+        "mode": "ondemand"
+      },
+      "class": "EnvelopeSlew"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140732682457440,
+      "src": {
+        "device": 140732682463488,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732682458448,
+          "device": 140732682463488,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732682457104,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732682547792,
+      "src": {
+        "device": 140732682457104,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732682548112,
+          "device": 140732682457104,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732682456432,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    }
+  ],
   "playground_code": ""
 }

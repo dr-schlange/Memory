@@ -52,14 +52,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 111.22662568352624,
-        "cam_average_R": 110.0,
-        "cam_average_G": 113.0,
-        "cam_average_B": 103.0,
-        "cam_average_H": 0.21666666666666654,
-        "cam_average_S": 0.08849557522123888,
-        "cam_average_V": 0.44313725490196076,
-        "cam_indexFingerAngle": 0.55
+        "cam_brightness": 139.22675767906608,
+        "cam_average_R": 139.0,
+        "cam_average_G": 142.0,
+        "cam_average_B": 128.0,
+        "cam_average_H": 0.20238095238095255,
+        "cam_average_S": 0.0985915492957747,
+        "cam_average_V": 0.5568627450980392,
+        "cam_indexFingerAngle": 0.88
       },
       "class": "WebSocketBus"
     },
@@ -69,9 +69,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.29602767504569,
+        "output": 63.74651974432608,
         "set_pause": 0,
-        "input": 51.296027606760525,
+        "input": 63.746519744323756,
         "filter": "lowpass",
         "mode": "cutoff",
         "cutoff": 39.0,
@@ -80,6 +80,23 @@
         "type": "continuous"
       },
       "class": "MultiPoleFilter"
+    },
+    {
+      "id": 140732450134000,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 62,
+        "set_pause": 0,
+        "input": 63.746519744326086,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -516,7 +533,7 @@
       "muted": false
     },
     {
-      "id": 140732693384112,
+      "id": 140732693209040,
       "src": {
         "device": 140732450133664,
         "repr": "MultiPoleFilter1",
@@ -541,8 +558,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732693386576,
+          "id": 140732693208848,
           "device": 140732450133664,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732450134000,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732696260192,
+      "src": {
+        "device": 140732450134000,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732696261776,
+          "device": 140732450134000,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

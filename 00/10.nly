@@ -8,7 +8,12 @@
         "output": "Minilab3:Minilab3 MIDI 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "buttons": {
+          "b1": 53,
+          "b5": 9
+        }
+      },
       "class": "Minilab3"
     },
     {
@@ -57,14 +62,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 101.2324242253833,
-        "cam_average_R": 106.0,
-        "cam_average_G": 101.0,
-        "cam_average_B": 89.0,
-        "cam_average_H": 0.11764705882352934,
-        "cam_average_S": 0.16037735849056614,
-        "cam_average_V": 0.41568627450980394,
-        "cam_indexFingerAngle": 1.0
+        "cam_brightness": 121.7534027278661,
+        "cam_average_R": 151.0,
+        "cam_average_G": 123.0,
+        "cam_average_B": 37.0,
+        "cam_average_H": 0.1257309941520468,
+        "cam_average_S": 0.7549668874172185,
+        "cam_average_V": 0.592156862745098,
+        "cam_indexFingerAngle": 0.12
       },
       "class": "WebSocketBus"
     },
@@ -74,9 +79,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 50.299957975800226,
+        "output": 61.2564213168111,
         "set_pause": 0,
-        "input": 50.29998823575546,
+        "input": 61.25642131681111,
         "filter": "lowpass",
         "mode": "cutoff",
         "cutoff": 39.0,
@@ -92,14 +97,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 50,
+        "output": 60,
         "set_pause": 0,
-        "input": 50.299957975800226,
+        "input": 61.2564213168111,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "free"
+        "type": "sample&hold"
       },
       "class": "Quantizer"
     },
@@ -111,7 +116,7 @@
       "config": {
         "set_pause": 0,
         "input": 0,
-        "chord": "7th",
+        "chord": "maj",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -155,7 +160,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 262.0472440944882,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -1450,6 +1455,70 @@
       "dest": {
         "device": 140732450134672,
         "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732451013648,
+      "src": {
+        "device": 140732450135008,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732450104016,
+          "device": 140732450135008,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732450134000,
+        "repr": "Quantizer1",
         "parameter": {
           "name": "trigger",
           "stream": false,

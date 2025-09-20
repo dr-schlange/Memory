@@ -57,13 +57,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 71.92843029947709,
-        "cam_average_R": 67.0,
-        "cam_average_G": 74.0,
-        "cam_average_B": 72.0,
-        "cam_average_H": 0.4523809523809523,
-        "cam_average_S": 0.09459459459459463,
-        "cam_average_V": 0.2901960784313726,
+        "cam_brightness": 86.48899159828406,
+        "cam_average_R": 49.0,
+        "cam_average_G": 89.0,
+        "cam_average_B": 174.0,
+        "cam_average_H": 0.6133333333333334,
+        "cam_average_S": 0.7183908045977012,
+        "cam_average_V": 0.6823529411764706,
         "cam_indexFingerAngle": 1.0
       },
       "class": "WebSocketBus"
@@ -97,7 +97,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 36,
+        "input": 24,
         "chord": "maj",
         "octave": 0,
         "inversion": "--",
@@ -110,9 +110,9 @@
         "custom4": "--",
         "note4": 0,
         "note3": 0,
-        "note2": 43,
-        "note1": 40,
-        "note0": 36
+        "note2": 31,
+        "note1": 28,
+        "note0": 24
       },
       "class": "ChordGenerator"
     },
@@ -127,11 +127,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0.0,
-        "io3": 43.0,
-        "io2": 40.0,
-        "io1": 36.0,
-        "oi": 36.0
+        "io4": 68.0,
+        "io3": 31.0,
+        "io2": 28.0,
+        "io1": 24.0,
+        "oi": 24.0
       },
       "class": "SeqSwitch"
     },
@@ -141,9 +141,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 36,
+        "output": 24,
         "set_pause": 0,
-        "input": 33.36731892866946,
+        "input": 24.402964589623938,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -163,11 +163,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 2.0,
-        "io3": 4.0,
-        "io2": 2.0,
-        "io1": 4.0,
-        "oi": 2.0
+        "io4": 1.0,
+        "io3": 2.0,
+        "io2": 4.0,
+        "io1": 3.0,
+        "oi": 4.0
       },
       "class": "SeqSwitch"
     },
@@ -177,7 +177,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.0,
+        "output": 0,
         "set_pause": 0,
         "trigger": 0,
         "count": 4,
@@ -989,7 +989,7 @@
       "muted": false
     },
     {
-      "id": 140735845327184,
+      "id": 140735543491344,
       "src": {
         "device": 140735543349712,
         "repr": "SeqSwitch2",
@@ -1014,10 +1014,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735845322192,
+          "id": 140735543055184,
           "device": 140735543349712,
           "to_min": 0,
-          "to_max": 127,
+          "to_max": 9,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1025,21 +1025,32 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735543350672,
-        "repr": "ClockDivider2",
+        "device": 140736027882384,
+        "repr": "ChordGenerator1",
         "parameter": {
-          "name": "output",
+          "name": "chord",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
             0,
-            127
+            9
           ],
-          "accepted_values": [],
+          "accepted_values": [
+            "maj",
+            "min",
+            "maj7",
+            "min7",
+            "7th",
+            "maj7#11",
+            "dim",
+            "m7b5",
+            "min7maj",
+            "custom"
+          ],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output_cv",
+          "cv_name": "chord_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1104,81 +1115,6 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140735848379536,
-      "src": {
-        "device": 140735543350672,
-        "repr": "ClockDivider2",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735848381296,
-          "device": 140735543350672,
-          "to_min": 0,
-          "to_max": 9,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140736027882384,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "chord",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            9
-          ],
-          "accepted_values": [
-            "maj",
-            "min",
-            "maj7",
-            "min7",
-            "7th",
-            "maj7#11",
-            "dim",
-            "m7b5",
-            "min7maj",
-            "custom"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "chord_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

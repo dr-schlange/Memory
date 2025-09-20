@@ -46,14 +46,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 95.60542549473925,
-        "cam_average_R": 102.0,
-        "cam_average_G": 95.0,
-        "cam_average_B": 83.0,
-        "cam_average_H": 0.10526315789473682,
-        "cam_average_S": 0.1862745098039216,
-        "cam_average_V": 0.4,
-        "cam_indexFingerAngle": 0.29
+        "cam_brightness": 107.79893653972547,
+        "cam_average_R": 109.0,
+        "cam_average_G": 109.0,
+        "cam_average_B": 101.0,
+        "cam_average_H": 0.16666666666666666,
+        "cam_average_S": 0.07339449541284404,
+        "cam_average_V": 0.42745098039215684,
+        "cam_indexFingerAngle": 0.64
       },
       "class": "WebSocketBus"
     },
@@ -86,7 +86,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 53,
         "chord": "min7",
         "octave": 0,
         "inversion": "--",
@@ -98,10 +98,10 @@
         "custom3": "7th",
         "custom4": "--",
         "note4": 0,
-        "note3": 0,
-        "note2": 0,
-        "note1": 0,
-        "note0": 0
+        "note3": 63,
+        "note2": 60,
+        "note1": 56,
+        "note0": 53
       },
       "class": "ChordGenerator"
     },
@@ -116,11 +116,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0.0,
-        "io3": 0.0,
-        "io2": 0.0,
-        "io1": 0.0,
-        "oi": 0.0
+        "io4": 63.0,
+        "io3": 60.0,
+        "io2": 56.0,
+        "io1": 53.0,
+        "oi": 50.0
       },
       "class": "SeqSwitch"
     },
@@ -130,8 +130,9 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 53,
         "set_pause": 0,
-        "input": 50.79800792125799,
+        "input": 54.284145719775694,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -369,6 +370,70 @@
           ],
           "accepted_values": [],
           "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735543268352,
+      "src": {
+        "device": 140736027881744,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735845661296,
+          "device": 140736027881744,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735845745392,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "trigger_cv",
           "section_name": "__virtual__",
@@ -691,6 +756,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735845428560,
+      "src": {
+        "device": 140735845745392,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735845427792,
+          "device": 140735845745392,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736027882384,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

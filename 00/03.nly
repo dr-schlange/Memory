@@ -52,8 +52,16 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul3": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "class": "Clock"
     },
@@ -82,6 +90,25 @@
         "note0": 0
       },
       "class": "ChordGenerator"
+    },
+    {
+      "id": 140736027885264,
+      "repr": "SeqSwitch1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "reset": 0,
+        "steps": 4,
+        "mode": "IOs->OI",
+        "io4": 0,
+        "io3": 0,
+        "io2": 0,
+        "io1": 0,
+        "oi": 0
+      },
+      "class": "SeqSwitch"
     }
   ],
   "connections": [
@@ -129,6 +156,70 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735918842704,
+      "src": {
+        "device": 140736027881744,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735919437904,
+          "device": 140736027881744,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736027885264,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

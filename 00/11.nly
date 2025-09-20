@@ -41,11 +41,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 87.61639311198914,
-        "cam_average_R": 89.0,
+        "cam_brightness": 87.88085171875971,
+        "cam_average_R": 90.0,
         "cam_average_G": 86.0,
         "cam_average_B": 91.0,
-        "cam_average_H": 0.7666666666666663,
+        "cam_average_H": 0.8000000000000002,
         "cam_average_S": 0.0549450549450549,
         "cam_average_V": 0.3568627450980392
       },
@@ -58,7 +58,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 44,
+        "input": 45,
         "chord": "maj",
         "octave": 0,
         "inversion": "--",
@@ -71,9 +71,9 @@
         "custom4": "--",
         "note4": 0,
         "note3": 0,
-        "note2": 51,
-        "note1": 48,
-        "note0": 44
+        "note2": 52,
+        "note1": 49,
+        "note0": 45
       },
       "class": "ChordGenerator"
     },
@@ -111,12 +111,29 @@
         "steps": 4,
         "mode": "IOs->OI",
         "io4": 0,
-        "io3": 51.0,
-        "io2": 48.0,
-        "io1": 44.0,
-        "oi": 51.0
+        "io3": 52.0,
+        "io2": 49.0,
+        "io1": 45.0,
+        "oi": 52.0
       },
       "class": "SeqSwitch"
+    },
+    {
+      "id": 140736027769360,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 43,
+        "set_pause": 0,
+        "input": 44.82177169522764,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -292,6 +309,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736027684752,
+      "src": {
+        "device": 140733045103248,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "cam_average_R",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            255.01
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "cam_average_R_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736027684368,
+          "device": 140733045103248,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736027769360,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -625,12 +706,12 @@
       "muted": false
     },
     {
-      "id": 140732994085552,
+      "id": 140736030767984,
       "src": {
-        "device": 140732994113360,
-        "repr": "SeqSwitch1",
+        "device": 140736027769360,
+        "repr": "Quantizer1",
         "parameter": {
-          "name": "oi",
+          "name": "output",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -641,7 +722,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "oi_cv",
+          "cv_name": "output_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -650,8 +731,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736027859152,
-          "device": 140732994113360,
+          "id": 140736030768864,
+          "device": 140736027769360,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

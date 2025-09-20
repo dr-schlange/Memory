@@ -30,7 +30,7 @@
   ],
   "virtual_devices": [
     {
-      "id": 140736030210912,
+      "id": 140735847759024,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -45,7 +45,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "cam_brightness": 95.60542549473925,
+        "cam_average_R": 102.0,
+        "cam_average_G": 95.0,
+        "cam_average_B": 83.0,
+        "cam_average_H": 0.10526315789473682,
+        "cam_average_S": 0.1862745098039216,
+        "cam_average_V": 0.4,
+        "cam_indexFingerAngle": 0.29
       },
       "class": "WebSocketBus"
     },
@@ -90,10 +98,10 @@
         "custom3": "7th",
         "custom4": "--",
         "note4": 0,
-        "note3": 75,
-        "note2": 76,
-        "note1": 75,
-        "note0": 71
+        "note3": 0,
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
       },
       "class": "ChordGenerator"
     },
@@ -115,6 +123,22 @@
         "oi": 0.0
       },
       "class": "SeqSwitch"
+    },
+    {
+      "id": 140735845745392,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 50.79800792125799,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -137,7 +161,7 @@
         },
         "explicit": 93,
         "chain": {
-          "id": 140735919436752,
+          "id": 140735845744720,
           "device": 140736028014320,
           "to_min": 20,
           "to_max": 600,
@@ -193,7 +217,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735912220240,
+          "id": 140735845509840,
           "device": 140736028014320,
           "to_min": 0,
           "to_max": 127,
@@ -217,6 +241,70 @@
           ],
           "accepted_values": [],
           "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735845418576,
+      "src": {
+        "device": 140735918954192,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "cam_average_R",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            255.01
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "cam_average_R_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735845418320,
+          "device": 140735918954192,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735845745392,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
           "section_name": "__virtual__",
@@ -257,7 +345,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735918827728,
+          "id": 140735845510480,
           "device": 140736027881744,
           "to_min": 0,
           "to_max": 1,
@@ -321,7 +409,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735918824400,
+          "id": 140735845599696,
           "device": 140736027882384,
           "to_min": 0,
           "to_max": 127,
@@ -385,7 +473,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735919424592,
+          "id": 140735845600304,
           "device": 140736027882384,
           "to_min": 0,
           "to_max": 127,
@@ -449,7 +537,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735919427664,
+          "id": 140735845707088,
           "device": 140736027882384,
           "to_min": 0,
           "to_max": 127,
@@ -513,7 +601,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735918819664,
+          "id": 140735848364736,
           "device": 140736027882384,
           "to_min": 0,
           "to_max": 127,
@@ -577,7 +665,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735919438160,
+          "id": 140735848365280,
           "device": 140736027885264,
           "to_min": 0,
           "to_max": 127,

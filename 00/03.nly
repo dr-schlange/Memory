@@ -8,7 +8,12 @@
         "output": "Minilab3:Minilab3 MIDI 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "buttons": {
+          "b1": 55,
+          "b5": 5
+        }
+      },
       "class": "Minilab3"
     },
     {
@@ -51,7 +56,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 42.83464566929133,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -74,21 +79,21 @@
       "config": {
         "set_pause": 0,
         "input": 0,
-        "chord": "maj",
+        "chord": "min7",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
         "omit": "--",
-        "custom0": "--",
-        "custom1": "--",
-        "custom2": "--",
-        "custom3": "--",
+        "custom0": "root",
+        "custom1": "3rd",
+        "custom2": "3rd",
+        "custom3": "7th",
         "custom4": "--",
         "note4": 0,
-        "note3": 0,
-        "note2": 59,
-        "note1": 56,
-        "note0": 52
+        "note3": 75,
+        "note2": 76,
+        "note1": 75,
+        "note0": 71
       },
       "class": "ChordGenerator"
     },
@@ -103,128 +108,16 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 59.0,
-        "io2": 56.0,
-        "io1": 52.0,
-        "oi": 0
+        "io4": 0.0,
+        "io3": 0.0,
+        "io2": 0.0,
+        "io1": 0.0,
+        "oi": 0.0
       },
       "class": "SeqSwitch"
     }
   ],
   "connections": [
-    {
-      "id": 140735918840144,
-      "src": {
-        "device": 140736028014320,
-        "repr": "Minilab3",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140736027197264,
-          "device": 140736028014320,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "note"
-      },
-      "dest": {
-        "device": 140736027882384,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140735919272208,
-      "src": {
-        "device": 140736028014320,
-        "repr": "Minilab3",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735918829008,
-          "device": 140736028014320,
-          "to_min": 1,
-          "to_max": 0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "note"
-      },
-      "dest": {
-        "device": 140736027885264,
-        "repr": "SeqSwitch1",
-        "parameter": {
-          "name": "reset",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "reset_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
     {
       "id": 140735918844304,
       "src": {
@@ -283,12 +176,68 @@
       "muted": false
     },
     {
-      "id": 140735918842704,
+      "id": 140735919272208,
+      "src": {
+        "device": 140736028014320,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735912220240,
+          "device": 140736028014320,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140736027882384,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735883665616,
       "src": {
         "device": 140736027881744,
         "repr": "Clock1",
         "parameter": {
-          "name": "lead",
+          "name": "mul7",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -299,7 +248,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "lead_cv",
+          "cv_name": "mul7_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -308,7 +257,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735919437904,
+          "id": 140735918827728,
           "device": 140736027881744,
           "to_min": 0,
           "to_max": 1,

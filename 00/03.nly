@@ -57,14 +57,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 83.91471773437789,
-        "cam_average_R": 92.0,
-        "cam_average_G": 81.0,
-        "cam_average_B": 76.0,
-        "cam_average_H": 0.052083333333333294,
-        "cam_average_S": 0.17391304347826086,
-        "cam_average_V": 0.3607843137254902,
-        "cam_indexFingerAngle": 0.93
+        "cam_brightness": 124.73324070314845,
+        "cam_average_R": 116.0,
+        "cam_average_G": 139.0,
+        "cam_average_B": 74.0,
+        "cam_average_H": 0.22564102564102564,
+        "cam_average_S": 0.46762589928057546,
+        "cam_average_V": 0.5450980392156862,
+        "cam_indexFingerAngle": 1.0
       },
       "class": "WebSocketBus"
     },
@@ -97,8 +97,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 57,
-        "chord": "min7",
+        "input": 0,
+        "chord": "maj",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -109,10 +109,10 @@
         "custom3": "4+/-5",
         "custom4": "--",
         "note4": 0,
-        "note3": 67,
-        "note2": 64,
-        "note1": 60,
-        "note0": 57
+        "note3": 0,
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
       },
       "class": "ChordGenerator"
     },
@@ -127,11 +127,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 67.0,
-        "io3": 64.0,
-        "io2": 60.0,
-        "io1": 57.0,
-        "oi": 67.0
+        "io4": 0.0,
+        "io3": 0.0,
+        "io2": 0.0,
+        "io1": 0.0,
+        "oi": 0.0
       },
       "class": "SeqSwitch"
     },
@@ -143,7 +143,7 @@
       "config": {
         "output": 62,
         "set_pause": 1,
-        "input": 64.74255911532882,
+        "input": 60.260381945806046,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -151,6 +151,39 @@
         "type": "sample&hold"
       },
       "class": "Quantizer"
+    },
+    {
+      "id": 140735543349712,
+      "repr": "SeqSwitch2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "reset": 0,
+        "steps": 4,
+        "mode": "IOs->OI",
+        "io4": 0,
+        "io3": 0,
+        "io2": 0,
+        "io1": 0,
+        "oi": 0
+      },
+      "class": "SeqSwitch"
+    },
+    {
+      "id": 140735543350672,
+      "repr": "ClockDivider2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "trigger": 0,
+        "count": 4,
+        "reset": 0
+      },
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -396,12 +429,12 @@
       "muted": false
     },
     {
-      "id": 140735543268352,
+      "id": 140735845489072,
       "src": {
         "device": 140736027881744,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul4",
+          "name": "div2",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -412,7 +445,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul4_cv",
+          "cv_name": "div2_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -421,7 +454,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735845661296,
+          "id": 140735845492880,
           "device": 140736027881744,
           "to_min": 0,
           "to_max": 1,
@@ -451,6 +484,70 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735845643760,
+      "src": {
+        "device": 140736027881744,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735845639184,
+          "device": 140736027881744,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735543350672,
+        "repr": "ClockDivider2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0,
           "no_init": false
         },
         "explicit": -1,
@@ -887,6 +984,209 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735845327184,
+      "src": {
+        "device": 140735543349712,
+        "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735845322192,
+          "device": 140735543349712,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735543350672,
+        "repr": "ClockDivider2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735845491312,
+      "src": {
+        "device": 140735543350672,
+        "repr": "ClockDivider2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735845490640,
+          "device": 140735543350672,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735543349712,
+        "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735848379536,
+      "src": {
+        "device": 140735543350672,
+        "repr": "ClockDivider2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735848381296,
+          "device": 140735543350672,
+          "to_min": 0,
+          "to_max": 9,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736027882384,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "chord",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            9
+          ],
+          "accepted_values": [
+            "maj",
+            "min",
+            "maj7",
+            "min7",
+            "7th",
+            "maj7#11",
+            "dim",
+            "m7b5",
+            "min7maj",
+            "custom"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "chord_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

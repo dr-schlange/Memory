@@ -13,9 +13,9 @@
           "mod": 40
         },
         "buttons": {
-          "b1": 13,
-          "b2": 3,
-          "b3": 35,
+          "b1": 7,
+          "b2": 6,
+          "b3": 19,
           "b4": 65,
           "b5": 51,
           "b6": 54,
@@ -70,14 +70,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 103.64040281249538,
-        "cam_average_R": 105.0,
-        "cam_average_G": 104.0,
-        "cam_average_B": 96.0,
-        "cam_average_H": 0.14814814814814822,
-        "cam_average_S": 0.08571428571428569,
-        "cam_average_V": 0.4117647058823529,
-        "cam_indexFingerAngle": 0.13
+        "cam_brightness": 70.39501537437476,
+        "cam_average_R": 97.0,
+        "cam_average_G": 54.0,
+        "cam_average_B": 83.0,
+        "cam_average_H": 0.8875968992248061,
+        "cam_average_S": 0.44329896907216493,
+        "cam_average_V": 0.3803921568627451,
+        "cam_indexFingerAngle": 0.0
       },
       "class": "WebSocketBus"
     },
@@ -87,12 +87,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 49.281797309075024,
+        "output": 52.88457784766506,
         "set_pause": 0,
-        "input": 51.79404729226305,
+        "input": 41.335633896709936,
         "filter": "lowpass",
         "mode": "cutoff",
-        "cutoff": 0.06095837996732419,
+        "cutoff": 0.009311467686332581,
         "smoothing": 0.1,
         "poles": 1,
         "type": "continuous"
@@ -105,9 +105,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 48,
+        "output": 52,
         "set_pause": 0,
-        "input": 49.274090668349736,
+        "input": 52.88457784766506,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -123,22 +123,22 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 64,
-        "chord": "min7",
+        "input": 62,
+        "chord": "custom",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
         "omit": "--",
-        "custom0": "--",
-        "custom1": "--",
-        "custom2": "--",
-        "custom3": "--",
-        "custom4": "--",
+        "custom0": "root",
+        "custom1": "3rd",
+        "custom2": "5th",
+        "custom3": "7th",
+        "custom4": "2nd",
         "note4": 0,
-        "note3": 74,
-        "note2": 71,
-        "note1": 67,
-        "note0": 64
+        "note3": 73,
+        "note2": 69,
+        "note1": 66,
+        "note0": 62
       },
       "class": "ChordGenerator"
     },
@@ -153,11 +153,11 @@
         "reset": 0.0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 74.0,
-        "io3": 71.0,
-        "io2": 67.0,
-        "io1": 64.0,
-        "oi": 74.0
+        "io4": 73.0,
+        "io3": 69.0,
+        "io2": 66.0,
+        "io1": 62.0,
+        "oi": 66.0
       },
       "class": "SeqSwitch"
     },
@@ -168,7 +168,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 79.37007874015748,
+        "tempo": 51.968503937007874,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -182,6 +182,20 @@
         "lead": 0
       },
       "class": "Clock"
+    },
+    {
+      "id": 140732450135344,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "trigger": 0,
+        "count": 8,
+        "reset": 0
+      },
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -1601,6 +1615,70 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732451017968,
+      "src": {
+        "device": 140732450135008,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732693116368,
+          "device": 140732450135008,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732450135344,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0,
           "no_init": false
         },
         "explicit": -1,

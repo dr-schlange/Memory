@@ -48,8 +48,10 @@
           "b2": 53,
           "b3": 40,
           "b4": 29,
-          "b5": 61,
-          "b6": 2
+          "b5": 61
+        },
+        "sliders": {
+          "s1": 45
         }
       },
       "class": "Minilab3"
@@ -90,7 +92,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 69,
+        "input": 65,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -102,10 +104,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 80,
-        "note2": 76,
-        "note1": 73,
-        "note0": 69
+        "note3": 76,
+        "note2": 72,
+        "note1": 69,
+        "note0": 65
       },
       "class": "ChordGenerator"
     },
@@ -138,15 +140,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 1,
+        "trigger": 0,
         "reset": 1,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 69.0,
-        "io3": 73.0,
-        "io2": 76.0,
-        "io1": 80.0,
-        "oi": 69.0
+        "io4": 65.0,
+        "io3": 69.0,
+        "io2": 72.0,
+        "io1": 76.0,
+        "oi": 65.0
       },
       "class": "SeqSwitch"
     },
@@ -156,11 +158,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 80.0,
+        "output": 65.0,
         "set_pause": 0,
-        "input_a": 80.0,
-        "input_b": 69.0,
-        "selector": 0,
+        "input_a": 76.0,
+        "input_b": 65.0,
+        "selector": 1,
         "crossfade": 0.0,
         "mode": "switch"
       },
@@ -173,7 +175,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 1,
+        "trigger": 0,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
@@ -191,9 +193,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72.41454524992953,
+        "output": 85.94683497607431,
         "set_pause": 0,
-        "speed": 0.15748031496062992,
+        "speed": 0.0,
         "sync": 0,
         "subdiv": "4/1",
         "phase": 0.0,
@@ -206,6 +208,21 @@
         "step_size": 0.2
       },
       "class": "LFO"
+    },
+    {
+      "id": 140735064058784,
+      "repr": "BernoulliTrigger1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "trigger": 1,
+        "probability": 0.5,
+        "bias": 0.0,
+        "quantized": "off"
+      },
+      "class": "BernoulliTrigger"
     }
   ],
   "connections": [
@@ -1616,6 +1633,70 @@
       "muted": true
     },
     {
+      "id": 140734626484368,
+      "src": {
+        "device": 140735064059120,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735063486288,
+          "device": 140735064059120,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735064058784,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735063970576,
       "src": {
         "device": 140735064058448,
@@ -1929,6 +2010,70 @@
       },
       "bouncy": false,
       "muted": true
+    },
+    {
+      "id": 140735064394160,
+      "src": {
+        "device": 140735064058784,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734626515152,
+          "device": 140735064058784,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735066701520,
+        "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
     }
   ],
   "playground_code": "s1 = connected_devices[0]\nminilab3 = connected_devices[2]\n\nfor key in s1.keys[0]\ns1.keys.notes[0].velocity"

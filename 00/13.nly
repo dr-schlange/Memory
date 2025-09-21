@@ -38,7 +38,7 @@
           "b1": 71,
           "b2": 111,
           "b3": 38,
-          "b5": 124
+          "b5": 42
         }
       },
       "class": "Minilab3"
@@ -63,7 +63,7 @@
       "config": {
         "output": 62,
         "set_pause": 0,
-        "input": 62.89559871398948,
+        "input": 63.1728922460011,
         "trigger": 1,
         "reset": 0,
         "root": "C",
@@ -80,7 +80,7 @@
       "config": {
         "set_pause": 0,
         "input": 62,
-        "chord": "maj7",
+        "chord": "maj7#11",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -91,9 +91,9 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 73,
+        "note3": 72,
         "note2": 69,
-        "note1": 66,
+        "note1": 68,
         "note0": 62
       },
       "class": "ChordGenerator"
@@ -105,7 +105,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 586.2992125984252,
+        "tempo": 211.81102362204726,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -132,9 +132,9 @@
         "steps": 4,
         "mode": "IOs->OI",
         "io4": 62.0,
-        "io3": 66.0,
+        "io3": 68.0,
         "io2": 69.0,
-        "io1": 73.0,
+        "io1": 72.0,
         "oi": 66.0
       },
       "class": "SeqSwitch"
@@ -145,9 +145,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 73.0,
+        "output": 72.0,
         "set_pause": 0,
-        "input_a": 73.0,
+        "input_a": 72.0,
         "input_b": 66.0,
         "selector": 0,
         "crossfade": 0.0,
@@ -170,7 +170,7 @@
         "io3": 38.0,
         "io2": 111.0,
         "io1": 71.0,
-        "oi": 38.0
+        "oi": 71.0
       },
       "class": "SeqSwitch"
     },
@@ -180,7 +180,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 80.24701222555447,
+        "output": 91.9857717473797,
         "set_pause": 0,
         "speed": 0.18,
         "sync": 0,
@@ -844,6 +844,63 @@
       "muted": false
     },
     {
+      "id": 140735014681040,
+      "src": {
+        "device": 140735064063152,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 18,
+          "channel": null,
+          "name": "b6",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 18,
+        "chain": {
+          "id": 140735063894352,
+          "device": 140735064063152,
+          "to_min": 0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735064060464,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "speed_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 18,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735014678480,
       "src": {
         "device": 140735064057440,
@@ -1458,6 +1515,70 @@
       "dest": {
         "device": 140735064058448,
         "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735014677200,
+      "src": {
+        "device": 140735064059120,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "div4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735063894224,
+          "device": 140735064059120,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735066701520,
+        "repr": "SeqSwitch2",
         "parameter": {
           "name": "trigger",
           "stream": false,

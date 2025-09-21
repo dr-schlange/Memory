@@ -31,8 +31,12 @@
       },
       "channel": 0,
       "config": {
+        "keys": {
+          "mod": 99
+        },
         "buttons": {
-          "b4": 1
+          "b4": 1,
+          "b5": 58
         },
         "sliders": {
           "s1": 61
@@ -75,8 +79,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 62,
-        "chord": "maj",
+        "input": 0,
+        "chord": "m7b5",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -88,9 +92,9 @@
         "custom4": "--",
         "note4": 0,
         "note3": 0,
-        "note2": 69,
-        "note1": 66,
-        "note0": 62
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
       },
       "class": "ChordGenerator"
     },
@@ -101,7 +105,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 284.88188976377955,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -127,11 +131,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 62.0,
-        "io3": 66.0,
-        "io2": 69.0,
+        "io4": 0.0,
+        "io3": 0.0,
+        "io2": 0.0,
         "io1": 0.0,
-        "oi": 69.0
+        "oi": 0.0
       },
       "class": "SeqSwitch"
     }
@@ -188,6 +192,197 @@
           "no_init": false
         },
         "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735063971344,
+      "src": {
+        "device": 140735064063152,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "mod",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 1,
+        "chain": {
+          "id": 140735063970960,
+          "device": 140735064063152,
+          "to_min": 0,
+          "to_max": 9,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735064057776,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "chord",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            9
+          ],
+          "accepted_values": [
+            "maj",
+            "min",
+            "maj7",
+            "min7",
+            "7th",
+            "maj7#11",
+            "dim",
+            "m7b5",
+            "min7maj",
+            "custom"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "chord_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735067058816,
+      "src": {
+        "device": 140735064063152,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735067059696,
+          "device": 140735064063152,
+          "to_min": 0,
+          "to_max": 9,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "pitchwheel"
+      },
+      "dest": {
+        "device": 140735064057776,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "chord",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            9
+          ],
+          "accepted_values": [
+            "maj",
+            "min",
+            "maj7",
+            "min7",
+            "7th",
+            "maj7#11",
+            "dim",
+            "m7b5",
+            "min7maj",
+            "custom"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "chord_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735067053008,
+      "src": {
+        "device": 140735064063152,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 93,
+          "channel": null,
+          "name": "b5",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 93,
+        "chain": {
+          "id": 140735067057056,
+          "device": 140735064063152,
+          "to_min": 20,
+          "to_max": 600,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735064059120,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 93,
         "type": "virtual"
       },
       "bouncy": false,

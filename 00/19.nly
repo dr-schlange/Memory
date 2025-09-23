@@ -52,7 +52,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 20.0,
+        "tempo": 120.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -82,7 +82,7 @@
         "io3": 53.0,
         "io2": 83.0,
         "io1": 69.0,
-        "oi": 71.0
+        "oi": 69.0
       },
       "class": "SeqSwitch"
     },
@@ -93,8 +93,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 71,
-        "chord": "maj",
+        "input": 69,
+        "chord": "maj7",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -105,10 +105,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 0,
-        "note2": 78,
-        "note1": 75,
-        "note0": 71
+        "note3": 80,
+        "note2": 76,
+        "note1": 73,
+        "note0": 69
       },
       "class": "ChordGenerator"
     },
@@ -123,11 +123,30 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 0,
-        "io2": 0,
-        "io1": 0,
-        "oi": 0
+        "io4": 38.0,
+        "io3": 23.0,
+        "io2": 54.0,
+        "io1": 27.0,
+        "oi": 38.0
+      },
+      "class": "SeqSwitch"
+    },
+    {
+      "id": 140733099251408,
+      "repr": "SeqSwitch3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "reset": 0,
+        "steps": 4,
+        "mode": "IOs->OI",
+        "io4": 80.0,
+        "io3": 76.0,
+        "io2": 73.0,
+        "io1": 69.0,
+        "oi": 72.0
       },
       "class": "SeqSwitch"
     }
@@ -236,6 +255,70 @@
       "dest": {
         "device": 140733108796928,
         "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733099021552,
+      "src": {
+        "device": 140733108793904,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733099018032,
+          "device": 140733108793904,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733099251408,
+        "repr": "SeqSwitch3",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -601,6 +684,262 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733108991856,
+      "src": {
+        "device": 140733108794912,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733108992304,
+          "device": 140733108794912,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733099251408,
+        "repr": "SeqSwitch3",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733108992976,
+      "src": {
+        "device": 140733108794912,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733108986928,
+          "device": 140733108794912,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733099251408,
+        "repr": "SeqSwitch3",
+        "parameter": {
+          "name": "io2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733098976064,
+      "src": {
+        "device": 140733108794912,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733098979600,
+          "device": 140733108794912,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733099251408,
+        "repr": "SeqSwitch3",
+        "parameter": {
+          "name": "io3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733108708432,
+      "src": {
+        "device": 140733108794912,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733108706512,
+          "device": 140733108794912,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733099251408,
+        "repr": "SeqSwitch3",
+        "parameter": {
+          "name": "io4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

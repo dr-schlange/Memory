@@ -110,7 +110,7 @@
       "config": {
         "set_pause": 0,
         "input": 72,
-        "chord": "maj7",
+        "chord": "maj7#11",
         "octave": 0,
         "inversion": "2nd",
         "drop": "drop2",
@@ -121,10 +121,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 88,
+        "note3": 90,
         "note2": 84,
         "note1": 79,
-        "note0": 71
+        "note0": 70
       },
       "class": "ChordGenerator"
     },
@@ -143,7 +143,7 @@
         "io3": 36.0,
         "io2": 71.0,
         "io1": 49.0,
-        "oi": 36.0
+        "oi": 71.0
       },
       "class": "SeqSwitch"
     },
@@ -158,11 +158,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 88.0,
+        "io4": 90.0,
         "io3": 84.0,
         "io2": 79.0,
-        "io1": 71.0,
-        "oi": 79.0
+        "io1": 70.0,
+        "oi": 127.0
       },
       "class": "SeqSwitch"
     },
@@ -172,9 +172,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83.74252081258412,
+        "output": 126.78502008667162,
         "set_pause": 0,
-        "input": 79.0,
+        "input": 127.0,
         "filter": "lowpass",
         "mode": "cutoff",
         "cutoff": 1.0,
@@ -190,11 +190,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83.80211708676136,
+        "output": 126.78502008667162,
         "set_pause": 0,
-        "a": 83.74252081258412,
-        "b": 0.0,
-        "operator": "-",
+        "a": 126.7876880769821,
+        "b": 127.0,
+        "operator": "min",
         "type": "ondemand"
       },
       "class": "Operator"
@@ -205,12 +205,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 4.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50.0,
+        "sampling_rate": 80,
         "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -797,6 +797,63 @@
           "no_init": false
         },
         "explicit": 83,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732123776336,
+      "src": {
+        "device": 140733099041728,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 85,
+          "channel": null,
+          "name": "s3",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 85,
+        "chain": {
+          "id": 140732183718224,
+          "device": 140733099041728,
+          "to_min": 0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733099035344,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "speed_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 85,
         "type": "virtual"
       },
       "bouncy": false,

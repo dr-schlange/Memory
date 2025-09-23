@@ -41,7 +41,12 @@
         "output": "Minilab3:Minilab3 MIDI 16:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "sliders": {
+          "s1": 15,
+          "s2": 56
+        }
+      },
       "class": "Minilab3"
     }
   ],
@@ -63,7 +68,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 91.0,
+        "tempo": 88.50393700787401,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -105,7 +110,7 @@
       "config": {
         "set_pause": 0,
         "input": 72,
-        "chord": "maj7",
+        "chord": "min7",
         "octave": 0,
         "inversion": "2nd",
         "drop": "drop2",
@@ -116,10 +121,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 88,
+        "note3": 87,
         "note2": 84,
         "note1": 79,
-        "note0": 71
+        "note0": 70
       },
       "class": "ChordGenerator"
     },
@@ -138,7 +143,7 @@
         "io3": 36.0,
         "io2": 71.0,
         "io1": 49.0,
-        "oi": 36.0
+        "oi": 56.0
       },
       "class": "SeqSwitch"
     },
@@ -153,13 +158,31 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 88.0,
+        "io4": 87.0,
         "io3": 84.0,
         "io2": 79.0,
-        "io1": 71.0,
-        "oi": 88.0
+        "io1": 70.0,
+        "oi": 71.0
       },
       "class": "SeqSwitch"
+    },
+    {
+      "id": 140733108791216,
+      "repr": "MultiPoleFilter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "input": 0,
+        "filter": "lowpass",
+        "mode": "cutoff",
+        "cutoff": 1.0,
+        "smoothing": 0.1,
+        "poles": 1,
+        "type": "continuous"
+      },
+      "class": "MultiPoleFilter"
     }
   ],
   "connections": [
@@ -671,6 +694,63 @@
           "no_init": false
         },
         "explicit": 82,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733066273296,
+      "src": {
+        "device": 140733099041728,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 83,
+          "channel": null,
+          "name": "s2",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 83,
+        "chain": {
+          "id": 140733098927312,
+          "device": 140733099041728,
+          "to_min": 0,
+          "to_max": 3000,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733108791216,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "cutoff",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            3000
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "cutoff_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 83,
         "type": "virtual"
       },
       "bouncy": false,

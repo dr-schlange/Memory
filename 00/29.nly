@@ -24,7 +24,10 @@
           "b1": 54,
           "b2": 62,
           "b3": 78,
-          "b4": 88
+          "b4": 88,
+          "b5": 77,
+          "b6": 60,
+          "b7": 103
         }
       },
       "class": "Minilab3"
@@ -37,7 +40,13 @@
         "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 77,
+          "resonance": 60,
+          "envelope": 103
+        }
+      },
       "class": "S1"
     }
   ],
@@ -566,6 +575,63 @@
           "no_init": false
         },
         "explicit": 77,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733755915120,
+      "src": {
+        "device": 140733753062944,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 82,
+          "channel": null,
+          "name": "s1",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 82,
+        "chain": {
+          "id": 140733755909312,
+          "device": 140733753062944,
+          "to_min": 20,
+          "to_max": 600,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733643444576,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 82,
         "type": "virtual"
       },
       "bouncy": false,

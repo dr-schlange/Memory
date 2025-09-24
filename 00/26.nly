@@ -10,8 +10,9 @@
       "channel": 0,
       "config": {
         "sliders": {
-          "s1": 127,
-          "s2": 127
+          "s1": 58,
+          "s2": 56,
+          "s3": 81
         }
       },
       "class": "Minilab3"
@@ -61,11 +62,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 600.0,
+        "tempo": 89.61053142459929,
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul3": 0,
+        "mul3": 1,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -82,19 +83,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
-        "input": 127.0,
+        "input": 0.0,
         "trigger": 0.0,
         "reset": 0,
-        "output7": 0.0,
-        "output6": 127.0,
+        "output7": 127.0,
+        "output6": 0.0,
         "output5": 127.0,
         "output4": 127.0,
-        "output3": 0.0,
-        "output2": 127.0,
+        "output3": 127.0,
+        "output2": 0.0,
         "output1": 127.0,
-        "output0": 0.0
+        "output0": 127.0
       },
       "class": "ShiftRegister"
     },
@@ -104,12 +105,22 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 152.0,
+        "output": 0,
         "set_pause": 0,
-        "input": 128.0,
-        "shift": 24.0
+        "input": 0.0,
+        "shift": 6.614173228346456
       },
       "class": "PitchShifter"
+    },
+    {
+      "id": 140733753076432,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "class": "WebSocketBus"
     }
   ],
   "connections": [
@@ -984,6 +995,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733644406320,
+      "src": {
+        "device": 140733753078032,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733599136720,
+          "device": 140733753078032,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733753076432,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

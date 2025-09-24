@@ -69,7 +69,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul3": 0,
+        "mul3": 1,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -88,16 +88,16 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "input": 59.0,
+        "input": 19.0,
         "trigger": 0.0,
         "reset": 0,
         "output7": 0.0,
-        "output6": 64.0,
-        "output5": 0.0,
-        "output4": 17.0,
+        "output6": 21.0,
+        "output5": 65.0,
+        "output4": 79.0,
         "output3": 0.0,
-        "output2": 52.0,
-        "output1": 17.0,
+        "output2": 47.0,
+        "output1": 59.0,
         "output0": 0.0
       },
       "class": "ShiftRegister"
@@ -108,10 +108,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 59.40157480314961,
+        "output": 16.703376144183693,
         "set_pause": 0,
-        "input": 64.50393700787401,
-        "shift": -5.1023622047244075
+        "input": 21.165354330708663,
+        "shift": -4.46197818652497
       },
       "class": "PitchShifter"
     },
@@ -131,9 +131,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 59,
+        "output": 19,
         "set_pause": 0,
-        "input": 59.40157480314961,
+        "input": 16.703376144183693,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -157,7 +157,7 @@
         "io3": 79.0,
         "io2": 79.0,
         "io1": 72.0,
-        "oi": 64.0
+        "oi": 79.0
       },
       "class": "SeqSwitch"
     },
@@ -167,13 +167,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.1088377785976054,
+        "output": 56.4233033328008,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "white_noise",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -188,9 +188,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.133714038535825,
+        "output": 51.69434938148602,
         "set_pause": 0,
-        "input": 3.1088377785976054,
+        "input": 56.4233033328008,
         "attack": 50.0,
         "release": 50.0,
         "type": "envelope",
@@ -1907,6 +1907,70 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732809535216,
+      "src": {
+        "device": 140732728741568,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732787100240,
+          "device": 140732728741568,
+          "to_min": -24,
+          "to_max": 24,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733753078032,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -24,
+            24
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0,
           "no_init": false
         },
         "explicit": -1,

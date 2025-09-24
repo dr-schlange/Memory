@@ -25,9 +25,13 @@
           "b2": 62,
           "b3": 78,
           "b4": 88,
-          "b5": 77,
-          "b6": 60,
-          "b7": 103
+          "b5": 79,
+          "b6": 67,
+          "b7": 64
+        },
+        "sliders": {
+          "s1": 92,
+          "s2": 5
         }
       },
       "class": "Minilab3"
@@ -42,9 +46,9 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 77,
-          "resonance": 60,
-          "envelope": 103
+          "frequency": 79,
+          "resonance": 67,
+          "envelope": 64
         }
       },
       "class": "S1"
@@ -72,11 +76,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 59.0,
-        "io3": 55.0,
-        "io2": 48.0,
-        "io1": 40.0,
-        "oi": 40.0
+        "io4": 43.0,
+        "io3": 36.0,
+        "io2": 40.0,
+        "io1": 37.0,
+        "oi": 43.0
       },
       "class": "SeqSwitch"
     },
@@ -87,7 +91,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 34.0,
+        "tempo": 235.0014758008722,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -134,21 +138,21 @@
       "config": {
         "set_pause": 0,
         "input": 48,
-        "chord": "maj7",
-        "octave": 0,
+        "chord": "custom",
+        "octave": -1,
         "inversion": "--",
-        "drop": "drop2",
+        "drop": "--",
         "omit": "--",
-        "custom0": "--",
-        "custom1": "--",
-        "custom2": "--",
-        "custom3": "--",
+        "custom0": "b2",
+        "custom1": "3rd",
+        "custom2": "root",
+        "custom3": "5th",
         "custom4": "--",
         "note4": 0,
-        "note3": 59,
-        "note2": 55,
-        "note1": 48,
-        "note0": 40
+        "note3": 43,
+        "note2": 36,
+        "note1": 40,
+        "note0": 37
       },
       "class": "ChordGenerator"
     }
@@ -633,6 +637,152 @@
         },
         "explicit": 82,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733644406320,
+      "src": {
+        "device": 140733753062944,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "mod",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 1,
+        "chain": {
+          "id": 140733644405200,
+          "device": 140733753062944,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733753064960,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "modulation_wheel",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733644403120,
+      "src": {
+        "device": 140733753062944,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733644405040,
+          "device": 140733753062944,
+          "to_min": -8192,
+          "to_max": 8192,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "pitchwheel"
+      },
+      "dest": {
+        "device": 140733753064960,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "type": "pitchwheel"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733644403920,
+      "src": {
+        "device": 140733753062944,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 16,
+          "channel": null,
+          "name": "b8",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 16,
+        "chain": {
+          "id": 140733752876000,
+          "device": 140733753062944,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733753064960,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 25,
+          "channel": null,
+          "name": "lfo",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 16,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

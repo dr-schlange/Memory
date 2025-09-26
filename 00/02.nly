@@ -35,7 +35,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 25.72769871090592,
+        "output": 79.46884988594836,
         "set_pause": 0,
         "speed": 1.11,
         "subdiv": "1/1",
@@ -56,11 +56,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 38.53848573468589,
+        "output": 24.381416774476428,
         "set_pause": 0,
-        "in0": 25.72769871090592,
-        "in1": 117.47553967970715,
-        "in2": 11.19163814499143,
+        "in0": 79.46884988594836,
+        "in1": 7.560845683648603,
+        "in2": 19.198742273018524,
         "in3": 0,
         "level0": 69.29133858267717,
         "level1": 77.16535433070865,
@@ -78,13 +78,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 37.7697177282355,
-        "in1": 38.53848573468589,
+        "in0": 24.79806029137746,
+        "in1": 24.381416774476428,
         "in2": 0,
         "in3": 0,
-        "level": 26.149386176098133,
+        "level": 16.11269867608514,
         "type": "ondemand",
-        "out0": 37.970745843040504,
+        "out0": 24.730927776945755,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -95,7 +95,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 117.47553967970715,
+        "output": 7.560845683648603,
         "set_pause": 0,
         "speed": 0.26,
         "subdiv": "1/1",
@@ -116,7 +116,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 11.19163814499143,
+        "output": 19.198742273018524,
         "set_pause": 0,
         "speed": 0.5,
         "subdiv": "1/1",
@@ -145,7 +145,11 @@
         "sliders1_s0": 88.0,
         "sliders1_s1": 98.0,
         "sliders1_s2": 81.0,
-        "sliders1_s3": 60.0
+        "sliders1_s3": 60.0,
+        "sliders2_s0": 42.0,
+        "sliders2_s1": 99.0,
+        "sliders2_s2": 85.0,
+        "sliders2_s3": 77.0
       },
       "class": "WebSocketBus"
     },
@@ -155,9 +159,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 37.7697177282355,
+        "output": 24.79806029137746,
         "set_pause": 0,
-        "input": 38.53848573468589,
+        "input": 24.381416774476428,
         "trigger": 0,
         "reset": 0
       },
@@ -191,7 +195,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 33.20972044364463,
+        "output": 20.46312731862813,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -212,9 +216,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 33,
+        "output": 23,
         "set_pause": 0,
-        "input": 37.970745843040504,
+        "input": 24.730927776945755,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -232,12 +236,26 @@
         "output": 0.0,
         "set_pause": 0,
         "gate": 0,
-        "attack": 0.1,
-        "decay": 0.2,
-        "sustain": 0.7,
-        "release": 0.3
+        "attack": 0.33070866141732286,
+        "decay": 0.7795275590551181,
+        "sustain": 0.6692913385826772,
+        "release": 0.6062992125984252
       },
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 140735976612800,
+      "repr": "ThresholdGate1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "threshold": 0,
+        "mode": "gate",
+        "type": "ondemand"
+      },
+      "class": "ThresholdGate"
     }
   ],
   "connections": [
@@ -1891,6 +1909,134 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735681933744,
+      "src": {
+        "device": 140735976612464,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976861264,
+          "device": 140735976612464,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976612800,
+        "repr": "ThresholdGate1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735681932464,
+      "src": {
+        "device": 140735976612800,
+        "repr": "ThresholdGate1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976860496,
+          "device": 140735976612800,
+          "to_min": 20,
+          "to_max": 600,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733514261104,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

@@ -8,7 +8,11 @@
         "output": "S-1:S-1 MIDI IN 16:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 51
+        }
+      },
       "class": "S1"
     },
     {
@@ -52,15 +56,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 151.95533381126785,
+        "tempo": 580.4731976557872,
         "play": 1,
         "reset": 0,
         "mul7": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
-        "mul2": 0,
+        "mul4": 1,
+        "mul2": 1,
         "div2": 0,
         "div4": 0,
         "lead": 0
@@ -74,13 +78,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 83.40357716076063,
-        "in1": 6.42493661483992,
+        "in0": 73.71684198755459,
+        "in1": 19.44475207519204,
         "in2": 0,
         "in3": 0,
-        "level": 53.273997146800426,
+        "level": 5.252078642267138,
         "type": "ondemand",
-        "out0": 42.39397839268108,
+        "out0": 70.86642914455538,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -91,14 +95,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83.40357716076063,
+        "output": 73.71684198755459,
         "set_pause": 0,
-        "speed": 4.79280487070177,
+        "speed": 0.6142688757324054,
         "sync": 0,
-        "subdiv": "1/1",
+        "subdiv": "2/1",
         "phase": 0.0,
-        "sampling_rate": 95,
-        "waveform": "sine",
+        "sampling_rate": 50,
+        "waveform": "half_wave_rectified_sine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -113,13 +117,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 6.42493661483992,
+        "output": 19.44475207519204,
         "set_pause": 0,
-        "speed": 4.827916041795278,
+        "speed": 1.2232411525406697,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 96,
+        "sampling_rate": 24,
         "waveform": "sawtooth",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -145,7 +149,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67.65797637643654,
+        "output": 6.670139875679266,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -187,19 +191,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 84.3427896784267,
+        "output": 88.18329691970354,
         "set_pause": 0,
-        "input": 42.39397839268108,
+        "input": 70.86642914455538,
         "trigger": 0.0,
         "reset": 0,
-        "output7": 80.61882754056946,
-        "output6": 84.10373622591386,
-        "output5": 44.29672408049944,
-        "output4": 28.86764418240951,
-        "output3": 85.94998426219914,
-        "output2": 63.69188580969572,
-        "output1": 67.71989416328579,
-        "output0": 84.3427896784267
+        "output7": 126.19531021265229,
+        "output6": 122.40628559136859,
+        "output5": 0.26958382036731315,
+        "output4": 124.36947056817738,
+        "output3": 117.33210759675411,
+        "output2": 84.62753357620225,
+        "output1": 113.10401288534955,
+        "output0": 88.18329691970354
       },
       "class": "ShiftRegister"
     },
@@ -209,9 +213,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 91.25362145821174,
+        "output": 137.18897407259442,
         "set_pause": 0,
-        "input": 81.25362145821174,
+        "input": 127.18897407259443,
         "shift": 10.0
       },
       "class": "PitchShifter"
@@ -726,6 +730,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734418376400,
+      "src": {
+        "device": 140735504405504,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734408506704,
+          "device": 140735504405504,
+          "to_min": 46,
+          "to_max": 55,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735504408528,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

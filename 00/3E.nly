@@ -52,7 +52,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 250.04342530043874,
+        "tempo": 569.8095632023279,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -74,13 +74,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 59.85293299200451,
-        "in1": 27.02946393218712,
+        "in0": 86.59750704162298,
+        "in1": 90.32424883500723,
         "in2": 0,
         "in3": 0,
-        "level": 28.885902845419984,
+        "level": 0.003130577937454637,
         "type": "ondemand",
-        "out0": 50.37157760888917,
+        "out0": 86.59762371017933,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -91,13 +91,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 59.85293299200451,
+        "output": 86.59750704162298,
         "set_pause": 0,
-        "speed": 3.6290130045411804,
+        "speed": 5.325272936316594,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 72,
+        "sampling_rate": 106,
         "waveform": "random",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -113,14 +113,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 27.02946393218712,
+        "output": 90.32424883500723,
         "set_pause": 0,
-        "speed": 3.6541398874891513,
+        "speed": 5.398327862008872,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 73,
-        "waveform": "invert_sine",
+        "sampling_rate": 107,
+        "waveform": "logarithmic",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -145,7 +145,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 36.685096613683385,
+        "output": 0.003975833980567389,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -163,11 +163,11 @@
     {
       "id": 140735504490384,
       "repr": "LFO4",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 8.880404308751936,
-        "set_pause": 1,
+        "output": 95.29456294846602,
+        "set_pause": 0,
         "speed": 0.001,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -187,19 +187,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 42.495963703759834,
+        "output": 86.5977298332494,
         "set_pause": 0,
-        "input": 50.37157760888917,
+        "input": 97.2793827071,
         "trigger": 0.0,
         "reset": 0,
-        "output7": 38.03546229290542,
-        "output6": 114.21012647413806,
-        "output5": 88.03142385971572,
-        "output4": 80.01870334130237,
-        "output3": 10.555685489542643,
-        "output2": 36.22232028512618,
-        "output1": 56.047175516691674,
-        "output0": 42.495963703759834
+        "output7": 86.59751252970078,
+        "output6": 86.59750033694486,
+        "output5": 86.5974379111443,
+        "output4": 86.59797458257103,
+        "output3": 86.59789879774556,
+        "output2": 86.59786360032278,
+        "output1": 86.5977717404533,
+        "output0": 86.5977298332494
       },
       "class": "ShiftRegister"
     },
@@ -209,9 +209,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 48.334954121983415,
+        "output": 97.2793827071,
         "set_pause": 0,
-        "input": 38.334954121983415,
+        "input": 87.2793827071,
         "shift": 10.0
       },
       "class": "PitchShifter"
@@ -347,7 +347,7 @@
       "muted": false
     },
     {
-      "id": 140734418751952,
+      "id": 140734408397264,
       "src": {
         "device": 140735504404832,
         "repr": "Clock1",
@@ -372,7 +372,71 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734418750832,
+          "id": 140734418181840,
+          "device": 140735504404832,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734459493216,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": true
+    },
+    {
+      "id": 140734418377200,
+      "src": {
+        "device": 140735504404832,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734418180816,
           "device": 140735504404832,
           "to_min": 0,
           "to_max": 1,

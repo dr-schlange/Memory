@@ -35,7 +35,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 107.88547934676549,
+        "output": 25.72769871090592,
         "set_pause": 0,
         "speed": 1.11,
         "subdiv": "1/1",
@@ -56,11 +56,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 45.48641932856255,
+        "output": 38.53848573468589,
         "set_pause": 0,
-        "in0": 107.88547934676549,
-        "in1": 44.628604903896615,
-        "in2": 42.750621001050604,
+        "in0": 25.72769871090592,
+        "in1": 117.47553967970715,
+        "in2": 11.19163814499143,
         "in3": 0,
         "level0": 69.29133858267717,
         "level1": 77.16535433070865,
@@ -78,13 +78,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 44.22825001416687,
-        "in1": 45.48641932856255,
+        "in0": 37.7697177282355,
+        "in1": 38.53848573468589,
         "in2": 0,
         "in3": 0,
-        "level": 55.19047949444047,
+        "level": 26.149386176098133,
         "type": "ondemand",
-        "out0": 44.92263969163376,
+        "out0": 37.970745843040504,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -95,7 +95,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 44.628604903896615,
+        "output": 117.47553967970715,
         "set_pause": 0,
         "speed": 0.26,
         "subdiv": "1/1",
@@ -116,7 +116,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 42.750621001050604,
+        "output": 11.19163814499143,
         "set_pause": 0,
         "speed": 0.5,
         "subdiv": "1/1",
@@ -155,9 +155,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 44.22825001416687,
+        "output": 37.7697177282355,
         "set_pause": 0,
-        "input": 45.32708734321909,
+        "input": 38.53848573468589,
         "trigger": 0,
         "reset": 0
       },
@@ -170,7 +170,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 203.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -191,7 +191,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 70.0919089579394,
+        "output": 33.20972044364463,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -212,9 +212,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 43,
+        "output": 33,
         "set_pause": 0,
-        "input": 44.92263969163376,
+        "input": 37.970745843040504,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -222,6 +222,22 @@
         "type": "sample&hold"
       },
       "class": "Quantizer"
+    },
+    {
+      "id": 140735976612464,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "gate": 0,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
@@ -1235,6 +1251,262 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "waveform_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735681935824,
+      "src": {
+        "device": 140733514261776,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders2_s0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders2_s0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976372432,
+          "device": 140733514261776,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976612464,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "attack",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "attack_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735682260944,
+      "src": {
+        "device": 140733514261776,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders2_s1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders2_s1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976364496,
+          "device": 140733514261776,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976612464,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "decay",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "decay_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735682261104,
+      "src": {
+        "device": 140733514261776,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders2_s2",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders2_s2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976863824,
+          "device": 140733514261776,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976612464,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "sustain",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sustain_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735682258224,
+      "src": {
+        "device": 140733514261776,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders2_s3",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders2_s3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976850384,
+          "device": 140733514261776,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976612464,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "release",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "release_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

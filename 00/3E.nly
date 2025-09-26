@@ -57,9 +57,12 @@
         "reset": 0,
         "mul7": 0,
         "mul3": 0,
+        "div5": 0,
+        "div3": 0,
         "mul4": 0,
         "mul2": 0,
         "div2": 0,
+        "div4": 0,
         "lead": 0
       },
       "class": "Clock"
@@ -71,14 +74,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0,
-        "in1": 0,
+        "in0": 126.98839581911517,
+        "in1": 126.9893282930104,
         "in2": 0,
         "in3": 0,
         "level": 50,
         "type": "ondemand",
-        "out0": 0,
-        "out1": 0
+        "out0": 125.5437888616278,
+        "out1": 0.0
       },
       "class": "Crossfade"
     },
@@ -88,13 +91,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 39.020460318637994,
+        "output": 126.98839581911517,
         "set_pause": 0,
-        "speed": 8.064081790433878,
+        "speed": 7.977955584379553,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 161,
+        "sampling_rate": 159,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -110,13 +113,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 35.21405329076542,
+        "output": 126.9893282930104,
         "set_pause": 0,
-        "speed": 8.065142884943867,
+        "speed": 7.900918499948948,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 161,
+        "sampling_rate": 158,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -125,6 +128,16 @@
         "step_size": 0.2
       },
       "class": "LFO"
+    },
+    {
+      "id": 140735475779968,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "class": "WebSocketBus"
     }
   ],
   "connections": [
@@ -244,6 +257,190 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "sync_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735504495504,
+      "src": {
+        "device": 140735504405504,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735504487824,
+          "device": 140735504405504,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735504408528,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735504463600,
+      "src": {
+        "device": 140735504410544,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735504463904,
+          "device": 140735504410544,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735504405504,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735504458432,
+      "src": {
+        "device": 140735504497744,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735504462384,
+          "device": 140735504497744,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735504405504,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

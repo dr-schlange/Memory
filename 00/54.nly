@@ -54,65 +54,9 @@
         "io3": 0.0,
         "io2": 0.0,
         "io1": 0.0,
-        "oi": 127.0
+        "oi": 0.0
       },
       "class": "SeqSwitch"
-    },
-    {
-      "id": 140732260404432,
-      "repr": "SampleHold1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 127.0,
-        "set_pause": 0,
-        "input": 0.0,
-        "trigger": 0,
-        "reset": 0
-      },
-      "class": "SampleHold"
-    },
-    {
-      "id": 140732260409232,
-      "repr": "SampleHold2",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 127.0,
-        "set_pause": 0,
-        "input": 0.0,
-        "trigger": 0,
-        "reset": 0
-      },
-      "class": "SampleHold"
-    },
-    {
-      "id": 140732260404752,
-      "repr": "SampleHold3",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 77.0,
-        "set_pause": 0,
-        "input": 0.0,
-        "trigger": 0,
-        "reset": 0
-      },
-      "class": "SampleHold"
-    },
-    {
-      "id": 140732260408592,
-      "repr": "SampleHold4",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 127.0,
-        "set_pause": 0,
-        "input": 0.0,
-        "trigger": 0,
-        "reset": 0
-      },
-      "class": "SampleHold"
     },
     {
       "id": 140732260408272,
@@ -382,6 +326,126 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "io4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732260713168,
+      "src": {
+        "device": 140732260407952,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732318231760,
+          "device": 140732260407952,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732260409552,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732259324688,
+      "src": {
+        "device": 140732260408272,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732318231888,
+          "device": 140732260408272,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732260407952,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -45,10 +45,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 25.183019797768125,
+        "output": 39.420928280672136,
         "set_pause": 0,
-        "in0": 49.90741607173537,
-        "in1": 34.50525102788379,
+        "in0": 110.53061418543963,
+        "in1": 29.910476119286614,
         "in2": 0,
         "in3": 0,
         "level0": 57.48031496062992,
@@ -82,7 +82,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 49.90741607173537,
+        "output": 110.53061418543963,
         "set_pause": 0,
         "speed": 2.5984251968503935,
         "subdiv": "1/1",
@@ -103,7 +103,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 27.16981230937381,
+        "output": 29.910476119286614,
         "set_pause": 0,
         "speed": 10.0,
         "subdiv": "1/1",
@@ -124,19 +124,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 46.9297723441058,
+        "output": 110.9906797421034,
         "set_pause": 0,
-        "input": 46.22780648852724,
+        "input": 106.91107933786778,
         "trigger": 0.0,
         "reset": 0,
-        "output7": 36.84928903461076,
-        "output6": 38.36548172888993,
-        "output5": 43.17341442544546,
-        "output4": 49.19872442008493,
-        "output3": 25.680838582635722,
-        "output2": 33.73529508698064,
-        "output1": 41.63030030359229,
-        "output0": 46.9297723441058
+        "output7": 123.95067624849672,
+        "output6": 122.99645438577168,
+        "output5": 121.59298334046142,
+        "output4": 117.80854085748828,
+        "output3": 116.14115365226495,
+        "output2": 114.02337407889542,
+        "output1": 112.7848191900131,
+        "output0": 110.9906797421034
       },
       "class": "ShiftRegister"
     },
@@ -168,7 +168,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 81.64470622310267,
+        "output": 125.17813610820996,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -190,13 +190,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 25.183019797768125,
-        "in1": 81.64470622310267,
+        "in0": 39.420928280672136,
+        "in1": 125.17813610820996,
         "in2": 0,
         "in3": 0,
-        "level": 37.272685290031035,
+        "level": 78.69910036357739,
         "type": "ondemand",
-        "out0": 46.22780648852724,
+        "out0": 106.91107933786778,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -207,9 +207,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 47.33631031833942,
+        "output": 99.94785746174328,
         "set_pause": 0,
-        "speed": 0.44,
+        "speed": 0.16,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -221,6 +221,22 @@
         "step_size": 0.2
       },
       "class": "LFO"
+    },
+    {
+      "id": 140735959944720,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 106.91107933786778,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -1541,6 +1557,70 @@
       "dest": {
         "device": 140735976612128,
         "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735681533008,
+      "src": {
+        "device": 140735976748240,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735976359760,
+          "device": 140735976748240,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735959944720,
+        "repr": "Quantizer1",
         "parameter": {
           "name": "input",
           "stream": false,

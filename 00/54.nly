@@ -34,10 +34,12 @@
         "pads0_p1": 0.0,
         "pads1_p0": 0.0,
         "pads1_p1": 0.0,
-        "sliders0_s0": 14.0,
+        "sliders0_s0": 66.0,
         "sliders0_s1": 16.0,
         "xypad0_x": 0.0,
-        "xypad0_y": 0.0
+        "xypad0_y": 0.0,
+        "xypad1_x": 0.0,
+        "xypad1_y": 0.0
       },
       "class": "WebSocketBus"
     },
@@ -48,7 +50,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
@@ -67,20 +69,58 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 83.93700787401575,
+        "tempo": 321.41732283464563,
         "play": 1,
         "reset": 0,
         "mul7": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
-        "mul2": 0,
+        "mul4": 1,
+        "mul2": 1,
         "div2": 0,
         "div4": 0,
         "lead": 0
       },
       "class": "Clock"
+    },
+    {
+      "id": 140732318561152,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "class": "Quantizer"
+    },
+    {
+      "id": 140732318645968,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 0.0,
+        "div7": 0.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 0.0,
+        "div3": 0.0,
+        "div2": 0.0
+      },
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -766,6 +806,70 @@
           ],
           "accepted_values": [],
           "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732260719088,
+      "src": {
+        "device": 140732260408272,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732260772432,
+          "device": 140732260408272,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732318645968,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "trigger_cv",
           "section_name": "__virtual__",

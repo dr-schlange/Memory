@@ -29,14 +29,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 70.46313501578543,
+        "output": 63.1699032104353,
         "set_pause": 0,
-        "in0": 127.0,
-        "in1": 126.71625133362114,
+        "in0": 70.05737119001029,
+        "in1": 127.0,
         "in2": 0,
         "in3": 0,
-        "level0": 85.03937007874016,
-        "level1": 25.984251968503933,
+        "level0": 43.30708661417323,
+        "level1": 75.59055118110236,
         "level2": 50,
         "level3": 50,
         "nums": 2,
@@ -51,12 +51,12 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "sliders0_s0": 108.0,
-        "sliders0_s1": 33.0,
-        "sliders1_s0": 10.0,
-        "sliders1_s1": 79.0,
-        "sliders1_s2": 40.0,
-        "sliders1_s3": 0.0
+        "sliders0_s0": 55.0,
+        "sliders0_s1": 96.0,
+        "sliders1_s0": 61.0,
+        "sliders1_s1": 96.0,
+        "sliders1_s2": 45.0,
+        "sliders1_s3": 77.0
       },
       "class": "WebSocketBus"
     },
@@ -66,13 +66,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 70.05737119001029,
         "set_pause": 0,
-        "speed": 0.7874015748031495,
+        "speed": 4.803149606299212,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "pulse",
+        "sampling_rate": 96,
+        "waveform": "logarithmic",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -87,13 +87,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 126.71625133362114,
+        "output": 127.0,
         "set_pause": 0,
-        "speed": 3.149606299212598,
+        "speed": 3.543307086614173,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 62,
-        "waveform": "sine",
+        "sampling_rate": 70,
+        "waveform": "pulse",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -108,19 +108,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 63.837619346279745,
+        "output": 18.831874199079316,
         "set_pause": 0,
-        "input": 70.46313501578543,
+        "input": 63.1699032104353,
         "trigger": 0.0,
         "reset": 0,
-        "output7": 0.22094063449755966,
-        "output6": 12.794625966709468,
-        "output5": 10.792796095096167,
-        "output4": 0.005976981329129855,
-        "output3": 11.381887984745987,
-        "output2": 12.274496612162482,
-        "output1": 0.10271542962583369,
-        "output0": 63.837619346279745
+        "output7": 17.831254346516715,
+        "output6": 62.14060748248226,
+        "output5": 19.6731714496388,
+        "output4": 15.27525524845395,
+        "output3": 22.868582415539095,
+        "output2": 64.61110785997857,
+        "output1": 25.99740432540619,
+        "output0": 18.831874199079316
       },
       "class": "ShiftRegister"
     },
@@ -131,7 +131,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 147.0,
+        "tempo": 174.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -145,6 +145,45 @@
         "lead": 0
       },
       "class": "Clock"
+    },
+    {
+      "id": 140735976745040,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 39.885645678873765,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "class": "LFO"
+    },
+    {
+      "id": 140735976748240,
+      "repr": "Crossfade1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 63.1699032104353,
+        "in1": 39.885645678873765,
+        "in2": 0,
+        "in3": 0,
+        "level": 50,
+        "type": "ondemand",
+        "out0": 51.52777444465453,
+        "out1": 0.0
+      },
+      "class": "Crossfade"
     }
   ],
   "connections": [
@@ -264,6 +303,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735680595280,
+      "src": {
+        "device": 140735976737680,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735680799952,
+          "device": 140735976737680,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976748240,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1174,6 +1277,134 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735680601360,
+      "src": {
+        "device": 140735976745040,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735680792656,
+          "device": 140735976745040,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976748240,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735680597360,
+      "src": {
+        "device": 140735976748240,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735680808144,
+          "device": 140735976748240,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735976750160,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -80,8 +80,17 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul3": 1,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "class": "Clock"
     },
@@ -91,20 +100,40 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0.0,
         "set_pause": 0,
-        "input": 0,
-        "trigger": 0,
+        "input": 0.0,
+        "trigger": 0.0,
         "reset": 0,
-        "output7": 0,
-        "output6": 0,
-        "output5": 0,
-        "output4": 0,
-        "output3": 0,
-        "output2": 0,
-        "output1": 0,
-        "output0": 0
+        "output7": 0.0,
+        "output6": 0.0,
+        "output5": 0.0,
+        "output4": 0.0,
+        "output3": 0.0,
+        "output2": 0.0,
+        "output1": 0.0,
+        "output0": 0.0
       },
       "class": "ShiftRegister"
+    },
+    {
+      "id": 140732260417232,
+      "repr": "SeqSwitch2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "reset": 0,
+        "steps": 4,
+        "mode": "IOs->OI",
+        "io4": 0,
+        "io3": 0,
+        "io2": 0,
+        "io1": 0,
+        "oi": 0
+      },
+      "class": "SeqSwitch"
     }
   ],
   "connections": [
@@ -1088,6 +1117,70 @@
           ],
           "accepted_values": [],
           "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140731858908048,
+      "src": {
+        "device": 140732260416592,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731858845520,
+          "device": 140732260416592,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732260417232,
+        "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
           "section_name": "__virtual__",

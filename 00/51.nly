@@ -16,7 +16,7 @@
       "repr": "S1",
       "ports": {
         "input": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0",
-        "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0"
+        "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
       "config": {},
@@ -55,28 +55,6 @@
         "lead": 0
       },
       "class": "Clock"
-    },
-    {
-      "id": 140732357781760,
-      "repr": "ClockDivider1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "trigger": 0.0,
-        "reset": 0.0,
-        "mode": "gate",
-        "div32": 0.0,
-        "div16": 0.0,
-        "div8": 1.0,
-        "div7": 1.0,
-        "div6": 0.0,
-        "div5": 0.0,
-        "div4": 1.0,
-        "div3": 0.0,
-        "div2": 0.0
-      },
-      "class": "ClockDivider"
     },
     {
       "id": 140732357785456,
@@ -121,6 +99,27 @@
         "dry_output": 0
       },
       "class": "Delay"
+    },
+    {
+      "id": 140732348085456,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 34.965669346994666,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -176,6 +175,134 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732348167008,
+      "src": {
+        "device": 140732357785456,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732357669728,
+          "device": 140732357785456,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732357785792,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732348163360,
+      "src": {
+        "device": 140732348085456,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732348166704,
+          "device": 140732348085456,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732357785456,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

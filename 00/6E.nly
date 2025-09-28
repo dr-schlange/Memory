@@ -8,11 +8,7 @@
         "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
-      "config": {
-        "filter": {
-          "frequency": 13
-        }
-      },
+      "config": {},
       "class": "S1"
     },
     {
@@ -26,8 +22,8 @@
       "config": {
         "ocs": {
           "type": 80,
-          "shape": 97,
-          "alt": 26
+          "shape": 89,
+          "alt": 27
         },
         "filter": {
           "cutoff": 58
@@ -80,10 +76,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 16.913678571428584,
+        "output": 0,
         "set_pause": 0,
         "input": 33.0,
-        "amplitude": 0.721178571428572,
+        "amplitude": 0.344714285714286,
         "gain": 1.0
       },
       "class": "VCA"
@@ -94,7 +90,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.721178571428572,
+        "output": 0.344714285714286,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.4409448818897638,
@@ -137,8 +133,8 @@
         "sliders0_s1": 68.0,
         "sliders0_s2": 65.0,
         "sliders0_s3": 80.0,
-        "xypad0_x": 26.0,
-        "xypad0_y": 97.0,
+        "xypad0_x": 27.0,
+        "xypad0_y": 89.0,
         "sliders1_s0": 56.0,
         "sliders1_s1": 32.0,
         "sliders1_s2": 82.0,
@@ -171,14 +167,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 23,
+        "output": 0,
         "set_pause": 0,
-        "input": 16.913678571428584,
-        "trigger": 1,
+        "input": 0.2904866141732129,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "min-harmo",
-        "type": "sample&hold"
+        "type": "free"
       },
       "class": "Quantizer"
     }
@@ -223,6 +219,70 @@
       "dest": {
         "device": 140736292604624,
         "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736282628400,
+      "src": {
+        "device": 140736333780304,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736292221648,
+          "device": 140736333780304,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333785008,
+        "repr": "Quantizer1",
         "parameter": {
           "name": "trigger",
           "stream": false,

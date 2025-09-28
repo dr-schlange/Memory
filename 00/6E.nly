@@ -8,7 +8,11 @@
         "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 46
+        }
+      },
       "class": "S1"
     },
     {
@@ -19,7 +23,11 @@
         "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "cutoff": 36
+        }
+      },
       "class": "NTS1"
     }
   ],
@@ -62,9 +70,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 23.099999999999998,
+        "output": 60.199999999999996,
         "set_pause": 0,
-        "input": 33.0,
+        "input": 86.0,
         "amplitude": 0.7,
         "gain": 1.0
       },
@@ -115,9 +123,9 @@
       "config": {
         "set_pause": 0,
         "sliders0_s0": 86.0,
-        "sliders0_s1": 33.0,
+        "sliders0_s1": 56.0,
         "sliders0_s2": 87.0,
-        "sliders0_s3": 34.0
+        "sliders0_s3": 93.0
       },
       "class": "WebSocketBus"
     },
@@ -132,11 +140,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 34.0,
+        "io4": 93.0,
         "io3": 87.0,
-        "io2": 33.0,
+        "io2": 56.0,
         "io1": 86.0,
-        "oi": 33.0
+        "oi": 86.0
       },
       "class": "SeqSwitch"
     }
@@ -378,6 +386,120 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736282565936,
+      "src": {
+        "device": 140736333781312,
+        "repr": "VCA1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282565264,
+          "device": 140736333781312,
+          "to_min": 0,
+          "to_max": 77,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736292602944,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 43,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736282874000,
+      "src": {
+        "device": 140736333781312,
+        "repr": "VCA1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282873584,
+          "device": 140736333781312,
+          "to_min": 0,
+          "to_max": 98,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333789040,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

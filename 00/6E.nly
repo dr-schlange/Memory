@@ -45,7 +45,7 @@
         "output": 0,
         "set_pause": 0,
         "input": 0.0,
-        "amplitude": 0.24733333333333296,
+        "amplitude": 0.0,
         "gain": 1.0
       },
       "class": "VCA"
@@ -56,7 +56,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.24733333333333296,
+        "output": 0.0,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.1,
@@ -93,7 +93,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "sliders0_s0": 86.0,
+        "sliders0_s1": 33.0,
+        "sliders0_s2": 87.0,
+        "sliders0_s3": 34.0
       },
       "class": "WebSocketBus"
     },
@@ -108,16 +112,80 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 0,
-        "io2": 0,
-        "io1": 0,
+        "io4": 34.0,
+        "io3": 87.0,
+        "io2": 33.0,
+        "io1": 86.0,
         "oi": 0
       },
       "class": "SeqSwitch"
     }
   ],
   "connections": [
+    {
+      "id": 140736292839712,
+      "src": {
+        "device": 140736333780304,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736292839952,
+          "device": 140736333780304,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736292604624,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
     {
       "id": 140736292785040,
       "src": {

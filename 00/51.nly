@@ -19,7 +19,12 @@
         "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 32,
+          "resonance": 88
+        }
+      },
       "class": "S1"
     }
   ],
@@ -44,7 +49,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -62,9 +67,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.952,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -79,8 +84,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "xypad0_x": 0.0,
-        "xypad0_y": 0.0
+        "xypad0_x": 88.0,
+        "xypad0_y": 32.0
       },
       "class": "WebSocketBus"
     },
@@ -106,7 +111,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 0.76,
         "subdiv": "1/1",
@@ -353,6 +358,70 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732053607824,
+      "src": {
+        "device": 140732357785792,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732053605920,
+          "device": 140732357785792,
+          "to_min": 20,
+          "to_max": 600,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732357781424,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

@@ -21,8 +21,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 85,
-          "resonance": 16
+          "frequency": 44
         }
       },
       "class": "S1"
@@ -46,7 +45,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 106.7716535433071,
+        "tempo": 56.53543307086614,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -67,7 +66,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8649999999999999,
+        "output": 0.8889999999999999,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.1,
@@ -84,9 +83,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "xypad0_x": 16.0,
-        "xypad0_y": 85.0,
-        "sliders0_s0": 19.0
+        "xypad0_x": 0.0,
+        "xypad0_y": 0.0,
+        "sliders0_s0": 8.0
       },
       "class": "WebSocketBus"
     },
@@ -114,7 +113,7 @@
       "config": {
         "output": 127.0,
         "set_pause": 0,
-        "speed": 0.76,
+        "speed": 0.6299212598425197,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -129,62 +128,6 @@
     }
   ],
   "connections": [
-    {
-      "id": 140732347956624,
-      "src": {
-        "device": 140732357785456,
-        "repr": "ADSREnvelope1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732347954064,
-          "device": 140732357785456,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732348075712,
-        "repr": "S1",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false
-    },
     {
       "id": 140732348167008,
       "src": {
@@ -245,6 +188,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732348309584,
+      "src": {
+        "device": 140732357785456,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732348311120,
+          "device": 140732357785456,
+          "to_min": 40,
+          "to_max": 44,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732348075712,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

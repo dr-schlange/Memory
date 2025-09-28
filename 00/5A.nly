@@ -68,18 +68,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 600.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
-        "mul3": 0,
+        "mul7": 1,
+        "mul3": 1,
         "div5": 0,
-        "div3": 0,
-        "mul4": 0,
-        "mul2": 0,
+        "div3": 1,
+        "mul4": 1,
+        "mul2": 1,
         "div2": 0,
         "div4": 0,
-        "lead": 0
+        "lead": 1
       },
       "class": "Clock"
     },
@@ -90,7 +90,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
@@ -101,6 +101,22 @@
         "oi": 0.0
       },
       "class": "SeqSwitch"
+    },
+    {
+      "id": 140736246428208,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -564,7 +580,7 @@
       "muted": false
     },
     {
-      "id": 140736002517712,
+      "id": 140736252139536,
       "src": {
         "device": 140736246342800,
         "repr": "SeqSwitch1",
@@ -589,8 +605,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736002579792,
+          "id": 140736002581712,
           "device": 140736246342800,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736246428208,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735951160016,
+      "src": {
+        "device": 140736246428208,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736002581072,
+          "device": 140736246428208,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

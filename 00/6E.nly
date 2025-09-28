@@ -55,9 +55,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.7,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -71,13 +71,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 107.7292551706849,
+        "output": 127.0,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 0.18,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -87,6 +87,71 @@
       "class": "LFO"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140736292605296,
+      "src": {
+        "device": 140736333781984,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736292604960,
+          "device": 140736333781984,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333781648,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    }
+  ],
   "playground_code": ""
 }

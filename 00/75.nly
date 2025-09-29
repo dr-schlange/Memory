@@ -19,8 +19,15 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul3": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "lead": 0
       },
       "class": "Clock"
     },
@@ -79,8 +86,9 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 21.316804758598703,
         "set_pause": 0,
-        "input": 0,
+        "input": 21.316804758598703,
         "trigger": 0,
         "reset": 0,
         "output7": 0,
@@ -88,9 +96,9 @@
         "output5": 0,
         "output4": 0,
         "output3": 0,
-        "output2": 0,
-        "output1": 0,
-        "output0": 0
+        "output2": 21.529195224002535,
+        "output1": 21.529195224002535,
+        "output0": 21.316804758598703
       },
       "class": "ShiftRegister"
     },
@@ -100,17 +108,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.5819988313504076,
+        "output": 21.316804758598703,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
         "freq": 1,
-        "z": 0.5256447347300397,
-        "y": 5.61419007324549,
-        "x": 2.5819988313504076,
+        "z": 52.09056294118266,
+        "y": 14.6415715922256,
+        "x": 21.316804758598703,
         "znorm": 127.0,
-        "ynorm": 127.0,
-        "xnorm": 127.0
+        "ynorm": 63.068748499204055,
+        "xnorm": 125.74242956973589
       },
       "class": "LorenzProjector"
     }
@@ -296,6 +304,70 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736333728816,
+      "src": {
+        "device": 140736333785344,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282598096,
+          "device": 140736333785344,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333724752,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

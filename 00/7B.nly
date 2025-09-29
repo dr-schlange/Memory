@@ -41,13 +41,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 127.0,
-        "in1": 2.308692525565482,
+        "in0": 1.5302659222655244,
+        "in1": 40.97918368459504,
         "in2": 0,
         "in3": 0,
-        "level": 21.217701795238163,
+        "level": 20.7881091504167,
         "type": "ondemand",
-        "out0": 100.54337021549097,
+        "out0": 9.730950005356705,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -58,13 +58,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 1.5302659222655244,
         "set_pause": 0,
-        "speed": 0.5511811023622047,
+        "speed": 2.283464566929134,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "square",
+        "sampling_rate": 45,
+        "waveform": "exponential",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -79,13 +79,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.308692525565482,
+        "output": 40.97918368459504,
         "set_pause": 0,
-        "speed": 2.3622047244094486,
+        "speed": 6.929133858267717,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 47,
-        "waveform": "exponential",
+        "sampling_rate": 138,
+        "waveform": "white_noise",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -101,12 +101,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "sliders0_s0": 7.0,
-        "sliders0_s1": 25.0,
-        "sliders0_s2": 30.0,
-        "sliders0_s3": 84.0,
-        "sliders1_s0": 93.0,
-        "sliders1_s1": 98.0
+        "sliders0_s0": 29.0,
+        "sliders0_s1": 88.0,
+        "sliders0_s2": 88.0,
+        "sliders0_s3": 116.0,
+        "sliders1_s0": 47.0,
+        "sliders1_s1": 22.0,
+        "sliders1_s2": 40.0,
+        "sliders1_s3": 12.0
       },
       "class": "WebSocketBus"
     },
@@ -116,13 +118,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 26.94648127995247,
+        "output": 26.400898621029214,
         "set_pause": 0,
-        "speed": 7.322834645669292,
+        "speed": 3.7007874015748032,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 146,
-        "waveform": "ramp_down",
+        "sampling_rate": 74,
+        "waveform": "triangle",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -137,9 +139,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 86,
+        "output": 76,
         "set_pause": 0,
-        "input": 100.54337021549097,
+        "input": 9.730950005356705,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -155,8 +157,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 86,
-        "chord": "maj",
+        "input": 76,
+        "chord": "maj7",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -167,10 +169,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 0,
-        "note2": 93,
-        "note1": 90,
-        "note0": 86
+        "note3": 96,
+        "note2": 94,
+        "note1": 91,
+        "note0": 87
       },
       "class": "ChordGenerator"
     },
@@ -181,7 +183,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 156.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -207,11 +209,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 93.0,
-        "io2": 90.0,
-        "io1": 86.0,
-        "oi": 0
+        "io4": 96.0,
+        "io3": 94.0,
+        "io2": 91.0,
+        "io1": 87.0,
+        "oi": 96.0
       },
       "class": "SeqSwitch"
     }
@@ -1722,6 +1724,70 @@
       "dest": {
         "device": 140736213864464,
         "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736213582704,
+      "src": {
+        "device": 140736225656208,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736081974864,
+          "device": 140736225656208,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736225717152,
+        "repr": "SeqSwitch1",
         "parameter": {
           "name": "trigger",
           "stream": false,

@@ -1,5 +1,28 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140736333716752,
+      "repr": "S1",
+      "ports": {
+        "input": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0",
+        "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "S1"
+    },
+    {
+      "id": 140736292788240,
+      "repr": "NTS1",
+      "ports": {
+        "input": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0",
+        "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "NTS1"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140736335985504,
@@ -21,7 +44,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
+        "mul7": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -76,9 +99,9 @@
         "mode": "IOs->OI",
         "io4": 67.0,
         "io3": 76.0,
-        "io2": 52.0,
-        "io1": 52.0,
-        "oi": 76.0
+        "io2": 83.0,
+        "io1": 78.0,
+        "oi": 78.0
       },
       "class": "SeqSwitch"
     },
@@ -88,19 +111,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -4.285827059871277,
+        "output": 1.5055355971966111,
         "set_pause": 0,
-        "input": -5.491872030987469,
+        "input": 0.3779571656221722,
         "trigger": 0,
         "reset": 0,
-        "output7": 6.732718334827906,
-        "output6": 4.466431469356037,
-        "output5": 2.3497872489106353,
-        "output4": 2.3497872489106353,
-        "output3": 0.40963665947700756,
-        "output2": -2.9057558539991337,
-        "output1": -2.9057558539991337,
-        "output0": -4.285827059871277
+        "output7": 69.91127055359048,
+        "output6": 126.99999999999999,
+        "output5": 27.30226071212321,
+        "output4": 0.0,
+        "output3": 22.55511528120214,
+        "output2": 104.54389338921827,
+        "output1": 36.982516587855066,
+        "output0": 1.5055355971966111
       },
       "class": "ShiftRegister"
     },
@@ -110,16 +133,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -5.491872030987469,
+        "output": -4.124184865322467,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
-        "freq": 1,
-        "z": 33.99625120405674,
-        "y": -15.916754642065543,
-        "x": -5.491872030987469,
-        "znorm": 79.48304397035392,
-        "ynorm": 3.25905790124886,
+        "freq": 20.0,
+        "z": 23.367207044578475,
+        "y": -6.506347956569822,
+        "x": -4.124184865322467,
+        "znorm": 46.98424349127275,
+        "ynorm": 0.3779571656221722,
         "xnorm": 0.0
       },
       "class": "LorenzProjector"
@@ -319,23 +342,23 @@
       "muted": false
     },
     {
-      "id": 140736333728816,
+      "id": 140736282531056,
       "src": {
-        "device": 140736333785344,
-        "repr": "LorenzProjector1",
+        "device": 140736333715792,
+        "repr": "SeqSwitch1",
         "parameter": {
-          "name": "x",
+          "name": "oi",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "x_cv",
+          "cv_name": "oi_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -344,7 +367,231 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736282598096,
+          "id": 140736282601040,
+          "device": 140736333715792,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333716752,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736282534736,
+      "src": {
+        "device": 140736333724752,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282604240,
+          "device": 140736333724752,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736292788240,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736282531536,
+      "src": {
+        "device": 140736333724752,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282606800,
+          "device": 140736333724752,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736292788240,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736282540176,
+      "src": {
+        "device": 140736333724752,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282593616,
+          "device": 140736333724752,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736292788240,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736333728816,
+      "src": {
+        "device": 140736333785344,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "ynorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ynorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282605008,
           "device": 140736333785344,
           "to_min": 0,
           "to_max": 127,

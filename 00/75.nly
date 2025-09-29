@@ -78,10 +78,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83.0,
+        "output": 67.0,
         "set_pause": 0,
-        "input_a": 83.0,
-        "input_b": 14.0,
+        "input_a": 67.0,
+        "input_b": 120.0,
         "selector": 0.0
       },
       "class": "GPT41DualInputSwitch"
@@ -101,7 +101,7 @@
         "io3": 76.0,
         "io2": 83.0,
         "io1": 78.0,
-        "oi": 83.0
+        "oi": 67.0
       },
       "class": "SeqSwitch"
     },
@@ -111,19 +111,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67.0,
+        "output": 98.0,
         "set_pause": 0,
-        "input": 67.0,
+        "input": 95.0,
         "trigger": 0,
         "reset": 0,
-        "output7": 0.0,
-        "output6": 14.0,
-        "output5": 53.0,
-        "output4": 60.0,
-        "output3": 67.0,
-        "output2": 67.0,
-        "output1": 67.0,
-        "output0": 67.0
+        "output7": 124.0,
+        "output6": 120.0,
+        "output5": 115.0,
+        "output4": 112.0,
+        "output3": 110.0,
+        "output2": 108.0,
+        "output1": 105.0,
+        "output0": 98.0
       },
       "class": "ShiftRegister"
     },
@@ -133,17 +133,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.11267046251936708,
+        "output": 7.063029839365463,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
         "freq": 14.0,
-        "z": 22.525222507600823,
-        "y": 1.8119962149382947,
-        "x": -0.11267046251936708,
-        "znorm": 39.15884333225597,
-        "ynorm": 67.4443572171828,
-        "xnorm": 61.171712888567036
+        "z": 26.80615575826886,
+        "y": 5.965517877898802,
+        "x": 7.063029839365463,
+        "znorm": 12.737800466257502,
+        "ynorm": 95.01026863308898,
+        "xnorm": 113.33390021874239
       },
       "class": "LorenzProjector"
     },
@@ -153,9 +153,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67,
+        "output": 95,
         "set_pause": 0,
-        "input": 67.4443572171828,
+        "input": 95.01026863308898,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -163,6 +163,20 @@
         "type": "free"
       },
       "class": "Quantizer"
+    },
+    {
+      "id": 140736333783664,
+      "repr": "SampleHold1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 127.0,
+        "set_pause": 0,
+        "input": 0.0,
+        "trigger": 0,
+        "reset": 0
+      },
+      "class": "SampleHold"
     }
   ],
   "connections": [
@@ -359,7 +373,7 @@
       "muted": false
     },
     {
-      "id": 140736282528976,
+      "id": 140736282531376,
       "src": {
         "device": 140736333782656,
         "repr": "BernoulliTrigger1",
@@ -384,10 +398,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736333356752,
+          "id": 140736282600016,
           "device": 140736333782656,
           "to_min": 0,
-          "to_max": 1,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -395,10 +409,40 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140736333784672,
-        "repr": "GPT41DualInputSwitch1",
+        "device": 140736333783664,
+        "repr": "SampleHold1",
         "parameter": {
-          "name": "selector",
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736283276176,
+      "src": {
+        "device": 140736333782656,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outA",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -409,7 +453,41 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "selector_cv",
+          "cv_name": "outA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736292214352,
+          "device": 140736333782656,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333783664,
+        "repr": "SampleHold1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1074,6 +1152,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736292281136,
+      "src": {
+        "device": 140736333783664,
+        "repr": "SampleHold1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736282592336,
+          "device": 140736333783664,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736333784672,
+        "repr": "GPT41DualInputSwitch1",
+        "parameter": {
+          "name": "selector",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "selector_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

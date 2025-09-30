@@ -88,10 +88,10 @@
         "mode": "gate",
         "div32": 0.0,
         "div16": 0.0,
-        "div8": 0.0,
-        "div7": 0.0,
-        "div6": 0.0,
-        "div5": 0.0,
+        "div8": 1.0,
+        "div7": 1.0,
+        "div6": 1.0,
+        "div5": 1.0,
         "div4": 0.0,
         "div3": 0.0,
         "div2": 0.0
@@ -151,7 +151,7 @@
         "io3": 62.0,
         "io2": 92.0,
         "io1": 60.0,
-        "oi": 62.0
+        "oi": 92.0
       },
       "class": "SeqSwitch"
     },
@@ -177,9 +177,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 62,
+        "output": 72,
         "set_pause": 0,
-        "input": 62.0,
+        "input": 72.48738638732938,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -194,7 +194,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 116.43437200386361,
+        "output": 71.93192646234758,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -215,19 +215,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 117.04496845867016,
+        "output": 72.48738638732938,
         "set_pause": 0,
-        "input": 116.43437200386361,
+        "input": 71.93192646234758,
         "trigger": 0,
         "reset": 0,
-        "output7": 122.62463973489731,
-        "output6": 121.95965961786561,
-        "output5": 121.24956227559278,
-        "output4": 120.49510876830904,
-        "output3": 119.69682194663552,
-        "output2": 118.85532794499686,
-        "output1": 117.97095732345527,
-        "output0": 117.04496845867016
+        "output7": 84.52018370859204,
+        "output6": 82.85085446047587,
+        "output5": 81.08927205548258,
+        "output4": 79.39123605169355,
+        "output3": 77.68040932527293,
+        "output2": 75.95848473828725,
+        "output1": 74.22675993867573,
+        "output0": 72.48738638732938
       },
       "class": "ShiftRegister"
     }
@@ -1862,6 +1862,70 @@
       "dest": {
         "device": 140733205500592,
         "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733061171312,
+      "src": {
+        "device": 140733205500592,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733087491536,
+          "device": 140733205500592,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733059894976,
+        "repr": "Quantizer1",
         "parameter": {
           "name": "input",
           "stream": false,

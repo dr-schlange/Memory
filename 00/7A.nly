@@ -13,7 +13,7 @@
           "cutoff": 69
         },
         "delay": {
-          "time": 127,
+          "time": 89,
           "depth": 89,
           "mix": 67
         },
@@ -135,6 +135,22 @@
         "oi": 59.0
       },
       "class": "SeqSwitch"
+    },
+    {
+      "id": 140733087944528,
+      "repr": "ADSREnvelope2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.7,
+        "set_pause": 0,
+        "gate": 1,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
@@ -331,7 +347,7 @@
       "muted": false
     },
     {
-      "id": 140733204823072,
+      "id": 140733061173712,
       "src": {
         "device": 140733205511680,
         "repr": "ClockDivider1",
@@ -356,10 +372,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733204822720,
+          "id": 140733061173872,
           "device": 140733205511680,
           "to_min": 0,
-          "to_max": 127,
+          "to_max": 1,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -367,44 +383,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140733205500928,
-        "repr": "NTS1",
+        "device": 140733087944528,
+        "repr": "ADSREnvelope2",
         "parameter": {
-          "cc_note": 31,
-          "channel": null,
-          "name": "depth",
-          "section_name": "delay",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140733204817440,
-      "src": {
-        "device": 140733205511680,
-        "repr": "ClockDivider1",
-        "parameter": {
-          "name": "div3",
+          "name": "gate",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            1.0
+            0,
+            1
           ],
           "accepted_values": [],
-          "conversion_policy": null,
+          "conversion_policy": "!=0",
           "disable_policy": false,
-          "cv_name": "div3_cv",
+          "cv_name": "gate_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -412,34 +405,7 @@
           "no_init": false
         },
         "explicit": -1,
-        "chain": {
-          "id": 140733204823248,
-          "device": 140733205511680,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
         "type": "virtual"
-      },
-      "dest": {
-        "device": 140733205500928,
-        "repr": "NTS1",
-        "parameter": {
-          "cc_note": 30,
-          "channel": null,
-          "name": "time",
-          "section_name": "delay",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "control_change"
       },
       "bouncy": false,
       "muted": false
@@ -552,63 +518,6 @@
           "channel": null,
           "name": "cutoff",
           "section_name": "filter",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140733205227968,
-      "src": {
-        "device": 140733205509328,
-        "repr": "ADSREnvelope1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733205227424,
-          "device": 140733205509328,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140733205500928,
-        "repr": "NTS1",
-        "parameter": {
-          "cc_note": 31,
-          "channel": null,
-          "name": "depth",
-          "section_name": "delay",
           "init_value": 0,
           "description": null,
           "range": [
@@ -900,6 +809,120 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733087743216,
+      "src": {
+        "device": 140733087944528,
+        "repr": "ADSREnvelope2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733061327408,
+          "device": 140733087944528,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500928,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 31,
+          "channel": null,
+          "name": "depth",
+          "section_name": "delay",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733061175472,
+      "src": {
+        "device": 140733087944528,
+        "repr": "ADSREnvelope2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733205131728,
+          "device": 140733087944528,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500928,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 30,
+          "channel": null,
+          "name": "time",
+          "section_name": "delay",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

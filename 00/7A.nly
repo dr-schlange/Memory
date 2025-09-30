@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 69
+          "cutoff": 43
         },
         "delay": {
           "time": 60,
@@ -64,7 +64,7 @@
         "tempo": 34.0,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
+        "mul7": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -87,14 +87,14 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 1.0,
-        "div8": 1.0,
+        "div16": 0.0,
+        "div8": 0.0,
         "div7": 0.0,
-        "div6": 1.0,
+        "div6": 0.0,
         "div5": 0.0,
-        "div4": 1.0,
+        "div4": 0.0,
         "div3": 0.0,
-        "div2": 1.0
+        "div2": 0.0
       },
       "class": "ClockDivider"
     },
@@ -104,9 +104,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7,
+        "output": 0.0,
         "set_pause": 0,
-        "gate": 1,
+        "gate": 0,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -151,7 +151,7 @@
         "io3": 62.0,
         "io2": 92.0,
         "io1": 60.0,
-        "oi": 99.0
+        "oi": 62.0
       },
       "class": "SeqSwitch"
     },
@@ -163,7 +163,7 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "gate": 1,
+        "gate": 0,
         "attack": 4.0,
         "decay": 0.0,
         "sustain": 0.0,
@@ -177,9 +177,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 98,
+        "output": 62,
         "set_pause": 0,
-        "input": 99.0,
+        "input": 62.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -187,6 +187,49 @@
         "type": "free"
       },
       "class": "Quantizer"
+    },
+    {
+      "id": 140733205501600,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 116.43437200386361,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "class": "LFO"
+    },
+    {
+      "id": 140733205500592,
+      "repr": "ShiftRegister1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 117.04496845867016,
+        "set_pause": 0,
+        "input": 116.43437200386361,
+        "trigger": 0,
+        "reset": 0,
+        "output7": 122.62463973489731,
+        "output6": 121.95965961786561,
+        "output5": 121.24956227559278,
+        "output4": 120.49510876830904,
+        "output3": 119.69682194663552,
+        "output2": 118.85532794499686,
+        "output1": 117.97095732345527,
+        "output0": 117.04496845867016
+      },
+      "class": "ShiftRegister"
     }
   ],
   "connections": [
@@ -293,6 +336,70 @@
       "dest": {
         "device": 140733205506640,
         "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733088310736,
+      "src": {
+        "device": 140733205506304,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733061029712,
+          "device": 140733205506304,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500592,
+        "repr": "ShiftRegister1",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -1712,6 +1819,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733061182992,
+      "src": {
+        "device": 140733205501600,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733061773008,
+          "device": 140733205501600,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500592,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

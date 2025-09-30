@@ -10,9 +10,10 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 117
+          "cutoff": 89
         },
         "delay": {
+          "depth": 89,
           "mix": 67
         },
         "reverb": {
@@ -20,6 +21,11 @@
           "time": 90,
           "depth": 89,
           "mix": 83
+        },
+        "arp": {
+          "pattern": 19,
+          "intervals": 84,
+          "length": 111
         }
       },
       "class": "NTS1"
@@ -43,7 +49,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 104.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -68,10 +74,10 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
+        "div32": 1.0,
         "div16": 0.0,
         "div8": 1.0,
-        "div7": 0.0,
+        "div7": 1.0,
         "div6": 0.0,
         "div5": 0.0,
         "div4": 1.0,
@@ -86,7 +92,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9200000000000006,
+        "output": 0.7,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.1,
@@ -103,8 +109,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 72.0,
-        "pads0_p1": 0.0
+        "pads0_p0": 85.0,
+        "pads0_p1": 82.0,
+        "xypad0_x": 19.0,
+        "xypad0_y": 84.0
       },
       "class": "WebSocketBus"
     }
@@ -360,6 +368,63 @@
       "muted": false
     },
     {
+      "id": 140733205227968,
+      "src": {
+        "device": 140733205509328,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733205227424,
+          "device": 140733205509328,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500928,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 31,
+          "channel": null,
+          "name": "depth",
+          "section_name": "delay",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140733087472176,
       "src": {
         "device": 140733205507984,
@@ -467,6 +532,120 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733205360528,
+      "src": {
+        "device": 140733205507984,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xypad0_x",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xypad0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733205354256,
+          "device": 140733205507984,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500928,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 117,
+          "channel": null,
+          "name": "pattern",
+          "section_name": "arp",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733205602512,
+      "src": {
+        "device": 140733205507984,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xypad0_y",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xypad0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733205602928,
+          "device": 140733205507984,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205500928,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 118,
+          "channel": null,
+          "name": "intervals",
+          "section_name": "arp",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

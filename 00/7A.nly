@@ -10,11 +10,11 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 43
+          "cutoff": 75
         },
         "delay": {
           "time": 60,
-          "depth": 40,
+          "depth": 83,
           "mix": 97
         },
         "reverb": {
@@ -39,7 +39,12 @@
         "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "effects": {
+          "reverb_level": 63,
+          "delay_level": 63
+        }
+      },
       "class": "S1"
     }
   ],
@@ -87,14 +92,14 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 1.0,
-        "div16": 1.0,
+        "div16": 0.0,
         "div8": 0.0,
         "div7": 1.0,
-        "div6": 0.0,
+        "div6": 1.0,
         "div5": 0.0,
-        "div4": 0.0,
-        "div3": 0.0,
-        "div2": 0.0
+        "div4": 1.0,
+        "div3": 1.0,
+        "div2": 1.0
       },
       "class": "ClockDivider"
     },
@@ -104,9 +109,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.8739999999999999,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -129,9 +134,9 @@
         "sliders0_s1": 127.0,
         "sliders0_s2": 127.0,
         "sliders0_s3": 0.0,
-        "sliders1_s0": 96.0,
-        "sliders1_s1": 74.0,
-        "sliders1_s2": 88.0,
+        "sliders1_s0": 62.0,
+        "sliders1_s1": 91.0,
+        "sliders1_s2": 61.0,
         "sliders1_s3": 87.0
       },
       "class": "WebSocketBus"
@@ -148,10 +153,10 @@
         "steps": 4,
         "mode": "IOs->OI",
         "io4": 87.0,
-        "io3": 88.0,
-        "io2": 74.0,
-        "io1": 96.0,
-        "oi": 96.0
+        "io3": 61.0,
+        "io2": 91.0,
+        "io1": 62.0,
+        "oi": 91.0
       },
       "class": "SeqSwitch"
     },
@@ -161,15 +166,32 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.4955000000000004,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 4.0,
         "decay": 0.0,
         "sustain": 0.0,
         "release": 0.0
       },
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 140733059894976,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 91,
+        "set_pause": 0,
+        "input": 91.0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -1345,7 +1367,7 @@
       "muted": false
     },
     {
-      "id": 140733061327888,
+      "id": 140733061744752,
       "src": {
         "device": 140733205506640,
         "repr": "SeqSwitch1",
@@ -1370,7 +1392,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733061774160,
+          "id": 140733087488720,
           "device": 140733205506640,
           "to_min": 0,
           "to_max": 127,
@@ -1381,21 +1403,29 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140733205508320,
-        "repr": "S1",
+        "device": 140733059894976,
+        "repr": "Quantizer1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false
@@ -1631,6 +1661,62 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733061747472,
+      "src": {
+        "device": 140733059894976,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733061026384,
+          "device": 140733059894976,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205508320,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false

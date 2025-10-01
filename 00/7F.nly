@@ -19,7 +19,14 @@
         "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 20:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "ocs": {
+          "alt": 60
+        },
+        "filter": {
+          "cutoff": 46
+        }
+      },
       "class": "NTS1"
     }
   ],
@@ -45,7 +52,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 1,
+        "mul5": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -87,16 +94,16 @@
       "config": {
         "output": 81.0,
         "set_pause": 0,
-        "input": 81.0,
+        "input": 0.0,
         "trigger": 0,
         "reset": 0,
-        "output7": 81.0,
+        "output7": 0.0,
         "output6": 0.0,
-        "output5": 81.0,
+        "output5": 0.0,
         "output4": 0.0,
-        "output3": 0.0,
+        "output3": 81.0,
         "output2": 0.0,
-        "output1": 0.0,
+        "output1": 81.0,
         "output0": 81.0
       },
       "class": "ShiftRegister"
@@ -123,16 +130,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 10.125,
+        "output": 8.131889763779528,
         "set_pause": 0,
         "in0": 81.0,
         "in1": 0.0,
         "in2": 0.0,
         "in3": 0.0,
-        "level0": 50,
-        "level1": 50,
-        "level2": 50,
-        "level3": 50,
+        "level0": 40.15748031496063,
+        "level1": 17.322834645669293,
+        "level2": 64.56692913385827,
+        "level3": 52.75590551181102,
         "nums": 4,
         "type": "ondemand"
       },
@@ -150,7 +157,11 @@
         "sliders0_s0": 52.0,
         "sliders0_s1": 46.0,
         "sliders0_s2": 88.0,
-        "sliders0_s3": 19.0
+        "sliders0_s3": 19.0,
+        "sliders1_s0": 51.0,
+        "sliders1_s1": 22.0,
+        "sliders1_s2": 82.0,
+        "sliders1_s3": 67.0
       },
       "class": "WebSocketBus"
     },
@@ -705,7 +716,7 @@
         "chain": {
           "id": 140733519535184,
           "device": 140733763892096,
-          "to_min": 0,
+          "to_min": 51,
           "to_max": 127,
           "auto": false,
           "method": "lin",
@@ -729,6 +740,119 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733467882384,
+      "src": {
+        "device": 140733763892096,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733519534416,
+          "device": 140733763892096,
+          "to_min": 41,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733519790832,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733467679856,
+      "src": {
+        "device": 140733763892096,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733519535952,
+          "device": 140733763892096,
+          "to_min": 44,
+          "to_max": 75,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733519790832,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 43,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

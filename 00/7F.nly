@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 12,
+          "frequency": 21,
           "envelope": 103,
           "keyboard_follow": 63
         }
@@ -33,7 +33,7 @@
           "lfo_depth": 63
         },
         "filter": {
-          "cutoff": 47
+          "cutoff": 49
         }
       },
       "class": "NTS1"
@@ -103,15 +103,15 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "input": 109.0,
+        "input": 103.0,
         "trigger": 0,
         "reset": 0,
-        "output7": 109.0,
-        "output6": 0.0,
-        "output5": 0.0,
-        "output4": 103.0,
-        "output3": 103.0,
-        "output2": 103.0,
+        "output7": 103.0,
+        "output6": 103.0,
+        "output5": 103.0,
+        "output4": 0.0,
+        "output3": 0.0,
+        "output2": 109.0,
         "output1": 0.0,
         "output0": 0.0
       },
@@ -139,12 +139,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 11.962598425196848,
+        "output": 21.07086614173228,
         "set_pause": 0,
         "in0": 0.0,
-        "in1": 103.0,
-        "in2": 103.0,
-        "in3": 0.0,
+        "in1": 109.0,
+        "in2": 0.0,
+        "in3": 103.0,
         "level0": 55.90551181102362,
         "level1": 25.984251968503933,
         "level2": 20.47244094488189,
@@ -171,8 +171,8 @@
         "sliders1_s1": 33.0,
         "sliders1_s2": 26.0,
         "sliders1_s3": 69.0,
-        "sliders2_s0": 59.0,
-        "sliders2_s1": 45.0,
+        "sliders2_s0": 88.0,
+        "sliders2_s1": 15.0,
         "sliders2_s2": 78.0,
         "sliders2_s3": 28.0
       },
@@ -200,14 +200,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 15.131889763779528,
+        "output": 21.49212598425197,
         "set_pause": 0,
         "in0": 0.0,
-        "in1": 103.0,
-        "in2": 0.0,
-        "in3": 109.0,
-        "level0": 46.45669291338583,
-        "level1": 35.43307086614173,
+        "in1": 0.0,
+        "in2": 103.0,
+        "in3": 103.0,
+        "level0": 69.29133858267717,
+        "level1": 11.811023622047244,
         "level2": 61.417322834645674,
         "level3": 22.04724409448819,
         "nums": 4,
@@ -235,6 +235,40 @@
         "step_size": 0.2
       },
       "class": "LFO"
+    },
+    {
+      "id": 140733763888400,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 21,
+        "set_pause": 0,
+        "input": 21.49212598425197,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "class": "Quantizer"
+    },
+    {
+      "id": 140733763786768,
+      "repr": "Quantizer2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 103,
+        "set_pause": 0,
+        "input": 103.0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -930,6 +964,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733467959344,
+      "src": {
+        "device": 140733763886720,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733520345936,
+          "device": 140733763886720,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733763786768,
+        "repr": "Quantizer2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false
@@ -2357,6 +2455,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733467961264,
+      "src": {
+        "device": 140733520368400,
+        "repr": "Mixer2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733520341584,
+          "device": 140733520368400,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733763888400,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

@@ -16,7 +16,7 @@
           "lfo_depth": 127
         },
         "filter": {
-          "cutoff": 67
+          "cutoff": 98
         }
       },
       "class": "NTS1"
@@ -29,7 +29,12 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 16:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 83,
+          "resonance": 83
+        }
+      },
       "class": "Jt4000mmicro"
     },
     {
@@ -42,7 +47,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 18,
+          "frequency": 23,
           "envelope": 18,
           "keyboard_follow": 120
         }
@@ -72,11 +77,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 74.0,
-        "io3": 72.0,
+        "io4": 77.0,
+        "io3": 74.0,
         "io2": 69.0,
-        "io1": 65.0,
-        "oi": 72.0
+        "io1": 60.0,
+        "oi": 74.0
       },
       "class": "SeqSwitch"
     },
@@ -113,9 +118,9 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
-        "div16": 0.0,
-        "div8": 1.0,
+        "div32": 1.0,
+        "div16": 1.0,
+        "div8": 0.0,
         "div7": 1.0,
         "div6": 1.0,
         "div5": 0.0,
@@ -135,8 +140,8 @@
         "input": 74,
         "chord": "min7",
         "octave": -1,
-        "inversion": "1st",
-        "drop": "--",
+        "inversion": "2nd",
+        "drop": "drop2",
         "omit": "--",
         "custom0": "4+/-5",
         "custom1": "root",
@@ -144,10 +149,10 @@
         "custom3": "m3",
         "custom4": "--",
         "note4": 0,
-        "note3": 74,
-        "note2": 72,
+        "note3": 77,
+        "note2": 74,
         "note1": 69,
-        "note0": 65
+        "note0": 60
       },
       "class": "ChordGenerator"
     },
@@ -157,9 +162,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 17,
+        "output": 67,
         "set_pause": 0,
-        "input": 37.02708875428016,
+        "input": 83.07858736756992,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -210,13 +215,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 9.682586048224668,
+        "in0": 122.52645621099515,
         "in1": 50.800000000000004,
         "in2": 0,
         "in3": 0,
-        "level": 66.5034594299305,
+        "level": 54.99765487839361,
         "type": "ondemand",
-        "out0": 37.02708875428016,
+        "out0": 83.07858736756992,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -227,9 +232,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 9.682586048224668,
+        "output": 122.52645621099515,
         "set_pause": 0,
-        "speed": 0.29495845826421846,
+        "speed": 0.2948613571058079,
         "sync": 1.0,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -251,7 +256,7 @@
       "config": {
         "output": 50.800000000000004,
         "set_pause": 0,
-        "speed": 0.29490271338344903,
+        "speed": 0.29530200994459965,
         "sync": 1.0,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -271,7 +276,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 84.50430296653612,
+        "output": 69.73343098778497,
         "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
@@ -2178,6 +2183,120 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733133521296,
+      "src": {
+        "device": 140733792681472,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733730639440,
+          "device": 140733792681472,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733792669712,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733133521776,
+      "src": {
+        "device": 140733792681472,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733730642768,
+          "device": 140733792681472,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733792669712,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

@@ -14,6 +14,9 @@
           "alt": 110,
           "lfo_rate": 18,
           "lfo_depth": 127
+        },
+        "filter": {
+          "cutoff": 32
         }
       },
       "class": "NTS1"
@@ -39,7 +42,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 33,
+          "frequency": 38,
           "envelope": 18,
           "keyboard_follow": 127
         }
@@ -69,11 +72,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 96.0,
-        "io3": 93.0,
-        "io2": 89.0,
-        "io1": 86.0,
-        "oi": 89.0
+        "io4": 98.0,
+        "io3": 96.0,
+        "io2": 93.0,
+        "io1": 89.0,
+        "oi": 86.0
       },
       "class": "SeqSwitch"
     },
@@ -112,12 +115,12 @@
         "mode": "gate",
         "div32": 0.0,
         "div16": 1.0,
-        "div8": 0.0,
-        "div7": 1.0,
+        "div8": 1.0,
+        "div7": 0.0,
         "div6": 1.0,
         "div5": 0.0,
         "div4": 1.0,
-        "div3": 1.0,
+        "div3": 0.0,
         "div2": 1.0
       },
       "class": "ClockDivider"
@@ -132,7 +135,7 @@
         "input": 74,
         "chord": "min7",
         "octave": 1,
-        "inversion": "--",
+        "inversion": "1st",
         "drop": "--",
         "omit": "--",
         "custom0": "4+/-5",
@@ -141,10 +144,10 @@
         "custom3": "m3",
         "custom4": "--",
         "note4": 0,
-        "note3": 96,
-        "note2": 93,
-        "note1": 89,
-        "note0": 86
+        "note3": 98,
+        "note2": 96,
+        "note1": 93,
+        "note0": 89
       },
       "class": "ChordGenerator"
     },
@@ -207,13 +210,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.416173627186792,
+        "in0": 39.06687418673758,
         "in1": 0.0,
         "in2": 0,
         "in3": 0,
-        "level": 9.581331670001664,
+        "level": 17.07554499999815,
         "type": "ondemand",
-        "out0": 0.3762986516429493,
+        "out0": 32.39599250488854,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -224,13 +227,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.416173627186792,
+        "output": 39.06687418673758,
         "set_pause": 0,
-        "speed": 0.005586523466176021,
-        "sync": 1.0,
+        "speed": 1.1775986726936025,
+        "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 23,
         "waveform": "sawtooth",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -248,8 +251,8 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "speed": 0.0018717061824283605,
-        "sync": 1.0,
+        "speed": 0.39309019146979424,
+        "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -268,7 +271,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 12.168291220902113,
+        "output": 21.685942149997654,
         "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
@@ -457,6 +460,134 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733730550512,
+      "src": {
+        "device": 140733938495760,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733730640464,
+          "device": 140733938495760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733731012688,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "sync",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sync_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733730553552,
+      "src": {
+        "device": 140733938495760,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733792356304,
+          "device": 140733938495760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733792758800,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "sync",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sync_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

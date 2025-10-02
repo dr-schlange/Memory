@@ -14,6 +14,9 @@
           "alt": 110,
           "lfo_rate": 18,
           "lfo_depth": 127
+        },
+        "filter": {
+          "cutoff": 52
         }
       },
       "class": "NTS1"
@@ -39,6 +42,7 @@
       "channel": 0,
       "config": {
         "filter": {
+          "frequency": 52,
           "envelope": 18,
           "keyboard_follow": 127
         }
@@ -64,15 +68,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 1,
+        "trigger": 0,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 78.0,
-        "io3": 72.0,
-        "io2": 70.0,
-        "io1": 67.0,
-        "oi": 66.0
+        "io4": 72.0,
+        "io3": 70.0,
+        "io2": 67.0,
+        "io1": 66.0,
+        "oi": 67.0
       },
       "class": "SeqSwitch"
     },
@@ -91,8 +95,8 @@
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 1,
-        "mul2": 1,
+        "mul4": 0,
+        "mul2": 0,
         "div2": 0,
         "div4": 0,
         "lead": 0
@@ -131,7 +135,7 @@
         "input": 48,
         "chord": "maj7#11",
         "octave": 1,
-        "inversion": "2nd",
+        "inversion": "1st",
         "drop": "--",
         "omit": "--",
         "custom0": "4+/-5",
@@ -140,10 +144,10 @@
         "custom3": "m3",
         "custom4": "--",
         "note4": 0,
-        "note3": 78,
-        "note2": 72,
-        "note1": 70,
-        "note0": 67
+        "note3": 72,
+        "note2": 70,
+        "note1": 67,
+        "note0": 66
       },
       "class": "ChordGenerator"
     },
@@ -206,13 +210,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 96.98806066827176,
-        "in1": 50.800000000000004,
+        "in0": 26.46727357459769,
+        "in1": 76.2,
         "in2": 0,
         "in3": 0,
-        "level": 57.17534077999987,
+        "level": 49.080277049997854,
         "type": "ondemand",
-        "out0": 71.44400368707683,
+        "out0": 51.76718350167981,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -223,7 +227,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 96.98806066827176,
+        "output": 26.46727357459769,
         "set_pause": 0,
         "speed": 0.26,
         "subdiv": "1/1",
@@ -244,7 +248,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 50.800000000000004,
+        "output": 76.2,
         "set_pause": 0,
         "speed": 1.79,
         "subdiv": "1/1",
@@ -265,7 +269,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72.61268279059983,
+        "output": 62.33195185349728,
         "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
@@ -1614,6 +1618,120 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733730542992,
+      "src": {
+        "device": 140733792681472,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733732779600,
+          "device": 140733792681472,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733792680128,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733732795760,
+      "src": {
+        "device": 140733792681472,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733732769488,
+          "device": 140733792681472,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733896877200,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 43,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

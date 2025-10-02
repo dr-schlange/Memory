@@ -16,7 +16,7 @@
           "lfo_depth": 127
         },
         "filter": {
-          "cutoff": 66
+          "cutoff": 53
         }
       },
       "class": "NTS1"
@@ -42,7 +42,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 44,
+          "frequency": 42,
           "envelope": 18,
           "keyboard_follow": 127
         }
@@ -72,11 +72,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 101.0,
-        "io3": 98.0,
-        "io2": 96.0,
-        "io1": 93.0,
-        "oi": 89.0
+        "io4": 98.0,
+        "io3": 96.0,
+        "io2": 93.0,
+        "io1": 89.0,
+        "oi": 93.0
       },
       "class": "SeqSwitch"
     },
@@ -114,12 +114,12 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 1.0,
-        "div16": 0.0,
-        "div8": 0.0,
-        "div7": 1.0,
-        "div6": 1.0,
+        "div16": 1.0,
+        "div8": 1.0,
+        "div7": 0.0,
+        "div6": 0.0,
         "div5": 0.0,
-        "div4": 1.0,
+        "div4": 0.0,
         "div3": 1.0,
         "div2": 1.0
       },
@@ -135,7 +135,7 @@
         "input": 74,
         "chord": "min7",
         "octave": 1,
-        "inversion": "2nd",
+        "inversion": "1st",
         "drop": "--",
         "omit": "--",
         "custom0": "4+/-5",
@@ -144,10 +144,10 @@
         "custom3": "m3",
         "custom4": "--",
         "note4": 0,
-        "note3": 101,
-        "note2": 98,
-        "note1": 96,
-        "note0": 93
+        "note3": 98,
+        "note2": 96,
+        "note1": 93,
+        "note0": 89
       },
       "class": "ChordGenerator"
     },
@@ -157,14 +157,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65,
+        "output": 31,
         "set_pause": 0,
-        "input": 65.68144378870538,
+        "input": 53.24821386883528,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "free"
+        "type": "sample&hold"
       },
       "class": "Quantizer"
     },
@@ -210,13 +210,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 99.14327053172671,
-        "in1": 0.0,
+        "in0": 125.8114082421981,
+        "in1": 25.400000000000002,
         "in2": 0,
         "in3": 0,
-        "level": 32.061160883054,
+        "level": 72.26588655975844,
         "type": "ondemand",
-        "out0": 65.96807422105245,
+        "out0": 53.24821386883528,
         "out1": 0.0
       },
       "class": "Crossfade"
@@ -227,9 +227,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 99.14327053172671,
+        "output": 125.8114082421981,
         "set_pause": 0,
-        "speed": 0.2949477131813893,
+        "speed": 0.29529492175276767,
         "sync": 1.0,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -249,9 +249,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 25.400000000000002,
         "set_pause": 0,
-        "speed": 0.29494780863574455,
+        "speed": 0.2953142170767151,
         "sync": 1.0,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -271,7 +271,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 40.71767432147858,
+        "output": 91.77767593089322,
         "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
@@ -455,6 +455,70 @@
           "range": [
             0.0,
             1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733731109808,
+      "src": {
+        "device": 140733938495760,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733730644176,
+          "device": 140733938495760,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938553856,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
           ],
           "accepted_values": [],
           "conversion_policy": ">0",

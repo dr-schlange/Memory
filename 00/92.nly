@@ -19,7 +19,7 @@
       "config": {
         "set_pause": 0,
         "pads0_p0": 0.0,
-        "pads0_p1": 127.0,
+        "pads0_p1": 0.0,
         "pads1_p0": 0.0,
         "pads1_p1": 0.0
       },
@@ -31,7 +31,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 0.29,
         "subdiv": "1/1",
@@ -120,12 +120,14 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 1,
+        "mul5": 0,
         "mul3": 0,
+        "div5": 0,
         "div3": 0,
         "mul4": 0,
         "mul2": 0,
         "div2": 0,
+        "div4": 0,
         "lead": 0
       },
       "class": "Clock"
@@ -145,6 +147,29 @@
         "outB": 0
       },
       "class": "BernoulliTrigger"
+    },
+    {
+      "id": 140735882918416,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 0.0,
+        "div16": 1.0,
+        "div8": 0.0,
+        "div7": 0.0,
+        "div6": 1.0,
+        "div5": 1.0,
+        "div4": 0.0,
+        "div3": 0.0,
+        "div2": 1.0,
+        "div1": 1.0
+      },
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -840,6 +865,198 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "gb_b_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735813699536,
+      "src": {
+        "device": 140735882917072,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735813699056,
+          "device": 140735882917072,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735882905984,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735813326608,
+      "src": {
+        "device": 140735882917072,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735813329968,
+          "device": 140735882917072,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735882918416,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735813326384,
+      "src": {
+        "device": 140735882918416,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735813330192,
+          "device": 140735882918416,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735882905984,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_a",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

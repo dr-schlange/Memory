@@ -46,13 +46,13 @@
         "mode": "gate",
         "div32": 1.0,
         "div16": 1.0,
-        "div8": 0.0,
-        "div7": 0.0,
-        "div6": 1.0,
-        "div5": 1.0,
+        "div8": 1.0,
+        "div7": 1.0,
+        "div6": 0.0,
+        "div5": 0.0,
         "div4": 1.0,
         "div3": 0.0,
-        "div2": 1.0,
+        "div2": 0.0,
         "div1": 1.0
       },
       "class": "ClockDivider"
@@ -63,10 +63,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 66.98484476799821,
+        "output": 6.87724672317245,
         "set_pause": 0,
-        "input": 84.79094274430156,
-        "amplitude": 0.7869999999999998,
+        "input": 9.824638175960644,
+        "amplitude": 0.7,
         "gain": 1.0
       },
       "class": "VCA"
@@ -77,7 +77,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7869999999999998,
+        "output": 0.7,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.1,
@@ -181,7 +181,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 84.79094274430156,
+        "output": 9.824638175960644,
         "set_pause": 0,
         "speed": 1.55,
         "subdiv": "1/1",
@@ -442,6 +442,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "amplitude_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733117052784,
+      "src": {
+        "device": 140733117509856,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733117052496,
+          "device": 140733117509856,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733117504816,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

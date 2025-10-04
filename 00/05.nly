@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 58
+          "cutoff": 82
         }
       },
       "class": "Jt4000mmicro"
@@ -25,7 +25,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 58
+          "frequency": 82
         }
       },
       "class": "S1"
@@ -76,15 +76,15 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 0.0,
+        "div16": 1.0,
         "div8": 1.0,
-        "div7": 1.0,
+        "div7": 0.0,
         "div6": 0.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 1.0,
-        "div3": 0.0,
+        "div3": 1.0,
         "div2": 0.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "class": "ClockDivider"
     },
@@ -94,10 +94,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 58.449871042614674,
+        "output": 81.75133400470189,
         "set_pause": 0,
-        "input": 70.76680404399016,
-        "amplitude": 0.8254132231404958,
+        "input": 106.38179722072303,
+        "amplitude": 0.7679338842975205,
         "gain": 1.0
       },
       "class": "VCA"
@@ -108,7 +108,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.6508264462809915,
+        "output": 0.535867768595041,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.4566929133858268,
@@ -138,7 +138,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 43.0,
         "set_pause": 0,
         "trigger": 0.0,
         "play": 1.0,
@@ -146,23 +146,23 @@
         "set_step": 0.0,
         "length": 16.0,
         "step15": 0.0,
-        "step14": 0.0,
+        "step14": 40.0,
         "step13": 0.0,
         "step12": 0.0,
-        "step11": 0.0,
-        "step10": 0.0,
+        "step11": 46.0,
+        "step10": 43.0,
         "step9": 0.0,
-        "step8": 65.0,
-        "step7": 0.0,
-        "step6": 0.0,
+        "step8": 38.0,
+        "step7": 31.0,
+        "step6": 40.0,
         "step5": 0.0,
-        "step4": 0.0,
+        "step4": 28.0,
         "step3": 0.0,
-        "step2": 0.0,
+        "step2": 38.0,
         "step1": 0.0,
-        "step0": 63.0,
+        "step0": 33.0,
         "trig_out": 0,
-        "current_step": 9
+        "current_step": 10
       },
       "class": "Sequencer"
     },
@@ -207,7 +207,7 @@
         "io3": 9.0,
         "io2": 12.0,
         "io1": 0.0,
-        "oi": 65.0
+        "oi": 12.0
       },
       "class": "SeqSwitch"
     },
@@ -217,7 +217,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 44.09208288537012,
+        "output": 96.60136769721987,
         "set_pause": 0,
         "speed": 0.19,
         "subdiv": "1/1",
@@ -235,11 +235,11 @@
     {
       "id": 140733064579792,
       "repr": "Quantizer1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
         "output": 5,
-        "set_pause": 0,
+        "set_pause": 1,
         "input": 0.0,
         "trigger": 0,
         "reset": 0,
@@ -1193,6 +1193,62 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733065784336,
+      "src": {
+        "device": 140733117510528,
+        "repr": "Sequencer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733075862736,
+          "device": 140733117510528,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733117511200,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false

@@ -38,7 +38,7 @@
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
+        "mul4": 1,
         "mul2": 0,
         "div2": 0,
         "div4": 0,
@@ -56,8 +56,8 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 0.0,
+        "div32": 0.0,
+        "div16": 1.0,
         "div8": 1.0,
         "div7": 0.0,
         "div6": 0.0,
@@ -65,7 +65,7 @@
         "div4": 1.0,
         "div3": 1.0,
         "div2": 0.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "class": "ClockDivider"
     },
@@ -75,10 +75,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 94.31966007554072,
+        "output": 5.243760440150814,
         "set_pause": 0,
-        "input": 121.2338217387449,
-        "amplitude": 0.7419999999999998,
+        "input": 12.62542642090887,
+        "amplitude": 0.4106666666666664,
         "gain": 1.0
       },
       "class": "VCA"
@@ -89,9 +89,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7419999999999998,
+        "output": 0.4106666666666664,
         "set_pause": 0,
-        "gate": 1,
+        "gate": 0,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -115,7 +115,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 20.0,
         "set_pause": 0,
         "trigger": 0.0,
         "play": 1.0,
@@ -139,7 +139,7 @@
         "step1": 0.0,
         "step0": 59.0,
         "trig_out": 0,
-        "current_step": 11
+        "current_step": 8
       },
       "class": "Sequencer"
     },
@@ -150,7 +150,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 19,
         "chord": "maj",
         "octave": 0,
         "inversion": "--",
@@ -163,9 +163,9 @@
         "custom4": "--",
         "note4": 0,
         "note3": 0,
-        "note2": 0,
-        "note1": 0,
-        "note0": 0
+        "note2": 26,
+        "note1": 23,
+        "note0": 19
       },
       "class": "ChordGenerator"
     },
@@ -194,7 +194,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 121.2338217387449,
+        "output": 12.62542642090887,
         "set_pause": 0,
         "speed": 1.55,
         "subdiv": "1/1",
@@ -215,9 +215,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 19,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 20.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -856,6 +856,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733117215728,
+      "src": {
+        "device": 140733064579792,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733117217072,
+          "device": 140733064579792,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733117509520,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

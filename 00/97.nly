@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 13
+          "frequency": 1
         }
       },
       "class": "S1"
@@ -44,7 +44,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 12.521996827824994,
+        "output": 124.78484999946147,
         "set_pause": 0,
         "speed": 0.09,
         "subdiv": "1/1",
@@ -65,7 +65,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.005333333333333321,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.1,
@@ -114,9 +114,12 @@
         "mul7": 0,
         "mul5": 0,
         "mul3": 0,
+        "div5": 0,
+        "div3": 0,
         "mul4": 0,
         "mul2": 0,
         "div2": 0,
+        "div4": 0,
         "lead": 0
       },
       "class": "Clock"
@@ -144,14 +147,14 @@
         "step8": 0.0,
         "step7": 0.0,
         "step6": 0.0,
-        "step5": 0.0,
+        "step5": 71.0,
         "step4": 0.0,
         "step3": 0.0,
         "step2": 0.0,
-        "step1": 0.0,
-        "step0": 36.0,
+        "step1": 41.0,
+        "step0": 69.0,
         "trig_out": 0,
-        "current_step": 3
+        "current_step": 13
       },
       "class": "Sequencer"
     }
@@ -667,6 +670,70 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732089496144,
+      "src": {
+        "device": 140732089716080,
+        "repr": "Sequencer1",
+        "parameter": {
+          "name": "trig_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trig_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732054499408,
+          "device": 140732089716080,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732089716752,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

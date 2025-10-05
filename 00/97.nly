@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 82
+          "frequency": 2
         }
       },
       "class": "S1"
@@ -44,7 +44,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 88.644851757883,
+        "output": 4.685887199301864,
         "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
@@ -65,7 +65,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.0184,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.1,
@@ -108,7 +108,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 67.0,
+        "tempo": 127.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -132,7 +132,7 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0,
@@ -154,9 +154,32 @@
         "step1": 0.0,
         "step0": 69.0,
         "trig_out": 0,
-        "current_step": 15
+        "current_step": 6
       },
       "class": "Sequencer"
+    },
+    {
+      "id": 140732199428384,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 1.0,
+        "div16": 1.0,
+        "div8": 0.0,
+        "div7": 1.0,
+        "div6": 1.0,
+        "div5": 1.0,
+        "div4": 1.0,
+        "div3": 1.0,
+        "div2": 0.0,
+        "div1": 0.0
+      },
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -555,7 +578,7 @@
       "muted": false
     },
     {
-      "id": 140732054472016,
+      "id": 140732090103472,
       "src": {
         "device": 140732089714736,
         "repr": "Clock1",
@@ -580,7 +603,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732199217488,
+          "id": 140732054494288,
           "device": 140732089714736,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -591,8 +614,8 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732089716080,
-        "repr": "Sequencer1",
+        "device": 140732199428384,
+        "repr": "ClockDivider1",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -734,6 +757,70 @@
           "conversion_policy": "!=0",
           "disable_policy": false,
           "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732089465456,
+      "src": {
+        "device": 140732199428384,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732054496720,
+          "device": 140732199428384,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732089716080,
+        "repr": "Sequencer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

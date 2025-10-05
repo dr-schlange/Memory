@@ -29,7 +29,7 @@
       "config": {
         "filter": {
           "frequency": 18,
-          "resonance": 74
+          "resonance": 95
         }
       },
       "class": "S1"
@@ -107,11 +107,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 80.0,
-        "io3": 76.0,
-        "io2": 73.0,
-        "io1": 69.0,
-        "oi": 80.0
+        "io4": 78.0,
+        "io3": 74.0,
+        "io2": 71.0,
+        "io1": 67.0,
+        "oi": 74.0
       },
       "class": "SeqSwitch"
     },
@@ -122,7 +122,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 69,
+        "input": 67,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -134,21 +134,21 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 80,
-        "note2": 76,
-        "note1": 73,
-        "note0": 69
+        "note3": 78,
+        "note2": 74,
+        "note1": 71,
+        "note0": 67
       },
       "class": "ChordGenerator"
     },
     {
       "id": 140735359857200,
       "repr": "LFO1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 14.1894420858818,
-        "set_pause": 0,
+        "output": 76.57457870981777,
+        "set_pause": 1,
         "speed": 0.23,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -161,6 +161,29 @@
         "step_size": 0.2
       },
       "class": "LFO"
+    },
+    {
+      "id": 140735359854848,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 0.0,
+        "div16": 1.0,
+        "div8": 1.0,
+        "div7": 0.0,
+        "div6": 0.0,
+        "div5": 1.0,
+        "div4": 1.0,
+        "div3": 1.0,
+        "div2": 0.0,
+        "div1": 1.0
+      },
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -324,6 +347,70 @@
           "range": [
             0,
             1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735207627408,
+      "src": {
+        "device": 140735361754048,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735362087504,
+          "device": 140735361754048,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735359854848,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": ">0",
@@ -874,6 +961,70 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735207627888,
+      "src": {
+        "device": 140735359854848,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735209035216,
+          "device": 140735359854848,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735359857200,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "set_pause",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "set_pause_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": true
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

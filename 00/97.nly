@@ -59,7 +59,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 8.419078812504475,
+        "output": 2.7234876330846283,
         "set_pause": 0,
         "speed": 0.1,
         "subdiv": "1/1",
@@ -80,7 +80,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0027371428571428573,
+        "output": 0.002811428571428572,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.7,
@@ -97,7 +97,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 66,
+        "input": 0,
         "chord": "min7",
         "octave": 0,
         "inversion": "--",
@@ -109,10 +109,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 76,
-        "note2": 73,
-        "note1": 69,
-        "note0": 66
+        "note3": 0,
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
       },
       "class": "ChordGenerator"
     },
@@ -145,7 +145,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 66.0,
+        "output": 0.0,
         "set_pause": 0,
         "trigger": 0.0,
         "play": 1.0,
@@ -169,7 +169,7 @@
         "step1": 0.0,
         "step0": 69.0,
         "trig_out": 0,
-        "current_step": 8
+        "current_step": 1
       },
       "class": "Sequencer"
     },
@@ -179,19 +179,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 66.0,
+        "output": 76.0,
         "set_pause": 0,
-        "input": 73.0,
+        "input": 0.0,
         "trigger": 0,
         "reset": 0,
-        "output7": 78.0,
-        "output6": 78.0,
+        "output7": 0.0,
+        "output6": 0.0,
         "output5": 0.0,
         "output4": 0.0,
         "output3": 0.0,
-        "output2": 0.0,
-        "output1": 0.0,
-        "output0": 66.0
+        "output2": 69.0,
+        "output1": 76.0,
+        "output0": 76.0
       },
       "class": "ShiftRegister"
     },
@@ -217,12 +217,28 @@
         "steps": 4,
         "mode": "OI->IOs",
         "io4": 0,
-        "io3": 66.0,
+        "io3": 0,
         "io2": 0,
-        "io1": 0,
-        "oi": 66.0
+        "io1": 76.0,
+        "oi": 0.0
       },
       "class": "SeqSwitch"
+    },
+    {
+      "id": 140735140076848,
+      "repr": "BernoulliTrigger1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "probability": 0.5,
+        "bias": 0.0,
+        "quantized": "off",
+        "outA": 0,
+        "outB": 0
+      },
+      "class": "BernoulliTrigger"
     }
   ],
   "connections": [
@@ -1159,6 +1175,70 @@
       "muted": false
     },
     {
+      "id": 140735011129616,
+      "src": {
+        "device": 140732089714736,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735140570704,
+          "device": 140732089714736,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735140076848,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140732054484176,
       "src": {
         "device": 140732089716080,
@@ -1735,12 +1815,12 @@
       "muted": false
     },
     {
-      "id": 140735010551152,
+      "id": 140735010547952,
       "src": {
         "device": 140735163430768,
         "repr": "ShiftRegister1",
         "parameter": {
-          "name": "output5",
+          "name": "output1",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -1751,7 +1831,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output5_cv",
+          "cv_name": "output1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1760,10 +1840,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735010547952,
+          "id": 140735140576336,
           "device": 140735163430768,
           "to_min": 0,
-          "to_max": 1,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1771,21 +1851,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735163425056,
-        "repr": "WebSocketBus1",
+        "device": 140735163422368,
+        "repr": "SeqSwitch1",
         "parameter": {
-          "name": "gb_b",
+          "name": "oi",
           "stream": false,
-          "consumer": true,
+          "consumer": false,
           "description": null,
           "range": [
             0,
-            1
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "gb_b_cv",
+          "cv_name": "oi_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1799,12 +1879,12 @@
       "muted": false
     },
     {
-      "id": 140735010542832,
+      "id": 140735011130576,
       "src": {
         "device": 140735163430768,
         "repr": "ShiftRegister1",
         "parameter": {
-          "name": "output0",
+          "name": "output4",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -1815,7 +1895,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output0_cv",
+          "cv_name": "output4_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1824,10 +1904,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735140263120,
+          "id": 140735140576720,
           "device": 140735163430768,
           "to_min": 0,
-          "to_max": 1,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1835,21 +1915,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735163425056,
-        "repr": "WebSocketBus1",
+        "device": 140735163422368,
+        "repr": "SeqSwitch1",
         "parameter": {
-          "name": "gb_start",
+          "name": "oi",
           "stream": false,
-          "consumer": true,
+          "consumer": false,
           "description": null,
           "range": [
             0,
-            1
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "gb_start_cv",
+          "cv_name": "oi_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -2106,6 +2186,198 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "gb_right_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735011133456,
+      "src": {
+        "device": 140735140076848,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735163218640,
+          "device": 140735140076848,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735163422368,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735011133296,
+      "src": {
+        "device": 140735140076848,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outB",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outB_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735163218256,
+          "device": 140735140076848,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735163430768,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735011133616,
+      "src": {
+        "device": 140735140076848,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outB",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outB_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735140575312,
+          "device": 140735140076848,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732089716080,
+        "repr": "Sequencer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

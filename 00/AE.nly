@@ -1,31 +1,20 @@
 {
   "midi_devices": [
     {
-      "id": 140734717585328,
-      "repr": "Minilab3",
+      "id": 140735830684544,
+      "repr": "Keyboard",
       "ports": {
-        "input": "Minilab3:Minilab3 MIDI 36:0",
-        "output": "Minilab3:Minilab3 MIDI 36:0"
+        "input": null,
+        "output": null
       },
       "channel": 0,
       "config": {},
-      "class": "Minilab3"
-    },
-    {
-      "id": 140734717589696,
-      "repr": "S1",
-      "ports": {
-        "input": "S-1:S-1 MIDI IN 16:0",
-        "output": "S-1:S-1 MIDI IN 16:0"
-      },
-      "channel": 0,
-      "config": {},
-      "class": "S1"
+      "class": "Keyboard"
     }
   ],
   "virtual_devices": [
     {
-      "id": 140734735464304,
+      "id": 140735835164688,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -33,18 +22,484 @@
         "set_pause": 0
       },
       "class": "TrevorBus"
+    },
+    {
+      "id": 140735828215520,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "class": "WebSocketBus"
     }
   ],
   "connections": [
     {
-      "id": 140734717855792,
+      "id": 140735828216864,
       "src": {
-        "device": 140734717585328,
-        "repr": "Minilab3",
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "left",
+          "channel": null,
+          "name": "left",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "left",
+        "chain": {
+          "id": 140735828216192,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_left",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_left_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "left",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735830883728,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "right",
+          "channel": null,
+          "name": "right",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "right",
+        "chain": {
+          "id": 140735830883408,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_right",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_right_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "right",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735711052176,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "up",
+          "channel": null,
+          "name": "up",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "up",
+        "chain": {
+          "id": 140735830884048,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_up",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_up_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "up",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735830735488,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "down",
+          "channel": null,
+          "name": "down",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "down",
+        "chain": {
+          "id": 140735830732144,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_down",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_down_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "down",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735830736400,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "enter",
+          "channel": null,
+          "name": "enter",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "enter",
+        "chain": {
+          "id": 140735830735792,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_start",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_start_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "enter",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735828040528,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "shift",
+          "channel": null,
+          "name": "shifts",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "shift",
+        "chain": {
+          "id": 140735828040816,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_select",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_select_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "shift",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735830799184,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "q",
+          "channel": null,
+          "name": "q",
+          "section_name": "lowercap",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "q",
+        "chain": {
+          "id": 140735830798096,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_a",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "q",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735830800000,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
+        "parameter": {
+          "cc_note": "s",
+          "channel": null,
+          "name": "s",
+          "section_name": "lowercap",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": "s",
+        "chain": {
+          "id": 140735830799456,
+          "device": 140735830684544,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "gb_b",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_b_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": "s",
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735827602000,
+      "src": {
+        "device": 140735830684544,
+        "repr": "Keyboard",
         "parameter": {
           "channel": null,
           "keys": {},
-          "section_name": "keys",
+          "section_name": "lowercap",
           "name": "notes",
           "cc_note": -1,
           "range": [
@@ -54,8 +509,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734717855456,
-          "device": 140734717585328,
+          "id": 140735827601488,
+          "device": 140735830684544,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
@@ -65,21 +520,29 @@
         "type": "note"
       },
       "dest": {
-        "device": 140734717589696,
-        "repr": "S1",
+        "device": 140735828215520,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "gb_color2",
+          "stream": false,
+          "consumer": true,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gb_color2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

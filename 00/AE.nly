@@ -28,8 +28,10 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 18,
-          "resonance": 93
+          "frequency": 9,
+          "resonance": 88,
+          "envelope": 109,
+          "lfo": 10
         },
         "env": {
           "sustain": 67
@@ -114,7 +116,7 @@
         "io3": 66.0,
         "io2": 63.0,
         "io1": 59.0,
-        "oi": 70.0
+        "oi": 59.0
       },
       "class": "SeqSwitch"
     },
@@ -150,12 +152,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 117.68179631878591,
+        "output": 92.2156194984308,
         "set_pause": 0,
-        "speed": 7.511042281372113,
+        "speed": 0.12801634319819769,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 150,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -176,14 +178,14 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 0.0,
+        "div16": 1.0,
         "div8": 1.0,
-        "div7": 1.0,
+        "div7": 0.0,
         "div6": 1.0,
-        "div5": 1.0,
-        "div4": 0.0,
-        "div3": 1.0,
-        "div2": 0.0,
+        "div5": 0.0,
+        "div4": 1.0,
+        "div3": 0.0,
+        "div2": 1.0,
         "div1": 0.0
       },
       "class": "ClockDivider"
@@ -220,12 +222,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 114.44094246050713,
+        "output": 47.31114383344989,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 0.58,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50.0,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -288,9 +290,30 @@
         "step1": 59.0,
         "step0": 59.0,
         "trig_out": 0,
-        "current_step": 8
+        "current_step": 1
       },
       "class": "Sequencer"
+    },
+    {
+      "id": 140736216596176,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 49.53243032153016,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sawtooth",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -1516,6 +1539,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736150899920,
+      "src": {
+        "device": 140736216596176,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736217207888,
+          "device": 140736216596176,
+          "to_min": 0,
+          "to_max": 24,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735359849472,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

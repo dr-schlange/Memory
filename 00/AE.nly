@@ -29,7 +29,7 @@
       "config": {
         "filter": {
           "frequency": 18,
-          "resonance": 103
+          "resonance": 76
         }
       },
       "class": "S1"
@@ -111,7 +111,7 @@
         "io3": 73.0,
         "io2": 70.0,
         "io1": 66.0,
-        "oi": 77.0
+        "oi": 0.0
       },
       "class": "SeqSwitch"
     },
@@ -144,11 +144,11 @@
     {
       "id": 140735359857200,
       "repr": "LFO1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 126.36000765894634,
-        "set_pause": 0,
+        "output": 26.907922904988876,
+        "set_pause": 1,
         "speed": 0.23,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -172,16 +172,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
+        "div32": 0.0,
         "div16": 0.0,
         "div8": 0.0,
-        "div7": 1.0,
-        "div6": 1.0,
-        "div5": 0.0,
+        "div7": 0.0,
+        "div6": 0.0,
+        "div5": 1.0,
         "div4": 1.0,
         "div3": 1.0,
-        "div2": 1.0,
-        "div1": 0.0
+        "div2": 0.0,
+        "div1": 1.0
       },
       "class": "ClockDivider"
     },
@@ -232,11 +232,11 @@
         "trigger": 0,
         "reset": 0,
         "output7": 0.0,
-        "output6": 105.88267460408687,
+        "output6": 83.0,
         "output5": 0.0,
-        "output4": 66.0,
+        "output4": 71.51968503937007,
         "output3": 0.0,
-        "output2": 88.65354330708661,
+        "output2": 83.0,
         "output1": 0.0,
         "output0": 71.51968503937007
       },
@@ -254,6 +254,16 @@
         "shift": 5.0
       },
       "class": "PitchShifter"
+    },
+    {
+      "id": 140734743991632,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "class": "WebSocketBus"
     }
   ],
   "connections": [
@@ -1239,6 +1249,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735207623568,
+      "src": {
+        "device": 140735359580304,
+        "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735207834192,
+          "device": 140735359580304,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734743991632,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

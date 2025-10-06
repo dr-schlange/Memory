@@ -29,7 +29,7 @@
       "config": {
         "filter": {
           "frequency": 18,
-          "resonance": 101
+          "resonance": 103
         }
       },
       "class": "S1"
@@ -107,11 +107,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 94.0,
-        "io3": 90.0,
-        "io2": 87.0,
-        "io1": 83.0,
-        "oi": 83.0
+        "io4": 0.0,
+        "io3": 0.0,
+        "io2": 0.0,
+        "io1": 0.0,
+        "oi": 0.0
       },
       "class": "SeqSwitch"
     },
@@ -122,7 +122,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 83,
+        "input": 0,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -134,21 +134,21 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 94,
-        "note2": 90,
-        "note1": 87,
-        "note0": 83
+        "note3": 0,
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
       },
       "class": "ChordGenerator"
     },
     {
       "id": 140735359857200,
       "repr": "LFO1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 118.87310191682165,
-        "set_pause": 1,
+        "output": 126.32425860746396,
+        "set_pause": 0,
         "speed": 0.23,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -172,16 +172,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
+        "div32": 1.0,
         "div16": 0.0,
-        "div8": 1.0,
+        "div8": 0.0,
         "div7": 1.0,
         "div6": 0.0,
-        "div5": 0.0,
-        "div4": 1.0,
-        "div3": 0.0,
+        "div5": 1.0,
+        "div4": 0.0,
+        "div3": 1.0,
         "div2": 0.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "class": "ClockDivider"
     },
@@ -216,7 +216,7 @@
         "io3": 83.0,
         "io2": 0.0,
         "io1": 66.0,
-        "oi": 83.0
+        "oi": 0.0
       },
       "class": "SeqSwitch"
     }
@@ -438,70 +438,6 @@
       "dest": {
         "device": 140735359855856,
         "repr": "BernoulliTrigger1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140735208580240,
-      "src": {
-        "device": 140735361754048,
-        "repr": "Clock1",
-        "parameter": {
-          "name": "div4",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "div4_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735209030224,
-          "device": 140735361754048,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735359580304,
-        "repr": "SeqSwitch2",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -1121,6 +1057,70 @@
           "hidden": false,
           "default": null,
           "no_init": true
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735208670224,
+      "src": {
+        "device": 140735359854848,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div8",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div8_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735362087760,
+          "device": 140735359854848,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735359580304,
+        "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
         "type": "virtual"

@@ -29,7 +29,7 @@
       "config": {
         "filter": {
           "frequency": 18,
-          "resonance": 80
+          "resonance": 74
         }
       },
       "class": "S1"
@@ -85,7 +85,7 @@
         "reset": 0,
         "mul7": 0,
         "mul5": 0,
-        "mul3": 1,
+        "mul3": 0,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -107,11 +107,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0.0,
-        "io3": 0.0,
-        "io2": 0.0,
-        "io1": 0.0,
-        "oi": 0.0
+        "io4": 77.0,
+        "io3": 73.0,
+        "io2": 70.0,
+        "io1": 66.0,
+        "oi": 66.0
       },
       "class": "SeqSwitch"
     },
@@ -122,7 +122,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 66,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -134,21 +134,21 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 0,
-        "note2": 0,
-        "note1": 0,
-        "note0": 0
+        "note3": 77,
+        "note2": 73,
+        "note1": 70,
+        "note0": 66
       },
       "class": "ChordGenerator"
     },
     {
       "id": 140735359857200,
       "repr": "LFO1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 40.88778844974337,
-        "set_pause": 0,
+        "output": 19.262375317470116,
+        "set_pause": 1,
         "speed": 0.23,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -176,12 +176,12 @@
         "div16": 0.0,
         "div8": 1.0,
         "div7": 1.0,
-        "div6": 1.0,
-        "div5": 1.0,
-        "div4": 0.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 1.0,
         "div3": 0.0,
         "div2": 0.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "class": "ClockDivider"
     },
@@ -216,7 +216,7 @@
         "io3": 83.0,
         "io2": 0.0,
         "io1": 66.0,
-        "oi": 0.0
+        "oi": 66.0
       },
       "class": "SeqSwitch"
     },
@@ -226,19 +226,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 66.0,
         "set_pause": 0,
-        "input": 88.65354330708661,
+        "input": 0.0,
         "trigger": 0,
         "reset": 0,
-        "output7": 83.0,
-        "output6": 0.0,
-        "output5": 66.0,
-        "output4": 0.0,
-        "output3": 83.65354330708661,
-        "output2": 89.97610847190197,
-        "output1": 66.0,
-        "output0": 0.0
+        "output7": 0.0,
+        "output6": 83.0,
+        "output5": 0.0,
+        "output4": 66.0,
+        "output3": 0.0,
+        "output2": 88.65354330708661,
+        "output1": 0.0,
+        "output0": 66.0
       },
       "class": "ShiftRegister"
     },
@@ -248,9 +248,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 88.65354330708661,
+        "output": 0,
         "set_pause": 0,
-        "input": 83.65354330708661,
+        "input": 0.0,
         "shift": 5.0
       },
       "class": "PitchShifter"
@@ -1671,6 +1671,234 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734743973232,
+      "src": {
+        "device": 140735359856864,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735360318928,
+          "device": 140735359856864,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735361756736,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "modulation",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734743973552,
+      "src": {
+        "device": 140735359856864,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735362088400,
+          "device": 140735359856864,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735361756736,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "modulation",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734743972432,
+      "src": {
+        "device": 140735359856864,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735359882448,
+          "device": 140735359856864,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735361756736,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "modulation",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734743973072,
+      "src": {
+        "device": 140735359856864,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735359879248,
+          "device": 140735359856864,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735361756736,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 1,
+          "channel": null,
+          "name": "modulation",
+          "section_name": "keys",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

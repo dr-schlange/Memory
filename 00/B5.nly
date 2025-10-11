@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 1
+          "frequency": 111
         }
       },
       "class": "S1"
@@ -45,10 +45,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.8002514729861394,
+        "output": 2.241363503510132,
         "set_pause": 0,
         "input": 127.0,
-        "amplitude": 0.02992323994477275,
+        "amplitude": 0.017648531523701827,
         "gain": 1.0
       },
       "proxy": false,
@@ -60,10 +60,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 124.75863649648987,
         "set_pause": 0,
-        "input": 0.0,
-        "amplitude": 0.9700767600552272,
+        "input": 127.0,
+        "amplitude": 0.9823514684762982,
         "gain": 1.0
       },
       "proxy": false,
@@ -75,9 +75,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.8002514729861394,
+        "output": 2.241363503510132,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 0.39,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -102,13 +102,13 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 0.0,
+        "div16": 1.0,
         "div8": 1.0,
-        "div7": 1.0,
+        "div7": 0.0,
         "div6": 0.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 1.0,
-        "div3": 0.0,
+        "div3": 1.0,
         "div2": 0.0,
         "div1": 0.0
       },
@@ -121,7 +121,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.8764799999999999,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.1,
@@ -138,13 +138,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9500628682465349,
+        "output": 32.310340875877536,
         "set_pause": 0,
-        "in0": 3.8002514729861394,
-        "in1": 0.0,
+        "in0": 2.241363503510132,
+        "in1": 124.75863649648987,
         "in2": 0,
         "in3": 0,
-        "level0": 50,
+        "level0": 100.0,
         "level1": 50,
         "level2": 50,
         "level3": 50,
@@ -161,7 +161,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 92.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -208,7 +208,7 @@
         "active6": 1,
         "active7": 0,
         "trig_out": 0,
-        "current_step": 2
+        "current_step": 4
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -714,6 +714,70 @@
       "muted": false
     },
     {
+      "id": 140735696729760,
+      "src": {
+        "device": 140735698824096,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735696716912,
+          "device": 140735698824096,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735698821408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735696610448,
       "src": {
         "device": 140735696867008,
@@ -778,12 +842,12 @@
       "muted": false
     },
     {
-      "id": 140735696638416,
+      "id": 140735696719728,
       "src": {
         "device": 140735696867008,
         "repr": "Clock1",
         "parameter": {
-          "name": "lead",
+          "name": "mul4",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -794,7 +858,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "lead_cv",
+          "cv_name": "mul4_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -803,7 +867,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735696646480,
+          "id": 140735696719904,
           "device": 140735696867008,
           "to_min": 0,
           "to_max": 1,

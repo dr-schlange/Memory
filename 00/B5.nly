@@ -10,10 +10,21 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 1
+          "frequency": 28
         }
       },
       "class": "S1"
+    },
+    {
+      "id": 140733710924976,
+      "repr": "Jt4000mmicro",
+      "ports": {
+        "input": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 24:0",
+        "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 24:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Jt4000mmicro"
     }
   ],
   "virtual_devices": [
@@ -48,7 +59,7 @@
         "output": 0.0,
         "set_pause": 0,
         "input": 0.0,
-        "amplitude": 0.9841024857271021,
+        "amplitude": 0.2541521652995152,
         "gain": 1.0
       },
       "proxy": false,
@@ -60,10 +71,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.01898431265803,
+        "output": 94.72267500696158,
         "set_pause": 0,
         "input": 127.0,
-        "amplitude": 0.015897514272897872,
+        "amplitude": 0.7458478347004849,
         "gain": 1.0
       },
       "proxy": false,
@@ -75,7 +86,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 124.98101568734197,
+        "output": 32.27732499303843,
         "set_pause": 0,
         "speed": 0.45,
         "subdiv": "1/1",
@@ -138,10 +149,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.6056952937974089,
+        "output": 28.416802502088473,
         "set_pause": 0,
         "in0": 0.0,
-        "in1": 2.01898431265803,
+        "in1": 94.72267500696158,
         "in2": 0,
         "in3": 0.0,
         "level0": 17.0,
@@ -212,6 +223,22 @@
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140733710925312,
+      "repr": "VoiceAllocator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 28,
+        "out3": 30,
+        "out2": 28,
+        "out1": 29,
+        "out0": 29
+      },
+      "proxy": false,
+      "class": "VoiceAllocator"
     }
   ],
   "connections": [
@@ -765,6 +792,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733708811888,
+      "src": {
+        "device": 140735698824096,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733708807856,
+          "device": 140735698824096,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710925312,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

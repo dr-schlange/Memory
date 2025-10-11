@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 28
+          "frequency": 7
         }
       },
       "class": "S1"
@@ -23,7 +23,14 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 24:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 7
+        },
+        "keys": {
+          "modulation": 18
+        }
+      },
       "class": "Jt4000mmicro"
     }
   ],
@@ -59,7 +66,7 @@
         "output": 0.0,
         "set_pause": 0,
         "input": 0.0,
-        "amplitude": 0.2541521652995152,
+        "amplitude": 0.8134333620810876,
         "gain": 1.0
       },
       "proxy": false,
@@ -71,10 +78,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 94.72267500696158,
+        "output": 23.693963015701872,
         "set_pause": 0,
         "input": 127.0,
-        "amplitude": 0.7458478347004849,
+        "amplitude": 0.18656663791891237,
         "gain": 1.0
       },
       "proxy": false,
@@ -86,7 +93,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 32.27732499303843,
+        "output": 103.30603698429813,
         "set_pause": 0,
         "speed": 0.45,
         "subdiv": "1/1",
@@ -149,10 +156,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 28.416802502088473,
+        "output": 7.108188904710562,
         "set_pause": 0,
         "in0": 0.0,
-        "in1": 94.72267500696158,
+        "in1": 23.693963015701872,
         "in2": 0,
         "in3": 0.0,
         "level0": 17.0,
@@ -195,7 +202,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 79.0,
+        "output": 68.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -219,7 +226,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -231,11 +238,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 28,
-        "out3": 30,
-        "out2": 28,
-        "out1": 29,
-        "out0": 29
+        "input": 7,
+        "out3": 7,
+        "out2": 7,
+        "out1": 8,
+        "out0": 8
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -684,6 +691,63 @@
       "muted": false
     },
     {
+      "id": 140733710629216,
+      "src": {
+        "device": 140735698825776,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733710629040,
+          "device": 140735698825776,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710924976,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735676507120,
       "src": {
         "device": 140735698824096,
@@ -864,6 +928,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733710628688,
+      "src": {
+        "device": 140735698824096,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733710628864,
+          "device": 140735698824096,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710924976,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false
@@ -1099,6 +1220,118 @@
       "dest": {
         "device": 140735698827120,
         "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733710906960,
+      "src": {
+        "device": 140733710925312,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733710903312,
+          "device": 140733710925312,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710924976,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733710904848,
+      "src": {
+        "device": 140733710925312,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733710906576,
+          "device": 140733710925312,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710924976,
+        "repr": "Jt4000mmicro",
         "parameter": {
           "channel": null,
           "keys": {},

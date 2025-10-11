@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 27
+          "frequency": 36
         }
       },
       "class": "S1"
@@ -25,7 +25,7 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 63
+          "cutoff": 36
         },
         "keys": {
           "modulation": 18
@@ -66,7 +66,7 @@
         "output": 0.0,
         "set_pause": 0,
         "input": 0.0,
-        "amplitude": 0.29645134931743766,
+        "amplitude": 0.05514968860055413,
         "gain": 1.0
       },
       "proxy": false,
@@ -78,10 +78,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 89.35067863668542,
+        "output": 119.99598954772962,
         "set_pause": 0,
         "input": 127.0,
-        "amplitude": 0.7035486506825623,
+        "amplitude": 0.9448503113994459,
         "gain": 1.0
       },
       "proxy": false,
@@ -93,7 +93,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 37.649321363314584,
+        "output": 7.004010452270374,
         "set_pause": 0,
         "speed": 0.45,
         "subdiv": "1/1",
@@ -156,10 +156,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 26.805203591005625,
+        "output": 35.998796864318884,
         "set_pause": 0,
         "in0": 0.0,
-        "in1": 89.35067863668542,
+        "in1": 119.99598954772962,
         "in2": 0,
         "in3": 0.0,
         "level0": 17.0,
@@ -230,22 +230,6 @@
       },
       "proxy": false,
       "class": "Sequencer8"
-    },
-    {
-      "id": 140733710925312,
-      "repr": "VoiceAllocator1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 81,
-        "out3": 81,
-        "out2": 39,
-        "out1": 12,
-        "out0": 68
-      },
-      "proxy": false,
-      "class": "VoiceAllocator"
     },
     {
       "id": 140733710918592,
@@ -709,6 +693,63 @@
       "muted": false
     },
     {
+      "id": 140733709425456,
+      "src": {
+        "device": 140735698825776,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733709055952,
+          "device": 140735698825776,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710924976,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735676507120,
       "src": {
         "device": 140735698824096,
@@ -825,6 +866,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733709425616,
+      "src": {
+        "device": 140735698824096,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733711220048,
+          "device": 140735698824096,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733710924976,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false
@@ -1142,7 +1240,7 @@
       "muted": false
     },
     {
-      "id": 140733709431696,
+      "id": 140733709432336,
       "src": {
         "device": 140735696868688,
         "repr": "Sequencer81",
@@ -1167,10 +1265,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733709627984,
+          "id": 140733711218512,
           "device": 140735696868688,
-          "to_min": 51,
-          "to_max": 70,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1181,19 +1279,18 @@
         "device": 140733710924976,
         "repr": "Jt4000mmicro",
         "parameter": {
-          "cc_note": 74,
           "channel": null,
-          "name": "cutoff",
-          "section_name": "vcf",
-          "init_value": 0,
-          "description": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
           "range": [
             0,
             127
           ]
         },
         "explicit": -1,
-        "type": "control_change"
+        "type": "note"
       },
       "bouncy": false,
       "muted": false

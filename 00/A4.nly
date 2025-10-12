@@ -77,7 +77,7 @@
         "tempo": 85.0,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
+        "mul7": 0,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -121,7 +121,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 13.605060259268472,
+        "output": 105.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -145,7 +145,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 4
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -181,11 +181,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 14,
-        "out3": 88,
-        "out2": 105,
-        "out1": 54,
-        "out0": 14
+        "input": 105,
+        "out3": 54,
+        "out2": 13,
+        "out1": 14,
+        "out0": 105
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -239,17 +239,74 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 14.0,
-        "io3": 54.0,
-        "io2": 105.0,
-        "io1": 105.0,
-        "oi": 54.0
+        "io4": 105.0,
+        "io3": 14.0,
+        "io2": 13.0,
+        "io1": 13.0,
+        "oi": 14.0
       },
       "proxy": false,
       "class": "SeqSwitch"
     }
   ],
   "connections": [
+    {
+      "id": 140733204580144,
+      "src": {
+        "device": 140733203960832,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 93,
+          "channel": null,
+          "name": "b5",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 93,
+        "chain": {
+          "id": 140733206134224,
+          "device": 140733203960832,
+          "to_min": 20,
+          "to_max": 600,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733077886672,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 93,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
     {
       "id": 140733203454928,
       "src": {

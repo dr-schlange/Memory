@@ -79,7 +79,7 @@
         "tempo": 80.50735319686189,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
+        "mul7": 0,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -123,13 +123,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 88.48964024810559,
+        "output": 105.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
         "reset": 0,
         "set_step": 0,
-        "length": 4,
+        "length": 3,
         "step0": 73.0,
         "step1": 54.0,
         "step2": 105.0,
@@ -147,7 +147,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 3
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -183,11 +183,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 88,
-        "out3": 0,
-        "out2": 0,
-        "out1": 88,
-        "out0": 88
+        "input": 105,
+        "out3": 54,
+        "out2": 73,
+        "out1": 0,
+        "out0": 105
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -198,7 +198,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.7885347936821,
+        "output": 32.992165584709845,
         "set_pause": 0,
         "speed": 0.37,
         "subdiv": "1/1",
@@ -221,11 +221,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 64,
-        "out3": 67,
+        "input": 0,
+        "out3": 0,
         "out2": 0,
-        "out1": 64,
-        "out0": 71
+        "out1": 0,
+        "out0": 0
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -241,11 +241,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 88.0,
-        "io3": 88.0,
-        "io2": 0.0,
-        "io1": 0.0,
-        "oi": 88.0
+        "io4": 105.0,
+        "io3": 0.0,
+        "io2": 73.0,
+        "io1": 73.0,
+        "oi": 73.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -261,11 +261,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 67.0,
+        "io4": 0.0,
         "io3": 0.0,
-        "io2": 64.0,
-        "io1": 71.0,
-        "oi": 64.0
+        "io2": 0.0,
+        "io1": 0.0,
+        "oi": 0.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -707,6 +707,70 @@
       "dest": {
         "device": 140733077896272,
         "repr": "SeqSwitch2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732322817008,
+      "src": {
+        "device": 140733077886672,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "div2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732616591952,
+          "device": 140733077886672,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733077887632,
+        "repr": "BitCounter1",
         "parameter": {
           "name": "trigger",
           "stream": false,

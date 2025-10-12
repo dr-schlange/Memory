@@ -100,7 +100,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 105.52450812461846,
+        "output": 88.48964024810559,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -124,7 +124,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 2
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -156,6 +156,44 @@
     {
       "id": 140733077887952,
       "repr": "VoiceAllocator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 88,
+        "out3": 65,
+        "out2": 88,
+        "out1": 106,
+        "out0": 91
+      },
+      "proxy": false,
+      "class": "VoiceAllocator"
+    },
+    {
+      "id": 140733205838352,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 34.07864908242039,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 140733077895312,
+      "repr": "VoiceAllocator2",
       "paused": false,
       "running": true,
       "config": {
@@ -287,6 +325,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733203453648,
+      "src": {
+        "device": 140733077888592,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733077955536,
+          "device": 140733077888592,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733077887952,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

@@ -32,7 +32,7 @@
       "id": 140733203960832,
       "repr": "Minilab3",
       "ports": {
-        "input": null,
+        "input": "Minilab3:Minilab3 MIDI 36:0",
         "output": "Minilab3:Minilab3 MIDI 36:0"
       },
       "channel": 0,
@@ -123,13 +123,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 73.0,
+        "output": 54.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
         "reset": 0,
         "set_step": 0,
-        "length": 5,
+        "length": 2,
         "step0": 73.0,
         "step1": 54.0,
         "step2": 105.0,
@@ -147,7 +147,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0
+        "current_step": 1
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -183,11 +183,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 73,
-        "out3": 105,
+        "input": 54,
+        "out3": 0,
         "out2": 73,
-        "out1": 14,
-        "out0": 88
+        "out1": 0,
+        "out0": 0
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -195,11 +195,11 @@
     {
       "id": 140733205838352,
       "repr": "LFO1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 67.64238886865365,
-        "set_pause": 1,
+        "output": 11.16573471305408,
+        "set_pause": 0,
         "speed": 0.37,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -221,11 +221,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
-        "out3": 0.0,
-        "out2": 0.0,
-        "out1": 0.0,
-        "out0": 0.0
+        "input": 65,
+        "out3": 71,
+        "out2": 0,
+        "out1": 65,
+        "out0": 62
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -233,19 +233,19 @@
     {
       "id": 140733203959824,
       "repr": "SeqSwitch1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "set_pause": 1,
+        "set_pause": 0,
         "trigger": 0,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 54.0,
-        "io3": 105.0,
-        "io2": 14.0,
-        "io1": 14.0,
-        "oi": 14.0
+        "io4": 0.0,
+        "io3": 0.0,
+        "io2": 73.0,
+        "io1": 73.0,
+        "oi": 13.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -261,11 +261,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 0,
-        "io2": 0,
-        "io1": 0,
-        "oi": 0
+        "io4": 71.0,
+        "io3": 0.0,
+        "io2": 65.0,
+        "io1": 62.0,
+        "oi": 0.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -430,6 +430,62 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732322816208,
+      "src": {
+        "device": 140733203960832,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732322815728,
+          "device": 140733203960832,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140733077883472,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1010,6 +1066,70 @@
           "cc_note": -1,
           "hidden": false,
           "default": 8,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732322814608,
+      "src": {
+        "device": 140733205838352,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732616252944,
+          "device": 140733205838352,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733077883472,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,

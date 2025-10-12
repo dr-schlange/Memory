@@ -1,5 +1,28 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140733077886992,
+      "repr": "S1",
+      "ports": {
+        "input": "S-1:S-1 MIDI IN 32:0",
+        "output": "S-1:S-1 MIDI IN 32:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "S1"
+    },
+    {
+      "id": 140733205838688,
+      "repr": "Jt4000mmicro",
+      "ports": {
+        "input": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0",
+        "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Jt4000mmicro"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140733210987888,
@@ -22,8 +45,252 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140733077886672,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
+    },
+    {
+      "id": 140733077887312,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 0.0,
+        "div7": 0.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 0.0,
+        "div3": 0.0,
+        "div2": 0.0,
+        "div1": 0.0
+      },
+      "proxy": false,
+      "class": "ClockDivider"
+    },
+    {
+      "id": 140733077888592,
+      "repr": "Sequencer81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "trigger": 0,
+        "play": 1,
+        "reset": 0,
+        "set_step": 0,
+        "length": 8,
+        "step0": 0.0,
+        "step1": 0.0,
+        "step2": 0.0,
+        "step3": 0.0,
+        "step4": 0.0,
+        "step5": 0.0,
+        "step6": 0.0,
+        "step7": 0.0,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0,
+        "current_step": 6
+      },
+      "proxy": false,
+      "class": "Sequencer8"
+    },
+    {
+      "id": 140733077887632,
+      "repr": "BitCounter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "length": 8,
+        "reset": 0,
+        "mode": "ondemand",
+        "out7": 0,
+        "out6": 0,
+        "out5": 0,
+        "out4": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 0,
+        "overflow": 0
+      },
+      "proxy": false,
+      "class": "BitCounter"
+    },
+    {
+      "id": 140733077887952,
+      "repr": "VoiceAllocator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "out3": 0.0,
+        "out2": 0.0,
+        "out1": 0.0,
+        "out0": 0.0
+      },
+      "proxy": false,
+      "class": "VoiceAllocator"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140733078257520,
+      "src": {
+        "device": 140733077886672,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733203866960,
+          "device": 140733077886672,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733077888592,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733203449008,
+      "src": {
+        "device": 140733077888592,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733203859792,
+          "device": 140733077888592,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733205838688,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    }
+  ],
   "playground_code": ""
 }

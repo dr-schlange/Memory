@@ -38,9 +38,9 @@
       "channel": 0,
       "config": {
         "buttons": {
-          "b1": 43,
+          "b1": 59,
           "b2": 5,
-          "b5": 58
+          "b5": 52
         }
       },
       "class": "Minilab3"
@@ -76,7 +76,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 94.54113348660294,
+        "tempo": 80.50735319686189,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -123,13 +123,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 105.0,
+        "output": 88.48964024810559,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
         "reset": 0,
         "set_step": 0,
-        "length": 3,
+        "length": 4,
         "step0": 73.0,
         "step1": 54.0,
         "step2": 105.0,
@@ -147,7 +147,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 2
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -183,8 +183,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 105,
-        "out3": 0,
+        "input": 88,
+        "out3": 88,
         "out2": 0,
         "out1": 0,
         "out0": 73
@@ -195,16 +195,16 @@
     {
       "id": 140733205838352,
       "repr": "LFO1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
-        "set_pause": 1,
+        "output": 53.937519533824016,
+        "set_pause": 0,
         "speed": 1.42,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 28,
-        "waveform": "square",
+        "waveform": "smooth_random_cosine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -1095,7 +1095,7 @@
       "muted": false
     },
     {
-      "id": 140733203462768,
+      "id": 140733203458448,
       "src": {
         "device": 140733205838352,
         "repr": "LFO1",
@@ -1120,10 +1120,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733077953744,
+          "id": 140733203867728,
           "device": 140733205838352,
-          "to_min": 0,
-          "to_max": 1,
+          "to_min": 1,
+          "to_max": 8,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1131,26 +1131,26 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140733077887632,
-        "repr": "BitCounter1",
+        "device": 140733077888592,
+        "repr": "Sequencer81",
         "parameter": {
-          "name": "set_pause",
+          "name": "length",
           "stream": false,
-          "consumer": true,
+          "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            1,
+            8
           ],
           "accepted_values": [],
-          "conversion_policy": null,
+          "conversion_policy": "round",
           "disable_policy": false,
-          "cv_name": "set_pause_cv",
+          "cv_name": "length_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": null,
-          "no_init": true
+          "default": 8,
+          "no_init": false
         },
         "explicit": -1,
         "type": "virtual"

@@ -27,6 +27,21 @@
       "channel": 0,
       "config": {},
       "class": "Jt4000mmicro"
+    },
+    {
+      "id": 140733203960832,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 16:0",
+        "output": "Minilab3:Minilab3 MIDI 16:0"
+      },
+      "channel": 0,
+      "config": {
+        "buttons": {
+          "b2": 5
+        }
+      },
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -62,7 +77,7 @@
         "tempo": 85.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -79,10 +94,10 @@
     {
       "id": 140733077887312,
       "repr": "ClockDivider1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "set_pause": 0,
+        "set_pause": 1,
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
@@ -106,7 +121,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 88.48964024810559,
+        "output": 13.605060259268472,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -130,7 +145,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 3
+        "current_step": 4
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -138,10 +153,10 @@
     {
       "id": 140733077887632,
       "repr": "BitCounter1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "set_pause": 0,
+        "set_pause": 1,
         "trigger": 0,
         "length": 8,
         "reset": 0,
@@ -166,11 +181,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 88,
-        "out3": 13,
-        "out2": 88,
-        "out1": 105,
-        "out0": 54
+        "input": 14,
+        "out3": 88,
+        "out2": 105,
+        "out1": 54,
+        "out0": 14
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -178,16 +193,16 @@
     {
       "id": 140733205838352,
       "repr": "LFO1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 95.95743428311106,
-        "set_pause": 0,
-        "speed": 0.01,
+        "output": 0.0,
+        "set_pause": 1,
+        "speed": 1.42,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "sine",
+        "sampling_rate": 28,
+        "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -200,10 +215,10 @@
     {
       "id": 140733077895312,
       "repr": "VoiceAllocator2",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "set_pause": 0,
+        "set_pause": 1,
         "input": 0,
         "out3": 0.0,
         "out2": 0.0,
@@ -224,11 +239,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 54.0,
-        "io3": 105.0,
-        "io2": 88.0,
-        "io1": 88.0,
-        "oi": 14.0
+        "io4": 14.0,
+        "io3": 54.0,
+        "io2": 105.0,
+        "io1": 105.0,
+        "oi": 54.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -959,6 +974,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733203462768,
+      "src": {
+        "device": 140733205838352,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733077953744,
+          "device": 140733205838352,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733077887632,
+        "repr": "BitCounter1",
+        "parameter": {
+          "name": "set_pause",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "set_pause_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": true
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

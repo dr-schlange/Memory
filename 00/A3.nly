@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 89,
+          "cutoff": 80,
           "resonance": 40,
           "env_amount": 25
         },
@@ -32,7 +32,7 @@
       "config": {
         "filter": {
           "frequency": 62,
-          "resonance": 116,
+          "resonance": 89,
           "envelope": 25
         },
         "env": {
@@ -77,14 +77,14 @@
         "random": 0.0,
         "reset": 0.0,
         "out7": 1,
-        "out6": 0,
-        "out5": 0,
+        "out6": 1,
+        "out5": 1,
         "out4": 1,
-        "out3": 1,
+        "out3": 0,
         "out2": 1,
         "out1": 0,
         "out0": 0,
-        "tape_out": 57,
+        "tape_out": 47,
         "gate_out": 1,
         "out_main": 0
       },
@@ -121,7 +121,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72.0,
+        "output": 0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -139,10 +139,10 @@
         "active0": 0,
         "active1": 0,
         "active2": 1,
-        "active3": 1,
+        "active3": 0,
         "active4": 1,
-        "active5": 0,
-        "active6": 0,
+        "active5": 1,
+        "active6": 1,
         "active7": 1,
         "trig_out": 0,
         "current_step": 3
@@ -156,7 +156,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9159999999999999,
+        "output": 0.7000000000000004,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.1,
@@ -746,62 +746,6 @@
       "muted": false
     },
     {
-      "id": 140735121044848,
-      "src": {
-        "device": 140735120854048,
-        "repr": "TuringMachine1",
-        "parameter": {
-          "name": "tape_out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            255
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "tape_out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735121191888,
-          "device": 140735120854048,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735121245840,
-        "repr": "Jt4000mmicro",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
       "id": 140735121044368,
       "src": {
         "device": 140735120854048,
@@ -853,6 +797,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735121043728,
+      "src": {
+        "device": 140735120854048,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out_main",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_main_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735120984912,
+          "device": 140735120854048,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735120853376,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false
@@ -922,70 +930,6 @@
       "muted": false
     },
     {
-      "id": 140735121043888,
-      "src": {
-        "device": 140735120856400,
-        "repr": "Clock1",
-        "parameter": {
-          "name": "mul7",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "mul7_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735120969168,
-          "device": 140735120856400,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735120853376,
-        "repr": "Sequencer81",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
       "id": 140735120772176,
       "src": {
         "device": 140735120853376,
@@ -1024,6 +968,62 @@
       "dest": {
         "device": 140735120857408,
         "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735121044848,
+      "src": {
+        "device": 140735120853376,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735120985424,
+          "device": 140735120853376,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735121245840,
+        "repr": "Jt4000mmicro",
         "parameter": {
           "channel": null,
           "keys": {},

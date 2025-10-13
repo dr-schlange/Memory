@@ -10,7 +10,9 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 53
+          "cutoff": 89,
+          "resonance": 40,
+          "env_amount": 25
         },
         "ring_mod": {
           "on_off": 81,
@@ -30,6 +32,7 @@
       "config": {
         "filter": {
           "frequency": 62,
+          "resonance": 116,
           "envelope": 25
         },
         "env": {
@@ -70,19 +73,19 @@
       "config": {
         "set_pause": 0,
         "trigger": 0.0,
-        "mutation": 0.8,
+        "mutation": 0.3,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 0,
+        "out7": 1,
         "out6": 0,
         "out5": 0,
         "out4": 1,
-        "out3": 0,
+        "out3": 1,
         "out2": 1,
         "out1": 0,
-        "out0": 1,
-        "tape_out": 168,
-        "gate_out": 0,
+        "out0": 0,
+        "tape_out": 57,
+        "gate_out": 1,
         "out_main": 0
       },
       "proxy": false,
@@ -118,7 +121,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 72.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -133,14 +136,14 @@
         "step5": 66.0,
         "step6": 63.0,
         "step7": 64.0,
-        "active0": 1,
+        "active0": 0,
         "active1": 0,
         "active2": 1,
-        "active3": 0,
+        "active3": 1,
         "active4": 1,
         "active5": 0,
         "active6": 0,
-        "active7": 0,
+        "active7": 1,
         "trig_out": 0,
         "current_step": 3
       },
@@ -153,9 +156,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.9159999999999999,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -743,6 +746,118 @@
       "muted": false
     },
     {
+      "id": 140735121044848,
+      "src": {
+        "device": 140735120854048,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "tape_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            255
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tape_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735121191888,
+          "device": 140735120854048,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735121245840,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735121044368,
+      "src": {
+        "device": 140735120854048,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "tape_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            255
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tape_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735121181392,
+          "device": 140735120854048,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735120857408,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735120772368,
       "src": {
         "device": 140735120856400,
@@ -866,62 +981,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140735120414656,
-      "src": {
-        "device": 140735120853376,
-        "repr": "Sequencer81",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735120415376,
-          "device": 140735120853376,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735121245840,
-        "repr": "Jt4000mmicro",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false

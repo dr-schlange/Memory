@@ -10,9 +10,10 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 80,
+          "cutoff": 53,
           "resonance": 40,
-          "env_amount": 25
+          "env_amount": 25,
+          "attack": 24
         },
         "ring_mod": {
           "on_off": 81,
@@ -32,7 +33,6 @@
       "config": {
         "filter": {
           "frequency": 62,
-          "resonance": 89,
           "envelope": 25
         },
         "env": {
@@ -76,16 +76,16 @@
         "mutation": 0.3,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 1,
-        "out6": 1,
+        "out7": 0,
+        "out6": 0,
         "out5": 1,
-        "out4": 1,
-        "out3": 0,
-        "out2": 1,
-        "out1": 0,
+        "out4": 0,
+        "out3": 1,
+        "out2": 0,
+        "out1": 1,
         "out0": 0,
-        "tape_out": 47,
-        "gate_out": 1,
+        "tape_out": 84,
+        "gate_out": 0,
         "out_main": 0
       },
       "proxy": false,
@@ -121,7 +121,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 64.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -137,15 +137,15 @@
         "step6": 63.0,
         "step7": 64.0,
         "active0": 0,
-        "active1": 0,
-        "active2": 1,
-        "active3": 0,
-        "active4": 1,
+        "active1": 1,
+        "active2": 0,
+        "active3": 1,
+        "active4": 0,
         "active5": 1,
-        "active6": 1,
-        "active7": 1,
+        "active6": 0,
+        "active7": 0,
         "trig_out": 0,
-        "current_step": 3
+        "current_step": 7
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -156,9 +156,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7000000000000004,
+        "output": 0.0,
         "set_pause": 0,
-        "gate": 1,
+        "gate": 0,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -866,12 +866,76 @@
       "muted": false
     },
     {
-      "id": 140735120772368,
+      "id": 140735073576080,
+      "src": {
+        "device": 140735120854048,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "tape_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            255
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tape_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735121194576,
+          "device": 140735120854048,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735122386496,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735073577680,
       "src": {
         "device": 140735120856400,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul4",
+          "name": "lead",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -882,7 +946,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul4_cv",
+          "cv_name": "lead_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -891,7 +955,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735120773904,
+          "id": 140735121181008,
           "device": 140735120856400,
           "to_min": 0.0,
           "to_max": 1.0,

@@ -8,7 +8,11 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 48
+        }
+      },
       "class": "Jt4000mmicro"
     },
     {
@@ -67,14 +71,14 @@
         "random": 0.0,
         "reset": 0.0,
         "out7": 0,
-        "out6": 0,
-        "out5": 1,
-        "out4": 0,
+        "out6": 1,
+        "out5": 0,
+        "out4": 1,
         "out3": 1,
-        "out2": 0,
+        "out2": 1,
         "out1": 0,
         "out0": 1,
-        "tape_out": 148,
+        "tape_out": 186,
         "gate_out": 0,
         "out_main": 0
       },
@@ -128,14 +132,14 @@
         "step7": 71.0,
         "active0": 1,
         "active1": 0,
-        "active2": 0,
+        "active2": 1,
         "active3": 1,
-        "active4": 0,
-        "active5": 1,
-        "active6": 0,
+        "active4": 1,
+        "active5": 0,
+        "active6": 1,
         "active7": 0,
         "trig_out": 0,
-        "current_step": 6
+        "current_step": 0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -146,7 +150,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.37799999999999967,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.1,
@@ -672,6 +676,70 @@
       "muted": false
     },
     {
+      "id": 140734700409376,
+      "src": {
+        "device": 140735120854048,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "gate_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gate_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734700408656,
+          "device": 140735120854048,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735122387840,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140735120858416,
       "src": {
         "device": 140735120856400,
@@ -851,6 +919,63 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735073685296,
+      "src": {
+        "device": 140735122387840,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735073681936,
+          "device": 140735122387840,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735121245840,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

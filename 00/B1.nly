@@ -8,7 +8,11 @@
         "output": "PROVS-MINI:PROVS-MINI MIDI 1 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 32
+        }
+      },
       "class": "Provsmini"
     },
     {
@@ -21,7 +25,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 48,
+          "frequency": 50,
           "resonance": 85,
           "envelope": 90,
           "lfo": 9
@@ -38,9 +42,6 @@
       },
       "channel": 0,
       "config": {
-        "keys": {
-          "mod": 127
-        },
         "sliders": {
           "s2": 7,
           "s4": 26
@@ -106,16 +107,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 1.0,
-        "div8": 1.0,
-        "div7": 1.0,
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 0.0,
+        "div7": 0.0,
         "div6": 1.0,
         "div5": 1.0,
-        "div4": 0.0,
+        "div4": 1.0,
         "div3": 0.0,
         "div2": 1.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -126,7 +127,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 31.61466244655603,
+        "output": 20.376011611256068,
         "set_pause": 0,
         "speed": 0.52,
         "subdiv": "1/1",
@@ -149,7 +150,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 56,
+        "input": 50,
         "chord": "m7b5",
         "octave": 0,
         "inversion": "--",
@@ -161,10 +162,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 66,
-        "note2": 62,
-        "note1": 59,
-        "note0": 56
+        "note3": 60,
+        "note2": 56,
+        "note1": 53,
+        "note0": 50
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -180,11 +181,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 66.0,
-        "io3": 62.0,
-        "io2": 59.0,
-        "io1": 56.0,
-        "oi": 93.0
+        "io4": 60.0,
+        "io3": 56.0,
+        "io2": 53.0,
+        "io1": 50.0,
+        "oi": 92.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -197,7 +198,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "input": 93.0,
+        "input": 92.0,
         "record": 0.0,
         "clear": 0.0,
         "reset": 0.0,
@@ -231,9 +232,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 93.0,
+        "output": 92.0,
         "set_pause": 0,
-        "input_a": 93.0,
+        "input_a": 92.0,
         "input_b": 0,
         "selector": 0,
         "crossfade": 0.0,
@@ -248,12 +249,34 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.757784114727942,
+        "output": 5.592928241469033,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50.0,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 140735919759568,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 4.980670822956461,
+        "set_pause": 0,
+        "speed": 0.48,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -1627,6 +1650,63 @@
           "range": [
             0,
             127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735919737424,
+      "src": {
+        "device": 140735919759568,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735920549200,
+          "device": 140735919759568,
+          "to_min": 31,
+          "to_max": 63,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734599402832,
+        "repr": "Provsmini",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            99
           ]
         },
         "explicit": -1,

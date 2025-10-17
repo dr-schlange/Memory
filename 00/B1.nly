@@ -95,9 +95,9 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
+        "div32": 1.0,
         "div16": 1.0,
-        "div8": 0.0,
+        "div8": 1.0,
         "div7": 0.0,
         "div6": 0.0,
         "div5": 1.0,
@@ -131,7 +131,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 93.08638067650745,
+        "output": 59.92335249018233,
         "set_pause": 0,
         "speed": 0.08,
         "subdiv": "1/1",
@@ -188,7 +188,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 104,
+        "input": 82,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -200,10 +200,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 115,
-        "note2": 111,
-        "note1": 108,
-        "note0": 104
+        "note3": 93,
+        "note2": 89,
+        "note1": 86,
+        "note0": 82
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -235,11 +235,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 115.0,
-        "io3": 111.0,
-        "io2": 108.0,
-        "io1": 104.0,
-        "oi": 111.0
+        "io4": 93.0,
+        "io3": 89.0,
+        "io2": 86.0,
+        "io1": 82.0,
+        "oi": 89.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -252,7 +252,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "input": 111.0,
+        "input": 89.0,
         "record": 0.0,
         "clear": 0.0,
         "reset": 0.0,
@@ -594,6 +594,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "reverse_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734550547248,
+      "src": {
+        "device": 140734601421424,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734601720400,
+          "device": 140734601421424,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734599397456,
+        "repr": "ClaudeDualRouter1",
+        "parameter": {
+          "name": "selector",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "selector_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1269,6 +1333,62 @@
       "dest": {
         "device": 140734599408208,
         "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734600131472,
+      "src": {
+        "device": 140734599397456,
+        "repr": "ClaudeDualRouter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734599445072,
+          "device": 140734599397456,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734599402832,
+        "repr": "Provsmini",
         "parameter": {
           "channel": null,
           "keys": {},

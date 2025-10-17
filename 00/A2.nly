@@ -53,7 +53,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 190.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -110,7 +110,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 62.96219493940724,
+        "output": 32.71406195767318,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -133,19 +133,19 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
         "out7": 1,
-        "out6": 0,
-        "out5": 1,
-        "out4": 1,
+        "out6": 1,
+        "out5": 0,
+        "out4": 0,
         "out3": 1,
         "out2": 1,
         "out1": 0,
         "out0": 0,
-        "tape_out": 61,
+        "tape_out": 51,
         "gate_out": 1,
         "out_main": 0
       },
@@ -162,16 +162,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
+        "div32": 0.0,
         "div16": 1.0,
-        "div8": 0.0,
+        "div8": 1.0,
         "div7": 1.0,
-        "div6": 1.0,
-        "div5": 0.0,
+        "div6": 0.0,
+        "div5": 1.0,
         "div4": 0.0,
         "div3": 1.0,
         "div2": 1.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -206,7 +206,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 6
+        "current_step": 0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -416,6 +416,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735677724816,
+      "src": {
+        "device": 140735697071344,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735697478592,
+          "device": 140735697071344,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735699083888,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -672,6 +736,70 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735677717296,
+      "src": {
+        "device": 140735697072016,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735677794640,
+          "device": 140735697072016,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735699083888,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

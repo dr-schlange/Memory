@@ -10,6 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
+          "frequency": 65,
           "lfo": 97
         },
         "env": {
@@ -78,9 +79,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 62,
         "set_pause": 0,
-        "input": 0,
+        "input": 65,
         "interval": "-2/b2",
         "key": "C",
         "scale_": "maj"
@@ -94,9 +95,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 69,
         "set_pause": 0,
-        "input": 0,
+        "input": 65,
         "interval": "+4/b4",
         "key": "C",
         "scale_": "maj"
@@ -143,11 +144,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 65,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0
+        "out0": 65
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -158,13 +159,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 40.15036002899216,
+        "output": 10.769185749988681,
         "set_pause": 0,
-        "speed": 0.29,
+        "speed": 0.31,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "smooth_random_cosine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -180,13 +181,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 41.02599098173188,
+        "output": 60.67648885122537,
         "set_pause": 0,
-        "speed": 0.93,
+        "speed": 2.93,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "sine",
+        "sampling_rate": 58,
+        "waveform": "sawtooth",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -202,11 +203,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.021808794543995,
+        "output": 64.98919064193504,
         "set_pause": 0,
-        "a": 41.02599098173188,
-        "b": 40.15036002899216,
-        "operator": "/",
+        "a": 54.22000489194636,
+        "b": 10.769185749988681,
+        "operator": "+",
         "type": "ondemand"
       },
       "proxy": false,
@@ -1771,6 +1772,70 @@
       "muted": false
     },
     {
+      "id": 140732390495792,
+      "src": {
+        "device": 140732441226144,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732439297872,
+          "device": 140732441226144,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732441223792,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140732389596432,
       "src": {
         "device": 140732439059728,
@@ -1899,6 +1964,70 @@
       "muted": false
     },
     {
+      "id": 140732390493552,
+      "src": {
+        "device": 140732439059728,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732389641168,
+          "device": 140732439059728,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732441223792,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140732390145264,
       "src": {
         "device": 140732441230176,
@@ -1950,6 +2079,127 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "xyscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732390494032,
+      "src": {
+        "device": 140732441230176,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732389645776,
+          "device": 140732441230176,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732441228160,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732390492912,
+      "src": {
+        "device": 140732441230176,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732389309136,
+          "device": 140732441230176,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732441223792,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_z",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_z_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

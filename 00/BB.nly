@@ -8,7 +8,12 @@
         "output": "S-1:S-1 MIDI IN 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 68,
+          "resonance": 72
+        }
+      },
       "class": "S1"
     },
     {
@@ -19,7 +24,12 @@
         "output": "PROVS-MINI:PROVS-MINI MIDI 1 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 53,
+          "resonance": 56
+        }
+      },
       "class": "Provsmini"
     },
     {
@@ -64,17 +74,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 62,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "+6/m6",
         "interval3": "+7/b7",
         "key": "C",
         "scale_": "maj",
-        "out0": 0,
-        "out1": 0,
-        "out2": 0,
-        "out3": 0
+        "out0": 65,
+        "out1": 69,
+        "out2": 71,
+        "out3": 72
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -85,7 +95,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 91.78855121498314,
+        "output": 75.02009488562204,
         "set_pause": 0,
         "speed": 10.0,
         "subdiv": "1/1",
@@ -107,7 +117,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.010933750628516092,
+        "output": 125.03717401814524,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -211,14 +221,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.0,
-        "in1": 0.0,
-        "in2": 0.0,
-        "in3": 0.0,
-        "level": 72.27444977557728,
+        "in0": 65.0,
+        "in1": 69.0,
+        "in2": 71.0,
+        "in3": 72.0,
+        "level": 59.070940854820506,
         "type": "ondemand",
-        "out0": 0.0,
-        "out1": 0.0
+        "out0": 67.96060029032495,
+        "out1": 71.74015007258124
       },
       "proxy": false,
       "class": "Crossfade"
@@ -1219,6 +1229,120 @@
           "range": [
             0,
             127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734337388688,
+      "src": {
+        "device": 140733754705296,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734406015312,
+          "device": 140733754705296,
+          "to_min": 0,
+          "to_max": 99,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733754710000,
+        "repr": "Provsmini",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            99
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734355864496,
+      "src": {
+        "device": 140733754705296,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734406012368,
+          "device": 140733754705296,
+          "to_min": 0,
+          "to_max": 99,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733754710000,
+        "repr": "Provsmini",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            99
           ]
         },
         "explicit": -1,

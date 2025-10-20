@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 69,
+          "frequency": 67,
           "resonance": 72
         }
       },
@@ -26,7 +26,7 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 54,
+          "cutoff": 52,
           "resonance": 56
         }
       },
@@ -95,7 +95,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 120.26901884676644,
+        "output": 71.65172125456931,
         "set_pause": 0,
         "speed": 1.124,
         "subdiv": "1/1",
@@ -117,7 +117,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 39.214409211031466,
+        "output": 6.641169903312334,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -140,7 +140,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
@@ -160,18 +160,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 71.92392644969202,
+        "input": 71.56418678153204,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 71.92392644969202,
-        "output6": 71.07739404218832,
-        "output5": 71.23088859045176,
-        "output4": 71.33320733329172,
-        "output3": 71.48667817302393,
-        "output2": 71.64012590893564,
-        "output1": 71.79354131860778,
-        "output0": 68.78800059359895
+        "output7": 71.54092494095963,
+        "output6": 71.64323626090442,
+        "output5": 71.79670280358354,
+        "output4": 71.95017326003224,
+        "output3": 71.10363870006832,
+        "output2": 71.20597243819164,
+        "output1": 71.35955870935223,
+        "output0": 71.51303028980027
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -210,13 +210,13 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
-        "div16": 0.0,
-        "div8": 0.0,
-        "div7": 0.0,
+        "div32": 1.0,
+        "div16": 1.0,
+        "div8": 1.0,
+        "div7": 1.0,
         "div6": 0.0,
         "div5": 0.0,
-        "div4": 0.0,
+        "div4": 1.0,
         "div3": 0.0,
         "div2": 0.0,
         "div1": 0.0
@@ -235,10 +235,10 @@
         "in1": 69.0,
         "in2": 71.0,
         "in3": 72.0,
-        "level": 94.70001483997358,
+        "level": 56.41867815320418,
         "type": "ondemand",
-        "out0": 68.78800059359895,
-        "out1": 71.94700014839974
+        "out0": 67.25674712612818,
+        "out1": 71.56418678153204
       },
       "proxy": false,
       "class": "Crossfade"
@@ -250,17 +250,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 72,
+        "input": 71,
         "interval0": "root",
         "interval1": "root",
         "interval2": "root",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 72,
-        "out1": 72,
-        "out2": 72,
-        "out3": 72
+        "out0": 71,
+        "out1": 71,
+        "out2": 71,
+        "out3": 71
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -1540,18 +1540,82 @@
       "muted": false
     },
     {
-      "id": 140734355862256,
+      "id": 140734337391728,
       "src": {
         "device": 140733756684816,
         "repr": "Clock1",
         "parameter": {
-          "name": "div4",
+          "name": "lead",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
             0,
             1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734406015824,
+          "device": 140733756684816,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733754706640,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734337400208,
+      "src": {
+        "device": 140733754706640,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1565,8 +1629,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734355280208,
-          "device": 140733756684816,
+          "id": 140734406184528,
+          "device": 140733754706640,
           "to_min": 0,
           "to_max": 1,
           "auto": false,

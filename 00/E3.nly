@@ -63,12 +63,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 68.46023141327542,
+        "output": 122.17574972304277,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 10.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 200,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -85,7 +85,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 68.46459582189009,
+        "output": 50.143973759421165,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -170,15 +170,15 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 1.0,
+        "div16": 0.0,
         "div8": 0.0,
         "div7": 0.0,
         "div6": 0.0,
-        "div5": 1.0,
+        "div5": 0.0,
         "div4": 0.0,
-        "div3": 1.0,
+        "div3": 0.0,
         "div2": 0.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -190,17 +190,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 122.17574972304277,
         "nums": 4,
         "mode": "cv",
         "level1": 50,
         "level2": 50,
         "level3": 50,
         "level4": 50,
-        "out1": 0,
-        "out2": 0,
-        "out3": 0,
-        "out4": 0
+        "out1": 60.74682375384601,
+        "out2": 31.75,
+        "out3": 47.62499999999999,
+        "out4": 63.5
       },
       "proxy": false,
       "class": "HarmonicGenerator"
@@ -226,9 +226,180 @@
       },
       "proxy": false,
       "class": "Waveshaper"
+    },
+    {
+      "id": 140735704056224,
+      "repr": "Harmonizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 61,
+        "interval0": "root",
+        "interval1": "root",
+        "interval2": "root",
+        "interval3": "root",
+        "key": "C",
+        "scale_": "maj",
+        "out0": 60,
+        "out1": 60,
+        "out2": 60,
+        "out3": 60
+      },
+      "proxy": false,
+      "class": "Harmonizer"
+    },
+    {
+      "id": 140735704056560,
+      "repr": "Mixer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 0,
+        "in1": 0,
+        "in2": 0,
+        "in3": 0,
+        "level0": 50,
+        "level1": 50,
+        "level2": 50,
+        "level3": 50,
+        "nums": 4,
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Mixer"
     }
   ],
   "connections": [
+    {
+      "id": 140735703995472,
+      "src": {
+        "device": 140735704057232,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735703992592,
+          "device": 140735704057232,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735704058240,
+        "repr": "HarmonicGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735453121280,
+      "src": {
+        "device": 140735704057232,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735453121584,
+          "device": 140735704057232,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735706178160,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
     {
       "id": 140735706179168,
       "src": {
@@ -281,6 +452,134 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735453171216,
+      "src": {
+        "device": 140735704058240,
+        "repr": "HarmonicGenerator1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735453170896,
+          "device": 140735704058240,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735706178160,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735453119456,
+      "src": {
+        "device": 140735704058240,
+        "repr": "HarmonicGenerator1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735453120064,
+          "device": 140735704058240,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735704056224,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

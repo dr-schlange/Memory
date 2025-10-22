@@ -63,12 +63,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 91.22373573090465,
+        "output": 41.36836428943798,
         "set_pause": 0,
-        "speed": 10.0,
+        "speed": 0.01,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 200.0,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -85,7 +85,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 102.86109793468346,
+        "output": 41.36151733920092,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -145,7 +145,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -169,16 +169,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
-        "div16": 1.0,
+        "div32": 1.0,
+        "div16": 0.0,
         "div8": 0.0,
-        "div7": 1.0,
+        "div7": 0.0,
         "div6": 1.0,
         "div5": 0.0,
         "div4": 1.0,
         "div3": 1.0,
         "div2": 1.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -190,17 +190,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 91.22373573090465,
+        "input": 41.36836428943798,
         "nums": 4,
-        "mode": "cv",
-        "level1": 50,
-        "level2": 50,
-        "level3": 50,
-        "level4": 50,
-        "out1": 66.62423570360357,
-        "out2": 31.75,
-        "out3": 47.62499999999999,
-        "out4": 63.5
+        "mode": "pitch",
+        "level1": 74.0,
+        "level2": 65.0,
+        "level3": 82.0,
+        "level4": 58.0,
+        "out1": 23.495,
+        "out2": 41.275,
+        "out3": 78.105,
+        "out4": 73.66
       },
       "proxy": false,
       "class": "HarmonicGenerator"
@@ -234,17 +234,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 67,
+        "input": 23,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "+7/b7",
         "interval3": "+2/b2",
         "key": "C",
         "scale_": "maj",
-        "out0": 71,
-        "out1": 74,
-        "out2": 77,
-        "out3": 69
+        "out0": 26,
+        "out1": 29,
+        "out2": 33,
+        "out3": 24
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -255,21 +255,54 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 49.4625,
+        "output": 6.5,
         "set_pause": 0,
-        "in0": 71.0,
-        "in1": 74.0,
-        "in2": 77.0,
-        "in3": 69.0,
-        "level0": 67.0,
-        "level1": 23.0,
-        "level2": 96.0,
-        "level3": 86.0,
+        "in0": 26.0,
+        "in1": 29.0,
+        "in2": 33.0,
+        "in3": 24.0,
+        "level0": 100.0,
+        "level1": 0.0,
+        "level2": 0.0,
+        "level3": 0.0,
         "nums": 4,
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Mixer"
+    },
+    {
+      "id": 140732667904416,
+      "repr": "Operator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 26.0,
+        "set_pause": 0,
+        "a": 6.5,
+        "b": 4.0,
+        "operator": "*",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
+    },
+    {
+      "id": 140732667905088,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 60.196850393700785,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "proxy": false,
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -1042,62 +1075,6 @@
       "muted": false
     },
     {
-      "id": 140735704032592,
-      "src": {
-        "device": 140735704056560,
-        "repr": "Mixer1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732667618128,
-          "device": 140735704056560,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735704065296,
-        "repr": "S1",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
       "id": 140732525249792,
       "src": {
         "device": 140735704056560,
@@ -1157,6 +1134,190 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732668178864,
+      "src": {
+        "device": 140735704056560,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732668174704,
+          "device": 140735704056560,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732667904416,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732525189136,
+      "src": {
+        "device": 140732667904416,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732670031584,
+          "device": 140732667904416,
+          "to_min": 43,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732667905088,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732668175664,
+      "src": {
+        "device": 140732667905088,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732667727952,
+          "device": 140732667905088,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735704065296,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false

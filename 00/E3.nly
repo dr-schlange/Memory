@@ -63,7 +63,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 18.548186327157328,
+        "output": 1.0522058612850214,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -85,7 +85,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.2120334709523638,
+        "output": 123.69976325883566,
         "set_pause": 0,
         "speed": 0.62,
         "subdiv": "1/1",
@@ -124,12 +124,12 @@
       "config": {
         "set_pause": 0,
         "in0": 127.0,
-        "in1": 55.26809174394658,
+        "in1": 43.69594718384206,
         "in2": 0,
         "in3": 0,
-        "level": 0.16695548893886913,
+        "level": 97.40138839278399,
         "type": "ondemand",
-        "out0": 126.88023964184593,
+        "out0": 45.8606959696041,
         "out1": 0.0
       },
       "proxy": false,
@@ -171,14 +171,14 @@
         "mode": "gate",
         "div32": 0.0,
         "div16": 0.0,
-        "div8": 0.0,
+        "div8": 1.0,
         "div7": 0.0,
-        "div6": 0.0,
-        "div5": 0.0,
-        "div4": 0.0,
-        "div3": 0.0,
-        "div2": 0.0,
-        "div1": 0.0
+        "div6": 1.0,
+        "div5": 1.0,
+        "div4": 1.0,
+        "div3": 1.0,
+        "div2": 1.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -190,14 +190,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 18.548186327157328,
+        "input": 1.0522058612850214,
         "nums": 4,
         "mode": "cv",
         "level1": 96.0,
         "level2": 41.0,
         "level3": 61.0,
         "level4": 70.0,
-        "out1": 65.75921034452718,
+        "out1": 84.38662602589172,
         "out2": 15.24,
         "out3": 78.105,
         "out4": 73.66
@@ -211,18 +211,18 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.5889452891546134,
+        "output": 3.22353946701339,
         "set_pause": 0,
-        "input": 0.17789057830922683,
-        "mode": "linear",
+        "input": 1.644616222511158,
+        "mode": "fold",
         "amount": 0.5,
         "symmetry": 0,
         "bias": 0,
         "exp_power": 2,
-        "log_scale": 4,
+        "log_scale": 4.0,
         "sigmoid_gain": 3,
-        "fold_gain": 1,
-        "quantize_steps": 8,
+        "fold_gain": 1.9,
+        "quantize_steps": 2,
         "type": "ondemand"
       },
       "proxy": false,
@@ -312,10 +312,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 116.74300160650952,
+        "output": 47.8908985867307,
         "set_pause": 0,
-        "input": 126.88023964184593,
-        "trigger": 0,
+        "input": 45.8606959696041,
+        "trigger": 1,
         "reset": 0
       },
       "proxy": false,
@@ -327,10 +327,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.84625572924083,
+        "output": 43.75109153425642,
         "set_pause": 0,
-        "input": 126.88023964184593,
-        "trigger": 0,
+        "input": 45.8606959696041,
+        "trigger": 1,
         "reset": 0
       },
       "proxy": false,
@@ -1414,6 +1414,70 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732523162640,
+      "src": {
+        "device": 140735704057904,
+        "repr": "Waveshaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732670064208,
+          "device": 140735704057904,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735706178160,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope4_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope4_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

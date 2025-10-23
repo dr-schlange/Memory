@@ -1,5 +1,37 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140734396941376,
+      "repr": "S1",
+      "ports": {
+        "input": "S-1:S-1 MIDI IN 24:0",
+        "output": "S-1:S-1 MIDI IN 24:0"
+      },
+      "channel": 0,
+      "config": {
+        "filter": {
+          "frequency": 64,
+          "resonance": 100,
+          "envelope": 64
+        },
+        "effects": {
+          "delay_level": 43
+        }
+      },
+      "class": "S1"
+    },
+    {
+      "id": 140734396947088,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 28:0",
+        "output": "Minilab3:Minilab3 MIDI 28:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140734404252000,
@@ -22,8 +54,179 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140734396949104,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "gate": 0,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140734396949776,
+      "src": {
+        "device": 140734396947088,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734396949440,
+          "device": 140734396947088,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734396949104,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734347561872,
+      "src": {
+        "device": 140734396947088,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734347561552,
+          "device": 140734396947088,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734396941376,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734399394960,
+      "src": {
+        "device": 140734396947088,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734399394048,
+          "device": 140734396947088,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "pitchwheel"
+      },
+      "dest": {
+        "device": 140734396941376,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 24,
+          "channel": null,
+          "name": "envelope",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    }
+  ],
   "playground_code": ""
 }

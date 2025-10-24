@@ -29,13 +29,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 124.59030593231785,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -52,7 +52,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
@@ -64,12 +64,77 @@
         "div4": 0.0,
         "div3": 0.0,
         "div2": 0.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140734716693200,
+      "src": {
+        "device": 140734718620544,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734716692192,
+          "device": 140734718620544,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734718620880,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    }
+  ],
   "playground_code": ""
 }

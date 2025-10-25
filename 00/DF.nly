@@ -92,10 +92,10 @@
         "length": 20,
         "hits": 7,
         "shift": 1,
-        "trig_shift": 0,
+        "trig_shift": 1,
         "reset": 0,
-        "step_out": 12,
-        "gate_out": 0,
+        "step_out": 18,
+        "gate_out": 1,
         "trigger_out": 0
       },
       "proxy": false,
@@ -112,13 +112,13 @@
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 61.0,
-        "output6": 61.0,
-        "output5": 0.0,
+        "output7": 70.0,
+        "output6": 70.0,
+        "output5": 68.0,
         "output4": 0.0,
         "output3": 0.0,
-        "output2": 68.0,
-        "output1": 0.0,
+        "output2": 54.0,
+        "output1": 54.0,
         "output0": 0.0
       },
       "proxy": false,
@@ -154,10 +154,34 @@
         "step14": 56.0,
         "step15": 0.0,
         "trig_out": 0,
-        "current_step": 8
+        "current_step": 13
       },
       "proxy": false,
       "class": "Sequencer"
+    },
+    {
+      "id": 140735876577808,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 1.0,
+        "div7": 0.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 1.0,
+        "div3": 0.0,
+        "div2": 1.0,
+        "div1": 0.0
+      },
+      "proxy": false,
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -290,12 +314,12 @@
       "muted": false
     },
     {
-      "id": 140735874443600,
+      "id": 140735875135392,
       "src": {
         "device": 140735876578144,
         "repr": "Clock1",
         "parameter": {
-          "name": "div4",
+          "name": "lead",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -306,7 +330,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "div4_cv",
+          "cv_name": "lead_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -315,10 +339,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735874444112,
+          "id": 140735875130112,
           "device": 140735876578144,
-          "to_min": 0,
-          "to_max": 1,
+          "to_min": 0.0,
+          "to_max": 1.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -326,21 +350,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735876574784,
-        "repr": "EuclidianSequencer1",
+        "device": 140735876577808,
+        "repr": "ClockDivider1",
         "parameter": {
-          "name": "trig_shift",
+          "name": "trigger",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": ">0",
           "disable_policy": false,
-          "cv_name": "trig_shift_cv",
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -693,6 +717,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735874470128,
+      "src": {
+        "device": 140735876577808,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div8",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div8_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735874472816,
+          "device": 140735876577808,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735876574784,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "trig_shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trig_shift_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

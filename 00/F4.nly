@@ -8,7 +8,11 @@
         "output": "S-1:S-1 MIDI IN 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 89
+        }
+      },
       "class": "S1"
     }
   ],
@@ -48,7 +52,7 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 3,
+        "step_out": 6,
         "gate_out": 1,
         "trigger_out": 0
       },
@@ -89,16 +93,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
+        "div32": 0.0,
         "div16": 0.0,
-        "div8": 0.0,
-        "div7": 1.0,
+        "div8": 1.0,
+        "div7": 0.0,
         "div6": 0.0,
         "div5": 1.0,
         "div4": 1.0,
-        "div3": 0.0,
-        "div2": 0.0,
-        "div1": 0.0
+        "div3": 1.0,
+        "div2": 1.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -109,7 +113,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 61.0,
+        "output": 64.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -133,10 +137,27 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140732099665872,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.7,
+        "set_pause": 0,
+        "gate": 1,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
@@ -384,6 +405,191 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732099486544,
+      "src": {
+        "device": 140732099663520,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732099488336,
+          "device": 140732099663520,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732099665872,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732099486800,
+      "src": {
+        "device": 140732099663520,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trig_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trig_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732099486032,
+          "device": 140732099663520,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732099665872,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732100236144,
+      "src": {
+        "device": 140732099665872,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732100235856,
+          "device": 140732099665872,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732099659488,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

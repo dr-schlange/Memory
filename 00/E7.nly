@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 67
+          "cutoff": 70
         }
       },
       "class": "Jt4000mmicro"
@@ -25,9 +25,9 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 56,
-          "resonance": 106,
-          "envelope": 121
+          "frequency": 100,
+          "resonance": 70,
+          "envelope": 88
         }
       },
       "class": "S1"
@@ -102,16 +102,16 @@
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 0,
-        "out6": 1,
-        "out5": 1,
-        "out4": 1,
-        "out3": 1,
-        "out2": 0,
+        "out7": 1,
+        "out6": 0,
+        "out5": 0,
+        "out4": 0,
+        "out3": 0,
+        "out2": 1,
         "out1": 1,
         "out0": 1,
-        "tape_out": 222,
-        "gate_out": 0,
+        "tape_out": 225,
+        "gate_out": 1,
         "out_main": 0
       },
       "proxy": false,
@@ -130,7 +130,7 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 1,
+        "step_out": 7,
         "gate_out": 0,
         "trigger_out": 0
       },
@@ -148,10 +148,10 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 1.0,
+        "div16": 0.0,
         "div8": 1.0,
         "div7": 1.0,
-        "div6": 1.0,
+        "div6": 0.0,
         "div5": 0.0,
         "div4": 1.0,
         "div3": 0.0,
@@ -167,7 +167,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53.0,
+        "output": 0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -182,14 +182,14 @@
         "step5": 65.0,
         "step6": 55.0,
         "step7": 53.0,
-        "active0": 1,
+        "active0": 0,
         "active1": 1,
         "active2": 0,
         "active3": 0,
         "active4": 0,
-        "active5": 1,
-        "active6": 0,
-        "active7": 1,
+        "active5": 0,
+        "active6": 1,
+        "active7": 0,
         "trig_out": 0,
         "current_step": 7
       },
@@ -202,7 +202,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 111.40171039527425,
+        "output": 27.147506875275262,
         "set_pause": 0,
         "speed": 0.76,
         "subdiv": "1/1",
@@ -224,7 +224,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.5408461538461535,
+        "output": 0.560384615384615,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.0,
@@ -246,14 +246,14 @@
         "length": 8,
         "reset": 0,
         "mode": "ondemand",
-        "out7": 1,
-        "out6": 0,
-        "out5": 1,
+        "out7": 0,
+        "out6": 1,
+        "out5": 0,
         "out4": 0,
         "out3": 0,
         "out2": 0,
         "out1": 1,
-        "out0": 1,
+        "out0": 0,
         "overflow": 0
       },
       "proxy": false,
@@ -1018,6 +1018,63 @@
           "channel": null,
           "name": "cutoff",
           "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732400048784,
+      "src": {
+        "device": 140734837175840,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732399316432,
+          "device": 140734837175840,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735175948816,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "filter",
           "init_value": 0,
           "description": null,
           "range": [

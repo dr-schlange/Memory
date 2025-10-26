@@ -52,17 +52,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.20027970714191767,
+        "output": -2.9172246459464266,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
         "freq": 5.0,
-        "z": 16.46127081040612,
-        "y": -0.6077965008757072,
-        "x": -0.20027970714191767,
-        "znorm": 19.05985970170869,
-        "ynorm": 68.69235386282912,
-        "xnorm": 68.13592737944894
+        "z": 9.767875180458296,
+        "y": -5.3904268724398285,
+        "x": -2.9172246459464266,
+        "znorm": 0.0,
+        "ynorm": 48.46115536043749,
+        "xnorm": 52.97473344784696
       },
       "proxy": false,
       "class": "LorenzProjector"
@@ -74,17 +74,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 68,
+        "input": 50,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "+7/b7",
         "interval3": "-octave",
         "key": "C",
         "scale_": "maj",
-        "out0": 72,
-        "out1": 74,
-        "out2": 77,
-        "out3": 55
+        "out0": 53,
+        "out1": 57,
+        "out2": 60,
+        "out3": 38
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -96,17 +96,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 69,
+        "input": 48,
         "interval0": "-2/b2",
         "interval1": "-3/m3",
         "interval2": "root",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 67,
-        "out1": 65,
-        "out2": 69,
-        "out3": 69
+        "out0": 45,
+        "out1": 43,
+        "out2": 48,
+        "out3": 48
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -118,20 +118,61 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 19,
+        "input": 0,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "-4/b4",
         "interval3": "-6/m6",
         "key": "C",
         "scale_": "maj",
-        "out0": 23,
-        "out1": 26,
-        "out2": 14,
-        "out3": 9
+        "out0": 0,
+        "out1": 0,
+        "out2": 0,
+        "out3": 0
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 140732401512672,
+      "repr": "Crossfade1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 52.97473344784696,
+        "in1": 48.46115536043749,
+        "in2": 0,
+        "in3": 0,
+        "level": 73.16651844045904,
+        "type": "ondemand",
+        "out0": 49.672305504197986,
+        "out1": 0.0
+      },
+      "proxy": false,
+      "class": "Crossfade"
+    },
+    {
+      "id": 140732399379600,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 92.92147841938298,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -328,70 +369,6 @@
       "muted": false
     },
     {
-      "id": 140732282471440,
-      "src": {
-        "device": 140732401510656,
-        "repr": "LorenzProjector1",
-        "parameter": {
-          "name": "xnorm",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xnorm_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732401794384,
-          "device": 140732401510656,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732401512000,
-        "repr": "Harmonizer1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
       "id": 140732282105648,
       "src": {
         "device": 140732401510656,
@@ -507,6 +484,198 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732282143920,
+      "src": {
+        "device": 140732401510656,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "xnorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xnorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731750508752,
+          "device": 140732401510656,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732399380560,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732282153520,
+      "src": {
+        "device": 140732401510656,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "xnorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xnorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731750502736,
+          "device": 140732401510656,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732401512672,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732282155120,
+      "src": {
+        "device": 140732401510656,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "ynorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ynorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731750499024,
+          "device": 140732401510656,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732401512672,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1075,6 +1244,134 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732282471440,
+      "src": {
+        "device": 140732401512672,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732401794384,
+          "device": 140732401512672,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732401512000,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732282156560,
+      "src": {
+        "device": 140732399379600,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731750511440,
+          "device": 140732399379600,
+          "to_min": 0,
+          "to_max": 100,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732401512672,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "level",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            100
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "level_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

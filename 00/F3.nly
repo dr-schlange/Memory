@@ -5,22 +5,11 @@
       "repr": "Minilab3",
       "ports": {
         "input": "Minilab3:Minilab3 MIDI 32:0",
-        "output": "Minilab3:Minilab3 MIDI 32:0"
+        "output": "Minilab3:Minilab3 MCU/HUI 32:2"
       },
       "channel": 0,
       "config": {},
       "class": "Minilab3"
-    },
-    {
-      "id": 140734617406032,
-      "repr": "Provsmini",
-      "ports": {
-        "input": null,
-        "output": null
-      },
-      "channel": 0,
-      "config": {},
-      "class": "Provsmini"
     },
     {
       "id": 140734667026656,
@@ -32,6 +21,17 @@
       "channel": 0,
       "config": {},
       "class": "S1"
+    },
+    {
+      "id": 140734668748656,
+      "repr": "Jt4000mmicro",
+      "ports": {
+        "input": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0",
+        "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Jt4000mmicro"
     }
   ],
   "virtual_devices": [
@@ -77,7 +77,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 120.78382367294851,
+        "output": 69.9795629279756,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -156,6 +156,55 @@
       "class": "ShiftRegister"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140734666755280,
+      "src": {
+        "device": 140734667018256,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734666754960,
+          "device": 140734667018256,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734668748656,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    }
+  ],
   "playground_code": ""
 }

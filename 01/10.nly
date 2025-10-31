@@ -53,7 +53,7 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 5,
+        "step_out": 3,
         "gate_out": 0,
         "trigger_out": 0
       },
@@ -70,12 +70,12 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
+        "mul7": 0,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
+        "mul4": 1,
         "mul2": 0,
         "div2": 0,
         "div4": 0,
@@ -117,6 +117,57 @@
       },
       "proxy": false,
       "class": "EnvelopeSlew"
+    },
+    {
+      "id": 140733734009696,
+      "repr": "Sequencer81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "trigger": 1,
+        "play": 1,
+        "reset": 0,
+        "set_step": 0,
+        "length": 8,
+        "step0": 116.0,
+        "step1": 0.0,
+        "step2": 59.0,
+        "step3": 0.0,
+        "step4": 117.0,
+        "step5": 0.0,
+        "step6": 116.0,
+        "step7": 0.0,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0,
+        "current_step": 1
+      },
+      "proxy": false,
+      "class": "Sequencer8"
+    },
+    {
+      "id": 140733734004320,
+      "repr": "VoiceAllocator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 59,
+        "out3": 116,
+        "out2": 117,
+        "out1": 59,
+        "out0": 116
+      },
+      "proxy": false,
+      "class": "VoiceAllocator"
     }
   ],
   "connections": [
@@ -236,6 +287,70 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733731841872,
+      "src": {
+        "device": 140732465986960,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733731842896,
+          "device": 140732465986960,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733734009696,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -429,6 +544,326 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733731833680,
+      "src": {
+        "device": 140732466145200,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733731837520,
+          "device": 140732466145200,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733734004320,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733665904592,
+      "src": {
+        "device": 140733734004320,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733665904352,
+          "device": 140733734004320,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733734009696,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "step0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "step0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733665906032,
+      "src": {
+        "device": 140733734004320,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733665905792,
+          "device": 140733734004320,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733734009696,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "step2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "step2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733731904368,
+      "src": {
+        "device": 140733734004320,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "out2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733731898768,
+          "device": 140733734004320,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733734009696,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "step4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "step4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733731908400,
+      "src": {
+        "device": 140733734004320,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "out3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733731899664,
+          "device": 140733734004320,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733734009696,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "step6",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "step6_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

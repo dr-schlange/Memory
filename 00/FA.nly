@@ -19,7 +19,11 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 20:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 34
+        }
+      },
       "class": "Jt4000mmicro"
     }
   ],
@@ -76,7 +80,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65.51008230701719,
+        "output": 103.1877090192129,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -99,18 +103,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 58.0,
-        "trigger": 0,
+        "input": 66.0,
+        "trigger": 1,
         "reset": 1.0,
         "length": 8,
-        "output7": 63.0,
-        "output6": 56.0,
-        "output5": 62.0,
-        "output4": 58.0,
-        "output3": 63.0,
-        "output2": 56.0,
-        "output1": 62.0,
-        "output0": 58.0
+        "output7": 44.0,
+        "output6": 44.0,
+        "output5": 51.0,
+        "output4": 51.0,
+        "output3": 51.0,
+        "output2": 51.0,
+        "output1": 66.0,
+        "output0": 66.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -160,11 +164,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 63.0,
-        "io3": 58.0,
-        "io2": 62.0,
-        "io1": 56.0,
-        "oi": 58.0
+        "io4": 51.0,
+        "io3": 44.0,
+        "io2": 58.0,
+        "io1": 66.0,
+        "oi": 66.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -180,11 +184,11 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 0.0,
-        "div8": 0.0,
+        "div16": 1.0,
+        "div8": 1.0,
         "div7": 0.0,
         "div6": 0.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 1.0,
         "div3": 1.0,
         "div2": 0.0,
@@ -192,6 +196,22 @@
       },
       "proxy": false,
       "class": "ClockDivider"
+    },
+    {
+      "id": 140732467964496,
+      "repr": "Bitwise1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 1,
+        "set_pause": 0,
+        "a": 0,
+        "b": 0,
+        "operator": "or",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Bitwise"
     }
   ],
   "connections": [
@@ -324,7 +344,7 @@
       "muted": false
     },
     {
-      "id": 140732322945840,
+      "id": 140732349818640,
       "src": {
         "device": 140732466143184,
         "repr": "Clock1",
@@ -349,32 +369,32 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732468410800,
+          "id": 140732465915984,
           "device": 140732466143184,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 140732466139152,
-        "repr": "ShiftRegister1",
+        "device": 140732467964496,
+        "repr": "Bitwise1",
         "parameter": {
-          "name": "trigger",
+          "name": "b",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            null,
+            null
           ],
           "accepted_values": [],
-          "conversion_policy": ">0",
+          "conversion_policy": "round",
           "disable_policy": false,
-          "cv_name": "trigger_cv",
+          "cv_name": "b_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -388,12 +408,12 @@
       "muted": false
     },
     {
-      "id": 140732322943920,
+      "id": 140732349818320,
       "src": {
         "device": 140732466143184,
         "repr": "Clock1",
         "parameter": {
-          "name": "div3",
+          "name": "mul3",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -404,7 +424,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "div3_cv",
+          "cv_name": "mul3_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -413,7 +433,71 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732465912912,
+          "id": 140732322701776,
+          "device": 140732466143184,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732467964496,
+        "repr": "Bitwise1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732349821040,
+      "src": {
+        "device": 140732466143184,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732322701648,
           "device": 140732466143184,
           "to_min": 0,
           "to_max": 1,
@@ -671,6 +755,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732349813200,
+      "src": {
+        "device": 140732467964496,
+        "repr": "Bitwise1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732322703440,
+          "device": 140732467964496,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732466139152,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

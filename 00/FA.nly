@@ -8,7 +8,14 @@
         "output": "S-1:S-1 MIDI IN 24:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 84
+        },
+        "effects": {
+          "reverb_level": 59
+        }
+      },
       "class": "S1"
     },
     {
@@ -21,7 +28,7 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 34
+          "cutoff": 44
         }
       },
       "class": "Jt4000mmicro"
@@ -57,7 +64,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 55.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -80,7 +87,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 123.15284552860203,
+        "output": 84.1211111200442,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -103,18 +110,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 43.0,
+        "input": 0.0,
         "trigger": 0,
         "reset": 1.0,
         "length": 8,
-        "output7": 51.0,
-        "output6": 43.0,
-        "output5": 43.0,
-        "output4": 36.0,
-        "output3": 36.0,
-        "output2": 47.0,
-        "output1": 47.0,
-        "output0": 43.0
+        "output7": 0.0,
+        "output6": 42.0,
+        "output5": 42.0,
+        "output4": 0.0,
+        "output3": 0.0,
+        "output2": 55.0,
+        "output1": 55.0,
+        "output0": 55.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -125,31 +132,31 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 43.0,
+        "output": 0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
         "reset": 0,
         "set_step": 0,
         "length": 8,
-        "step0": 36.0,
-        "step1": 47.0,
-        "step2": 43.0,
-        "step3": 37.0,
-        "step4": 45.0,
-        "step5": 39.0,
-        "step6": 51.0,
-        "step7": 43.0,
-        "active0": 1,
+        "step0": 35.0,
+        "step1": 42.0,
+        "step2": 31.0,
+        "step3": 55.0,
+        "step4": 62.0,
+        "step5": 42.0,
+        "step6": 26.0,
+        "step7": 41.0,
+        "active0": 0,
         "active1": 1,
-        "active2": 1,
+        "active2": 0,
         "active3": 1,
-        "active4": 1,
+        "active4": 0,
         "active5": 1,
-        "active6": 1,
+        "active6": 0,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 2
+        "current_step": 4
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -184,16 +191,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 1.0,
-        "div8": 0.0,
-        "div7": 0.0,
-        "div6": 1.0,
-        "div5": 1.0,
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 1.0,
+        "div7": 1.0,
+        "div6": 0.0,
+        "div5": 0.0,
         "div4": 1.0,
         "div3": 0.0,
         "div2": 0.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -532,6 +539,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732349764048,
+      "src": {
+        "device": 140732466142176,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732465916368,
+          "device": 140732466142176,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732467969200,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

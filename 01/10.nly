@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 43,
+          "frequency": 59,
           "resonance": 74
         }
       },
@@ -53,7 +53,7 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 1,
+        "step_out": 5,
         "gate_out": 0,
         "trigger_out": 0
       },
@@ -70,7 +70,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -90,13 +90,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.33672000000000013,
+        "output": 0.0,
         "set_pause": 0,
         "gate": 0,
-        "attack": 1.0,
-        "decay": 0.2,
-        "sustain": 0.7,
-        "release": 1.0
+        "attack": 0.4,
+        "decay": 1.0,
+        "sustain": 0.0,
+        "release": 0.0
       },
       "proxy": false,
       "class": "ADSREnvelope"
@@ -107,12 +107,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 42.88739200000001,
+        "output": 59.205067346938726,
         "set_pause": 0,
-        "input": 42.76344000000002,
-        "attack": 50.0,
-        "release": 50.0,
-        "type": "envelope",
+        "input": 0.0,
+        "attack": 33.0,
+        "release": 51.0,
+        "type": "slew",
         "mode": "ondemand"
       },
       "proxy": false,
@@ -249,63 +249,6 @@
       "muted": false
     },
     {
-      "id": 140732322877424,
-      "src": {
-        "device": 140732466144864,
-        "repr": "ADSREnvelope1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733731876176,
-          "device": 140732466144864,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732465985360,
-        "repr": "S1",
-        "parameter": {
-          "cc_note": 74,
-          "channel": null,
-          "name": "frequency",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
       "id": 140732322874064,
       "src": {
         "device": 140732466144864,
@@ -370,62 +313,6 @@
       "muted": false
     },
     {
-      "id": 140732322882224,
-      "src": {
-        "device": 140732466145200,
-        "repr": "EnvelopeSlew1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733734154496,
-          "device": 140732466145200,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732465985360,
-        "repr": "S1",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
       "id": 140733732663760,
       "src": {
         "device": 140732466145200,
@@ -485,6 +372,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733732082544,
+      "src": {
+        "device": 140732466145200,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733732079552,
+          "device": 140732466145200,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732465985360,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

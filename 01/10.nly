@@ -10,7 +10,6 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 89,
           "resonance": 74
         }
       },
@@ -53,8 +52,8 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 6,
-        "gate_out": 1,
+        "step_out": 7,
+        "gate_out": 0,
         "trigger_out": 0
       },
       "proxy": false,
@@ -90,9 +89,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7,
+        "output": 0.0,
         "set_pause": 0,
-        "gate": 1,
+        "gate": 0,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -100,6 +99,23 @@
       },
       "proxy": false,
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 140732466145200,
+      "repr": "EnvelopeSlew1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 1.185333333333269,
+        "set_pause": 0,
+        "input": 0.5926666666666014,
+        "attack": 50.0,
+        "release": 50.0,
+        "type": "envelope",
+        "mode": "ondemand"
+      },
+      "proxy": false,
+      "class": "EnvelopeSlew"
     }
   ],
   "connections": [
@@ -284,6 +300,190 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732322874064,
+      "src": {
+        "device": 140732466144864,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732323009104,
+          "device": 140732466144864,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732466145200,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732322882224,
+      "src": {
+        "device": 140732466145200,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732465916624,
+          "device": 140732466145200,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732465985360,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732322876464,
+      "src": {
+        "device": 140732466145200,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732465921104,
+          "device": 140732466145200,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732465980880,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 59,
+          "frequency": 34,
           "resonance": 74
         }
       },
@@ -53,8 +53,8 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 3,
-        "gate_out": 0,
+        "step_out": 2,
+        "gate_out": 1,
         "trigger_out": 0
       },
       "proxy": false,
@@ -71,11 +71,11 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 1,
+        "mul4": 0,
         "mul2": 0,
         "div2": 0,
         "div4": 0,
@@ -90,9 +90,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.2700000000000002,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.4,
         "decay": 1.0,
         "sustain": 0.0,
@@ -107,9 +107,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 59.205067346938726,
+        "output": 33.977238805970174,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 34.29000000000002,
         "attack": 33.0,
         "release": 51.0,
         "type": "slew",
@@ -124,20 +124,20 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 21.0,
         "set_pause": 0,
-        "trigger": 1,
+        "trigger": 0,
         "play": 1,
         "reset": 0,
         "set_step": 0,
         "length": 8,
-        "step0": 116.0,
+        "step0": 0.0,
         "step1": 0.0,
-        "step2": 59.0,
+        "step2": 33.0,
         "step3": 0.0,
-        "step4": 117.0,
+        "step4": 31.0,
         "step5": 0.0,
-        "step6": 116.0,
+        "step6": 32.0,
         "step7": 0.0,
         "active0": 1,
         "active1": 1,
@@ -148,7 +148,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -160,11 +160,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 59,
-        "out3": 116,
-        "out2": 117,
-        "out1": 59,
-        "out0": 116
+        "input": 34,
+        "out3": 32,
+        "out2": 31,
+        "out1": 33,
+        "out0": 33
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -300,12 +300,12 @@
       "muted": false
     },
     {
-      "id": 140733731841872,
+      "id": 140733665331728,
       "src": {
         "device": 140732465986960,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul4",
+          "name": "mul7",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -316,7 +316,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul4_cv",
+          "cv_name": "mul7_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -325,7 +325,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733731842896,
+          "id": 140733665329616,
           "device": 140732465986960,
           "to_min": 0,
           "to_max": 1,
@@ -608,6 +608,62 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733731942464,
+      "src": {
+        "device": 140733734009696,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733731938096,
+          "device": 140733734009696,
+          "to_min": 51,
+          "to_max": 68,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732465985360,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false

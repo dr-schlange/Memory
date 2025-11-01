@@ -60,7 +60,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
+        "mul7": 0,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -80,7 +80,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 45.0,
+        "output": 55.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -104,7 +104,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0
+        "current_step": 1
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -116,18 +116,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 36.0,
+        "input": 59.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 53.0,
-        "output6": 64.0,
-        "output5": 65.0,
-        "output4": 65.0,
-        "output3": 57.0,
-        "output2": 57.0,
-        "output1": 57.0,
-        "output0": 36.0
+        "output7": 76.0,
+        "output6": 77.0,
+        "output5": 71.0,
+        "output4": 71.0,
+        "output3": 40.0,
+        "output2": 48.0,
+        "output1": 48.0,
+        "output0": 50.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -139,17 +139,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 45,
+        "input": 55,
         "interval0": "root",
-        "interval1": "+3/m3",
+        "interval1": "-4/b4",
         "interval2": "+7/b7",
-        "interval3": "-6/m6",
+        "interval3": "+3/m3",
         "key": "C",
         "scale_": "maj",
-        "out0": 45,
-        "out1": 48,
-        "out2": 55,
-        "out3": 36
+        "out0": 55,
+        "out1": 50,
+        "out2": 65,
+        "out3": 59
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -160,7 +160,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 20.649084294839273,
+        "output": 84.35133888143905,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -926,6 +926,150 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "interval3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": "root",
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 5852135241232,
+      "src": {
+        "device": 5852061850128,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5852135240464,
+          "device": 5852061850128,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733226231056,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 5852135242960,
+      "src": {
+        "device": 5852061850128,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5852135241616,
+          "device": 5852061850128,
+          "to_min": 14,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5852061849744,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "interval1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            14
+          ],
+          "accepted_values": [
+            "-octave",
+            "-7/b7",
+            "-6/m6",
+            "-5/b5",
+            "-4/b4",
+            "-3/m3",
+            "-2/b2",
+            "root",
+            "+2/b2",
+            "+3/m3",
+            "+4/b4",
+            "+5/b5",
+            "+6/m6",
+            "+7/b7",
+            "+octave"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "interval1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

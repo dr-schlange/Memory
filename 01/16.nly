@@ -52,7 +52,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.0,
+        "output": 59.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -76,7 +76,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 4
+        "current_step": 0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -87,7 +87,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.189941857774539,
+        "output": 66.10635729123197,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -135,13 +135,13 @@
       "config": {
         "set_pause": 0,
         "clock": 0,
-        "length": 8,
-        "hits": 4,
+        "length": 23,
+        "hits": 7,
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 0,
-        "gate_out": 1,
+        "step_out": 15,
+        "gate_out": 0,
         "trigger_out": 0
       },
       "proxy": false,
@@ -154,17 +154,39 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 57,
+        "input": 59,
+        "interval0": "root",
+        "interval1": "+3/m3",
+        "interval2": "+6/m6",
+        "interval3": "-3/m3",
+        "key": "C",
+        "scale_": "maj",
+        "out0": 59,
+        "out1": 62,
+        "out2": 67,
+        "out3": 55
+      },
+      "proxy": false,
+      "class": "Harmonizer"
+    },
+    {
+      "id": 4200817141008,
+      "repr": "Harmonizer2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 59,
         "interval0": "root",
         "interval1": "root",
         "interval2": "root",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 57,
-        "out1": 57,
-        "out2": 57,
-        "out3": 57
+        "out0": 59,
+        "out1": 59,
+        "out2": 59,
+        "out3": 59
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -236,12 +258,76 @@
       "muted": false
     },
     {
-      "id": 4200816903312,
+      "id": 4200819204112,
+      "src": {
+        "device": 4200781122192,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4200819203856,
+          "device": 4200781122192,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4200817141008,
+        "repr": "Harmonizer2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 4200817139408,
       "src": {
         "device": 4200781124880,
         "repr": "Clock1",
         "parameter": {
-          "name": "lead",
+          "name": "mul4",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -252,7 +338,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "lead_cv",
+          "cv_name": "mul4_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -261,7 +347,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4200816902928,
+          "id": 4200817139088,
           "device": 4200781124880,
           "to_min": 0,
           "to_max": 1,
@@ -446,6 +532,118 @@
         "explicit": -1,
         "chain": {
           "id": 4200817120848,
+          "device": 4200816910224,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4200816911760,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 4200817140048,
+      "src": {
+        "device": 4200816910224,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4200817139728,
+          "device": 4200816910224,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4200816911760,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 4200817140688,
+      "src": {
+        "device": 4200816910224,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4200817140368,
           "device": 4200816910224,
           "to_min": 0,
           "to_max": 127,

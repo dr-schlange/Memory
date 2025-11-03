@@ -41,13 +41,14 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 45,
         "set_pause": 0,
-        "input": 0,
+        "input": 46.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "sample&hold"
+        "type": "free"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -82,17 +83,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 46.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
         "reset": 0,
         "set_step": 0,
         "length": 8,
-        "step0": 0.0,
-        "step1": 0.0,
-        "step2": 0.0,
-        "step3": 0.0,
+        "step0": 56.0,
+        "step1": 57.0,
+        "step2": 46.0,
+        "step3": 60.0,
         "step4": 0.0,
         "step5": 0.0,
         "step6": 0.0,
@@ -106,13 +107,69 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
     }
   ],
   "connections": [
+    {
+      "id": 4200848100976,
+      "src": {
+        "device": 4200850130448,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4200850065296,
+          "device": 4200850130448,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4200848299024,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
     {
       "id": 4200848105136,
       "src": {
@@ -165,6 +222,70 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 4200848100496,
+      "src": {
+        "device": 4200848305424,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4200850065680,
+          "device": 4200848305424,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4200850130448,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

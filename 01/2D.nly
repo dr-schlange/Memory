@@ -10,7 +10,9 @@
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 58
+          "frequency": 106,
+          "resonance": 127,
+          "envelope": 76
         },
         "lfo": {
           "rate": 27
@@ -39,7 +41,8 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 59
+          "cutoff": 107,
+          "resonance": 76
         }
       },
       "class": "Jt4000mmicro"
@@ -75,18 +78,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 60.0,
+        "input": 83.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 73.0,
-        "output6": 53.0,
-        "output5": 64.0,
-        "output4": 57.0,
-        "output3": 53.0,
-        "output2": 57.0,
-        "output1": 53.0,
-        "output0": 64.0
+        "output7": 83.0,
+        "output6": 79.0,
+        "output5": 76.0,
+        "output4": 86.0,
+        "output3": 83.0,
+        "output2": 79.0,
+        "output1": 76.0,
+        "output0": 79.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -98,18 +101,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 73.0,
+        "input": 83.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 60.0,
-        "output6": 71.0,
-        "output5": 53.0,
-        "output4": 64.0,
-        "output3": 60.0,
-        "output2": 53.0,
-        "output1": 59.0,
-        "output0": 73.0
+        "output7": 79.0,
+        "output6": 81.0,
+        "output5": 86.0,
+        "output4": 83.0,
+        "output3": 79.0,
+        "output2": 76.0,
+        "output1": 86.0,
+        "output0": 86.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -124,7 +127,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -144,9 +147,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.7,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.1,
         "decay": 0.2,
         "sustain": 0.7,
@@ -162,7 +165,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 65,
+        "input": 88,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -174,10 +177,10 @@
         "custom3": "7th",
         "custom4": "octave",
         "note4": 0,
-        "note3": 76,
-        "note2": 72,
-        "note1": 69,
-        "note0": 65
+        "note3": 99,
+        "note2": 95,
+        "note1": 92,
+        "note0": 88
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -193,11 +196,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 76.0,
-        "io3": 72.0,
-        "io2": 69.0,
-        "io1": 65.0,
-        "oi": 65.0
+        "io4": 99.0,
+        "io3": 95.0,
+        "io2": 92.0,
+        "io1": 88.0,
+        "oi": 95.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -208,10 +211,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65.0,
+        "output": 88.0,
         "set_pause": 0,
-        "input": 0,
-        "trigger": 0,
+        "input": 88.0,
+        "trigger": 1,
         "reset": 0
       },
       "proxy": false,
@@ -224,20 +227,42 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 65,
+        "input": 95,
         "interval0": "+octave",
         "interval1": "-octave",
         "interval2": "root",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 77,
-        "out1": 53,
-        "out2": 65,
-        "out3": 65
+        "out0": 107,
+        "out1": 83,
+        "out2": 95,
+        "out3": 95
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 140734809117136,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 75.72247331275463,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -2079,6 +2104,120 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734809657808,
+      "src": {
+        "device": 140734809117136,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734808144208,
+          "device": 140734809117136,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734858891952,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734809660528,
+      "src": {
+        "device": 140734809117136,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734808143824,
+          "device": 140734809117136,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734860965408,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 24,
+          "channel": null,
+          "name": "envelope",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false

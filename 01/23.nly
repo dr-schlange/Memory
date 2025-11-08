@@ -8,7 +8,11 @@
         "output": "Minilab3:Minilab3 MIDI 24:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "sliders": {
+          "s4": 24
+        }
+      },
       "class": "Minilab3"
     },
     {
@@ -19,13 +23,17 @@
         "output": "S-1:S-1 MIDI IN 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 87
+        }
+      },
       "class": "S1"
     }
   ],
   "virtual_devices": [
     {
-      "id": 140736079843344,
+      "id": 140733250261008,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -52,9 +60,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 71.48818897637796,
         "set_pause": 0,
-        "input": 0,
+        "input": 62.488188976377955,
         "shift": 9.0
       },
       "proxy": false,
@@ -66,16 +74,38 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.6889527963148155,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.1,
-        "decay": 0.2,
-        "sustain": 0.7,
-        "release": 0.3
+        "decay": 0.0,
+        "sustain": 0.6889527963148155,
+        "release": 0.1889763779527559
       },
       "proxy": false,
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 140733243034656,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 87.49700513198157,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -97,7 +127,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736073338192,
+          "id": 140733243044400,
           "device": 140736075011472,
           "to_min": 0,
           "to_max": 128,
@@ -153,7 +183,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736073348432,
+          "id": 140733245452880,
           "device": 140736075011472,
           "to_min": 0,
           "to_max": 127,
@@ -201,7 +231,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736015170384,
+          "id": 140733245453520,
           "device": 140736075011472,
           "to_min": 0,
           "to_max": 1,
@@ -258,7 +288,7 @@
         },
         "explicit": 82,
         "chain": {
-          "id": 140736072742352,
+          "id": 140733245256848,
           "device": 140736075011472,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -315,7 +345,7 @@
         },
         "explicit": 83,
         "chain": {
-          "id": 140736073342928,
+          "id": 140733245258064,
           "device": 140736075011472,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -372,7 +402,7 @@
         },
         "explicit": 85,
         "chain": {
-          "id": 140736073346512,
+          "id": 140733243724080,
           "device": 140736075011472,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -429,7 +459,7 @@
         },
         "explicit": 17,
         "chain": {
-          "id": 140736073345104,
+          "id": 140733245144560,
           "device": 140736075011472,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -493,7 +523,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736073348944,
+          "id": 140733243179904,
           "device": 140736072843344,
           "to_min": 0,
           "to_max": 127,
@@ -549,7 +579,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736072734672,
+          "id": 140733242938960,
           "device": 140736072843680,
           "to_min": 0,
           "to_max": 127,
@@ -576,6 +606,70 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140733242940240,
+      "src": {
+        "device": 140733243034656,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733242939984,
+          "device": 140733243034656,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736072843680,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "sustain",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sustain_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

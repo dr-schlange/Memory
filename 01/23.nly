@@ -45,11 +45,24 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140736072843344,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "shift": 0
+      },
+      "proxy": false,
+      "class": "PitchShifter"
     }
   ],
   "connections": [
     {
-      "id": 140736015037488,
+      "id": 140736015036848,
       "src": {
         "device": 140736075011472,
         "repr": "Minilab3",
@@ -66,15 +79,79 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736072734800,
+          "id": 140736073338192,
           "device": 140736075011472,
+          "to_min": 0,
+          "to_max": 128,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140736072843344,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            128
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736015036048,
+      "src": {
+        "device": 140736072843344,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736073348944,
+          "device": 140736072843344,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
         },
-        "type": "note"
+        "type": "virtual"
       },
       "dest": {
         "device": 140736013961488,

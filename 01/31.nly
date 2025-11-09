@@ -68,16 +68,16 @@
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 0,
+        "out7": 1,
         "out6": 0,
-        "out5": 1,
+        "out5": 0,
         "out4": 1,
         "out3": 0,
-        "out2": 1,
+        "out2": 0,
         "out1": 1,
         "out0": 1,
-        "tape_out": 236,
-        "gate_out": 0,
+        "tape_out": 201,
+        "gate_out": 1,
         "out_main": 0
       },
       "proxy": false,
@@ -155,13 +155,71 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 62.44881889763779,
+        "output": 70.51181102362204,
         "set_pause": 0,
-        "input": 57.44881889763779,
+        "input": 65.51181102362204,
         "shift": 5.0
       },
       "proxy": false,
       "class": "PitchShifter"
+    },
+    {
+      "id": 140736286373744,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 1.0,
+        "div16": 0.0,
+        "div8": 0.0,
+        "div7": 1.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 1.0,
+        "div3": 0.0,
+        "div2": 0.0,
+        "div1": 1.0
+      },
+      "proxy": false,
+      "class": "ClockDivider"
+    },
+    {
+      "id": 140736286371392,
+      "repr": "Sequencer81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "play": 1,
+        "reset": 0,
+        "set_step": 0,
+        "length": 8,
+        "step0": 0.0,
+        "step1": 0.0,
+        "step2": 0.0,
+        "step3": 0.0,
+        "step4": 0.0,
+        "step5": 0.0,
+        "step6": 0.0,
+        "step7": 0.0,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0,
+        "current_step": 0
+      },
+      "proxy": false,
+      "class": "Sequencer8"
     }
   ],
   "connections": [
@@ -636,6 +694,70 @@
           "range": [
             0,
             1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140736285070096,
+      "src": {
+        "device": 140736286370048,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736284784592,
+          "device": 140736286370048,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736286373744,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": ">0",

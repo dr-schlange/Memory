@@ -8,7 +8,11 @@
         "output": "Minilab3:Minilab3 MIDI 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "pads": {
+          "p5": 127
+        }
+      },
       "class": "Minilab3"
     },
     {
@@ -54,7 +58,7 @@
       "config": {
         "set_pause": 0,
         "input": 0,
-        "chord": "7th",
+        "chord": "maj7",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -72,6 +76,23 @@
       },
       "proxy": false,
       "class": "ChordGenerator"
+    },
+    {
+      "id": 140735918011264,
+      "repr": "Switch1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "input": 0.0,
+        "selector": 0,
+        "type": "toggle",
+        "hold_last": true,
+        "output2": 0
+      },
+      "proxy": false,
+      "class": "Switch"
     }
   ],
   "connections": [
@@ -588,7 +609,7 @@
       "muted": false
     },
     {
-      "id": 140735920108432,
+      "id": 140735918173520,
       "src": {
         "device": 140735918006560,
         "repr": "ChordGenerator1",
@@ -613,7 +634,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735920107152,
+          "id": 140735918165520,
           "device": 140735918006560,
           "to_min": 0,
           "to_max": 127,
@@ -624,27 +645,35 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735918003200,
-        "repr": "S1",
+        "device": 140735918011264,
+        "repr": "Switch1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false
     },
     {
-      "id": 140735920109712,
+      "id": 140735918165680,
       "src": {
         "device": 140735918006560,
         "repr": "ChordGenerator1",
@@ -669,7 +698,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735920107792,
+          "id": 140735920226128,
           "device": 140735918006560,
           "to_min": 0,
           "to_max": 127,
@@ -680,27 +709,35 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735918003200,
-        "repr": "S1",
+        "device": 140735918011264,
+        "repr": "Switch1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false
     },
     {
-      "id": 140735920157840,
+      "id": 140735642281264,
       "src": {
         "device": 140735918006560,
         "repr": "ChordGenerator1",
@@ -725,8 +762,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735920157536,
+          "id": 140735917968208,
           "device": 140735918006560,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735918011264,
+        "repr": "Switch1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140735642281904,
+      "src": {
+        "device": 140735918011264,
+        "repr": "Switch1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735918165840,
+          "device": 140735918011264,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

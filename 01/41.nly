@@ -27,6 +27,17 @@
       "channel": 0,
       "config": {},
       "class": "S1"
+    },
+    {
+      "id": 140736286711056,
+      "repr": "Jt4000mmicro",
+      "ports": {
+        "input": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 36:0",
+        "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 36:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Jt4000mmicro"
     }
   ],
   "virtual_devices": [
@@ -58,7 +69,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.8787401574803149,
         "set_pause": 0,
         "gate": 1,
         "attack": 0.0,
@@ -75,10 +86,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 111.82,
         "set_pause": 0,
         "input": 127.0,
-        "amplitude": 0.0,
+        "amplitude": 0.8787401574803149,
         "gain": 1.0
       },
       "proxy": false,
@@ -128,8 +139,8 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 5,
-        "gate_out": 1,
+        "step_out": 4,
+        "gate_out": 0,
         "trigger_out": 0
       },
       "proxy": false,
@@ -1043,7 +1054,7 @@
         "type": "virtual"
       },
       "bouncy": false,
-      "muted": false
+      "muted": true
     },
     {
       "id": 140736285097840,
@@ -1105,6 +1116,62 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": true
+    },
+    {
+      "id": 140736226242192,
+      "src": {
+        "device": 140736286709456,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "trigger_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trigger_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736299443152,
+          "device": 140736286709456,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736286711056,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false
@@ -1302,70 +1369,6 @@
       "muted": false
     },
     {
-      "id": 140736226691504,
-      "src": {
-        "device": 140736286710736,
-        "repr": "Clock1",
-        "parameter": {
-          "name": "lead",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "lead_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140736216697680,
-          "device": 140736286710736,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140736284502272,
-        "repr": "ADSREnvelope1",
-        "parameter": {
-          "name": "gate",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": "!=0",
-          "disable_policy": false,
-          "cv_name": "gate_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": true
-    },
-    {
       "id": 140736226743376,
       "src": {
         "device": 140736286710736,
@@ -1419,7 +1422,71 @@
         "type": "note"
       },
       "bouncy": false,
-      "muted": true
+      "muted": false
+    },
+    {
+      "id": 140736226691504,
+      "src": {
+        "device": 140736286710736,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736216706640,
+          "device": 140736286710736,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736284502272,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
     }
   ],
   "playground_code": ""

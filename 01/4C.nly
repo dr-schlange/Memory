@@ -41,7 +41,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 103.22060709695884,
+        "output": 43.89695111806982,
         "set_pause": 0,
         "speed": 2.65,
         "subdiv": "1/1",
@@ -56,11 +56,45 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140732404471824,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 57,
+        "set_pause": 0,
+        "input": 43.89695111806982,
+        "trigger": 1,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "proxy": false,
+      "class": "Quantizer"
+    },
+    {
+      "id": 140732405923328,
+      "repr": "ThresholdGate1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 43.89695111806982,
+        "set_pause": 0,
+        "input": 43.89695111806982,
+        "threshold": 0,
+        "mode": "gate",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "ThresholdGate"
     }
   ],
   "connections": [
     {
-      "id": 140732404583632,
+      "id": 140732404560464,
       "src": {
         "device": 140732405917952,
         "repr": "LFO1",
@@ -85,8 +119,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732403969872,
+          "id": 140732277657168,
           "device": 140732405917952,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732405923328,
+        "repr": "ThresholdGate1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732404583312,
+      "src": {
+        "device": 140732404471824,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732403969872,
+          "device": 140732404471824,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
@@ -111,6 +209,70 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732404558704,
+      "src": {
+        "device": 140732405923328,
+        "repr": "ThresholdGate1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732403961296,
+          "device": 140732405923328,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732404471824,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false

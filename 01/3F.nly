@@ -8,7 +8,11 @@
         "output": "S-1:S-1 MIDI IN 28:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "frequency": 76
+        }
+      },
       "class": "S1"
     }
   ],
@@ -41,7 +45,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 64.0,
+        "output": 65.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -65,7 +69,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1
+        "current_step": 4
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -123,7 +127,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 47.696092799673785,
+        "output": 119.39063881731626,
         "set_pause": 0,
         "speed": 5.78,
         "subdiv": "1/1",
@@ -145,10 +149,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 117.25752607044672,
         "set_pause": 0,
-        "input": 47.696092799673785,
-        "amplitude": 0.0,
+        "input": 119.39063881731626,
+        "amplitude": 0.982133333333332,
         "gain": 1.0
       },
       "proxy": false,
@@ -160,7 +164,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.007733333333333323,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.1,
@@ -170,6 +174,19 @@
       },
       "proxy": false,
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 140732553118448,
+      "repr": "Gate1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "gate": 0
+      },
+      "proxy": false,
+      "class": "Gate"
     }
   ],
   "connections": [
@@ -726,6 +743,63 @@
       "muted": false
     },
     {
+      "id": 140732257999984,
+      "src": {
+        "device": 140732553118784,
+        "repr": "VCA1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732553887568,
+          "device": 140732553118784,
+          "to_min": 56,
+          "to_max": 77,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732555493072,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140732257998864,
       "src": {
         "device": 140732553128864,
@@ -753,8 +827,8 @@
         "chain": {
           "id": 140732553158736,
           "device": 140732553128864,
-          "to_min": 0.0,
-          "to_max": 1.0,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -777,6 +851,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "amplitude_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732258008784,
+      "src": {
+        "device": 140732553128864,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732553887184,
+          "device": 140732553128864,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732555492752,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

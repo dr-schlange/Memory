@@ -46,16 +46,16 @@
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 1,
-        "out6": 1,
+        "out7": 0,
+        "out6": 0,
         "out5": 0,
-        "out4": 0,
+        "out4": 1,
         "out3": 1,
         "out2": 0,
-        "out1": 1,
+        "out1": 0,
         "out0": 1,
-        "tape_out": 211,
-        "gate_out": 1,
+        "tape_out": 152,
+        "gate_out": 0,
         "out_main": 0
       },
       "proxy": false,
@@ -91,9 +91,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72,
+        "output": 62,
         "set_pause": 0,
-        "input": 73.03137254901961,
+        "input": 67.70980392156862,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -109,10 +109,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 60.56692913385827,
+        "output": 71.48818897637796,
         "set_pause": 0,
-        "input": 72.56692913385827,
-        "shift": -12.0
+        "input": 62.488188976377955,
+        "shift": 9.0
       },
       "proxy": false,
       "class": "t_PitchShifter"
@@ -124,7 +124,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 61,
+        "input": 71,
         "chord": "maj7",
         "octave": 1,
         "inversion": "--",
@@ -136,13 +136,35 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 84,
-        "note2": 80,
-        "note1": 77,
-        "note0": 73
+        "note3": 94,
+        "note2": 90,
+        "note1": 87,
+        "note0": 83
       },
       "proxy": false,
       "class": "ChordGenerator"
+    },
+    {
+      "id": 140732555147120,
+      "repr": "Harmonizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 87,
+        "interval0": "-octave",
+        "interval1": "root",
+        "interval2": "root",
+        "interval3": "root",
+        "key": "C",
+        "scale_": "maj",
+        "out0": 74,
+        "out1": 86,
+        "out2": 86,
+        "out3": 86
+      },
+      "proxy": false,
+      "class": "Harmonizer"
     }
   ],
   "connections": [
@@ -523,7 +545,7 @@
       "muted": false
     },
     {
-      "id": 140732553001040,
+      "id": 140732554785760,
       "src": {
         "device": 140732555146784,
         "repr": "ChordGenerator1",
@@ -548,7 +570,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732552989840,
+          "id": 140732554788576,
           "device": 140732555146784,
           "to_min": 0,
           "to_max": 127,
@@ -559,27 +581,35 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732553123152,
-        "repr": "S1",
+        "device": 140732555147120,
+        "repr": "Harmonizer1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false
     },
     {
-      "id": 140732552993200,
+      "id": 140732301479920,
       "src": {
         "device": 140732555146784,
         "repr": "ChordGenerator1",
@@ -604,7 +634,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732552998800,
+          "id": 140732553162064,
           "device": 140732555146784,
           "to_min": 0,
           "to_max": 127,
@@ -635,63 +665,7 @@
       "muted": false
     },
     {
-      "id": 140732553035488,
-      "src": {
-        "device": 140732555146784,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "note3",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "note3_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732553035072,
-          "device": 140732555146784,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732553123152,
-        "repr": "S1",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false
-    },
-    {
-      "id": 140732301215888,
+      "id": 140732553391280,
       "src": {
         "device": 140732555146784,
         "repr": "ChordGenerator1",
@@ -716,8 +690,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732301216272,
+          "id": 140732553887440,
           "device": 140732555146784,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732555147120,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140732301485520,
+      "src": {
+        "device": 140732555147120,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732555360688,
+          "device": 140732555147120,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

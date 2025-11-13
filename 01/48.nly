@@ -10,10 +10,25 @@
       "channel": 0,
       "config": {
         "vcf": {
-          "cutoff": 63
+          "cutoff": 64
         }
       },
       "class": "Jt4000mmicro"
+    },
+    {
+      "id": 140734848921232,
+      "repr": "S1",
+      "ports": {
+        "input": "S-1:S-1 MIDI IN 28:0",
+        "output": "S-1:S-1 MIDI IN 28:0"
+      },
+      "channel": 0,
+      "config": {
+        "filter": {
+          "frequency": 59
+        }
+      },
+      "class": "S1"
     }
   ],
   "virtual_devices": [
@@ -45,7 +60,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53.767430009327185,
+        "output": 108.60545562781381,
         "set_pause": 0,
         "speed": 0.14,
         "subdiv": "1/1",
@@ -67,7 +82,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 101.60000000000001,
+        "output": 50.800000000000004,
         "set_pause": 0,
         "speed": 0.68,
         "subdiv": "1/1",
@@ -90,13 +105,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 53.767430009327185,
-        "in1": 101.60000000000001,
+        "in0": 108.60545562781381,
+        "in1": 50.800000000000004,
         "in2": 0,
         "in3": 0,
-        "level": 0.02623080781391507,
+        "level": 86.43899616465998,
         "type": "ondemand",
-        "out0": 53.7755647896741,
+        "out0": 58.6390000547236,
         "out1": 0.0
       },
       "proxy": false,
@@ -108,7 +123,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.03331312592367214,
+        "output": 109.77752512911817,
         "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
@@ -163,7 +178,7 @@
         "io3": 66.0,
         "io2": 65.0,
         "io1": 54.0,
-        "oi": 75.0
+        "oi": 66.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -420,6 +435,63 @@
       "muted": false
     },
     {
+      "id": 140734409855280,
+      "src": {
+        "device": 140734848576080,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734846521040,
+          "device": 140734848576080,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734848921232,
+        "repr": "S1",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "frequency",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
       "id": 140734409872784,
       "src": {
         "device": 140734848923472,
@@ -586,6 +658,62 @@
       "dest": {
         "device": 140734848575744,
         "repr": "Jt4000mmicro",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734409877104,
+      "src": {
+        "device": 140734846513712,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734846528592,
+          "device": 140734846513712,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734848921232,
+        "repr": "S1",
         "parameter": {
           "channel": null,
           "keys": {},

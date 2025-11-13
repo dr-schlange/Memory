@@ -4,13 +4,13 @@
       "id": 140732991652928,
       "repr": "S1",
       "ports": {
-        "input": "S-1:S-1 MIDI IN 36:0",
-        "output": "S-1:S-1 MIDI IN 36:0"
+        "input": null,
+        "output": null
       },
       "channel": 0,
       "config": {
         "filter": {
-          "frequency": 46
+          "frequency": 83
         }
       },
       "class": "S1"
@@ -23,8 +23,23 @@
         "output": "Minilab3:Minilab3 MIDI 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "sliders": {
+          "s1": 127
+        }
+      },
       "class": "Minilab3"
+    },
+    {
+      "id": 140732993649840,
+      "repr": "Jt4000mmicro",
+      "ports": {
+        "input": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0",
+        "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Jt4000mmicro"
     }
   ],
   "virtual_devices": [
@@ -56,30 +71,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51,
+        "output": 59,
         "set_pause": 0,
-        "inA": 51,
-        "volA": 121
+        "inA": 59,
+        "volA": 124
       },
       "proxy": false,
       "class": "VolumeMixer"
-    },
-    {
-      "id": 140732991654944,
-      "repr": "ADSREnvelope1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 0.0,
-        "set_pause": 0,
-        "gate": 0,
-        "attack": 0.1,
-        "decay": 0.2,
-        "sustain": 0.7,
-        "release": 0.3
-      },
-      "proxy": false,
-      "class": "ADSREnvelope"
     },
     {
       "id": 140732991655616,
@@ -87,7 +85,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 121.1996418713135,
+        "output": 123.84607852956056,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -109,7 +107,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.0,
+        "output": 59.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -133,7 +131,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -150,7 +148,7 @@
         "reset": 0,
         "mul7": 0,
         "mul5": 0,
-        "mul3": 0,
+        "mul3": 1,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -170,74 +168,50 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "gate": 0,
-        "attack": 0.1,
-        "decay": 0.2,
-        "sustain": 0.7,
-        "release": 0.3
+        "gate": 1,
+        "attack": 1.0,
+        "decay": 0.0,
+        "sustain": 0.0,
+        "release": 0.0
       },
       "proxy": false,
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 140732993646144,
+      "repr": "SeqSwitch1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "reset": 0,
+        "steps": 4,
+        "mode": "IOs->OI",
+        "io4": 121.0,
+        "io3": 118.0,
+        "io2": 64.0,
+        "io1": 26.0,
+        "oi": 64.0
+      },
+      "proxy": false,
+      "class": "SeqSwitch"
+    },
+    {
+      "id": 140732933604688,
+      "repr": "t_VolumeMixer2",
+      "paused": true,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 1,
+        "inA": 59.0
+      },
+      "proxy": false,
+      "class": "t_VolumeMixer"
     }
   ],
   "connections": [
-    {
-      "id": 140732933581296,
-      "src": {
-        "device": 140732993644800,
-        "repr": "Minilab3",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732933581584,
-          "device": 140732993644800,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "note"
-      },
-      "dest": {
-        "device": 140732994001232,
-        "repr": "ADSREnvelope2",
-        "parameter": {
-          "name": "gate",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": "!=0",
-          "disable_policy": false,
-          "cv_name": "gate_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
     {
       "id": 140732991852336,
       "src": {
@@ -471,7 +445,121 @@
       "velocity": null
     },
     {
-      "id": 140732991659648,
+      "id": 140732992085072,
+      "src": {
+        "device": 140732993644800,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732992084848,
+          "device": 140732993644800,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140732993649168,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "inA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "inA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732933820560,
+      "src": {
+        "device": 140732993644800,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732933820352,
+          "device": 140732993644800,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140732993646144,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732991834064,
       "src": {
         "device": 140732993649168,
         "repr": "VolumeMixer1",
@@ -496,10 +584,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732991656288,
+          "id": 140732991833872,
           "device": 140732993649168,
-          "to_min": 0,
-          "to_max": 127,
+          "to_min": 0.0,
+          "to_max": 127.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -507,21 +595,29 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732991652928,
-        "repr": "S1",
+        "device": 140732933604688,
+        "repr": "t_VolumeMixer2",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "inA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
-            0,
-            127
-          ]
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "inA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
@@ -782,6 +878,193 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732991371344,
+      "src": {
+        "device": 140732994001232,
+        "repr": "ADSREnvelope2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732991372016,
+          "device": 140732994001232,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732993643456,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732991834640,
+      "src": {
+        "device": 140732993646144,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732991834832,
+          "device": 140732993646144,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732994001232,
+        "repr": "ADSREnvelope2",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732991784224,
+      "src": {
+        "device": 140732933604688,
+        "repr": "t_VolumeMixer2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732991798656,
+          "device": 140732933604688,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732991652928,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

@@ -14,6 +14,17 @@
         }
       },
       "class": "S1"
+    },
+    {
+      "id": 140732993644800,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 32:0",
+        "output": "Minilab3:Minilab3 MIDI 32:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -45,10 +56,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51,
+        "output": 63,
         "set_pause": 0,
-        "inA": 51,
-        "volA": 28
+        "inA": 63,
+        "volA": 58
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -76,7 +87,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 27.673309708548754,
+        "output": 57.89134803410167,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -98,7 +109,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.0,
+        "output": 63.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -122,7 +133,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -142,17 +153,91 @@
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 1,
-        "mul2": 1,
+        "mul4": 0,
+        "mul2": 0,
         "div2": 0,
         "div4": 0,
         "lead": 0
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 140732994001232,
+      "repr": "ADSREnvelope2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "gate": 0,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
+    {
+      "id": 140732933581296,
+      "src": {
+        "device": 140732993644800,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732933581584,
+          "device": 140732993644800,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140732994001232,
+        "repr": "ADSREnvelope2",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732991659648,
       "src": {
@@ -392,6 +477,71 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732991852880,
+      "src": {
+        "device": 140732994001232,
+        "repr": "ADSREnvelope2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732991856688,
+          "device": 140732994001232,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732993649168,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "volA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "volA_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

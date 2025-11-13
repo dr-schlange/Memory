@@ -107,6 +107,7 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 45.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -114,13 +115,13 @@
         "set_step": 0,
         "length": 8,
         "step0": 0.0,
-        "step1": 0.0,
-        "step2": 0.0,
-        "step3": 0.0,
-        "step4": 0.0,
-        "step5": 0.0,
-        "step6": 0.0,
-        "step7": 0.0,
+        "step1": 59.0,
+        "step2": 45.0,
+        "step3": 61.0,
+        "step4": 68.0,
+        "step5": 70.0,
+        "step6": 69.0,
+        "step7": 57.0,
         "active0": 1,
         "active1": 1,
         "active2": 1,
@@ -130,10 +131,34 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0
+        "current_step": 2
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140734846513376,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
     }
   ],
   "connections": [
@@ -890,6 +915,70 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false
+    },
+    {
+      "id": 140734419681360,
+      "src": {
+        "device": 140734846513376,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734846528720,
+          "device": 140734846513376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734846513040,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -52,19 +52,19 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67.0,
+        "output": 86.0,
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "play": 1,
         "reset": 0,
         "set_step": 0,
         "length": 8,
         "step0": 52.0,
         "step1": 67.0,
-        "step2": 80.90134653116752,
+        "step2": 97.16125049615718,
         "step3": 86.0,
         "step4": 69.0,
-        "step5": 81.48794230779168,
+        "step5": 88.0175100417639,
         "step6": 73.0,
         "step7": 79.0,
         "active0": 1,
@@ -76,7 +76,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -88,10 +88,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 127,
         "out3": 0,
-        "out2": 0,
-        "out1": 64,
+        "out2": 127,
+        "out1": 0,
         "out0": 0
       },
       "proxy": false,
@@ -104,17 +104,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 67,
+        "input": 86,
         "interval0": "root",
         "interval1": "+3/m3",
         "interval2": "+7/b7",
         "interval3": "-octave",
         "key": "C",
         "scale_": "maj",
-        "out0": 67,
-        "out1": 71,
-        "out2": 77,
-        "out3": 55
+        "out0": 86,
+        "out1": 89,
+        "out2": 96,
+        "out3": 74
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -125,9 +125,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 80.90134653116752,
+        "output": 97.16125049615718,
         "set_pause": 0,
-        "input": 95.35239473995378,
+        "input": 121.80743618748593,
         "trigger": 0,
         "reset": 0
       },
@@ -140,7 +140,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 68.75005988368304,
+        "output": 117.4426724030538,
         "set_pause": 0,
         "speed": 0.001,
         "subdiv": "1/1",
@@ -164,11 +164,11 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "speed": 6.7613078821762285,
+        "speed": 4.27001809569432,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 135,
+        "sampling_rate": 85,
         "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -178,6 +178,27 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140734008565712,
+      "repr": "LorenzProjector1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 1.6539838089638672,
+        "set_pause": 0,
+        "sigma": 10.0,
+        "rho": 28.0,
+        "freq": 1,
+        "z": 0.21550443816342085,
+        "y": 3.60454443543617,
+        "x": 1.6539838089638672,
+        "znorm": 127.0,
+        "ynorm": 127.0,
+        "xnorm": 127.00000000000001
+      },
+      "proxy": false,
+      "class": "LorenzProjector"
     }
   ],
   "connections": [
@@ -1078,6 +1099,136 @@
           ],
           "accepted_values": [],
           "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734008836704,
+      "src": {
+        "device": 140734008565712,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "xnorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xnorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734010932560,
+          "device": 140734008565712,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734008564368,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734008845680,
+      "src": {
+        "device": 140734008565712,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "znorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "znorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734010933072,
+          "device": 140734008565712,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734008564368,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
           "section_name": "__virtual__",

@@ -8,7 +8,11 @@
         "output": "Minilab3:Minilab3 MIDI 36:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "pads": {
+          "p8": 127
+        }
+      },
       "class": "Minilab3"
     },
     {
@@ -61,10 +65,10 @@
         "length": 8,
         "step0": 52.0,
         "step1": 67.0,
-        "step2": 58.31933946716234,
+        "step2": 100.67392061775777,
         "step3": 86.0,
         "step4": 69.0,
-        "step5": 72.41957726634078,
+        "step5": 89.42810985437517,
         "step6": 73.0,
         "step7": 79.0,
         "active0": 1,
@@ -88,11 +92,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 93,
-        "out3": 88,
-        "out2": 82,
-        "out1": 76,
-        "out0": 93
+        "input": 77,
+        "out3": 72,
+        "out2": 67,
+        "out1": 63,
+        "out0": 77
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -125,10 +129,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 58.31933946716234,
+        "output": 100.67392061775777,
         "set_pause": 0,
-        "input": 89.21031999119089,
-        "trigger": 0,
+        "input": 112.07956699835435,
+        "trigger": 1,
         "reset": 0
       },
       "proxy": false,
@@ -140,7 +144,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.44508172291656,
+        "output": 99.53775375059423,
         "set_pause": 0,
         "speed": 0.001,
         "subdiv": "1/1",
@@ -162,16 +166,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -13.84486187091025,
+        "output": -12.709974049398681,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
         "freq": 7.0,
-        "z": 34.054045258295666,
-        "y": -14.058563289856558,
-        "x": -13.84486187091025,
-        "znorm": 93.3610172054747,
-        "ynorm": 8.314123982554516,
+        "z": 30.626634565250562,
+        "y": -14.482140797476719,
+        "x": -12.709974049398681,
+        "znorm": 76.66385979047749,
+        "ynorm": 2.292485129180767,
         "xnorm": 0.0
       },
       "proxy": false,
@@ -185,11 +189,11 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "speed": 1.6633960460727328,
-        "sync": 0,
+        "speed": 1.7354262948724173,
+        "sync": 127,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 33,
+        "sampling_rate": 34,
         "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -418,6 +422,64 @@
           "no_init": false
         },
         "explicit": 124,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734008838816,
+      "src": {
+        "device": 140734010635472,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 16,
+          "channel": null,
+          "name": "b8",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 16,
+        "chain": {
+          "id": 140734008593488,
+          "device": 140734010635472,
+          "to_min": 1,
+          "to_max": 8,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140734008570416,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "length",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            1,
+            8
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "length_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 8,
+          "no_init": false
+        },
+        "explicit": 16,
         "type": "virtual"
       },
       "bouncy": false,
@@ -1232,6 +1294,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734008850960,
+      "src": {
+        "device": 140734010996560,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733866281936,
+          "device": 140734010996560,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734008567728,
+        "repr": "SampleHold1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

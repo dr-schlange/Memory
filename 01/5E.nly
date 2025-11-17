@@ -128,13 +128,35 @@
         "in1": 0,
         "in2": 0,
         "in3": 0,
-        "level": 50,
+        "level": 78.3399277124435,
         "type": "ondemand",
-        "out0": 0,
-        "out1": 0
+        "out0": 0.0,
+        "out1": 0.0
       },
       "proxy": false,
       "class": "Crossfade"
+    },
+    {
+      "id": 140733672184464,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 99.49170819480324,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -450,6 +472,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733672787488,
+      "src": {
+        "device": 140733672184464,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733674273744,
+          "device": 140733672184464,
+          "to_min": 0,
+          "to_max": 100,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733672181104,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "level",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            100
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "level_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

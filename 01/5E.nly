@@ -81,7 +81,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.0,
+        "output": 67.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -105,7 +105,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -171,10 +171,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57,
+        "output": 67,
         "set_pause": 0,
-        "inA": 57,
-        "volA": 127
+        "inA": 67,
+        "volA": 0
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -188,7 +188,7 @@
         "output": 73,
         "set_pause": 0,
         "inA": 73,
-        "volA": 0
+        "volA": 127
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -199,13 +199,35 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 0.16,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
         "waveform": "pulse",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.9999944884692749,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 140735765124816,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 126.99930003559791,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -903,6 +925,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735762496688,
+      "src": {
+        "device": 140735765124816,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735762491760,
+          "device": 140735765124816,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735764806832,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "pulse_width",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pulse_width_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -41,8 +41,9 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 70,
         "set_pause": 0,
-        "inA": 0.0,
+        "inA": 70,
         "volA": 0.0
       },
       "proxy": false,
@@ -59,17 +60,17 @@
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 0.0,
-        "out6": 0.0,
-        "out5": 0.0,
-        "out4": 0.0,
-        "out3": 0.0,
-        "out2": 0.0,
-        "out1": 0.0,
-        "out0": 0.0,
-        "tape_out": 0.0,
-        "gate_out": 0.0,
-        "out_main": 0.0
+        "out7": 0,
+        "out6": 0,
+        "out5": 1,
+        "out4": 1,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 1,
+        "tape_out": 140,
+        "gate_out": 0,
+        "out_main": 0
       },
       "proxy": false,
       "class": "TuringMachine"
@@ -82,14 +83,89 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
     }
   ],
   "connections": [
+    {
+      "id": 140732818844016,
+      "src": {
+        "device": 140732821042048,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "tape_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            255
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tape_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732818841776,
+          "device": 140732821042048,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732821040368,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "inA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "inA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732818844912,
       "src": {

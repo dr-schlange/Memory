@@ -31,7 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "sliders0_s0": 121.0
+        "sliders0_s0": 127.0,
+        "sliders0_s1": 84.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -42,10 +43,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72,
+        "output": 14,
         "set_pause": 0,
-        "inA": 72,
-        "volA": 121
+        "inA": 14,
+        "volA": 127
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -57,20 +58,20 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 0,
-        "out6": 0,
+        "out7": 1,
+        "out6": 1,
         "out5": 0,
         "out4": 1,
         "out3": 0,
-        "out2": 1,
-        "out1": 1,
+        "out2": 0,
+        "out1": 0,
         "out0": 1,
-        "tape_out": 232,
-        "gate_out": 0,
+        "tape_out": 139,
+        "gate_out": 1,
         "out_main": 0
       },
       "proxy": false,
@@ -86,16 +87,16 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
-        "mul5": 0,
-        "mul3": 0,
+        "mul7": 1,
+        "mul5": 1,
+        "mul3": 1,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
-        "mul2": 0,
-        "div2": 0,
+        "mul4": 1,
+        "mul2": 1,
+        "div2": 1,
         "div4": 0,
-        "lead": 0
+        "lead": 1
       },
       "proxy": false,
       "class": "Clock"
@@ -106,9 +107,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72,
+        "output": 7,
         "set_pause": 0,
-        "input": 72.7843137254902,
+        "input": 43.607843137254896,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -125,8 +126,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 72,
-        "chord": "custom",
+        "input": 7,
+        "chord": "maj7#11",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -137,10 +138,10 @@
         "custom3": "7th",
         "custom4": "2nd",
         "note4": 0,
-        "note3": 83,
-        "note2": 81,
-        "note1": 76,
-        "note0": 72
+        "note3": 17,
+        "note2": 14,
+        "note1": 13,
+        "note0": 7
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -152,15 +153,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 83.0,
-        "io3": 81.0,
-        "io2": 76.0,
-        "io1": 72.0,
-        "oi": 72.0
+        "io4": 17.0,
+        "io3": 14.0,
+        "io2": 13.0,
+        "io1": 7.0,
+        "oi": 14.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -219,6 +220,82 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "volA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732819165216,
+      "src": {
+        "device": 140732821385808,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732558994768,
+          "device": 140732821385808,
+          "to_min": 0,
+          "to_max": 9,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732821044736,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "chord",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            9
+          ],
+          "accepted_values": [
+            "maj",
+            "min",
+            "maj7",
+            "min7",
+            "7th",
+            "maj7#11",
+            "dim",
+            "m7b5",
+            "min7maj",
+            "custom"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "chord_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

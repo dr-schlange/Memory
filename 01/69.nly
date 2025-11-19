@@ -30,7 +30,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "sliders0_s0": 121.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -41,10 +42,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 76,
+        "output": 72,
         "set_pause": 0,
-        "inA": 76,
-        "volA": 127
+        "inA": 72,
+        "volA": 121
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -63,12 +64,12 @@
         "out7": 0,
         "out6": 0,
         "out5": 0,
-        "out4": 0,
-        "out3": 1,
-        "out2": 0,
+        "out4": 1,
+        "out3": 0,
+        "out2": 1,
         "out1": 1,
         "out0": 1,
-        "tape_out": 208,
+        "tape_out": 232,
         "gate_out": 0,
         "out_main": 0
       },
@@ -105,9 +106,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65,
+        "output": 72,
         "set_pause": 0,
-        "input": 65.25490196078431,
+        "input": 72.7843137254902,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -124,7 +125,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 65,
+        "input": 72,
         "chord": "custom",
         "octave": 0,
         "inversion": "--",
@@ -136,10 +137,10 @@
         "custom3": "7th",
         "custom4": "2nd",
         "note4": 0,
-        "note3": 76,
-        "note2": 74,
-        "note1": 69,
-        "note0": 65
+        "note3": 83,
+        "note2": 81,
+        "note1": 76,
+        "note0": 72
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -155,17 +156,82 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 76.0,
-        "io3": 74.0,
-        "io2": 69.0,
-        "io1": 65.0,
-        "oi": 61.0
+        "io4": 83.0,
+        "io3": 81.0,
+        "io2": 76.0,
+        "io1": 72.0,
+        "oi": 72.0
       },
       "proxy": false,
       "class": "SeqSwitch"
     }
   ],
   "connections": [
+    {
+      "id": 140732819167152,
+      "src": {
+        "device": 140732821385808,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732558996560,
+          "device": 140732821385808,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732821040368,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "volA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "volA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732819496960,
       "src": {

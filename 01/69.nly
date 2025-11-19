@@ -31,8 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "sliders0_s0": 127.0,
-        "sliders0_s1": 84.0
+        "sliders0_s0": 94.0,
+        "sliders0_s1": 70.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -43,10 +43,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 14,
+        "output": 55,
         "set_pause": 0,
-        "inA": 14,
-        "volA": 127
+        "inA": 55,
+        "volA": 94
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -58,19 +58,19 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 1.0,
+        "trigger": 0.0,
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
         "out7": 1,
         "out6": 1,
         "out5": 0,
-        "out4": 1,
-        "out3": 0,
-        "out2": 0,
+        "out4": 0,
+        "out3": 1,
+        "out2": 1,
         "out1": 0,
         "out0": 1,
-        "tape_out": 139,
+        "tape_out": 179,
         "gate_out": 1,
         "out_main": 0
       },
@@ -87,16 +87,16 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 1,
-        "mul5": 1,
-        "mul3": 1,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 1,
-        "mul2": 1,
-        "div2": 1,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
         "div4": 0,
-        "lead": 1
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
@@ -107,14 +107,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 7,
+        "output": 55,
         "set_pause": 0,
-        "input": 43.607843137254896,
+        "input": 56.15686274509804,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "free"
+        "type": "sample&hold"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -126,8 +126,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 7,
-        "chord": "maj7#11",
+        "input": 55,
+        "chord": "7th",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -138,10 +138,10 @@
         "custom3": "7th",
         "custom4": "2nd",
         "note4": 0,
-        "note3": 17,
-        "note2": 14,
-        "note1": 13,
-        "note0": 7
+        "note3": 65,
+        "note2": 62,
+        "note1": 59,
+        "note0": 55
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -153,15 +153,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 1,
+        "trigger": 0,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 17.0,
-        "io3": 14.0,
-        "io2": 13.0,
-        "io1": 7.0,
-        "oi": 14.0
+        "io4": 65.0,
+        "io3": 62.0,
+        "io2": 59.0,
+        "io1": 55.0,
+        "oi": 55.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -296,6 +296,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "chord_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732819167856,
+      "src": {
+        "device": 140732821385808,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s2",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732819048784,
+          "device": 140732821385808,
+          "to_min": 20,
+          "to_max": 600,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732821375888,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "tempo",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            20,
+            600
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "tempo_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -535,6 +600,71 @@
       "dest": {
         "device": 140732821389008,
         "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732819165568,
+      "src": {
+        "device": 140732821375888,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732558998480,
+          "device": 140732821375888,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732821039024,
+        "repr": "Quantizer1",
         "parameter": {
           "name": "trigger",
           "stream": false,

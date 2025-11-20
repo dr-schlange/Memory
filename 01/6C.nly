@@ -102,14 +102,27 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0.0,
-        "out3": 0.0,
-        "out2": 0.0,
-        "out1": 0.0,
-        "out0": 0.0
+        "input": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 0
       },
       "proxy": false,
       "class": "VoiceAllocator"
+    },
+    {
+      "id": 140734593530384,
+      "repr": "VolumeMixer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "inA": 0.0,
+        "volA": 127
+      },
+      "proxy": false,
+      "class": "VolumeMixer"
     }
   ],
   "connections": [
@@ -220,7 +233,7 @@
       "velocity": null
     },
     {
-      "id": 140734542251888,
+      "id": 140734591343696,
       "src": {
         "device": 140734593526352,
         "repr": "ChordGenerator1",
@@ -245,10 +258,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734542255536,
+          "id": 140734591343472,
           "device": 140734593526352,
-          "to_min": 0,
-          "to_max": 127,
+          "to_min": 0.0,
+          "to_max": 127.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -256,44 +269,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
+        "device": 140734593530384,
+        "repr": "VolumeMixer1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734542253712,
-      "src": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "note2",
+          "name": "inA",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            0.0,
+            127.0
           ],
           "accepted_values": [],
-          "conversion_policy": null,
+          "conversion_policy": "round",
           "disable_policy": false,
-          "cv_name": "note2_cv",
+          "cv_name": "inA_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -301,147 +291,7 @@
           "no_init": false
         },
         "explicit": -1,
-        "chain": {
-          "id": 140734542256144,
-          "device": 140734593526352,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
         "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734542186256,
-      "src": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "note3",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "note3_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734593298896,
-          "device": 140734593526352,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734591782432,
-      "src": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "note4",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "note4_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734591782704,
-          "device": 140734593526352,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,

@@ -94,118 +94,9 @@
       },
       "proxy": false,
       "class": "Harmonizer"
-    },
-    {
-      "id": 140734593531056,
-      "repr": "VoiceAllocator1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 0,
-        "out3": 0,
-        "out2": 0,
-        "out1": 0,
-        "out0": 0
-      },
-      "proxy": false,
-      "class": "VoiceAllocator"
-    },
-    {
-      "id": 140734593530384,
-      "repr": "VolumeMixer1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 0,
-        "set_pause": 0,
-        "inA": 0,
-        "inB": 0,
-        "inC": 0,
-        "inD": 0.0,
-        "volA": 127,
-        "volB": 127,
-        "volC": 127,
-        "volD": 127
-      },
-      "proxy": false,
-      "class": "VolumeMixer"
-    },
-    {
-      "id": 140735471926032,
-      "repr": "VoiceAllocator2",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 0,
-        "out3": 0,
-        "out2": 80,
-        "out1": 73,
-        "out0": 76
-      },
-      "proxy": false,
-      "class": "VoiceAllocator"
     }
   ],
   "connections": [
-    {
-      "id": 140734542292912,
-      "src": {
-        "device": 140734591635808,
-        "repr": "Minilab3",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735471924112,
-          "device": 140734591635808,
-          "to_min": 0.0,
-          "to_max": 127.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "note"
-      },
-      "dest": {
-        "device": 140734593531056,
-        "repr": "VoiceAllocator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
     {
       "id": 140735470257744,
       "src": {
@@ -224,7 +115,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735470257168,
+          "id": 140735470027712,
           "device": 140734591635808,
           "to_min": 0,
           "to_max": 127,
@@ -256,7 +147,64 @@
       "velocity": null
     },
     {
-      "id": 140734591343696,
+      "id": 140735470030000,
+      "src": {
+        "device": 140734591635808,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735469466064,
+          "device": 140734591635808,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734593526352,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735470029472,
       "src": {
         "device": 140734593526352,
         "repr": "ChordGenerator1",
@@ -281,10 +229,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735471924752,
+          "id": 140735469464784,
           "device": 140734593526352,
-          "to_min": 0.0,
-          "to_max": 127.0,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -292,36 +240,28 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734593530384,
-        "repr": "VolumeMixer1",
+        "device": 140734593528368,
+        "repr": "Provsmini",
         "parameter": {
-          "name": "inA",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "inA_cv",
-          "section_name": "__virtual__",
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
           "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
+          "range": [
+            0,
+            127
+          ]
         },
         "explicit": -1,
-        "type": "virtual"
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140735469535312,
+      "id": 140735470028768,
       "src": {
         "device": 140734593526352,
         "repr": "ChordGenerator1",
@@ -346,10 +286,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735469537760,
+          "id": 140735469462736,
           "device": 140734593526352,
-          "to_min": 0.0,
-          "to_max": 127.0,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -357,36 +297,28 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734593530384,
-        "repr": "VolumeMixer1",
+        "device": 140734593528368,
+        "repr": "Provsmini",
         "parameter": {
-          "name": "inB",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "inB_cv",
-          "section_name": "__virtual__",
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
           "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
+          "range": [
+            0,
+            127
+          ]
         },
         "explicit": -1,
-        "type": "virtual"
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140735469362256,
+      "id": 140735470029120,
       "src": {
         "device": 140734593526352,
         "repr": "ChordGenerator1",
@@ -411,10 +343,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735469360720,
+          "id": 140735469461456,
           "device": 140734593526352,
-          "to_min": 0.0,
-          "to_max": 127.0,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -422,36 +354,28 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734593530384,
-        "repr": "VolumeMixer1",
+        "device": 140734593528368,
+        "repr": "Provsmini",
         "parameter": {
-          "name": "inC",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "inC_cv",
-          "section_name": "__virtual__",
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
           "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
+          "range": [
+            0,
+            127
+          ]
         },
         "explicit": -1,
-        "type": "virtual"
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140735469361232,
+      "id": 140735470028944,
       "src": {
         "device": 140734593526352,
         "repr": "ChordGenerator1",
@@ -476,569 +400,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735469361744,
+          "id": 140735469457360,
           "device": 140734593526352,
-          "to_min": 0.0,
-          "to_max": 127.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593530384,
-        "repr": "VolumeMixer1",
-        "parameter": {
-          "name": "inD",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "inD_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734591786512,
-      "src": {
-        "device": 140734593531056,
-        "repr": "VoiceAllocator1",
-        "parameter": {
-          "name": "out0",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735471727760,
-          "device": 140734593531056,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734591315536,
-      "src": {
-        "device": 140734593531056,
-        "repr": "VoiceAllocator1",
-        "parameter": {
-          "name": "out1",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out1_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735471729584,
-          "device": 140734593531056,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734591317072,
-      "src": {
-        "device": 140734593531056,
-        "repr": "VoiceAllocator1",
-        "parameter": {
-          "name": "out2",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out2_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735471382416,
-          "device": 140734593531056,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734542289072,
-      "src": {
-        "device": 140734593531056,
-        "repr": "VoiceAllocator1",
-        "parameter": {
-          "name": "out3",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out3_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735469538576,
-          "device": 140734593531056,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593526352,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735470249184,
-      "src": {
-        "device": 140734593530384,
-        "repr": "VolumeMixer1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735470248944,
-          "device": 140734593530384,
-          "to_min": 0.0,
-          "to_max": 127.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735471926032,
-        "repr": "VoiceAllocator2",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735470249664,
-      "src": {
-        "device": 140735471926032,
-        "repr": "VoiceAllocator2",
-        "parameter": {
-          "name": "out0",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735470248464,
-          "device": 140735471926032,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735469309072,
-      "src": {
-        "device": 140735471926032,
-        "repr": "VoiceAllocator2",
-        "parameter": {
-          "name": "out1",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out1_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735469314896,
-          "device": 140735471926032,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735469316688,
-      "src": {
-        "device": 140735471926032,
-        "repr": "VoiceAllocator2",
-        "parameter": {
-          "name": "out2",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out2_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735469315120,
-          "device": 140735471926032,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734593528368,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735469697120,
-      "src": {
-        "device": 140735471926032,
-        "repr": "VoiceAllocator2",
-        "parameter": {
-          "name": "out3",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out3_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735469691920,
-          "device": 140735471926032,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

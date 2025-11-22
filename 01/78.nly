@@ -90,18 +90,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 0.0,
         "trigger": 0,
-        "reset": 0,
+        "reset": 0.0,
         "length": 8,
         "output7": 0,
         "output6": 0,
         "output5": 0,
-        "output4": 59.0,
-        "output3": 62.0,
-        "output2": 55.0,
-        "output1": 59.0,
-        "output0": 59.0
+        "output4": 0,
+        "output3": 0,
+        "output2": 0,
+        "output1": 0,
+        "output0": 0.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -114,8 +114,18 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
@@ -338,6 +348,64 @@
           "no_init": false
         },
         "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734205397840,
+      "src": {
+        "device": 140734263923712,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 124,
+          "channel": null,
+          "name": "p8",
+          "section_name": "pads",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": 124,
+        "chain": {
+          "id": 140734205397664,
+          "device": 140734263923712,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140734265944656,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "reset",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "reset_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 124,
         "type": "virtual"
       },
       "bouncy": false,
@@ -818,12 +886,77 @@
       "velocity": null
     },
     {
-      "id": 140734205511280,
+      "id": 140734264154960,
+      "src": {
+        "device": 140734265944656,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734264154576,
+          "device": 140734265944656,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734265943984,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734264154192,
       "src": {
         "device": 140734265946336,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul4",
+          "name": "div4",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -834,7 +967,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul4_cv",
+          "cv_name": "div4_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -843,7 +976,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734205512400,
+          "id": 140734264153616,
           "device": 140734265946336,
           "to_min": 0,
           "to_max": 1,

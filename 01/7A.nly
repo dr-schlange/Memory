@@ -84,6 +84,21 @@
         }
       },
       "class": "Minilab3"
+    },
+    {
+      "id": 140734265949360,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0",
+        "output": "amsynth:MIDI IN 128:0"
+      },
+      "channel": 0,
+      "config": {
+        "general": {
+          "panning": 1
+        }
+      },
+      "class": "MIDIBridge"
     }
   ],
   "virtual_devices": [
@@ -147,18 +162,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 60.0,
-        "trigger": 0,
+        "input": 59.0,
+        "trigger": 1,
         "reset": 0.0,
         "length": 8,
-        "output7": 60.0,
-        "output6": 62.0,
-        "output5": 62.0,
-        "output4": 57.0,
-        "output3": 64.0,
-        "output2": 65.0,
-        "output1": 59.0,
-        "output0": 60.0
+        "output7": 59.0,
+        "output6": 60.0,
+        "output5": 60.0,
+        "output4": 62.0,
+        "output3": 62.0,
+        "output2": 57.0,
+        "output1": 64.0,
+        "output0": 65.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -232,20 +247,42 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 64,
+        "input": 62,
         "interval0": "root",
         "interval1": "+3/m3",
         "interval2": "+7/b7",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 64,
-        "out1": 67,
-        "out2": 74,
-        "out3": 64
+        "out0": 62,
+        "out1": 65,
+        "out2": 72,
+        "out3": 62
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 140734266264464,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.5400688531256309,
+        "set_pause": 0,
+        "speed": 0.16,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -2635,6 +2672,64 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734264094832,
+      "src": {
+        "device": 140734266264464,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734205704528,
+          "device": 140734266264464,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734265949360,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

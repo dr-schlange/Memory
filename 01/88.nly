@@ -8,7 +8,50 @@
         "output": "amsynth:MIDI IN 147:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "general": {
+          "bank_select": 4,
+          "preset_select": 15
+        },
+        "oscillators": {
+          "osc1_shape": 105,
+          "osc2_shape": 33,
+          "osc2_oct": 54,
+          "osc2_semitone": 116,
+          "osc2_detune": 15,
+          "sync_oscillators": 0,
+          "mix": 88
+        },
+        "amp": {
+          "volume": 90,
+          "attack": 22,
+          "decay": 8,
+          "sustain": 119,
+          "release": 29
+        },
+        "filter": {
+          "type": 0,
+          "slope": 127,
+          "cutoff": 94,
+          "resonance": 105,
+          "env_amount": 10,
+          "attack": 23,
+          "decay": 33,
+          "sustain": 4,
+          "release": 11
+        },
+        "lfo": {
+          "speed": 0,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
+        },
+        "reverb": {
+          "amount": 0,
+          "size": 0,
+          "stereo": 127,
+          "damping": 81
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -46,11 +89,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 0,
-        "io2": 0,
-        "io1": 0,
-        "oi": 0
+        "io4": 44.0,
+        "io3": 79.0,
+        "io2": 56.0,
+        "io1": 44.0,
+        "oi": 79.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -66,11 +109,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 0,
-        "io3": 0,
-        "io2": 0,
-        "io1": 0,
-        "oi": 0
+        "io4": 79.0,
+        "io3": 89.0,
+        "io2": 86.0,
+        "io1": 83.0,
+        "oi": 83.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -83,8 +126,18 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 1,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
@@ -120,17 +173,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 79,
         "interval0": "root",
-        "interval1": "root",
-        "interval2": "root",
-        "interval3": "root",
+        "interval1": "+3/m3",
+        "interval2": "+5/b5",
+        "interval3": "+7/b7",
         "key": "C",
         "scale_": "maj",
-        "out0": 0,
-        "out1": 0,
-        "out2": 0,
-        "out3": 0
+        "out0": 79,
+        "out1": 83,
+        "out2": 86,
+        "out3": 89
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -330,7 +383,7 @@
         "device": 140732470265808,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul4",
+          "name": "mul3",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -341,7 +394,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul4_cv",
+          "cv_name": "mul3_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -350,7 +403,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732459422544,
+          "id": 140732458145488,
           "device": 140732470265808,
           "to_min": 0,
           "to_max": 1,
@@ -384,63 +437,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140732529315696,
-      "src": {
-        "device": 140732470789776,
-        "repr": "Harmonizer1",
-        "parameter": {
-          "name": "out0",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732459421520,
-          "device": 140732470789776,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732459199824,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,
@@ -701,6 +697,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732529315696,
+      "src": {
+        "device": 140732470789776,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732459428304,
+          "device": 140732470789776,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732459199824,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

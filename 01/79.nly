@@ -33,8 +33,7 @@
         },
         "filter": {
           "slope": 127,
-          "cutoff": 88,
-          "resonance": 48,
+          "cutoff": 60,
           "env_amount": 11,
           "attack": 11,
           "decay": 62,
@@ -107,8 +106,8 @@
       "config": {
         "set_pause": 0,
         "sliders0_s0": 9.0,
-        "sliders0_s1": 88.0,
-        "sliders0_s2": 48.0,
+        "sliders0_s1": 60.0,
+        "sliders0_s2": 0.0,
         "sliders0_s3": 23.0
       },
       "proxy": false,
@@ -148,18 +147,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 62.0,
+        "input": 64.0,
         "trigger": 0,
         "reset": 0.0,
         "length": 8,
-        "output7": 62.0,
-        "output6": 62.0,
-        "output5": 62.0,
-        "output4": 64.0,
-        "output3": 67.0,
-        "output2": 67.0,
-        "output1": 65.0,
-        "output0": 65.0
+        "output7": 64.0,
+        "output6": 67.0,
+        "output5": 67.0,
+        "output4": 65.0,
+        "output3": 65.0,
+        "output2": 62.0,
+        "output1": 62.0,
+        "output0": 62.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -1458,6 +1457,64 @@
           "name": "resonance",
           "section_name": "filter",
           "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734264095536,
+      "src": {
+        "device": 140734265942976,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s3",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734263867088,
+          "device": 140734265942976,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734265944992,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 47,
+          "channel": null,
+          "name": "type",
+          "section_name": "filter",
+          "init_value": 64,
           "description": null,
           "range": [
             0,

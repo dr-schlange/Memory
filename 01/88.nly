@@ -89,11 +89,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 44.0,
-        "io3": 79.0,
-        "io2": 56.0,
-        "io1": 44.0,
-        "oi": 44.0
+        "io4": 53.0,
+        "io3": 55.9542762497287,
+        "io2": 43.0,
+        "io1": 60.0,
+        "oi": 70.93181269026104
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -109,11 +109,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 43.0,
-        "io3": 31.0,
-        "io2": 48.0,
-        "io1": 50.0,
-        "oi": 50.0
+        "io4": 74.0,
+        "io3": 71.0,
+        "io2": 79.0,
+        "io1": 81.0,
+        "oi": 71.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -173,20 +173,42 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 44,
-        "interval0": "root",
-        "interval1": "+5/b5",
-        "interval2": "+3/m3",
-        "interval3": "-octave",
+        "input": 71,
+        "interval0": "+3/m3",
+        "interval1": "+7/b7",
+        "interval2": "+6/m6",
+        "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 43,
-        "out1": 50,
-        "out2": 48,
-        "out3": 31
+        "out0": 74,
+        "out1": 81,
+        "out2": 79,
+        "out3": 71
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 140732470790736,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 119.42543226777845,
+        "set_pause": 0,
+        "speed": 1.72,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 34,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -754,6 +776,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732460396128,
+      "src": {
+        "device": 140732470790736,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732470619856,
+          "device": 140732470790736,
+          "to_min": 71,
+          "to_max": 55,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732470789136,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "io3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

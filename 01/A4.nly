@@ -25,8 +25,8 @@
           "ring_mod": 0
         },
         "amp": {
-          "volume": 127,
-          "panning": 34,
+          "volume": 122,
+          "panning": 62,
           "attack": 2,
           "decay": 86,
           "sustain": 0,
@@ -86,8 +86,8 @@
           "ring_mod": 0
         },
         "amp": {
-          "volume": 0,
-          "panning": 93,
+          "volume": 5,
+          "panning": 65,
           "attack": 2,
           "decay": 86,
           "sustain": 113,
@@ -172,8 +172,8 @@
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
-        "mul2": 0,
+        "mul4": 1,
+        "mul2": 1,
         "div2": 0,
         "div4": 0,
         "lead": 0
@@ -191,16 +191,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
+        "div32": 1.0,
         "div16": 1.0,
-        "div8": 1.0,
-        "div7": 0.0,
+        "div8": 0.0,
+        "div7": 1.0,
         "div6": 1.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 1.0,
-        "div3": 0.0,
-        "div2": 1.0,
-        "div1": 1.0
+        "div3": 1.0,
+        "div2": 0.0,
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -211,7 +211,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 64.0,
+        "output": 59.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -235,7 +235,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7
+        "current_step": 4
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -246,7 +246,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 126.74660960452769,
+        "output": 122.35216601193665,
         "set_pause": 0,
         "speed": 0.27,
         "subdiv": "1/1",
@@ -268,7 +268,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 34.421843356712635,
+        "output": 62.123434817595744,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -285,53 +285,48 @@
       "class": "LFO"
     },
     {
-      "id": 140736138074432,
-      "repr": "ChordGenerator1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 0,
-        "chord": "maj",
-        "octave": 0,
-        "inversion": "--",
-        "drop": "--",
-        "omit": "--",
-        "custom0": "--",
-        "custom1": "--",
-        "custom2": "--",
-        "custom3": "--",
-        "custom4": "--",
-        "note4": 0,
-        "note3": 0,
-        "note2": 0,
-        "note1": 0,
-        "note0": 0
-      },
-      "proxy": false,
-      "class": "ChordGenerator"
-    },
-    {
       "id": 140736138075776,
       "repr": "Harmonizer1",
       "paused": false,
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 64,
-        "interval0": "+5/b5",
-        "interval1": "+7/b7",
+        "input": 59,
+        "interval0": "+6/m6",
+        "interval1": "+4/b4",
         "interval2": "+6/m6",
         "interval3": "-octave",
         "key": "C",
         "scale_": "min6-penta",
-        "out0": 70,
-        "out1": 75,
-        "out2": 72,
-        "out3": 51
+        "out0": 67,
+        "out1": 63,
+        "out2": 67,
+        "out3": 46
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 140736138112016,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 96.0049837159315,
+        "set_pause": 0,
+        "speed": 0.38,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -1339,6 +1334,87 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736137833376,
+      "src": {
+        "device": 140736138112016,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736080199120,
+          "device": 140736138112016,
+          "to_min": 0,
+          "to_max": 14,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736138075776,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "interval1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            14
+          ],
+          "accepted_values": [
+            "-octave",
+            "-7/b7",
+            "-6/m6",
+            "-5/b5",
+            "-4/b4",
+            "-3/m3",
+            "-2/b2",
+            "root",
+            "+2/b2",
+            "+3/m3",
+            "+4/b4",
+            "+5/b5",
+            "+6/m6",
+            "+7/b7",
+            "+octave"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "interval1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": "root",
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

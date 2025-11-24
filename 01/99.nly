@@ -13,8 +13,8 @@
           "volume": 127
         },
         "filter": {
-          "cutoff": 43,
-          "resonance": 94
+          "cutoff": 69,
+          "resonance": 100
         }
       },
       "class": "Amsynth"
@@ -24,12 +24,61 @@
       "repr": "Amsynth",
       "ports": {
         "input": "amsynth:MIDI OUT 136:1",
-        "output": "amsynth:MIDI IN 136:0"
+        "output": null
       },
       "channel": 0,
       "config": {
+        "general": {
+          "bank_select": 11,
+          "preset_select": 92
+        },
+        "oscillators": {
+          "osc1_waveform": 95,
+          "osc1_shape": 36,
+          "osc2_waveform": 32,
+          "osc2_shape": 0,
+          "osc2_oct": 73,
+          "osc2_semitone": 32,
+          "osc2_detune": 4,
+          "sync_oscillators": 0,
+          "mix": 119,
+          "ring_mod": 0
+        },
+        "amp": {
+          "volume": 117,
+          "drive": 56,
+          "attack": 44,
+          "decay": 109,
+          "sustain": 118,
+          "release": 36
+        },
         "filter": {
-          "resonance": 127
+          "type": 32,
+          "cutoff": 109,
+          "resonance": 17,
+          "env_amount": 82,
+          "attack": 55,
+          "decay": 102,
+          "sustain": 5,
+          "release": 87
+        },
+        "lfo": {
+          "waveform": 0,
+          "speed": 31,
+          "target": 0,
+          "freq_mod_amount": 12,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
+        },
+        "reverb": {
+          "amount": 18,
+          "size": 0,
+          "stereo": 127,
+          "damping": 13
+        },
+        "keys": {
+          "portamento": 3,
+          "keyboard_mode": 64
         }
       },
       "class": "Amsynth"
@@ -54,12 +103,12 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "xypad0_x": 94.0,
-        "xypad0_y": 43.0,
+        "xypad0_x": 100.0,
+        "xypad0_y": 69.0,
         "pads0_p0": 0.0,
         "pads0_p1": 0.0,
-        "xypad1_x": 127.0,
-        "xypad1_y": 0.0
+        "xypad1_x": 17.0,
+        "xypad1_y": 109.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -71,7 +120,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
@@ -94,7 +143,7 @@
         "tempo": 282.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -118,15 +167,15 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 0.0,
-        "div8": 0.0,
-        "div7": 1.0,
-        "div6": 0.0,
-        "div5": 1.0,
-        "div4": 0.0,
-        "div3": 1.0,
-        "div2": 0.0,
+        "div32": 0.0,
+        "div16": 1.0,
+        "div8": 1.0,
+        "div7": 0.0,
+        "div6": 1.0,
+        "div5": 0.0,
+        "div4": 1.0,
+        "div3": 0.0,
+        "div2": 1.0,
         "div1": 0.0
       },
       "proxy": false,
@@ -206,18 +255,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 43.0,
+        "input": 80.0,
         "trigger": 0,
         "reset": 0.0,
         "length": 8,
-        "output7": 43.0,
-        "output6": 43.0,
-        "output5": 57.0,
-        "output4": 57.0,
-        "output3": 0.0,
-        "output2": 0.0,
-        "output1": 48.0,
-        "output0": 0.0
+        "output7": 80.0,
+        "output6": 75.0,
+        "output5": 98.0,
+        "output4": 71.0,
+        "output3": 71.0,
+        "output2": 70.0,
+        "output1": 69.0,
+        "output0": 69.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -242,124 +291,6 @@
     }
   ],
   "connections": [
-    {
-      "id": 140735772511760,
-      "src": {
-        "device": 140735774123616,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "xypad0_y",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xypad0_y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735772512464,
-          "device": 140735774123616,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735772316672,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 50,
-          "channel": null,
-          "name": "cutoff",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": "Filter Cutoff",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735772511408,
-      "src": {
-        "device": 140735774123616,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "xypad0_x",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xypad0_x_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735772696944,
-          "device": 140735774123616,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735772316672,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 49,
-          "channel": null,
-          "name": "resonance",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": "Filter Resonnance",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
     {
       "id": 140735772521616,
       "src": {
@@ -863,6 +794,124 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735520249600,
+      "src": {
+        "device": 140735774123616,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xypad0_y",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xypad0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735772433360,
+          "device": 140735774123616,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735772316672,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735520250480,
+      "src": {
+        "device": 140735774123616,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xypad0_x",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xypad0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735521131600,
+          "device": 140735774123616,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735772316672,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 49,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Resonnance",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

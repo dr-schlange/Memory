@@ -11,6 +11,10 @@
       "config": {
         "amp": {
           "volume": 127
+        },
+        "filter": {
+          "cutoff": 86,
+          "resonance": 103
         }
       },
       "class": "Amsynth"
@@ -34,7 +38,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "xypad0_x": 103.0,
+        "xypad0_y": 86.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -46,15 +52,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
         "io4": 66.0,
-        "io3": 59.0,
-        "io2": 61.0,
-        "io1": 57.0,
-        "oi": 61.0
+        "io3": 75.0,
+        "io2": 65.0,
+        "io1": 58.0,
+        "oi": 75.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -70,7 +76,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -93,16 +99,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 1.0,
-        "div8": 0.0,
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 1.0,
         "div7": 1.0,
-        "div6": 0.0,
+        "div6": 1.0,
         "div5": 0.0,
         "div4": 0.0,
-        "div3": 0.0,
-        "div2": 0.0,
-        "div1": 0.0
+        "div3": 1.0,
+        "div2": 1.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -136,7 +142,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 60,
+        "input": 74,
         "chord": "maj7",
         "octave": -1,
         "inversion": "--",
@@ -148,10 +154,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 59,
-        "note2": 55,
-        "note1": 52,
-        "note0": 48
+        "note3": 73,
+        "note2": 69,
+        "note1": 66,
+        "note0": 62
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -162,9 +168,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 60,
+        "output": 74,
         "set_pause": 0,
-        "input": 61.0,
+        "input": 75.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -176,6 +182,124 @@
     }
   ],
   "connections": [
+    {
+      "id": 140735772511760,
+      "src": {
+        "device": 140735774123616,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xypad0_y",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xypad0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735772512464,
+          "device": 140735774123616,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735772316672,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735772511408,
+      "src": {
+        "device": 140735774123616,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xypad0_x",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xypad0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735772696944,
+          "device": 140735774123616,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735772316672,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 49,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Resonnance",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140735774485264,
       "src": {
@@ -372,12 +496,12 @@
       "velocity": null
     },
     {
-      "id": 140735772147088,
+      "id": 140735772510704,
       "src": {
         "device": 140735772321376,
         "repr": "ClockDivider1",
         "parameter": {
-          "name": "div4",
+          "name": "div6",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -388,7 +512,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "div4_cv",
+          "cv_name": "div6_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -397,7 +521,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735772141328,
+          "id": 140735772511232,
           "device": 140735772321376,
           "to_min": 0,
           "to_max": 1,

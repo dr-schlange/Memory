@@ -19,8 +19,26 @@
         "output": "Minilab3:Minilab3 MIDI 28:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "pads": {
+          "p2": 127
+        },
+        "buttons": {
+          "b2": 1
+        }
+      },
       "class": "Minilab3"
+    },
+    {
+      "id": 140733961385808,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 137:1",
+        "output": "amsynth:MIDI IN 137:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
@@ -45,6 +63,23 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140733961652608,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "gate": 0,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
@@ -78,6 +113,55 @@
       },
       "dest": {
         "device": 140733961386128,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733961379728,
+      "src": {
+        "device": 140733961658320,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733961379408,
+          "device": 140733961658320,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140733961385808,
         "repr": "Amsynth",
         "parameter": {
           "channel": null,

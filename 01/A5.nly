@@ -27,7 +27,7 @@
         },
         "amp": {
           "volume": 106,
-          "panning": 111,
+          "panning": 48,
           "attack": 40,
           "decay": 0,
           "sustain": 117,
@@ -113,7 +113,7 @@
         },
         "amp": {
           "volume": 127,
-          "panning": 16,
+          "panning": 79,
           "attack": 0,
           "decay": 26,
           "sustain": 0,
@@ -180,9 +180,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8778844444444444,
+        "output": 0.3700000000000002,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.2,
         "decay": 0.3,
         "sustain": 0.9,
@@ -213,7 +213,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 73.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -237,7 +237,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -249,17 +249,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 73,
         "interval0": "root",
-        "interval1": "-5/b5",
+        "interval1": "root",
         "interval2": "+2/b2",
         "interval3": "+7/b7",
         "key": "C",
         "scale_": "maj",
-        "out0": 0,
-        "out1": 0,
-        "out2": 0,
-        "out3": 0
+        "out0": 72,
+        "out1": 72,
+        "out2": 74,
+        "out3": 83
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -274,7 +274,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -294,7 +294,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 32.7054681791175,
+        "output": 69.91729411445915,
         "set_pause": 0,
         "speed": 0.17,
         "subdiv": "1/1",
@@ -309,6 +309,26 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140733961653280,
+      "repr": "EuclidianSequencer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "clock": 0,
+        "length": 8,
+        "hits": 4,
+        "shift": 0,
+        "trig_shift": 0,
+        "reset": 0,
+        "step_out": 7,
+        "gate_out": 0,
+        "trigger_out": 0
+      },
+      "proxy": false,
+      "class": "EuclidianSequencer"
     }
   ],
   "connections": [
@@ -1856,6 +1876,128 @@
       "velocity": null
     },
     {
+      "id": 140733961761760,
+      "src": {
+        "device": 140733963381664,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733665771984,
+          "device": 140733963381664,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733961653280,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "clock",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733961762464,
+      "src": {
+        "device": 140733963381664,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733665773264,
+          "device": 140733963381664,
+          "to_min": 0,
+          "to_max": 14,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733961385808,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733961764224,
       "src": {
         "device": 140733963386032,
@@ -1931,6 +2073,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733961760352,
+      "src": {
+        "device": 140733961653280,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "gate_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gate_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733710655696,
+          "device": 140733961653280,
+          "to_min": 0,
+          "to_max": 79,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733961385808,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

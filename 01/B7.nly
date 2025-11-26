@@ -26,7 +26,7 @@
         },
         "amp": {
           "volume": 127,
-          "panning": 81,
+          "panning": 2,
           "attack": 40,
           "decay": 0,
           "sustain": 117,
@@ -111,7 +111,7 @@
         },
         "amp": {
           "volume": 127,
-          "panning": 46,
+          "panning": 125,
           "attack": 0,
           "decay": 26,
           "sustain": 0,
@@ -180,9 +180,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.6300000000000003,
+        "output": 0.019244444444444446,
         "set_pause": 0,
-        "gate": 1,
+        "gate": 0,
         "attack": 0.2,
         "decay": 0.3,
         "sustain": 0.9,
@@ -213,7 +213,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 73.0,
+        "output": 0.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -237,7 +237,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 3
+        "current_step": 7
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -249,17 +249,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 73,
+        "input": 0,
         "interval0": "root",
-        "interval1": "-2/b2",
+        "interval1": "-7/b7",
         "interval2": "+2/b2",
         "interval3": "+7/b7",
         "key": "C",
         "scale_": "maj",
-        "out0": 72,
-        "out1": 71,
-        "out2": 74,
-        "out3": 83
+        "out0": 0,
+        "out1": 0,
+        "out2": 0,
+        "out3": 0
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -301,7 +301,7 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 5,
+        "step_out": 7,
         "gate_out": 1,
         "trigger_out": 0
       },
@@ -314,7 +314,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 55.521921227485805,
+        "output": 15.582438488275864,
         "set_pause": 0,
         "speed": 0.77,
         "subdiv": "1/1",
@@ -329,6 +329,23 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140733961379408,
+      "repr": "BernoulliTrigger2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 1,
+        "probability": 0.5,
+        "bias": 0.0,
+        "quantized": "off",
+        "outA": 0,
+        "outB": 0
+      },
+      "proxy": false,
+      "class": "BernoulliTrigger"
     }
   ],
   "connections": [
@@ -2055,6 +2072,71 @@
       "velocity": null
     },
     {
+      "id": 140733961751552,
+      "src": {
+        "device": 140733961653280,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "gate_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gate_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733667011152,
+          "device": 140733961653280,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733961379408,
+        "repr": "BernoulliTrigger2",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733961757712,
       "src": {
         "device": 140733961377488,
@@ -2126,6 +2208,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": "root",
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733961763520,
+      "src": {
+        "device": 140733961379408,
+        "repr": "BernoulliTrigger2",
+        "parameter": {
+          "name": "outA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733710398416,
+          "device": 140733961379408,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733963385024,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,

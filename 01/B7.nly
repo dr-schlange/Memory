@@ -26,7 +26,7 @@
         },
         "amp": {
           "volume": 127,
-          "panning": 111,
+          "panning": 127,
           "attack": 40,
           "decay": 0,
           "sustain": 117,
@@ -111,7 +111,7 @@
         },
         "amp": {
           "volume": 127,
-          "panning": 16,
+          "panning": 0,
           "attack": 0,
           "decay": 26,
           "sustain": 0,
@@ -180,9 +180,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8745555555555554,
+        "output": 0.9973333333333333,
         "set_pause": 0,
-        "gate": 0,
+        "gate": 1,
         "attack": 0.2,
         "decay": 0.3,
         "sustain": 0.9,
@@ -213,7 +213,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 68.0,
         "set_pause": 0,
         "trigger": 0,
         "play": 1,
@@ -237,7 +237,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 2
+        "current_step": 0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -249,17 +249,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 68,
         "interval0": "root",
-        "interval1": "root",
+        "interval1": "+4/b4",
         "interval2": "+2/b2",
         "interval3": "+7/b7",
         "key": "C",
         "scale_": "maj",
-        "out0": 0,
-        "out1": 0,
-        "out2": 0,
-        "out3": 0
+        "out0": 67,
+        "out1": 72,
+        "out2": 69,
+        "out3": 77
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -289,28 +289,6 @@
       "class": "Clock"
     },
     {
-      "id": 140733963386032,
-      "repr": "LFO1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 69.58394717924952,
-        "set_pause": 0,
-        "speed": 0.17,
-        "subdiv": "1/1",
-        "phase": 0.0,
-        "sampling_rate": 50.0,
-        "waveform": "smooth_random_cosine",
-        "invert_polarity": 0.0,
-        "min_value": 0,
-        "max_value": 127.0,
-        "pulse_width": 0.3,
-        "step_size": 0.2
-      },
-      "proxy": false,
-      "class": "LFO"
-    },
-    {
       "id": 140733961653280,
       "repr": "EuclidianSequencer1",
       "paused": false,
@@ -318,17 +296,34 @@
       "config": {
         "set_pause": 0,
         "clock": 0,
-        "length": 8,
+        "length": 9,
         "hits": 5,
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 0,
-        "gate_out": 1,
+        "step_out": 6,
+        "gate_out": 0,
         "trigger_out": 0
       },
       "proxy": false,
       "class": "EuclidianSequencer"
+    },
+    {
+      "id": 140733963386032,
+      "repr": "BernoulliTrigger1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "probability": 0.5,
+        "bias": 0.0,
+        "quantized": "off",
+        "outA": 0,
+        "outB": 0
+      },
+      "proxy": false,
+      "class": "BernoulliTrigger"
     }
   ],
   "connections": [
@@ -1992,87 +1987,6 @@
         },
         "explicit": -1,
         "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140733961764224,
-      "src": {
-        "device": 140733963386032,
-        "repr": "LFO1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733710914768,
-          "device": 140733963386032,
-          "to_min": 0,
-          "to_max": 14,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140733963381328,
-        "repr": "Harmonizer1",
-        "parameter": {
-          "name": "interval1",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            14
-          ],
-          "accepted_values": [
-            "-octave",
-            "-7/b7",
-            "-6/m6",
-            "-5/b5",
-            "-4/b4",
-            "-3/m3",
-            "-2/b2",
-            "root",
-            "+2/b2",
-            "+3/m3",
-            "+4/b4",
-            "+5/b5",
-            "+6/m6",
-            "+7/b7",
-            "+octave"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "interval1_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": "root",
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

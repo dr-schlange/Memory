@@ -1,0 +1,180 @@
+{
+  "midi_devices": [
+    {
+      "id": 140736057686480,
+      "repr": "S1",
+      "ports": {
+        "input": "S-1:S-1 MIDI IN 36:0",
+        "output": "S-1:S-1 MIDI IN 36:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "S1"
+    },
+    {
+      "id": 140735610823824,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 32:0",
+        "output": "Minilab3:Minilab3 MIDI 32:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
+    }
+  ],
+  "virtual_devices": [
+    {
+      "id": 140736062476304,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 140736057683920,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 140736057687440,
+      "repr": "VolumeMixer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "inA": 0,
+        "volA": 0
+      },
+      "proxy": false,
+      "class": "VolumeMixer"
+    }
+  ],
+  "connections": [
+    {
+      "id": 140736056012736,
+      "src": {
+        "device": 140735610823824,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736056013088,
+          "device": 140735610823824,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140736057687440,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "inA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "inA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736056012560,
+      "src": {
+        "device": 140736057687440,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735610752048,
+          "device": 140736057687440,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736057686480,
+        "repr": "S1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

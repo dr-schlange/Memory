@@ -12,6 +12,7 @@ class _Zab(VirtualDevice):
     * in2_cv [0, 127] round <increase, decrease>: Parameter description
     * incr_cv [0, 127] round <increase>: Parameter description
     * decr_cv [0, 127] round <decrease>: Parameter description
+    * time_cv [0, 1000]: Parameter description
 
     outputs:
     # * %outname [%range]: %doc
@@ -20,6 +21,7 @@ class _Zab(VirtualDevice):
     category: <category>
     # meta: disable default output
     """
+    time_cv = VirtualParameter(name='time', range=(0.0, 1000.0))
     io0_cv = VirtualParameter(name='io0', range=(0.0, 127.0), conversion_policy='round')
     io1_cv = VirtualParameter(name='io1', range=(0.0, 127.0), conversion_policy='round')
     in2_cv = VirtualParameter(name='in2', range=(0.0, 127.0), conversion_policy='round')

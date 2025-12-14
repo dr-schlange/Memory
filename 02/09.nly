@@ -9,8 +9,54 @@
       },
       "channel": 0,
       "config": {
+        "general": {
+          "bank_select": 115,
+          "preset_select": 27,
+          "filter_velocity_sens": 23,
+          "amp_velocity_sens": 44
+        },
+        "oscillators": {
+          "osc1_waveform": 100,
+          "osc1_shape": 55,
+          "osc2_waveform": 51,
+          "osc2_shape": 51,
+          "osc2_oct": 23,
+          "osc2_semitone": 103,
+          "osc2_detune": 26,
+          "sync_oscillators": 52,
+          "mix": 70,
+          "ring_mod": 17
+        },
         "amp": {
-          "volume": 18
+          "volume": 115,
+          "panning": 75,
+          "drive": 2,
+          "attack": 100,
+          "decay": 48,
+          "sustain": 96,
+          "release": 101
+        },
+        "filter": {
+          "type": 7,
+          "slope": 16,
+          "cutoff": 127,
+          "env_amount": 64,
+          "decay": 0,
+          "sustain": 127,
+          "release": 16
+        },
+        "lfo": {
+          "waveform": 74,
+          "speed": 0,
+          "target": 0,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
+        },
+        "reverb": {
+          "amount": 0,
+          "size": 0,
+          "stereo": 127,
+          "damping": 0
         }
       },
       "class": "Amsynth"
@@ -25,7 +71,7 @@
       "channel": 0,
       "config": {
         "amp": {
-          "volume": 16
+          "volume": 11
         }
       },
       "class": "Amsynth"
@@ -61,8 +107,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 18.0,
-        "pads0_p1": 16.0
+        "pads0_p0": 17.0,
+        "pads0_p1": 11.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -137,7 +183,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.0,
+        "output": 58.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -166,7 +212,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7.0
+        "current_step": 3.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -217,7 +263,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -230,6 +276,28 @@
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 140733938259984,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 78.13140684555827,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -1877,6 +1945,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470110240,
+      "src": {
+        "device": 140733938259984,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734479192528,
+          "device": 140733938259984,
+          "to_min": 33,
+          "to_max": 102,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734479662800,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

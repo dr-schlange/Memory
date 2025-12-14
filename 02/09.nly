@@ -74,8 +74,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
-        "chord": "maj",
+        "input": 69,
+        "chord": "maj7",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -85,11 +85,11 @@
         "custom2": "--",
         "custom3": "--",
         "custom4": "--",
-        "note4": 0,
-        "note3": 0,
-        "note2": 0,
-        "note1": 0,
-        "note0": 0
+        "note4": 81,
+        "note3": 80,
+        "note2": 76,
+        "note1": 73,
+        "note0": 69
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -97,6 +97,95 @@
     {
       "id": 140734539703568,
       "repr": "BroadcastRAM81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "previous",
+        "io0": 69.0,
+        "io1": 70.0,
+        "io2": 0,
+        "io3": 0,
+        "io4": 0,
+        "io5": 0,
+        "io6": 0,
+        "io7": 0,
+        "trigger": 0.0,
+        "reset": 0.0
+      },
+      "proxy": false,
+      "class": "BroadcastRAM8"
+    },
+    {
+      "id": 140733938258064,
+      "repr": "SampleHold2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 71.0,
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "SampleHold"
+    },
+    {
+      "id": 140733938259664,
+      "repr": "Sequencer81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0.0,
+        "write": 0.0,
+        "prev_edit_step": 0.0,
+        "next_edit_step": 0.0,
+        "trigger": 0.0,
+        "play": 1.0,
+        "reset": 0.0,
+        "set_step": 0,
+        "length": 8,
+        "step0": 0.0,
+        "step1": 0.0,
+        "step2": 0.0,
+        "step3": 0.0,
+        "step4": 0.0,
+        "step5": 0.0,
+        "step6": 0.0,
+        "step7": 0.0,
+        "edit_step": 0,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0.0,
+        "current_step": 0.0
+      },
+      "proxy": false,
+      "class": "Sequencer8"
+    },
+    {
+      "id": 140733938258704,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "shift": 0
+      },
+      "proxy": false,
+      "class": "PitchShifter"
+    },
+    {
+      "id": 140733938258384,
+      "repr": "BroadcastRAM82",
       "paused": false,
       "running": true,
       "config": {
@@ -115,20 +204,6 @@
       },
       "proxy": false,
       "class": "BroadcastRAM8"
-    },
-    {
-      "id": 140733938258064,
-      "repr": "SampleHold2",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 0,
-        "trigger": 0,
-        "reset": 0
-      },
-      "proxy": false,
-      "class": "SampleHold"
     }
   ],
   "connections": [
@@ -422,6 +497,494 @@
       "velocity": null
     },
     {
+      "id": 140734470109184,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938077264,
+          "device": 140733938259344,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734479662800,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470109888,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938079952,
+          "device": 140733938259344,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734479662800,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470107600,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938086480,
+          "device": 140733938259344,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733937485376,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470102848,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938080720,
+          "device": 140733938259344,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733937485376,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470105488,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734479193552,
+          "device": 140733938259344,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938258384,
+        "repr": "BroadcastRAM82",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470104960,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734479194576,
+          "device": 140733938259344,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938258384,
+        "repr": "BroadcastRAM82",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470105664,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938074704,
+          "device": 140733938259344,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938258384,
+        "repr": "BroadcastRAM82",
+        "parameter": {
+          "name": "io2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470104432,
+      "src": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938084688,
+          "device": 140733938259344,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938258384,
+        "repr": "BroadcastRAM82",
+        "parameter": {
+          "name": "io3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734470104784,
       "src": {
         "device": 140734539703568,
@@ -489,8 +1052,214 @@
     {
       "id": 140734470110944,
       "src": {
-        "device": 140733938258064,
-        "repr": "SampleHold2",
+        "device": 140734539703568,
+        "repr": "BroadcastRAM81",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938076496,
+          "device": 140734539703568,
+          "to_min": 0,
+          "to_max": 9,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938259344,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "chord",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            9
+          ],
+          "accepted_values": [
+            "maj",
+            "min",
+            "maj7",
+            "min7",
+            "7th",
+            "maj7#11",
+            "dim",
+            "m7b5",
+            "min7maj",
+            "custom"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "chord_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470107952,
+      "src": {
+        "device": 140734539703568,
+        "repr": "BroadcastRAM81",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938084048,
+          "device": 140734539703568,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734539756112,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470105840,
+      "src": {
+        "device": 140734539703568,
+        "repr": "BroadcastRAM81",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938083920,
+          "device": 140734539703568,
+          "to_min": 0,
+          "to_max": 128,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733938258704,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            128
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470106896,
+      "src": {
+        "device": 140733938258704,
+        "repr": "PitchShifter1",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -512,8 +1281,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733938079312,
-          "device": 140733938258064,
+          "id": 140733938083152,
+          "device": 140733938258704,
           "to_min": 0.0,
           "to_max": 127.0,
           "auto": false,
@@ -523,10 +1292,10 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734539703568,
-        "repr": "BroadcastRAM81",
+        "device": 140733938258384,
+        "repr": "BroadcastRAM82",
         "parameter": {
-          "name": "io0",
+          "name": "io4",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -537,7 +1306,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "io0_cv",
+          "cv_name": "io4_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

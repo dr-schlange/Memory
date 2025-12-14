@@ -8,7 +8,11 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "amp": {
+          "volume": 18
+        }
+      },
       "class": "Amsynth"
     },
     {
@@ -19,7 +23,11 @@
         "output": "amsynth:MIDI IN 135:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "amp": {
+          "volume": 16
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -41,12 +49,133 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 18.0,
+        "pads0_p1": 16.0
       },
       "proxy": false,
       "class": "WebSocketBus"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140734488672432,
+      "src": {
+        "device": 140734539756112,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734488766160,
+          "device": 140734539756112,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734479662800,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734488671728,
+      "src": {
+        "device": 140734539756112,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733939399248,
+          "device": 140734539756112,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733937485376,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

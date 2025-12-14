@@ -9,8 +9,23 @@
       },
       "channel": 0,
       "config": {
+        "oscillators": {
+          "osc1_waveform": 32,
+          "osc1_shape": 37,
+          "osc2_waveform": 32,
+          "osc2_shape": 76,
+          "osc2_oct": 36
+        },
         "amp": {
-          "volume": 17
+          "volume": 14,
+          "attack": 0,
+          "decay": 12,
+          "sustain": 40,
+          "release": 45
+        },
+        "filter": {
+          "cutoff": 30,
+          "resonance": 59
         }
       },
       "class": "Amsynth"
@@ -56,7 +71,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 36.0,
+        "output": 48.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -67,14 +82,14 @@
         "reset": 0.0,
         "set_step": 0.0,
         "length": 8.0,
-        "step0": 36.0,
-        "step1": 40.0,
-        "step2": 43.0,
-        "step3": 47.0,
-        "step4": 48.28346456692913,
-        "step5": 47.0,
-        "step6": 43.0,
-        "step7": 40.0,
+        "step0": 48.0,
+        "step1": 52.0,
+        "step2": 55.0,
+        "step3": 59.0,
+        "step4": 60.37795275590551,
+        "step5": 59.0,
+        "step6": 55.0,
+        "step7": 52.0,
         "edit_step": 0,
         "active0": 1,
         "active1": 1,
@@ -97,7 +112,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 170.0,
+        "tempo": 181.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -105,7 +120,7 @@
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 0,
+        "mul4": 1,
         "mul2": 0,
         "div2": 0,
         "div4": 0,
@@ -120,7 +135,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 36.0,
+        "output": 48.0,
         "set_pause": 0,
         "input": 0,
         "trigger": 0,
@@ -135,9 +150,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 48.28346456692913,
+        "output": 60.37795275590551,
         "set_pause": 0,
-        "input": 36.28346456692913,
+        "input": 48.37795275590551,
         "shift": 12.0
       },
       "proxy": false,
@@ -150,7 +165,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 36,
+        "input": 48,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -162,13 +177,35 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 47,
-        "note2": 43,
-        "note1": 40,
-        "note0": 36
+        "note3": 59,
+        "note2": 55,
+        "note1": 52,
+        "note0": 48
       },
       "proxy": false,
       "class": "ChordGenerator"
+    },
+    {
+      "id": 140734539709280,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 30.032239799652483,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -281,55 +318,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734488671200,
-      "src": {
-        "device": 140734539705584,
-        "repr": "Minilab3",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734479159600,
-          "device": 140734539705584,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "note"
-      },
-      "dest": {
-        "device": 140734541004288,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,
@@ -1102,6 +1090,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470099680,
+      "src": {
+        "device": 140734539709280,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734470142160,
+          "device": 140734539709280,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734541004288,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

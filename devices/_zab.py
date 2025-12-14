@@ -28,32 +28,32 @@ class _Zab(VirtualDevice):
 
     @on(decr_cv, edge='decrease')
     def on_decr_decrease(self, value, ctx):
-        ...
+        yield (value, [self.decr_cv])
 
     @on(incr_cv, edge='increase')
     def on_incr_increase(self, value, ctx):
-        ...
+        yield (value, [self.incr_cv])
 
     @on(in2_cv, edge='increase')
     def on_in2_increase(self, value, ctx):
-        ...
+        yield (value, [self.in2_cv])
 
     @on(in2_cv, edge='decrease')
     def on_in2_decrease(self, value, ctx):
-        ...
+        yield (value, [self.in2_cv])
 
     @on(io1_cv, edge='increase')
     def on_io1_increase(self, value, ctx):
-        ...
+        yield (value, [self.io1_cv])
 
     @on(io1_cv, edge='decrease')
     def on_io1_decrease(self, value, ctx):
-        ...
+        yield (value, [self.io1_cv])
 
     @on(io0_cv, edge='increase')
     def on_io0_increase(self, value, ctx):
-        ...
+        yield (value, [self.io0_cv])
 
     @on(io0_cv, edge='decrease')
     def on_io0_decrease(self, value, ctx):
-        ...
+        yield (value, [self.io0_cv])

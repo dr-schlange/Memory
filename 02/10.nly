@@ -25,7 +25,7 @@
         },
         "amp": {
           "volume": 13,
-          "panning": 71,
+          "panning": 42,
           "attack": 14,
           "decay": 125,
           "sustain": 120,
@@ -158,8 +158,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 60,
-        "chord": "maj7",
+        "input": 127,
+        "chord": "m7b5",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -169,11 +169,11 @@
         "custom2": "--",
         "custom3": "--",
         "custom4": "--",
-        "note4": 72,
-        "note3": 71,
-        "note2": 67,
-        "note1": 64,
-        "note0": 60
+        "note4": 139,
+        "note3": 137,
+        "note2": 133,
+        "note1": 130,
+        "note0": 127
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -187,7 +187,7 @@
         "set_pause": 0,
         "mode": " new",
         "io0": 60.47344094488189,
-        "io1": 45.0,
+        "io1": 111.01436456761354,
         "io2": 0,
         "io3": 0,
         "io4": 0,
@@ -221,7 +221,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 71.0,
+        "output": 127.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -232,14 +232,14 @@
         "reset": 0.0,
         "set_step": 0,
         "length": 8,
-        "step0": 0.0,
-        "step1": 0.0,
-        "step2": 0.0,
-        "step3": 0.0,
-        "step4": 0.0,
-        "step5": 0.0,
-        "step6": 0.0,
-        "step7": 0.0,
+        "step0": 60.0,
+        "step1": 63.0,
+        "step2": 66.0,
+        "step3": 70.0,
+        "step4": 127.0,
+        "step5": 70.0,
+        "step6": 66.0,
+        "step7": 63.0,
         "edit_step": 0,
         "active0": 1,
         "active1": 1,
@@ -250,7 +250,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5.0
+        "current_step": 0.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -261,9 +261,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72.94960977121954,
+        "output": 140.0,
         "set_pause": 0,
-        "input": 60.94960977121954,
+        "input": 128.0,
         "shift": 12.0
       },
       "proxy": false,
@@ -277,11 +277,11 @@
       "config": {
         "set_pause": 0,
         "mode": "previous",
-        "io0": 0.0,
-        "io1": 0.0,
-        "io2": 0.0,
-        "io3": 0.0,
-        "io4": 0.0,
+        "io0": 60.0,
+        "io1": 63.0,
+        "io2": 66.0,
+        "io3": 70.0,
+        "io4": 127.0,
         "io5": 0.0,
         "io6": 0.0,
         "io7": 0.0,
@@ -321,7 +321,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 69.09352938274122,
+        "output": 17.077719715006122,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -345,11 +345,33 @@
       "config": {
         "output": 60.47344094488189,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 60.47244094488189,
         "shift": 0.001
       },
       "proxy": false,
       "class": "PitchShifter"
+    },
+    {
+      "id": 140734479661840,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 111.01436456761354,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -2235,6 +2257,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734470107248,
+      "src": {
+        "device": 140734479661840,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734479194832,
+          "device": 140734479661840,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734539703568,
+        "repr": "BroadcastRAM81",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

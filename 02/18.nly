@@ -9,11 +9,58 @@
       },
       "channel": 0,
       "config": {
+        "general": {
+          "bank_select": 16,
+          "preset_select": 3
+        },
+        "oscillators": {
+          "osc1_shape": 108,
+          "osc2_shape": 103,
+          "osc2_oct": 54,
+          "osc2_detune": 63,
+          "mix": 79,
+          "ring_mod": 0
+        },
         "amp": {
-          "volume": 36
+          "volume": 58,
+          "attack": 0,
+          "decay": 39,
+          "sustain": 0,
+          "release": 17
+        },
+        "filter": {
+          "type": 0,
+          "cutoff": 127,
+          "resonance": 104,
+          "decay": 0,
+          "sustain": 0,
+          "release": 33
+        },
+        "lfo": {
+          "waveform": 0,
+          "speed": 0,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
+        },
+        "reverb": {
+          "amount": 0,
+          "size": 0,
+          "stereo": 127,
+          "damping": 0
         }
       },
       "class": "Amsynth"
+    },
+    {
+      "id": 140734469651632,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (760):Synth input port (760:0) 128:0"
+      },
+      "channel": 9,
+      "config": {},
+      "class": "MIDIBridge"
     }
   ],
   "virtual_devices": [
@@ -47,9 +94,9 @@
       "config": {
         "set_pause": 0,
         "time": 375.0,
-        "io0": 62,
-        "io1": 62,
-        "in2": 33,
+        "io0": 33,
+        "io1": 60,
+        "in2": 60,
         "incr": 0.0,
         "decr": 0.0
       },
@@ -86,7 +133,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 39.0,
+        "output": 33.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -115,7 +162,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 6.0
+        "current_step": 3.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -126,9 +173,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 52.503937007874015,
+        "output": 48.47244094488189,
         "set_pause": 0,
-        "input": 64.50393700787401,
+        "input": 60.47244094488189,
         "shift": -12.0
       },
       "proxy": false,
@@ -326,6 +373,177 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733939101984,
+      "src": {
+        "device": 140734539704576,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "in2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "in2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938087120,
+          "device": 140734539704576,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734469651632,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733939099872,
+      "src": {
+        "device": 140734539704576,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938084048,
+          "device": 140734539704576,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734469651632,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733939100224,
+      "src": {
+        "device": 140734539704576,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733938181584,
+          "device": 140734539704576,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734469651632,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

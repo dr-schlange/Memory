@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 140733009228000,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (760):Synth input port (760:0) 128:0"
+      },
+      "channel": 9,
+      "config": {},
+      "class": "MIDIBridge"
     }
   ],
   "virtual_devices": [
@@ -43,8 +54,18 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
@@ -55,6 +76,7 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -64,13 +86,13 @@
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
-        "length": 8.0,
-        "step0": 0.0,
+        "length": 6,
+        "step0": 30.0,
         "step1": 0.0,
         "step2": 0.0,
-        "step3": 0.0,
+        "step3": 44.0,
         "step4": 0.0,
-        "step5": 0.0,
+        "step5": 41.0,
         "step6": 0.0,
         "step7": 0.0,
         "edit_step": 0,
@@ -80,10 +102,10 @@
         "active3": 1,
         "active4": 1,
         "active5": 1,
-        "active6": 1,
-        "active7": 1,
-        "trig_out": 0.0,
-        "current_step": 0.0
+        "active6": 0,
+        "active7": 0,
+        "trig_out": 0,
+        "current_step": 1.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -94,6 +116,7 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 45.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -105,13 +128,13 @@
         "set_step": 0,
         "length": 8,
         "step0": 0.0,
-        "step1": 0.0,
+        "step1": 20.0,
         "step2": 0.0,
-        "step3": 0.0,
-        "step4": 0.0,
-        "step5": 0.0,
+        "step3": 38.0,
+        "step4": 33.0,
+        "step5": 21.0,
         "step6": 0.0,
-        "step7": 0.0,
+        "step7": 45.0,
         "edit_step": 0,
         "active0": 1,
         "active1": 1,
@@ -121,11 +144,31 @@
         "active5": 1,
         "active6": 1,
         "active7": 1,
-        "trig_out": 0.0,
-        "current_step": 0.0
+        "trig_out": 0,
+        "current_step": 7.0
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140733009230352,
+      "repr": "EuclidianSequencer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "clock": 0,
+        "length": 12,
+        "hits": 10,
+        "shift": 0,
+        "trig_shift": 0,
+        "reset": 0,
+        "step_out": 4,
+        "gate_out": 1,
+        "trigger_out": 0
+      },
+      "proxy": false,
+      "class": "EuclidianSequencer"
     }
   ],
   "connections": [
@@ -222,6 +265,250 @@
         "chain": {
           "id": 140733009285584,
           "device": 140733010525360,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733009290064,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733009128784,
+      "src": {
+        "device": 140733010525360,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733009128528,
+          "device": 140733010525360,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733009230352,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "clock",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733009174016,
+      "src": {
+        "device": 140733009222960,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733009177056,
+          "device": 140733009222960,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733009228000,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733009286864,
+      "src": {
+        "device": 140733009290064,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733009286544,
+          "device": 140733009290064,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733009228000,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732890401520,
+      "src": {
+        "device": 140733009230352,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "gate_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gate_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732890402336,
+          "device": 140733009230352,
           "to_min": 0.0,
           "to_max": 1.0,
           "auto": false,

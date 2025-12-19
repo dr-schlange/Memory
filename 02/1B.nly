@@ -42,7 +42,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 58.0
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -78,18 +78,18 @@
       "config": {
         "set_pause": 0,
         "trigger": 0,
-        "input": 0,
+        "input": 0.0,
         "buf_size": 55,
         "reset": 0.0,
         "length": 8,
-        "out7": 0.0,
-        "out6": 0.0,
-        "out5": 0.0,
-        "out4": 0.0,
-        "out3": 0.0,
-        "out2": 0.0,
-        "out1": 0.0,
-        "out0": 0.0
+        "out7": 0,
+        "out6": 0,
+        "out5": 0,
+        "out4": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 58.0
       },
       "proxy": false,
       "class": "ConveyorLine"
@@ -106,7 +106,7 @@
         "reset": 0,
         "mul7": 0,
         "mul5": 0,
-        "mul3": 1,
+        "mul3": 0,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -129,15 +129,15 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 0.0,
+        "div16": 1.0,
         "div8": 1.0,
         "div7": 0.0,
         "div6": 0.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 1.0,
-        "div3": 0.0,
-        "div2": 1.0,
-        "div1": 0.0
+        "div3": 1.0,
+        "div2": 0.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -149,7 +149,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 58,
+        "input": 0,
         "chord": "maj7#11",
         "octave": 0,
         "inversion": "--",
@@ -161,10 +161,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 68,
-        "note2": 65,
-        "note1": 64,
-        "note0": 58
+        "note3": 0,
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -180,11 +180,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 68.0,
-        "io3": 65.0,
-        "io2": 64.0,
-        "io1": 58.0,
-        "oi": 58.0
+        "io4": 0.0,
+        "io3": 0.0,
+        "io2": 0.0,
+        "io1": 0.0,
+        "oi": 0.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -1170,6 +1170,71 @@
         "chain": {
           "id": 140734254390544,
           "device": 140734506787104,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506780720,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734253718480,
+      "src": {
+        "device": 140734506787440,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734202139728,
+          "device": 140734506787440,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

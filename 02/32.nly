@@ -69,11 +69,11 @@
         "reset": 0,
         "length": 8,
         "output7": 0.0,
-        "output6": 68.0,
+        "output6": 0.0,
         "output5": 0.0,
         "output4": 0.0,
-        "output3": 0.0,
-        "output2": 68.0,
+        "output3": 68.0,
+        "output2": 0.0,
         "output1": 0.0,
         "output0": 0.0
       },
@@ -103,6 +103,41 @@
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 140736279144368,
+      "repr": "Gate1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "gate": 0
+      },
+      "proxy": false,
+      "class": "Gate"
+    },
+    {
+      "id": 140736279212624,
+      "repr": "BroadcastRAM81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "previous",
+        "io0": 0.0,
+        "io1": 0.0,
+        "io2": 0.0,
+        "io3": 0.0,
+        "io4": 0.0,
+        "io5": 0.0,
+        "io6": 0.0,
+        "io7": 0.0,
+        "trigger": 0.0,
+        "reset": 0.0
+      },
+      "proxy": false,
+      "class": "BroadcastRAM8"
     }
   ],
   "connections": [
@@ -412,12 +447,12 @@
       "velocity": null
     },
     {
-      "id": 140735815193664,
+      "id": 140735815194544,
       "src": {
         "device": 140736279203984,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul4",
+          "name": "lead",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -428,7 +463,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul4_cv",
+          "cv_name": "lead_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -437,7 +472,64 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815479888,
+          "id": 140735814851536,
+          "device": 140736279203984,
+          "to_min": 0,
+          "to_max": 56,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735814870800,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735815193664,
+      "src": {
+        "device": 140736279203984,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735814997072,
           "device": 140736279203984,
           "to_min": 0,
           "to_max": 1,
@@ -471,63 +563,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815194544,
-      "src": {
-        "device": 140736279203984,
-        "repr": "Clock1",
-        "parameter": {
-          "name": "mul4",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "mul4_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140736279276112,
-          "device": 140736279203984,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814870800,
-        "repr": "MIDIBridge0",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "general",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,

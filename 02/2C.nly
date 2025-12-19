@@ -26,7 +26,7 @@
         },
         "amp": {
           "volume": 17,
-          "panning": 16,
+          "panning": 6,
           "attack": 13,
           "decay": 61,
           "sustain": 0,
@@ -34,7 +34,7 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 51,
+          "cutoff": 66,
           "resonance": 120,
           "env_amount": 92,
           "attack": 3,
@@ -103,8 +103,8 @@
         "gpcontrol0_a": 0.0,
         "sliders0_s0": 17.0,
         "sliders0_s1": 37.0,
-        "xypad0_x": 83.0,
-        "xypad0_y": 28.0
+        "xypad0_x": 22.0,
+        "xypad0_y": 44.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -167,11 +167,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 38.0,
-        "io3": 35.0,
-        "io2": 34.0,
-        "io1": 28.0,
-        "oi": 38.0
+        "io4": 72.0,
+        "io3": 51.0,
+        "io2": 47.0,
+        "io1": 44.0,
+        "oi": 51.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -183,8 +183,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 28,
-        "chord": "maj7#11",
+        "input": 44,
+        "chord": "min",
         "octave": 0,
         "inversion": "--",
         "drop": "--",
@@ -195,10 +195,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 38,
-        "note2": 35,
-        "note1": 34,
-        "note0": 28
+        "note3": 72,
+        "note2": 51,
+        "note1": 47,
+        "note0": 44
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -216,7 +216,7 @@
         "shift": 3,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 3,
+        "step_out": 6,
         "gate_out": 1,
         "trigger_out": 0
       },
@@ -235,14 +235,14 @@
         "mode": "gate",
         "div32": 1.0,
         "div16": 0.0,
-        "div8": 1.0,
-        "div7": 0.0,
+        "div8": 0.0,
+        "div7": 1.0,
         "div6": 0.0,
-        "div5": 1.0,
+        "div5": 0.0,
         "div4": 1.0,
-        "div3": 1.0,
+        "div3": 0.0,
         "div2": 0.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -253,9 +253,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 17.138820031613637,
+        "output": 46.95556437051042,
         "set_pause": 0,
-        "speed": 0.11795290369153909,
+        "speed": 0.11101870410989523,
         "sync": 0,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -276,13 +276,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 16.379655385183998,
+        "output": 5.88868782641783,
         "set_pause": 0,
-        "speed": 3.774913046828019,
+        "speed": 0.44392426407873037,
         "sync": 0,
-        "subdiv": "1/32",
-        "phase": 0.754685137640889,
-        "sampling_rate": 75,
+        "subdiv": "1/4",
+        "phase": 0.8499460699224393,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -323,7 +323,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 95.8450124803929,
+        "output": 107.94315088014979,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -338,6 +338,23 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140736279141680,
+      "repr": "_Zab1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "time": 121.0,
+        "io0": 51,
+        "io1": 44,
+        "in2": 47,
+        "incr": 47,
+        "decr": 0.0
+      },
+      "proxy": false,
+      "class": "_Zab"
     }
   ],
   "connections": [
@@ -1585,6 +1602,71 @@
       "velocity": null
     },
     {
+      "id": 140736278249008,
+      "src": {
+        "device": 140736279143696,
+        "repr": "SeqSwitch1",
+        "parameter": {
+          "name": "oi",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "oi_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735814996432,
+          "device": 140736279143696,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140735815196832,
       "src": {
         "device": 140735814874960,
@@ -2697,6 +2779,323 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735875409440,
+      "src": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735814727248,
+          "device": 140736279141680,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735875414192,
+      "src": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736279275600,
+          "device": 140736279141680,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "in2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "in2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735875410848,
+      "src": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "in2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "in2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735815321424,
+          "device": 140736279141680,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "incr",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "incr_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735815196304,
+      "src": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736279279440,
+          "device": 140736279141680,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "in2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "in2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735815192960,
+      "src": {
+        "device": 140736279141680,
+        "repr": "_Zab1",
+        "parameter": {
+          "name": "in2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "in2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735814676304,
+          "device": 140736279141680,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279212304,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

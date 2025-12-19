@@ -8,7 +8,45 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "general": {
+          "bank_select": 2
+        },
+        "oscillators": {
+          "osc1_shape": 48,
+          "osc2_shape": 114,
+          "osc2_oct": 73,
+          "osc2_detune": 63,
+          "sync_oscillators": 0,
+          "mix": 70
+        },
+        "amp": {
+          "volume": 95,
+          "drive": 35,
+          "decay": 88,
+          "sustain": 0,
+          "release": 13
+        },
+        "filter": {
+          "cutoff": 26,
+          "resonance": 70,
+          "env_amount": 88,
+          "decay": 20,
+          "sustain": 97,
+          "release": 16
+        },
+        "lfo": {
+          "speed": 101,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
+        },
+        "reverb": {
+          "amount": 40,
+          "size": 51,
+          "stereo": 127,
+          "damping": 94
+        }
+      },
       "class": "Amsynth"
     },
     {
@@ -61,11 +99,11 @@
         "output7": 60.0,
         "output6": 0.0,
         "output5": 60.0,
-        "output4": 60.0,
-        "output3": 0.0,
-        "output2": 60.0,
+        "output4": 0.0,
+        "output3": 60.0,
+        "output2": 0.0,
         "output1": 0.0,
-        "output0": 60.0
+        "output0": 0.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -84,11 +122,11 @@
         "length": 8,
         "out7": 0,
         "out6": 0,
-        "out5": 0,
+        "out5": 60.0,
         "out4": 0,
         "out3": 0,
         "out2": 0,
-        "out1": 60.0,
+        "out1": 0,
         "out0": 0
       },
       "proxy": false,
@@ -133,11 +171,11 @@
         "div8": 1.0,
         "div7": 1.0,
         "div6": 1.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 0.0,
         "div3": 1.0,
-        "div2": 1.0,
-        "div1": 0.0
+        "div2": 0.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -202,8 +240,8 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 3,
-        "gate_out": 1,
+        "step_out": 2,
+        "gate_out": 0,
         "trigger_out": 0
       },
       "proxy": false,
@@ -221,7 +259,7 @@
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
@@ -244,7 +282,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -311,6 +349,124 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734253725520,
+      "src": {
+        "device": 140734506780048,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads1_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads1_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734253794640,
+          "device": 140734506780048,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506781056,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734253716544,
+      "src": {
+        "device": 140734506780048,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads1_p1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads1_p1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734253793360,
+          "device": 140734506780048,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506790800,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

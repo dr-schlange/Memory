@@ -102,18 +102,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 61.0,
+        "input": 68.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 43.0,
-        "output6": 43.0,
-        "output5": 0.0,
-        "output4": 66.0,
+        "output7": 62.0,
+        "output6": 0.0,
+        "output5": 66.0,
+        "output4": 0.0,
         "output3": 42.0,
-        "output2": 0.0,
-        "output1": 0.0,
-        "output0": 66.0
+        "output2": 66.0,
+        "output1": 66.0,
+        "output0": 69.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -126,16 +126,16 @@
       "config": {
         "set_pause": 0,
         "trigger": 0,
-        "input": 61.0,
+        "input": 68.0,
         "buf_size": 55,
         "reset": 0.0,
         "length": 8,
         "out7": 0,
-        "out6": 66.0,
+        "out6": 0,
         "out5": 0,
         "out4": 0,
         "out3": 0,
-        "out2": 0,
+        "out2": 69.0,
         "out1": 0,
         "out0": 0
       },
@@ -176,16 +176,16 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 0.0,
+        "div32": 0.0,
+        "div16": 1.0,
         "div8": 1.0,
-        "div7": 0.0,
-        "div6": 1.0,
-        "div5": 1.0,
+        "div7": 1.0,
+        "div6": 0.0,
+        "div5": 0.0,
         "div4": 0.0,
         "div3": 0.0,
-        "div2": 1.0,
-        "div1": 1.0
+        "div2": 0.0,
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -197,7 +197,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 51,
+        "input": 58,
         "chord": "7th",
         "octave": 0,
         "inversion": "--",
@@ -209,10 +209,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 61,
-        "note2": 58,
-        "note1": 55,
-        "note0": 51
+        "note3": 68,
+        "note2": 65,
+        "note1": 62,
+        "note0": 58
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -228,11 +228,11 @@
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 61.0,
-        "io3": 58.0,
-        "io2": 55.0,
-        "io1": 51.0,
-        "oi": 61.0
+        "io4": 68.0,
+        "io3": 65.0,
+        "io2": 62.0,
+        "io1": 58.0,
+        "oi": 68.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -250,7 +250,7 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 4,
+        "step_out": 1,
         "gate_out": 1,
         "trigger_out": 0
       },
@@ -263,7 +263,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.0,
+        "output": 58.0,
         "set_pause": 0,
         "input": 127.0,
         "write": 0.0,
@@ -292,7 +292,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 1.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -1502,6 +1502,71 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734508826336,
+      "src": {
+        "device": 140734506786768,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "div4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734253578704,
+          "device": 140734506786768,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506794496,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "trig_shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trig_shift_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

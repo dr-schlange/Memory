@@ -8,18 +8,26 @@
         "output": "amsynth:MIDI IN 131:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "amp": {
+          "volume": 23
+        }
+      },
       "class": "Amsynth"
     },
     {
       "id": 140735814870800,
       "repr": "MIDIBridge0",
       "ports": {
-        "input": "NallelyBridge0 + NallelyBridge0",
+        "input": null,
         "output": "FLUID Synth (758):Synth input port (758:0) 128:0"
       },
       "channel": 9,
-      "config": {},
+      "config": {
+        "general": {
+          "volume": 36
+        }
+      },
       "class": "MIDIBridge"
     }
   ],
@@ -42,7 +50,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "gpcontrol0_a": 0.0
+        "gpcontrol0_a": 0.0,
+        "sliders0_s0": 23.0,
+        "sliders0_s1": 36.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -59,11 +69,11 @@
         "reset": 0,
         "length": 8,
         "output7": 0.0,
-        "output6": 0.0,
+        "output6": 68.0,
         "output5": 0.0,
         "output4": 0.0,
         "output3": 0.0,
-        "output2": 0.0,
+        "output2": 68.0,
         "output1": 0.0,
         "output0": 0.0
       },
@@ -162,6 +172,124 @@
       "velocity": null
     },
     {
+      "id": 140735815195600,
+      "src": {
+        "device": 140736279204944,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735814851024,
+          "device": 140736279204944,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736279212304,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735815192256,
+      "src": {
+        "device": 140736279204944,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736279273936,
+          "device": 140736279204944,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735814870800,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140735815193136,
       "src": {
         "device": 140736279205264,
@@ -227,6 +355,63 @@
       "velocity": null
     },
     {
+      "id": 140735815195072,
+      "src": {
+        "device": 140736279205264,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735814744912,
+          "device": 140736279205264,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735814870800,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140735815193664,
       "src": {
         "device": 140736279203984,
@@ -286,6 +471,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735815194544,
+      "src": {
+        "device": 140736279203984,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736279276112,
+          "device": 140736279203984,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735814870800,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

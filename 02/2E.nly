@@ -56,7 +56,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 82.0,
+        "output": 86.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -85,7 +85,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 3.0
+        "current_step": 4.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -96,14 +96,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.4834645669291335,
+        "output": 3.532441612679509,
         "set_pause": 0,
-        "input": 1.456692913385826,
-        "mode": "linear",
+        "input": 1.771653543307087,
+        "mode": "sigmoid",
         "amount": 0.856,
         "symmetry": 0,
         "bias": 5.0,
-        "exp_power": 50.0,
+        "exp_power": 37.0,
         "log_scale": 19.0,
         "sigmoid_gain": 1.0,
         "fold_gain": 10.0,
@@ -143,15 +143,61 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 55.73543307086614,
+        "output": 56.51906580287214,
         "set_pause": 0,
-        "a": 3.4834645669291335,
+        "a": 3.532441612679509,
         "b": 16.0,
         "operator": "*",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 140734201432016,
+      "repr": "EuclidianSequencer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "clock": 0,
+        "length": 8,
+        "hits": 7,
+        "shift": 0,
+        "trig_shift": 0,
+        "reset": 0,
+        "step_out": 7,
+        "gate_out": 0,
+        "trigger_out": 0
+      },
+      "proxy": false,
+      "class": "EuclidianSequencer"
+    },
+    {
+      "id": 140734506790464,
+      "repr": "TuringMachine1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "mutation": 0.5,
+        "random": 0.0,
+        "reset": 0.0,
+        "out7": 1,
+        "out6": 0,
+        "out5": 1,
+        "out4": 1,
+        "out3": 0,
+        "out2": 1,
+        "out1": 1,
+        "out0": 0,
+        "tape_out": 109,
+        "gate_out": 1,
+        "out_main": 0
+      },
+      "proxy": false,
+      "class": "TuringMachine"
     }
   ],
   "connections": [
@@ -530,6 +576,136 @@
       "velocity": null
     },
     {
+      "id": 140734201709328,
+      "src": {
+        "device": 140734506858640,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734201117264,
+          "device": 140734506858640,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734201432016,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "clock",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201711616,
+      "src": {
+        "device": 140734506858640,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734201011280,
+          "device": 140734506858640,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506790464,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734253726576,
       "src": {
         "device": 140734506790128,
@@ -638,6 +814,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201712320,
+      "src": {
+        "device": 140734201432016,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "trigger_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trigger_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734253794896,
+          "device": 140734201432016,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506855760,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

@@ -18,7 +18,7 @@ class _SuperShifter(VirtualDevice):
     * io5_cv [0, 127]: io, in to write out to read
     * io6_cv [0, 127]: io, in to write out to read
     * io7_cv [0, 127]: io, in to write out to read
-    * length_cv [1, 8] round: length sequence
+    * length_cv [1, 8] init=8 round: length sequence
 
     outputs:
     # * %outname [%range]: %doc
@@ -31,7 +31,7 @@ class _SuperShifter(VirtualDevice):
     io5_cv = VirtualParameter(name='io5', range=(0.0, 127.0))
     io6_cv = VirtualParameter(name='io6', range=(0.0, 127.0))
     io7_cv = VirtualParameter(name='io7', range=(0.0, 127.0))
-    length_cv = VirtualParameter(name='length', range=(1.0, 8.0), conversion_policy='round')
+    length_cv = VirtualParameter(name='length', range=(1.0, 8.0), conversion_policy='round', default=8.0)
     io0_cv = VirtualParameter(name='io0', range=(0.0, 127.0))
     io1_cv = VirtualParameter(name='io1', range=(0.0, 127.0))
     io2_cv = VirtualParameter(name='io2', range=(0.0, 127.0))

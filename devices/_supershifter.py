@@ -36,7 +36,7 @@ class _SuperShifter(VirtualDevice):
     def on_trigger_rising(self, value, ctx):
         value = getattr(self, f'io{int(self.idx)}')
         yield (0, [getattr(self, f'io{int(self.idx)}_cv')])
-        if self.idx >= 3:
+        if self.idx >= 4:
             self.idx = 0
         else:
             self.idx += 1

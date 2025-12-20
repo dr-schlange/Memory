@@ -27,7 +27,7 @@ class _StreetFighter(VirtualDevice):
 
     type: <ondemand | continuous>
     category: <category>
-    # meta: disable default output
+    meta: disable default output
     """
     hadoken_cv = VirtualParameter(name='hadoken', range=(0.0, 1.0), conversion_policy='>0')
     right_cv = VirtualParameter(name='right', range=(0.0, 1.0))
@@ -38,6 +38,9 @@ class _StreetFighter(VirtualDevice):
     _start_cv = VirtualParameter(name='_start', range=(0.0, 1.0))
     b_cv = VirtualParameter(name='b', range=(0.0, 1.0))
     a_cv = VirtualParameter(name='a', range=(0.0, 1.0))
+
+    def __post_init__(self, **kwargs):
+        return {'disable_output': True}
 
     @on(hadoken_cv, edge='rising')
     def on_hadoken_rising(self, value, ctx):

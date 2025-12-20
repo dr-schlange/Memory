@@ -10,8 +10,8 @@
       "channel": 0,
       "config": {
         "amp": {
-          "volume": 51,
-          "panning": 127
+          "volume": 26,
+          "panning": 114
         }
       },
       "class": "Amsynth"
@@ -40,8 +40,8 @@
           "mix": 57
         },
         "amp": {
-          "volume": 59,
-          "panning": 0,
+          "volume": 24,
+          "panning": 13,
           "attack": 14,
           "decay": 86,
           "sustain": 0,
@@ -103,9 +103,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 54.0,
-        "out1": 81.0,
-        "out0": 54.0
+        "input": 83.0,
+        "out1": 83.0,
+        "out0": 55.0
       },
       "proxy": false,
       "class": "DownScaler"
@@ -116,7 +116,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 54.0,
+        "output": 83.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -145,7 +145,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1.0
+        "current_step": 4.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -184,6 +184,28 @@
       },
       "proxy": false,
       "class": "MyDevice"
+    },
+    {
+      "id": 140734505145744,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 113.65806480558362,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -491,6 +513,124 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201718656,
+      "src": {
+        "device": 140734505145744,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734504290256,
+          "device": 140734505145744,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734504921872,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201718480,
+      "src": {
+        "device": 140734505145744,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734504292560,
+          "device": 140734505145744,
+          "to_min": 127,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734504924000,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

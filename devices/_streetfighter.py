@@ -48,5 +48,5 @@ class _StreetFighter(VirtualDevice):
         yield (0, [self.down_cv])
         yield (1, [self.right_cv])
         yield (0, [self.right_cv])
-        yield (1, [self.a_cv])
-        yield (0, [self.a_cv])
+        yield (1, [self.b_cv])
+        yield (0, [self.b_cv])

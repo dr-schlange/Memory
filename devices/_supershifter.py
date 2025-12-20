@@ -40,7 +40,7 @@ class _SuperShifter(VirtualDevice):
         value = getattr(self, f'io{int(self.idx)}')
         yield (0, [getattr(self, f'io{int(self.idx)}_cv')])
         setattr(self, f'io{int(self.idx)}', pvalue)
-        if self.idx < 0:
+        if self.idx < 1:
             self.idx = 0
         self.idx -= 1
         yield (value, [getattr(self, f'io{int(self.idx)}_cv')])

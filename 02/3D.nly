@@ -11,7 +11,7 @@
       "config": {
         "amp": {
           "volume": 26,
-          "panning": 8
+          "panning": 66
         }
       },
       "class": "Amsynth"
@@ -41,7 +41,7 @@
         },
         "amp": {
           "volume": 24,
-          "panning": 119,
+          "panning": 61,
           "attack": 14,
           "decay": 86,
           "sustain": 0,
@@ -103,9 +103,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 83.0,
-        "out1": 83.0,
-        "out0": 55.0
+        "input": 81.0,
+        "out1": 81.0,
+        "out0": 65.0
       },
       "proxy": false,
       "class": "DownScaler"
@@ -116,7 +116,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83.0,
+        "output": 81.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -145,7 +145,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 4.0
+        "current_step": 0.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -191,7 +191,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 8.329679687449737,
+        "output": 15.484875356647704,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -213,7 +213,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 122.28570641404451,
+        "output": 116.47162556944954,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -236,14 +236,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0,
-        "in1": 0,
+        "in0": 15.484875356647704,
+        "in1": 116.47162556944954,
         "in2": 0,
         "in3": 0,
         "level": 50,
         "type": "ondemand",
-        "out0": 0,
-        "out1": 0
+        "out0": 65.97825046304862,
+        "out1": 0.0
       },
       "proxy": false,
       "class": "Crossfade"
@@ -560,7 +560,7 @@
       "velocity": null
     },
     {
-      "id": 140734201718656,
+      "id": 140734201719008,
       "src": {
         "device": 140734505145744,
         "repr": "LFO1",
@@ -585,7 +585,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734504290256,
+          "id": 140734502372688,
           "device": 140734505145744,
           "to_min": 0,
           "to_max": 127,
@@ -596,33 +596,39 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734504921872,
-        "repr": "Amsynth",
+        "device": 140734504958144,
+        "repr": "Crossfade1",
         "parameter": {
-          "cc_note": 10,
-          "channel": null,
-          "name": "panning",
-          "section_name": "amp",
-          "init_value": 64,
-          "description": "Panning sound",
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
           ],
-          "type": "control_change"
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "control_change"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140734201718480,
+      "id": 140734201719184,
       "src": {
-        "device": 140734505145744,
-        "repr": "LFO1",
+        "device": 140734505144464,
+        "repr": "LFO2",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -644,10 +650,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734504292560,
-          "device": 140734505145744,
-          "to_min": 127,
-          "to_max": 0,
+          "id": 140734503060304,
+          "device": 140734505144464,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -655,23 +661,29 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734504924000,
-        "repr": "Amsynth",
+        "device": 140734504958144,
+        "repr": "Crossfade1",
         "parameter": {
-          "cc_note": 10,
-          "channel": null,
-          "name": "panning",
-          "section_name": "amp",
-          "init_value": 64,
-          "description": "Panning sound",
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
           ],
-          "type": "control_change"
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "control_change"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
@@ -790,6 +802,71 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201717776,
+      "src": {
+        "device": 140734504958144,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734503106128,
+          "device": 140734504958144,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734506857040,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

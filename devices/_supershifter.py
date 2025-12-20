@@ -30,13 +30,14 @@ class _SuperShifter(VirtualDevice):
     idx_cv = VirtualParameter(name='idx', range=(1.0, 4.0), conversion_policy='round')
 
     def __post_init__(self, **kwargs):
+        self.idx = 1
         return {'disable_output': True}
 
     @on(trigger_cv, edge='rising')
     def on_trigger_rising(self, value, ctx):
         value = getattr(self, f'io{int(self.idx)}')
         yield (0, [getattr(self, f'io{int(self.idx)}_cv')])
-        if self.idx >= 4:
+        if self.idx >= 3:
             self.idx = 0
         else:
             self.idx += 1

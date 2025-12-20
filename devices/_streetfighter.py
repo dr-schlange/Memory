@@ -40,18 +40,16 @@ class _StreetFighter(VirtualDevice):
     a_cv = VirtualParameter(name='a', range=(0.0, 1.0))
 
     def __post_init__(self, **kwargs):
+        self.delay = 50
         return {'disable_output': True}
+
+    def combine(self, combination):
+        for key in combination:
+            yield (1, [getattr(f'{key}_cv')])
+            yield from self.sleep(self.delay)
+            yield (0, [getattr(f'{key}_cv')])
+            yield from self.sleep(self.delay)
 
     @on(hadoken_cv, edge='rising')
     def on_hadoken_rising(self, value, ctx):
-        yield (1, [self.down_cv])
-        yield from self.sleep(50)
-        yield (0, [self.down_cv])
-        yield from self.sleep(50)
-        yield (1, [self.right_cv])
-        yield from self.sleep(50)
-        yield (0, [self.right_cv])
-        yield from self.sleep(50)
-        yield (1, [self.b_cv])
-        yield from self.sleep(50)
-        yield (0, [self.b_cv])
+        yield from self.combine(['down', 'right', 'b'])

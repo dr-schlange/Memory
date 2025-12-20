@@ -58,4 +58,4 @@ class _StreetFighter(VirtualDevice):
 
     @on(shoryulen_cv, edge='rising')
     def on_shoryulen_rising(self, value, ctx):
-        ...
+        yield from self.combine(['right', 'down', 'right', 'b'])

@@ -20,6 +20,11 @@ class _StreetFighter(VirtualDevice):
     * left_cv [0, 1]: left output
     * right_cv [0, 1]: right output 
 
+    $$
+    trig: yield 1, [self.<port>_cv]
+    yield 0, [self.<port>_cv]
+    $$
+
     type: <ondemand | continuous>
     category: <category>
     # meta: disable default output
@@ -36,4 +41,9 @@ class _StreetFighter(VirtualDevice):
 
     @on(hadoken_cv, edge='rising')
     def on_hadoken_rising(self, value, ctx):
-        ...
+        yield (1, [self.d_cv])
+        yield (0, [self.port_cv])
+        yield (1, [self.right_cv])
+        yield (0, [self.right_cv])
+        yield (1, [self.a_cv])
+        yield (0, [self.a_cv])

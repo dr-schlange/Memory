@@ -8,6 +8,7 @@ class _StreetFighter(VirtualDevice):
     inputs:
     # * %inname [%range] %options: %doc
     * hadoken_cv [0, 1] >0 <rising>: had
+    * shoryulen_cv [0, 1] >0 <rising>: shoryuken
 
     outputs:
     # * %outname [%range]: %doc
@@ -29,6 +30,7 @@ class _StreetFighter(VirtualDevice):
     category: <category>
     meta: disable default output
     """
+    shoryulen_cv = VirtualParameter(name='shoryulen', range=(0.0, 1.0), conversion_policy='>0')
     hadoken_cv = VirtualParameter(name='hadoken', range=(0.0, 1.0), conversion_policy='>0')
     right_cv = VirtualParameter(name='right', range=(0.0, 1.0))
     left_cv = VirtualParameter(name='left', range=(0.0, 1.0))
@@ -53,3 +55,7 @@ class _StreetFighter(VirtualDevice):
     @on(hadoken_cv, edge='rising')
     def on_hadoken_rising(self, value, ctx):
         yield from self.combine(['down', 'right', 'b'])
+
+    @on(shoryulen_cv, edge='rising')
+    def on_shoryulen_rising(self, value, ctx):
+        ...

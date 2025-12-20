@@ -45,9 +45,9 @@ class _StreetFighter(VirtualDevice):
 
     def combine(self, combination):
         for key in combination:
-            yield (1, [getattr(f'{key}_cv')])
+            yield (1, [getattr(self, f'{key}_cv')])
             yield from self.sleep(self.delay)
-            yield (0, [getattr(f'{key}_cv')])
+            yield (0, [getattr(self, f'{key}_cv')])
             yield from self.sleep(self.delay)
 
     @on(hadoken_cv, edge='rising')

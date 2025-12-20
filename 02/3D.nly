@@ -11,7 +11,7 @@
       "config": {
         "amp": {
           "volume": 26,
-          "panning": 66
+          "panning": 86
         }
       },
       "class": "Amsynth"
@@ -41,7 +41,7 @@
         },
         "amp": {
           "volume": 24,
-          "panning": 61,
+          "panning": 41,
           "attack": 14,
           "decay": 86,
           "sustain": 0,
@@ -191,7 +191,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 15.484875356647704,
+        "output": 5.668710376777678,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -213,7 +213,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 116.47162556944954,
+        "output": 117.46671915746062,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -236,17 +236,39 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 15.484875356647704,
-        "in1": 116.47162556944954,
+        "in0": 5.668710376777678,
+        "in1": 117.46671915746062,
         "in2": 0,
         "in3": 0,
-        "level": 50,
+        "level": 72.05451673855765,
         "type": "ondemand",
-        "out0": 65.97825046304862,
+        "out0": 86.22422532702902,
         "out1": 0.0
       },
       "proxy": false,
       "class": "Crossfade"
+    },
+    {
+      "id": 140734505146064,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 91.50923625796821,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -863,6 +885,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201715664,
+      "src": {
+        "device": 140734505146064,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734503092688,
+          "device": 140734505146064,
+          "to_min": 0,
+          "to_max": 100,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734504958144,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "level",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            100
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "level_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50,
           "no_init": false
         },
         "explicit": -1,

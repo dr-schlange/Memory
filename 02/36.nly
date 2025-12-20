@@ -64,9 +64,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 100.74785064825008,
+        "output": 57.536782284756015,
         "set_pause": 0,
-        "input": 108.74785064825008,
+        "input": 65.53678228475601,
         "shift": -8.0
       },
       "proxy": false,
@@ -78,13 +78,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 107.89825806506063,
+        "output": 65.02477617315635,
         "set_pause": 0,
         "speed": 0.7,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "triangle",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -100,9 +100,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 103,
+        "output": 60,
         "set_pause": 0,
-        "input": 100.74785064825008,
+        "input": 57.536782284756015,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -123,7 +123,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -143,18 +143,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 103.0,
+        "input": 60.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 47.0,
-        "output6": 0.0,
-        "output5": 55.0,
-        "output4": 119.0,
-        "output3": 64.0,
-        "output2": 0.0,
-        "output1": 48.0,
-        "output0": 115.0
+        "output7": 67.0,
+        "output6": 74.0,
+        "output5": 91.0,
+        "output4": 110.0,
+        "output3": 110.0,
+        "output2": 96.0,
+        "output1": 86.0,
+        "output0": 67.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -666,12 +666,12 @@
       "velocity": null
     },
     {
-      "id": 140734201721120,
+      "id": 140734253719536,
       "src": {
         "device": 140734201432656,
         "repr": "Clock1",
         "parameter": {
-          "name": "lead",
+          "name": "mul7",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -682,7 +682,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "lead_cv",
+          "cv_name": "mul7_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -691,7 +691,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734504597840,
+          "id": 140734201004368,
+          "device": 140734201432656,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734201431056,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734253715840,
+      "src": {
+        "device": 140734201432656,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734201006800,
           "device": 140734201432656,
           "to_min": 0,
           "to_max": 1,

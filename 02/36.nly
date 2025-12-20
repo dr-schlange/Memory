@@ -5,11 +5,31 @@
       "repr": "Amsynth",
       "ports": {
         "input": null,
-        "output": "FLUID Synth (767):Synth input port (767:0) 128:0"
+        "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "general": {
+          "bank_select": 11,
+          "preset_select": 8
+        }
+      },
       "class": "Amsynth"
+    },
+    {
+      "id": 140734201443216,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (767):Synth input port (767:0) 128:0"
+      },
+      "channel": 9,
+      "config": {
+        "general": {
+          "volume": 76
+        }
+      },
+      "class": "MIDIBridge"
     }
   ],
   "virtual_devices": [
@@ -41,10 +61,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.8010817307556124,
+        "output": 84.73228346456693,
         "set_pause": 0,
-        "input": 0.1989182692443876,
-        "shift": -2.0
+        "input": 93.73228346456693,
+        "shift": -9.0
       },
       "proxy": false,
       "class": "PitchShifter"
@@ -55,13 +75,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.19736422026591582,
+        "output": 85.38340607458422,
         "set_pause": 0,
         "speed": 0.7,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "random",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -77,9 +97,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 84,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 84.73228346456693,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -120,18 +140,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0.0,
+        "input": 84.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 65.0,
-        "output6": 125.0,
-        "output5": 67.0,
-        "output4": 0.0,
-        "output3": 59.0,
-        "output2": 122.0,
-        "output1": 72.0,
-        "output0": 2.0
+        "output7": 93.0,
+        "output6": 43.0,
+        "output5": 38.0,
+        "output4": 24.0,
+        "output3": 77.0,
+        "output2": 55.0,
+        "output1": 41.0,
+        "output0": 0.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -263,6 +283,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201719888,
+      "src": {
+        "device": 140734506783072,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734504294480,
+          "device": 140734506783072,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734201443216,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "X7",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,
@@ -758,6 +835,63 @@
           "channel": null,
           "keys": {},
           "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201720064,
+      "src": {
+        "device": 140734201439696,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734504297168,
+          "device": 140734201439696,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734201443216,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
           "name": "notes",
           "cc_note": -1,
           "range": [

@@ -45,10 +45,13 @@ class _StreetFighter(VirtualDevice):
     @on(hadoken_cv, edge='rising')
     def on_hadoken_rising(self, value, ctx):
         yield (1, [self.down_cv])
+        yield from self.sleep(10)
         yield (0, [self.down_cv])
         yield from self.sleep(20)
         yield (1, [self.right_cv])
+        yield from self.sleep(10)
         yield (0, [self.right_cv])
         yield from self.sleep(20)
         yield (1, [self.b_cv])
+        yield from self.sleep(20)
         yield (0, [self.b_cv])

@@ -14,7 +14,7 @@ class _SuperShifter(VirtualDevice):
     * io3_cv [0, 127]: io, in to write out to read
     * trigger_cv [0, 1] >0 <rising>: trigger next step
     * idx_cv [1, 4] round: index sequence
-    
+
     outputs:
     # * %outname [%range]: %doc
 
@@ -34,4 +34,7 @@ class _SuperShifter(VirtualDevice):
 
     @on(trigger_cv, edge='rising')
     def on_trigger_rising(self, value, ctx):
-        ...
+        if self.idx >= 4:
+            self.idx = 0
+        yield (getattr(self, f'io{self.idx}'), [getattr(self, f'io{self.idx}_cv')])
+        self.idx += 1

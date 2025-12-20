@@ -40,7 +40,6 @@ class _SuperShifter(VirtualDevice):
     idx_cv = VirtualParameter(name='idx', range=(0.0, 7.0), conversion_policy='round')
 
     def __post_init__(self, **kwargs):
-        self.idx = 1
         return {'disable_output': True}
 
     @on(trigger_cv, edge='rising')

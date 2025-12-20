@@ -11,7 +11,7 @@
       "config": {
         "amp": {
           "volume": 26,
-          "panning": 114
+          "panning": 8
         }
       },
       "class": "Amsynth"
@@ -41,7 +41,7 @@
         },
         "amp": {
           "volume": 24,
-          "panning": 13,
+          "panning": 119,
           "attack": 14,
           "decay": 86,
           "sustain": 0,
@@ -191,7 +191,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 113.65806480558362,
+        "output": 8.329679687449737,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -206,6 +206,47 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140734505144464,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 122.28570641404451,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 140734504958144,
+      "repr": "Crossfade1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 0,
+        "in1": 0,
+        "in2": 0,
+        "in3": 0,
+        "level": 50,
+        "type": "ondemand",
+        "out0": 0,
+        "out1": 0
+      },
+      "proxy": false,
+      "class": "Crossfade"
     }
   ],
   "connections": [
@@ -605,6 +646,124 @@
         "chain": {
           "id": 140734504292560,
           "device": 140734505145744,
+          "to_min": 127,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734504924000,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201711792,
+      "src": {
+        "device": 140734504958144,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734503107920,
+          "device": 140734504958144,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734504921872,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734201713728,
+      "src": {
+        "device": 140734504958144,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734505164624,
+          "device": 140734504958144,
           "to_min": 127,
           "to_max": 0,
           "auto": false,

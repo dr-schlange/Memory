@@ -22,14 +22,15 @@
           "mix": 78
         },
         "amp": {
-          "volume": 65,
+          "volume": 14,
+          "panning": 122,
           "drive": 59,
           "attack": 50,
           "decay": 5,
           "sustain": 116
         },
         "filter": {
-          "cutoff": 89,
+          "cutoff": 91,
           "resonance": 84,
           "env_amount": 121,
           "decay": 36,
@@ -72,7 +73,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "audio_amplitude": 26.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -84,18 +86,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 58.0,
+        "input": 61.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 64.0,
-        "output6": 58.0,
+        "output7": 59.0,
+        "output6": 63.0,
         "output5": 58.0,
-        "output4": 62.0,
-        "output3": 65.0,
-        "output2": 62.0,
-        "output1": 59.0,
-        "output0": 64.0
+        "output4": 61.0,
+        "output3": 62.0,
+        "output2": 63.0,
+        "output1": 58.0,
+        "output0": 59.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -131,17 +133,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "io4": 62.0,
-        "io5": 59.0,
-        "io6": 58.0,
-        "io7": 63.0,
-        "length": 8,
-        "io0": 38.0,
-        "io1": 63.0,
-        "io2": 65.0,
-        "io3": 64.0,
+        "io4": 59.0,
+        "io5": 63.0,
+        "io6": 66.0,
+        "io7": 65.0,
+        "length": 7,
+        "io0": 63.0,
+        "io1": 64.0,
+        "io2": 61.0,
+        "io3": 62.0,
         "trigger": 0.0,
-        "idx": 6
+        "idx": 2
       },
       "proxy": false,
       "class": "_SuperShifter"
@@ -152,12 +154,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 117.07062930635917,
+        "output": 122.20422670279731,
         "set_pause": 0,
-        "speed": 0.11,
+        "speed": 2.047244094488189,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 40,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -179,10 +181,10 @@
         "length": 8,
         "reset": 0,
         "mode": "ondemand",
-        "out7": 1,
-        "out6": 1,
+        "out7": 0,
+        "out6": 0,
         "out5": 1,
-        "out4": 1,
+        "out4": 0,
         "out3": 1,
         "out2": 0,
         "out1": 1,
@@ -203,16 +205,16 @@
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 1,
+        "out7": 0,
         "out6": 1,
         "out5": 1,
         "out4": 1,
         "out3": 0,
-        "out2": 0,
-        "out1": 0,
-        "out0": 1,
-        "tape_out": 143,
-        "gate_out": 1,
+        "out2": 1,
+        "out1": 1,
+        "out0": 0,
+        "tape_out": 110,
+        "gate_out": 0,
         "out_main": 0
       },
       "proxy": false,
@@ -220,6 +222,71 @@
     }
   ],
   "connections": [
+    {
+      "id": 140732577193792,
+      "src": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "audio_amplitude",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "audio_amplitude_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732577449936,
+          "device": 140732560139408,
+          "to_min": 0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732577083024,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "speed_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732577282048,
       "src": {
@@ -587,71 +654,6 @@
       "velocity": null
     },
     {
-      "id": 140732577189744,
-      "src": {
-        "device": 140732527098640,
-        "repr": "Clock1",
-        "parameter": {
-          "name": "mul3",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "mul3_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732525285584,
-          "device": 140732527098640,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732579641872,
-        "repr": "_SuperShifter1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140732577188160,
       "src": {
         "device": 140732527098640,
@@ -755,6 +757,71 @@
       "dest": {
         "device": 140732525804720,
         "repr": "TuringMachine1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732577188512,
+      "src": {
+        "device": 140732527098640,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732577936592,
+          "device": 140732527098640,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732579641872,
+        "repr": "_SuperShifter1",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -1217,6 +1284,65 @@
           "section_name": "filter",
           "init_value": 0,
           "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732577193616,
+      "src": {
+        "device": 140732577083024,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732525286352,
+          "device": 140732577083024,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732560138448,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
           "range": [
             0,
             127

@@ -23,14 +23,14 @@
         },
         "amp": {
           "volume": 14,
-          "panning": 96,
+          "panning": 0,
           "drive": 59,
           "attack": 50,
           "decay": 5,
           "sustain": 116
         },
         "filter": {
-          "cutoff": 79,
+          "cutoff": 36,
           "resonance": 84,
           "env_amount": 121,
           "decay": 36,
@@ -90,14 +90,14 @@
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 66.0,
+        "output7": 63.0,
         "output6": 63.0,
         "output5": 63.0,
         "output4": 63.0,
-        "output3": 61.0,
-        "output2": 63.0,
-        "output1": 63.0,
-        "output0": 63.0
+        "output3": 63.0,
+        "output2": 61.0,
+        "output1": 61.0,
+        "output0": 61.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -113,7 +113,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 1,
+        "mul5": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -154,7 +154,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 95.69759716191722,
+        "output": 0.08098255769189044,
         "set_pause": 0,
         "speed": 1.1023622047244095,
         "subdiv": "1/1",
@@ -181,13 +181,13 @@
         "length": 8,
         "reset": 0,
         "mode": "ondemand",
-        "out7": 0,
-        "out6": 1,
-        "out5": 1,
+        "out7": 1,
+        "out6": 0,
+        "out5": 0,
         "out4": 1,
-        "out3": 0,
+        "out3": 1,
         "out2": 1,
-        "out1": 0,
+        "out1": 1,
         "out0": 0,
         "overflow": 0
       },
@@ -206,14 +206,14 @@
         "random": 0.0,
         "reset": 0.0,
         "out7": 0,
-        "out6": 1,
-        "out5": 0,
+        "out6": 0,
+        "out5": 1,
         "out4": 0,
         "out3": 1,
         "out2": 1,
-        "out1": 0,
-        "out0": 0,
-        "tape_out": 50,
+        "out1": 1,
+        "out0": 1,
+        "tape_out": 244,
         "gate_out": 0,
         "out_main": 0
       },
@@ -226,10 +226,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 63.496062992125985,
+        "output": 26.07874015748031,
         "set_pause": 0,
         "input": 63.496062992125985,
-        "shift": 0
+        "shift": -37.417322834645674
       },
       "proxy": false,
       "class": "PitchShifter"
@@ -422,6 +422,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732525222160,
+      "src": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "audio_amplitude",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "audio_amplitude_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732575566928,
+          "device": 140732560139408,
+          "to_min": -48,
+          "to_max": 48,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732525797328,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -48,
+            48
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0,
           "no_init": false
         },
         "explicit": -1,
@@ -1885,6 +1950,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732525217584,
+      "src": {
+        "device": 140732525797328,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732577804624,
+          "device": 140732525797328,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732560138448,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

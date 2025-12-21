@@ -23,14 +23,14 @@
         },
         "amp": {
           "volume": 14,
-          "panning": 122,
+          "panning": 96,
           "drive": 59,
           "attack": 50,
           "decay": 5,
           "sustain": 116
         },
         "filter": {
-          "cutoff": 91,
+          "cutoff": 79,
           "resonance": 84,
           "env_amount": 121,
           "decay": 36,
@@ -74,7 +74,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "audio_amplitude": 26.0
+        "audio_amplitude": 14.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -90,14 +90,14 @@
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 59.0,
+        "output7": 66.0,
         "output6": 63.0,
-        "output5": 58.0,
-        "output4": 61.0,
-        "output3": 62.0,
+        "output5": 63.0,
+        "output4": 63.0,
+        "output3": 61.0,
         "output2": 63.0,
-        "output1": 58.0,
-        "output0": 59.0
+        "output1": 63.0,
+        "output0": 63.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -113,7 +113,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -133,17 +133,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "io4": 59.0,
+        "io4": 66.0,
         "io5": 63.0,
-        "io6": 66.0,
+        "io6": 64.0,
         "io7": 65.0,
         "length": 7,
-        "io0": 63.0,
-        "io1": 64.0,
-        "io2": 61.0,
-        "io3": 62.0,
+        "io0": 62.0,
+        "io1": 59.0,
+        "io2": 63.0,
+        "io3": 61.0,
         "trigger": 0.0,
-        "idx": 2
+        "idx": 3
       },
       "proxy": false,
       "class": "_SuperShifter"
@@ -154,12 +154,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 122.20422670279731,
+        "output": 95.69759716191722,
         "set_pause": 0,
-        "speed": 2.047244094488189,
+        "speed": 1.1023622047244095,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 40,
+        "sampling_rate": 22,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -182,12 +182,12 @@
         "reset": 0,
         "mode": "ondemand",
         "out7": 0,
-        "out6": 0,
+        "out6": 1,
         "out5": 1,
-        "out4": 0,
-        "out3": 1,
-        "out2": 0,
-        "out1": 1,
+        "out4": 1,
+        "out3": 0,
+        "out2": 1,
+        "out1": 0,
         "out0": 0,
         "overflow": 0
       },
@@ -207,18 +207,32 @@
         "reset": 0.0,
         "out7": 0,
         "out6": 1,
-        "out5": 1,
-        "out4": 1,
-        "out3": 0,
+        "out5": 0,
+        "out4": 0,
+        "out3": 1,
         "out2": 1,
-        "out1": 1,
+        "out1": 0,
         "out0": 0,
-        "tape_out": 110,
+        "tape_out": 50,
         "gate_out": 0,
         "out_main": 0
       },
       "proxy": false,
       "class": "TuringMachine"
+    },
+    {
+      "id": 140732525797328,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 63.496062992125985,
+        "set_pause": 0,
+        "input": 63.496062992125985,
+        "shift": 0
+      },
+      "proxy": false,
+      "class": "PitchShifter"
     }
   ],
   "connections": [
@@ -274,6 +288,136 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "speed_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732577198192,
+      "src": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "audio_amplitude",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "audio_amplitude_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732577449424,
+          "device": 140732560139408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732577199248,
+      "src": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "audio_amplitude",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "audio_amplitude_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732577934416,
+          "device": 140732560139408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_x_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -464,7 +608,7 @@
         "device": 140732579642208,
         "repr": "ShiftRegister1",
         "parameter": {
-          "name": "output6",
+          "name": "output3",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -475,7 +619,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output6_cv",
+          "cv_name": "output3_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -484,7 +628,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732577805392,
+          "id": 140732525042000,
           "device": 140732579642208,
           "to_min": 0,
           "to_max": 127,
@@ -529,7 +673,7 @@
         "device": 140732579642208,
         "repr": "ShiftRegister1",
         "parameter": {
-          "name": "output2",
+          "name": "output5",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -540,7 +684,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output2_cv",
+          "cv_name": "output5_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -549,10 +693,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732560503504,
+          "id": 140732575579472,
           "device": 140732579642208,
           "to_min": 0,
-          "to_max": 127,
+          "to_max": 128,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -560,8 +704,8 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732579642208,
-        "repr": "ShiftRegister1",
+        "device": 140732525797328,
+        "repr": "PitchShifter1",
         "parameter": {
           "name": "input",
           "stream": false,
@@ -569,7 +713,7 @@
           "description": null,
           "range": [
             0,
-            127
+            128
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1225,6 +1369,136 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732577195552,
+      "src": {
+        "device": 140732579641872,
+        "repr": "_SuperShifter1",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732577932752,
+          "device": 140732579641872,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732577194496,
+      "src": {
+        "device": 140732579641872,
+        "repr": "_SuperShifter1",
+        "parameter": {
+          "name": "io1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732525283792,
+          "device": 140732579641872,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732560139408,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

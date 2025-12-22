@@ -57,10 +57,6 @@ class _StreetFighter(VirtualDevice):
     def on_hadoken_rising(self, value, ctx):
         yield from self.combine(['down', 'right', 'b'])
 
-    @on(shoryulen_cv, edge='rising')
-    def on_shoryulen_rising(self, value, ctx):
-        yield from self.combine(['right', 'down', 'right', 'b'])
-
     @on(shoryuken_cv, edge='rising')
     def on_shoryuken_rising(self, value, ctx):
-        ...
+        yield from self.combine(['right', 'down', 'right', 'b'])

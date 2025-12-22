@@ -22,8 +22,274 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140735303384240,
+      "repr": "Waveshaper1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 4.037678728163849,
+        "set_pause": 0,
+        "input": 2.9497616957815342,
+        "mode": "fold",
+        "amount": 0.5,
+        "symmetry": 0,
+        "bias": 0,
+        "exp_power": 2,
+        "log_scale": 4,
+        "sigmoid_gain": 3,
+        "fold_gain": 2.0,
+        "quantize_steps": 8,
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Waveshaper"
+    },
+    {
+      "id": 140735302097552,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 108.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
+    },
+    {
+      "id": 140735302095200,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 100.96197353642549,
+        "set_pause": 0,
+        "speed": 1.8041349538210107,
+        "sync": 0,
+        "subdiv": "1/2",
+        "phase": 0.0,
+        "sampling_rate": 36,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140735302157264,
+      "src": {
+        "device": 140735303384240,
+        "repr": "Waveshaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735302163536,
+          "device": 140735303384240,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735303940880,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274105168,
+      "src": {
+        "device": 140735302097552,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "div2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735274104976,
+          "device": 140735302097552,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735302095200,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "sync",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sync_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274361840,
+      "src": {
+        "device": 140735302095200,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735274361120,
+          "device": 140735302095200,
+          "to_min": -5,
+          "to_max": 5,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735303384240,
+        "repr": "Waveshaper1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5,
+            5
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

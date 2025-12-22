@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 140735302092848,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 16:0",
+        "output": "Minilab3:Minilab3 MIDI 16:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -42,9 +53,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.631516523605696,
+        "output": 1.532511545546416,
         "set_pause": 0,
-        "input": 3.1753553648075954,
+        "input": 0.37668206072855526,
         "mode": "fold",
         "amount": 0.5,
         "symmetry": 0,
@@ -89,9 +100,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 103.82701313305645,
+        "output": 68.28386217125265,
         "set_pause": 0,
-        "speed": 0.6825865833225189,
+        "speed": 0.6814656636765639,
         "sync": 0,
         "subdiv": "1/2",
         "phase": 0.0,
@@ -113,11 +124,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "finetune": 204,
+        "finetune": 8192,
         "slide": 1.0,
-        "input": 80.6315165236057,
-        "pitchwheel_out": 129,
-        "note_out": 80.0
+        "input": 78.53251154554641,
+        "pitchwheel_out": 4362,
+        "note_out": 78.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -128,9 +139,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 80.6315165236057,
+        "output": 78.53251154554641,
         "set_pause": 0,
-        "a": 3.631516523605696,
+        "a": 1.532511545546416,
         "b": 77.0,
         "operator": "+",
         "type": "ondemand"
@@ -144,9 +155,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 97.31782945736434,
         "set_pause": 0,
-        "in0": 64.50387596899225,
+        "in0": 97.31782945736434,
         "in1": 0.0,
         "type": "toggle",
         "selector": 0.0
@@ -157,11 +168,11 @@
     {
       "id": 140735302154064,
       "repr": "LFO2",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 0.0,
-        "set_pause": 0,
+        "output": 127.0,
+        "set_pause": 1,
         "speed": 0.115,
         "sync": 0,
         "subdiv": "1/1",
@@ -179,6 +190,55 @@
     }
   ],
   "connections": [
+    {
+      "id": 140735274211952,
+      "src": {
+        "device": 140735302092848,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735046654032,
+          "device": 140735302092848,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140735302141904,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140735274218464,
       "src": {
@@ -499,63 +559,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735274901840,
-      "src": {
-        "device": 140735302097888,
-        "repr": "FineTuneNote1",
-        "parameter": {
-          "name": "note_out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "note_out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735275107664,
-          "device": 140735302097888,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735302141904,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,

@@ -16,9 +16,10 @@
           "release": 127
         },
         "filter": {
+          "cutoff": 77,
           "decay": 36,
           "sustain": 67,
-          "release": 78
+          "release": 127
         }
       },
       "class": "Amsynth"
@@ -65,13 +66,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4.469816753924324,
+        "output": 4.4571129718256595,
         "set_pause": 0,
-        "input": 4.2930890052324315,
+        "input": 2.828451887302638,
         "mode": "fold",
         "amount": 0.5,
-        "symmetry": 0,
-        "bias": 0,
+        "symmetry": 1.0,
+        "bias": 1.0,
         "exp_power": 2,
         "log_scale": 4,
         "sigmoid_gain": 3,
@@ -112,9 +113,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 118.0222303664519,
+        "output": 99.4213389687435,
         "set_pause": 0,
-        "speed": 0.6826184665071117,
+        "speed": 0.6814358546238819,
         "sync": 0,
         "subdiv": "1/2",
         "phase": 0.0,
@@ -138,8 +139,8 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 81.46981675392432,
-        "pitchwheel_out": 3849,
+        "input": 81.0798913125259,
+        "pitchwheel_out": 654,
         "note_out": 81.0
       },
       "proxy": false,
@@ -151,9 +152,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 81.46981675392432,
+        "output": 81.0798913125259,
         "set_pause": 0,
-        "a": 4.469816753924324,
+        "a": 4.079891312525905,
         "b": 77.0,
         "operator": "+",
         "type": "ondemand"
@@ -167,9 +168,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 93.34108527131782,
+        "output": 68.57364341085271,
         "set_pause": 0,
-        "in0": 93.34108527131782,
+        "in0": 68.57364341085271,
         "in1": 0.0,
         "type": "toggle",
         "selector": 0.0
@@ -191,6 +192,28 @@
         "phase": 0.0,
         "sampling_rate": 50,
         "waveform": "square",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 140735302155984,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 122.80246253223777,
+        "set_pause": 0,
+        "speed": 0.16,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -822,6 +845,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274903072,
+      "src": {
+        "device": 140735302155984,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735274719696,
+          "device": 140735302155984,
+          "to_min": 32,
+          "to_max": 79,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735302141904,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

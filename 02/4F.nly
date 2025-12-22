@@ -30,7 +30,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -41,9 +42,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.5578176585010768,
+        "output": 4.623762571056947,
         "set_pause": 0,
-        "input": -1.2312706340043063,
+        "input": 4.4983500947425945,
         "mode": "fold",
         "amount": 0.5,
         "symmetry": 0,
@@ -65,7 +66,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 108.0,
+        "tempo": 41.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -88,13 +89,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 47.86286294814531,
+        "output": 120.62904620323094,
         "set_pause": 0,
-        "speed": 1.7922296903217187,
+        "speed": 0.6826919896678258,
         "sync": 0,
         "subdiv": "1/2",
         "phase": 0.0,
-        "sampling_rate": 35,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -114,9 +115,9 @@
         "set_pause": 0,
         "finetune": 204,
         "slide": 1.0,
-        "input": 78.55781765850108,
-        "pitchwheel_out": 114,
-        "note_out": 78.0
+        "input": 81.62376257105694,
+        "pitchwheel_out": 127,
+        "note_out": 81.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -127,18 +128,99 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 78.55781765850108,
+        "output": 81.62376257105694,
         "set_pause": 0,
-        "a": 1.5578176585010768,
+        "a": 4.623762571056947,
         "b": 77.0,
         "operator": "+",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 140735302093184,
+      "repr": "DualRouter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 64.48837209302326,
+        "set_pause": 0,
+        "in0": 64.48837209302326,
+        "in1": 0.0,
+        "type": "toggle",
+        "selector": 0.0
+      },
+      "proxy": false,
+      "class": "DualRouter"
     }
   ],
   "connections": [
+    {
+      "id": 140735274218464,
+      "src": {
+        "device": 140735303940880,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735046711120,
+          "device": 140735303940880,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735302093184,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "selector",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "selector_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140735302157264,
       "src": {
@@ -457,7 +539,7 @@
       "velocity": null
     },
     {
-      "id": 140735274901488,
+      "id": 140735274218112,
       "src": {
         "device": 140735302097888,
         "repr": "FineTuneNote1",
@@ -482,10 +564,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735274162448,
+          "id": 140735274725840,
           "device": 140735302097888,
-          "to_min": -8192,
-          "to_max": 8192,
+          "to_min": 0.0,
+          "to_max": 127.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -493,20 +575,29 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735302141904,
-        "repr": "Amsynth",
+        "device": 140735302093184,
+        "repr": "DualRouter1",
         "parameter": {
-          "channel": null,
-          "section_name": "keys",
-          "name": "pitchwheel",
-          "cc_note": -1,
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
-            -8192,
-            8192
-          ]
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "pitchwheel"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
@@ -572,6 +663,62 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274218288,
+      "src": {
+        "device": 140735302093184,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735274717776,
+          "device": 140735302093184,
+          "to_min": -8192,
+          "to_max": 8192,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735302141904,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "type": "pitchwheel"
       },
       "bouncy": false,
       "muted": false,

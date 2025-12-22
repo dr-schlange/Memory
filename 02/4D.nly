@@ -45,8 +45,138 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140733839797584,
+      "repr": "FineTuneNote1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "finetune": 2048,
+        "slide": 1.0,
+        "input": 0.0,
+        "pitchwheel_out": -8192.0,
+        "note_out": 0.0
+      },
+      "proxy": false,
+      "class": "FineTuneNote"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140733839194272,
+      "src": {
+        "device": 140733839797584,
+        "repr": "FineTuneNote1",
+        "parameter": {
+          "name": "note_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733839195088,
+          "device": 140733839797584,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733839794064,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733839194816,
+      "src": {
+        "device": 140733839797584,
+        "repr": "FineTuneNote1",
+        "parameter": {
+          "name": "pitchwheel_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -8192.0,
+            8191.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pitchwheel_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733839194544,
+          "device": 140733839797584,
+          "to_min": -8192,
+          "to_max": 8192,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733839794064,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "type": "pitchwheel"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

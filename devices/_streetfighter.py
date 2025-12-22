@@ -31,7 +31,6 @@ class _StreetFighter(VirtualDevice):
     meta: disable default output
     """
     shoryuken_cv = VirtualParameter(name='shoryuken', range=(0.0, 1.0), conversion_policy='>0')
-    shoryulen_cv = VirtualParameter(name='shoryulen', range=(0.0, 1.0), conversion_policy='>0')
     hadoken_cv = VirtualParameter(name='hadoken', range=(0.0, 1.0), conversion_policy='>0')
     right_cv = VirtualParameter(name='right', range=(0.0, 1.0))
     left_cv = VirtualParameter(name='left', range=(0.0, 1.0))

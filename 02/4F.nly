@@ -42,9 +42,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4.623762571056947,
+        "output": 3.631516523605696,
         "set_pause": 0,
-        "input": 4.4983500947425945,
+        "input": 3.1753553648075954,
         "mode": "fold",
         "amount": 0.5,
         "symmetry": 0,
@@ -89,9 +89,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 120.62904620323094,
+        "output": 103.82701313305645,
         "set_pause": 0,
-        "speed": 0.6826919896678258,
+        "speed": 0.6825865833225189,
         "sync": 0,
         "subdiv": "1/2",
         "phase": 0.0,
@@ -115,9 +115,9 @@
         "set_pause": 0,
         "finetune": 204,
         "slide": 1.0,
-        "input": 81.62376257105694,
-        "pitchwheel_out": 127,
-        "note_out": 81.0
+        "input": 80.6315165236057,
+        "pitchwheel_out": 129,
+        "note_out": 80.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -128,9 +128,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 81.62376257105694,
+        "output": 80.6315165236057,
         "set_pause": 0,
-        "a": 4.623762571056947,
+        "a": 3.631516523605696,
         "b": 77.0,
         "operator": "+",
         "type": "ondemand"
@@ -144,15 +144,38 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 64.48837209302326,
+        "output": 0.0,
         "set_pause": 0,
-        "in0": 64.48837209302326,
+        "in0": 64.50387596899225,
         "in1": 0.0,
         "type": "toggle",
         "selector": 0.0
       },
       "proxy": false,
       "class": "DualRouter"
+    },
+    {
+      "id": 140735302154064,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "speed": 0.115,
+        "sync": 0,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "square",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -719,6 +742,71 @@
         },
         "explicit": -1,
         "type": "pitchwheel"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274219168,
+      "src": {
+        "device": 140735302154064,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735046660688,
+          "device": 140735302154064,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735302093184,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "selector",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "selector_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

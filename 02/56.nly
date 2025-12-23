@@ -38,15 +38,15 @@
     {
       "id": 140735319506096,
       "repr": "LFO1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 9.711050153737276,
-        "set_pause": 1,
-        "speed": 0.11,
+        "output": 126.53214160384665,
+        "set_pause": 0,
+        "speed": 1.68,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 33,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -64,14 +64,78 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "finetune": 2048.0,
+        "finetune": 3495,
         "slide": 1.0,
-        "input": 9.711050153737276,
-        "pitchwheel_out": 1456,
-        "note_out": 9.0
+        "input": 126.53214160384665,
+        "pitchwheel_out": 1860,
+        "note_out": 126.0
       },
       "proxy": false,
       "class": "FineTuneNote"
+    },
+    {
+      "id": 140735318218736,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
+    },
+    {
+      "id": 140735318223440,
+      "repr": "Sequencer81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 55.0,
+        "set_pause": 0,
+        "input": 0.0,
+        "write": 0.0,
+        "prev_edit_step": 0.0,
+        "next_edit_step": 0.0,
+        "trigger": 0.0,
+        "play": 1.0,
+        "reset": 0.0,
+        "set_step": 0.0,
+        "length": 8.0,
+        "step0": 60.0,
+        "step1": 53.0,
+        "step2": 57.0,
+        "step3": 58.0,
+        "step4": 55.0,
+        "step5": 67.0,
+        "step6": 48.0,
+        "step7": 69.0,
+        "edit_step": 0,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0,
+        "current_step": 4.0
+      },
+      "proxy": false,
+      "class": "Sequencer8"
     }
   ],
   "connections": [
@@ -141,63 +205,6 @@
       "velocity": null
     },
     {
-      "id": 140734931657712,
-      "src": {
-        "device": 140735318227472,
-        "repr": "FineTuneNote1",
-        "parameter": {
-          "name": "note_out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "note_out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734931657472,
-          "device": 140735318227472,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735318216720,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140734931658192,
       "src": {
         "device": 140735318227472,
@@ -252,7 +259,129 @@
       "bouncy": false,
       "muted": false,
       "velocity": null
+    },
+    {
+      "id": 140735318287632,
+      "src": {
+        "device": 140735318218736,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735318286288,
+          "device": 140735318218736,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318223440,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735318289200,
+      "src": {
+        "device": 140735318223440,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735318288080,
+          "device": 140735318223440,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318216720,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
     }
   ],
-  "playground_code": ""
+  "playground_code": "lfo1 = virtual_devices[2]\nlfo1\n\nimport pip\npip"
 }

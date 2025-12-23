@@ -1,0 +1,189 @@
+{
+  "midi_devices": [
+    {
+      "id": 140735318216720,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    },
+    {
+      "id": 140735318224112,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (790):Synth input port (790:0) 128:0"
+      },
+      "channel": 9,
+      "config": {},
+      "class": "MIDIBridge"
+    }
+  ],
+  "virtual_devices": [
+    {
+      "id": 140735322359520,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 140735318214032,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 140735319506096,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 85.85051837458366,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    }
+  ],
+  "connections": [
+    {
+      "id": 140735317571744,
+      "src": {
+        "device": 140735319506096,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735317570656,
+          "device": 140735319506096,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318216720,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735318104144,
+      "src": {
+        "device": 140735319506096,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735318101328,
+          "device": 140735319506096,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318224112,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

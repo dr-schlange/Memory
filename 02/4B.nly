@@ -65,7 +65,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.0,
+        "output": 64.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -94,7 +94,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 3.0
+        "current_step": 4.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -106,17 +106,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 51,
+        "input": 64,
         "interval0": "+6/m6",
         "interval1": "+3/m3",
         "interval2": "+5/b5",
         "interval3": "-octave",
         "key": "C",
         "scale_": "maj",
-        "out0": 60,
-        "out1": 55,
-        "out2": 57,
-        "out3": 38
+        "out0": 72,
+        "out1": 67,
+        "out2": 71,
+        "out3": 52
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -129,19 +129,39 @@
       "config": {
         "set_pause": 0,
         "trigger": 0.0,
-        "io0": 74.0,
-        "io1": 41.0,
-        "io2": 46.0,
-        "io3": 65.0,
-        "io4": 55.0,
-        "io5": 59.0,
-        "io6": 73.0,
-        "io7": 59.0,
-        "idx": 7,
+        "io0": 41.0,
+        "io1": 46.0,
+        "io2": 65.0,
+        "io3": 55.0,
+        "io4": 59.0,
+        "io5": 73.0,
+        "io6": 59.0,
+        "io7": 74.0,
+        "idx": 6,
         "length": 8.0
       },
       "proxy": false,
       "class": "SuperShiftRegister"
+    },
+    {
+      "id": 140735037198352,
+      "repr": "EuclidianSequencer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "clock": 0,
+        "length": 10,
+        "hits": 7,
+        "shift": 0,
+        "trig_shift": 0,
+        "reset": 0,
+        "step_out": 1,
+        "gate_out": 1,
+        "trigger_out": 0
+      },
+      "proxy": false,
+      "class": "EuclidianSequencer"
     }
   ],
   "connections": [
@@ -262,6 +282,136 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274893568,
+      "src": {
+        "device": 140735036643984,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735045479120,
+          "device": 140735036643984,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735037198352,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "clock",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274895856,
+      "src": {
+        "device": 140735036643984,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "div4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735045483088,
+          "device": 140735036643984,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735037198352,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "trig_shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trig_shift_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -856,6 +1006,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274908528,
+      "src": {
+        "device": 140735037198352,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "gate_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gate_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735045480144,
+          "device": 140735037198352,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735037202048,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

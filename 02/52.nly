@@ -1,0 +1,711 @@
+{
+  "midi_devices": [
+    {
+      "id": 140735045711728,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    },
+    {
+      "id": 140735045977056,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 16:0",
+        "output": "Minilab3:Minilab3 MIDI 16:0"
+      },
+      "channel": 0,
+      "config": {
+        "sliders": {
+          "s2": 62,
+          "s4": 111
+        }
+      },
+      "class": "Minilab3"
+    }
+  ],
+  "virtual_devices": [
+    {
+      "id": 140735306237664,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 140735036645584,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 140735037198352,
+      "repr": "ShiftRegister1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0,
+        "length": 8,
+        "output7": 0,
+        "output6": 0,
+        "output5": 0,
+        "output4": 0,
+        "output3": 0,
+        "output2": 0,
+        "output1": 0,
+        "output0": 0
+      },
+      "proxy": false,
+      "class": "ShiftRegister"
+    },
+    {
+      "id": 140735036644944,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 0,
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "Clock"
+    },
+    {
+      "id": 140735036645264,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 101.60000000000001,
+        "set_pause": 0,
+        "speed": 10.0,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 200,
+        "waveform": "step",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    }
+  ],
+  "connections": [
+    {
+      "id": 140735274208432,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735045481552,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274210368,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "b1",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "chain": {
+          "id": 140735046218448,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 57,
+          "channel": null,
+          "name": "attack",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Amp Attack",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274218112,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "b2",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 71,
+        "chain": {
+          "id": 140735046242000,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 58,
+          "channel": null,
+          "name": "decay",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Amp Decay",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 71,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274907472,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 76,
+          "channel": null,
+          "name": "b3",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 76,
+        "chain": {
+          "id": 140735046680016,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 59,
+          "channel": null,
+          "name": "sustain",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Amp Sustain",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 76,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274905888,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 77,
+          "channel": null,
+          "name": "b4",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 77,
+        "chain": {
+          "id": 140735046508240,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 60,
+          "channel": null,
+          "name": "release",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Amp Release",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 77,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274894096,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 93,
+          "channel": null,
+          "name": "b5",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 93,
+        "chain": {
+          "id": 140735274729040,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 53,
+          "channel": null,
+          "name": "attack",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Env Attack",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 93,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274909056,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 18,
+          "channel": null,
+          "name": "b6",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 18,
+        "chain": {
+          "id": 140735274719440,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 54,
+          "channel": null,
+          "name": "decay",
+          "section_name": "filter",
+          "init_value": 64,
+          "description": "Filter Env Decay",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 18,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274897792,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 19,
+          "channel": null,
+          "name": "b7",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 19,
+        "chain": {
+          "id": 140735274729296,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 55,
+          "channel": null,
+          "name": "sustain",
+          "section_name": "filter",
+          "init_value": 64,
+          "description": "Filter Env Sustain",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 19,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274906944,
+      "src": {
+        "device": 140735045977056,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 16,
+          "channel": null,
+          "name": "b8",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 16,
+        "chain": {
+          "id": 140735274719696,
+          "device": 140735045977056,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 56,
+          "channel": null,
+          "name": "release",
+          "section_name": "filter",
+          "init_value": 64,
+          "description": "Filter Env Release",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 16,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735304021312,
+      "src": {
+        "device": 140735036644944,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735046678864,
+          "device": 140735036644944,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735037198352,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735274208784,
+      "src": {
+        "device": 140735036645264,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735045472080,
+          "device": 140735036645264,
+          "to_min": -1024,
+          "to_max": 1024,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735045711728,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "type": "pitchwheel"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

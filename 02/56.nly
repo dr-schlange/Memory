@@ -41,7 +41,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.08034596723315185,
+        "output": 1.9992673378297026,
         "set_pause": 0,
         "speed": 1.68,
         "subdiv": "1/1",
@@ -60,15 +60,15 @@
     {
       "id": 140735318227472,
       "repr": "FineTuneNote1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "set_pause": 1,
+        "set_pause": 0,
         "finetune": 3495,
         "slide": 1.0,
-        "input": 43.101460899476635,
-        "pitchwheel_out": 355,
-        "note_out": 43.0
+        "input": 1.9992673378297026,
+        "pitchwheel_out": 3492,
+        "note_out": 1.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -80,7 +80,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "tempo": 120.0,
+        "tempo": 180.0,
         "play": 1,
         "reset": 0,
         "mul7": 0,
@@ -103,13 +103,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 58.0,
+        "output": 60.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 1.0,
+        "trigger": 0.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
@@ -132,7 +132,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5.0
+        "current_step": 0.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -144,7 +144,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 58,
+        "input": 60,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -156,10 +156,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 69,
-        "note2": 65,
-        "note1": 62,
-        "note0": 58
+        "note3": 71,
+        "note2": 67,
+        "note1": 64,
+        "note0": 60
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -174,19 +174,59 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
-        "div16": 1.0,
-        "div8": 1.0,
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 0.0,
         "div7": 0.0,
         "div6": 0.0,
-        "div5": 1.0,
+        "div5": 0.0,
         "div4": 0.0,
-        "div3": 1.0,
-        "div2": 0.0,
+        "div3": 0.0,
+        "div2": 1.0,
         "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
+    },
+    {
+      "id": 140735320062416,
+      "repr": "Sequencer82",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 54.0,
+        "set_pause": 0,
+        "input": 0.0,
+        "write": 0.0,
+        "prev_edit_step": 0.0,
+        "next_edit_step": 0.0,
+        "trigger": 0.0,
+        "play": 1.0,
+        "reset": 0.0,
+        "set_step": 0,
+        "length": 8,
+        "step0": 54.0,
+        "step1": 47.0,
+        "step2": 54.0,
+        "step3": 57.0,
+        "step4": 52.0,
+        "step5": 55.0,
+        "step6": 52.0,
+        "step7": 56.0,
+        "edit_step": 4,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0,
+        "current_step": 0.0
+      },
+      "proxy": false,
+      "class": "Sequencer8"
     }
   ],
   "connections": [
@@ -312,6 +352,71 @@
       "velocity": null
     },
     {
+      "id": 140734931753408,
+      "src": {
+        "device": 140735318227472,
+        "repr": "FineTuneNote1",
+        "parameter": {
+          "name": "pitchwheel_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -8192.0,
+            8191.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pitchwheel_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888454864,
+          "device": 140735318227472,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318214032,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734931749888,
       "src": {
         "device": 140735318218736,
@@ -350,6 +455,71 @@
       "dest": {
         "device": 140735318218064,
         "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931754112,
+      "src": {
+        "device": 140735318218736,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888458576,
+          "device": 140735318218736,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -428,6 +598,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931753584,
+      "src": {
+        "device": 140735318223440,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888456016,
+          "device": 140735318223440,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318214032,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -729,6 +964,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931753936,
+      "src": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888452304,
+          "device": 140735320062416,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318216720,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

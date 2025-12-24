@@ -8,7 +8,11 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "cutoff": 60
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -41,7 +45,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 74.76702485528082,
+        "output": 45.08980363061937,
         "set_pause": 0,
         "speed": 1.68,
         "subdiv": "1/1",
@@ -66,9 +70,9 @@
         "set_pause": 0,
         "finetune": 3495,
         "slide": 1.0,
-        "input": 74.76702485528082,
-        "pitchwheel_out": 2681,
-        "note_out": 74.0
+        "input": 45.08980363061937,
+        "pitchwheel_out": 314,
+        "note_out": 45.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -175,15 +179,15 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 1.0,
-        "div16": 0.0,
-        "div8": 1.0,
+        "div16": 1.0,
+        "div8": 0.0,
         "div7": 0.0,
         "div6": 1.0,
         "div5": 1.0,
-        "div4": 0.0,
+        "div4": 1.0,
         "div3": 0.0,
         "div2": 1.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -214,16 +218,16 @@
         "step6": 40.0,
         "step7": 43.0,
         "edit_step": 4,
-        "active0": 1,
-        "active1": 1,
+        "active0": 0,
+        "active1": 0,
         "active2": 1,
-        "active3": 1,
-        "active4": 0,
-        "active5": 1,
+        "active3": 0,
+        "active4": 1,
+        "active5": 0,
         "active6": 1,
-        "active7": 0,
+        "active7": 1,
         "trig_out": 0,
-        "current_step": 4.0
+        "current_step": 3.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -239,16 +243,16 @@
         "mutation": 0.5,
         "random": 0.0,
         "reset": 0.0,
-        "out7": 0,
+        "out7": 1,
         "out6": 1,
-        "out5": 1,
-        "out4": 0,
-        "out3": 1,
+        "out5": 0,
+        "out4": 1,
+        "out3": 0,
         "out2": 1,
-        "out1": 1,
-        "out0": 1,
-        "tape_out": 246,
-        "gate_out": 0,
+        "out1": 0,
+        "out0": 0,
+        "tape_out": 43,
+        "gate_out": 1,
         "out_main": 0
       },
       "proxy": false,
@@ -316,6 +320,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931758688,
+      "src": {
+        "device": 140735319506096,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888142416,
+          "device": 140735319506096,
+          "to_min": 59,
+          "to_max": 62,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318216720,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

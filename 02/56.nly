@@ -41,7 +41,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.9992673378297026,
+        "output": 0.016588515394297676,
         "set_pause": 0,
         "speed": 1.68,
         "subdiv": "1/1",
@@ -66,9 +66,9 @@
         "set_pause": 0,
         "finetune": 3495,
         "slide": 1.0,
-        "input": 1.9992673378297026,
-        "pitchwheel_out": 3492,
-        "note_out": 1.0
+        "input": 0.016588515394297676,
+        "pitchwheel_out": 58,
+        "note_out": 0.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -103,7 +103,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 60.0,
+        "output": 62.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -132,7 +132,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 2.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -144,7 +144,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 60,
+        "input": 62,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -156,10 +156,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 71,
-        "note2": 67,
-        "note1": 64,
-        "note0": 60
+        "note3": 73,
+        "note2": 69,
+        "note1": 66,
+        "note0": 62
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -174,14 +174,14 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 0.0,
-        "div16": 0.0,
+        "div32": 1.0,
+        "div16": 1.0,
         "div8": 0.0,
-        "div7": 0.0,
-        "div6": 0.0,
+        "div7": 1.0,
+        "div6": 1.0,
         "div5": 0.0,
         "div4": 0.0,
-        "div3": 0.0,
+        "div3": 1.0,
         "div2": 1.0,
         "div1": 0.0
       },
@@ -194,7 +194,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 54.0,
+        "output": 56.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -214,8 +214,8 @@
         "step6": 52.0,
         "step7": 56.0,
         "edit_step": 4,
-        "active0": 1,
-        "active1": 1,
+        "active0": 0,
+        "active1": 0,
         "active2": 1,
         "active3": 1,
         "active4": 1,
@@ -223,10 +223,36 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 7.0
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140735318215376,
+      "repr": "TuringMachine1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "mutation": 0.5,
+        "random": 0.0,
+        "reset": 0.0,
+        "out7": 1,
+        "out6": 1,
+        "out5": 1,
+        "out4": 1,
+        "out3": 1,
+        "out2": 1,
+        "out1": 0,
+        "out0": 0,
+        "tape_out": 63,
+        "gate_out": 1,
+        "out_main": 0
+      },
+      "proxy": false,
+      "class": "TuringMachine"
     }
   ],
   "connections": [
@@ -520,6 +546,71 @@
       "dest": {
         "device": 140735320062416,
         "repr": "Sequencer82",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931749712,
+      "src": {
+        "device": 140735318218736,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735318258128,
+          "device": 140735318218736,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "trigger",
           "stream": false,
@@ -1021,6 +1112,526 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931747600,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888458064,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931754288,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888456784,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931753760,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888455376,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931754464,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888456144,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931754640,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888459600,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931754816,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734887504208,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931754992,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out6",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out6_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888457424,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active6",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active6_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734931755168,
+      "src": {
+        "device": 140735318215376,
+        "repr": "TuringMachine1",
+        "parameter": {
+          "name": "out7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734888459216,
+          "device": 140735318215376,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735320062416,
+        "repr": "Sequencer82",
+        "parameter": {
+          "name": "active7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "active7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

@@ -4,6 +4,7 @@ from nallely.core.world import ThreadContext
 from nallely import VirtualDevice, VirtualParameter, on
 from nallely import *
 
+
 class DownScaler(VirtualDevice):
     """
     DownScaler
@@ -21,16 +22,17 @@ class DownScaler(VirtualDevice):
     category: <category>
     meta: disable default output
     """
-    input_cv = VirtualParameter(name='input', range=(0.0, 127.0), default=0.0)
-    out1_cv = VirtualParameter(name='out1', range=(0.0, 127.0))
-    out0_cv = VirtualParameter(name='out0', range=(0.0, 127.0))
+
+    input_cv = VirtualParameter(name="input", range=(0.0, 127.0), default=0.0)
+    out1_cv = VirtualParameter(name="out1", range=(0.0, 127.0))
+    out0_cv = VirtualParameter(name="out0", range=(0.0, 127.0))
 
     def __post_init__(self, **kwargs):
         self.idx = 1
         self.outs = [self.out0_cv, self.out1_cv]
-        return {'disable_output': True}
+        return {"disable_output": True}
 
-    @on(input_cv, edge='any')
+    @on(input_cv, edge="any")
     def on_input_any(self, value, ctx):
         self.idx = (self.idx + 1) % 2
         return (value, [self.outs[self.idx]])

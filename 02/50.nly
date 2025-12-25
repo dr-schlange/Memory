@@ -31,14 +31,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 106.24553680419922,
-        "cam_average_R": 113.0,
-        "cam_average_G": 105.0,
-        "cam_average_B": 94.0,
-        "cam_average_H": 0.09649122506380081,
-        "cam_average_S": 0.16814158856868744,
-        "cam_average_V": 0.4431372582912445,
-        "cam_indexFingerAngle": 0.09000000357627869
+        "cam_brightness": 120.6175308227539,
+        "cam_average_R": 127.0,
+        "cam_average_G": 121.0,
+        "cam_average_B": 103.0,
+        "cam_average_H": 0.125,
+        "cam_average_S": 0.18897637724876404,
+        "cam_average_V": 0.49803921580314636,
+        "cam_indexFingerAngle": 0.7900000214576721
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -52,9 +52,9 @@
         "set_pause": 0,
         "finetune": 2048.0,
         "slide": 1.0,
-        "input": 52.9123688252747,
-        "pitchwheel_out": 1869,
-        "note_out": 52.0
+        "input": 60.069904766439535,
+        "pitchwheel_out": 143,
+        "note_out": 60.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -65,9 +65,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 52,
+        "output": 60,
         "set_pause": 0,
-        "input": 52.0,
+        "input": 60.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -76,6 +76,26 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 140734210434656,
+      "repr": "Looper1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "record": 0,
+        "clear": 0,
+        "reset": 0,
+        "speed": 1.0,
+        "reverse": 0,
+        "output3": 0,
+        "output2": 0,
+        "output1": 0
+      },
+      "proxy": false,
+      "class": "Looper"
     }
   ],
   "connections": [
@@ -210,63 +230,6 @@
       "velocity": null
     },
     {
-      "id": 140734210357584,
-      "src": {
-        "device": 140734211119760,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "cam_brightness",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            255.01
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "cam_brightness_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734210356064,
-          "device": 140734211119760,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734210504528,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140734210356368,
       "src": {
         "device": 140734211119760,
@@ -329,63 +292,6 @@
       },
       "bouncy": false,
       "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734084974304,
-      "src": {
-        "device": 140734211119760,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "cam_average_R",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            255.01
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "cam_average_R_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734210978064,
-          "device": 140734211119760,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734210504528,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": true,
       "velocity": null
     },
     {
@@ -561,6 +467,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734212921776,
+      "src": {
+        "device": 140734210430288,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734212922000,
+          "device": 140734210430288,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734210434656,
+        "repr": "Looper1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

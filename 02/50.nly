@@ -8,7 +8,12 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "amp": {
+          "volume": 3,
+          "panning": 124
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -31,14 +36,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "cam_brightness": 122.7658920288086,
-        "cam_average_R": 129.0,
-        "cam_average_G": 122.0,
-        "cam_average_B": 112.0,
-        "cam_average_H": 0.09803921729326248,
-        "cam_average_S": 0.10483870655298233,
-        "cam_average_V": 0.48627451062202454,
-        "cam_indexFingerAngle": 0.6600000262260437,
+        "cam_brightness": 119.00325775146484,
+        "cam_average_R": 128.0,
+        "cam_average_G": 119.0,
+        "cam_average_B": 97.0,
+        "cam_average_H": 0.11827956885099411,
+        "cam_average_S": 0.2421875,
+        "cam_average_V": 0.501960813999176,
+        "cam_indexFingerAngle": 0.5699999928474426,
         "gpcontrol0_down": 0.0,
         "gpcontrol0_start": 0.0,
         "gpcontrol0_select": 0.0,
@@ -55,11 +60,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "finetune": 5678,
+        "finetune": 81910,
         "slide": 1.0,
-        "input": 61.139830938624726,
-        "pitchwheel_out": 794,
-        "note_out": 61.0
+        "input": 59.26596499916096,
+        "pitchwheel_out": 21785,
+        "note_out": 59.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -70,9 +75,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 60,
+        "output": 59,
         "set_pause": 0,
-        "input": 61.0,
+        "input": 59.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -88,20 +93,42 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 41.0,
+        "output": 67.0,
         "set_pause": 0,
-        "input": 60.0,
+        "input": 59.0,
         "record": 0.0,
         "clear": 0.0,
         "reset": 0.0,
-        "speed": 1.0,
+        "speed": 127.0,
         "reverse": 0.0,
-        "output3": 0,
-        "output2": 0,
-        "output1": 65.0
+        "output3": 72.0,
+        "output2": 74.0,
+        "output1": 60.0
       },
       "proxy": false,
       "class": "Looper"
+    },
+    {
+      "id": 140734210435328,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 123.83257595082642,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -1026,6 +1053,384 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734211160768,
+      "src": {
+        "device": 140734210434656,
+        "repr": "Looper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734066427088,
+          "device": 140734210434656,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734211119760,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734211156896,
+      "src": {
+        "device": 140734210434656,
+        "repr": "Looper1",
+        "parameter": {
+          "name": "output1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734084847312,
+          "device": 140734210434656,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734211119760,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734211157248,
+      "src": {
+        "device": 140734210434656,
+        "repr": "Looper1",
+        "parameter": {
+          "name": "output2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734085280976,
+          "device": 140734210434656,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734211119760,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734211157072,
+      "src": {
+        "device": 140734210434656,
+        "repr": "Looper1",
+        "parameter": {
+          "name": "output3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734066396496,
+          "device": 140734210434656,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734211119760,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734211149856,
+      "src": {
+        "device": 140734210435328,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734066506704,
+          "device": 140734210435328,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734210504528,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734211150032,
+      "src": {
+        "device": 140734210435328,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734084640592,
+          "device": 140734210435328,
+          "to_min": 127,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734210504528,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

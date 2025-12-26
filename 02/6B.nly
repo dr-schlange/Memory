@@ -41,7 +41,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 76.87896049064555,
+        "output": 116.67080699036039,
         "set_pause": 0,
         "speed": 0.0001,
         "subdiv": "1/1",
@@ -63,9 +63,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 108,
+        "output": 57,
         "set_pause": 0,
-        "input": 76.87896049064555,
+        "input": 67.67137972230441,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -106,7 +106,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 108,
+        "input": 53,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -118,10 +118,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 119,
-        "note2": 115,
-        "note1": 112,
-        "note0": 108
+        "note3": 64,
+        "note2": 60,
+        "note1": 57,
+        "note0": 53
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -158,15 +158,15 @@
         "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
+        "div32": 0.0,
         "div16": 1.0,
-        "div8": 1.0,
+        "div8": 0.0,
         "div7": 0.0,
         "div6": 0.0,
-        "div5": 0.0,
+        "div5": 1.0,
         "div4": 0.0,
         "div3": 1.0,
-        "div2": 1.0,
+        "div2": 0.0,
         "div1": 0.0
       },
       "proxy": false,
@@ -178,16 +178,59 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 105.0,
+        "output": 57.0,
         "set_pause": 0,
-        "input": 108.0,
+        "input": 57.0,
         "selector": 1.0,
         "type": "toggle",
         "hold_last": true,
-        "output2": 108.0
+        "output2": 53.0
       },
       "proxy": false,
       "class": "Switch"
+    },
+    {
+      "id": 140736296645840,
+      "repr": "ConveyorLine1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "input": 57.0,
+        "buf_size": 20,
+        "reset": 0.0,
+        "length": 8,
+        "out7": 0,
+        "out6": 0,
+        "out5": 48.0,
+        "out4": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 0
+      },
+      "proxy": false,
+      "class": "ConveyorLine"
+    },
+    {
+      "id": 140736296646512,
+      "repr": "MultiPoleFilter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 67.67137972230441,
+        "set_pause": 0,
+        "input": 116.67080699036039,
+        "filter": "lowpass",
+        "mode": "cutoff",
+        "cutoff": 158.0,
+        "smoothing": 0.6,
+        "poles": 4,
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "MultiPoleFilter"
     }
   ],
   "connections": [
@@ -230,6 +273,71 @@
       "dest": {
         "device": 140736296640128,
         "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": true,
+      "velocity": null
+    },
+    {
+      "id": 140736297164608,
+      "src": {
+        "device": 140736296639456,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736297164256,
+          "device": 140736296639456,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296646512,
+        "repr": "MultiPoleFilter1",
         "parameter": {
           "name": "input",
           "stream": false,
@@ -379,6 +487,71 @@
       "velocity": null
     },
     {
+      "id": 140736281855824,
+      "src": {
+        "device": 140736296640128,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736281854256,
+          "device": 140736296640128,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296645840,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140736296563552,
       "src": {
         "device": 140736296639792,
@@ -490,6 +663,71 @@
           "range": [
             0.0,
             1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736281854928,
+      "src": {
+        "device": 140736296639792,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736281856944,
+          "device": 140736296639792,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296645840,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
           ],
           "accepted_values": [],
           "conversion_policy": ">0",
@@ -794,6 +1032,299 @@
           ],
           "accepted_values": [],
           "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736281832080,
+      "src": {
+        "device": 140736296645840,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "out3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736281833120,
+          "device": 140736296645840,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296640800,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736296770576,
+      "src": {
+        "device": 140736296645840,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "out6",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out6_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736296773456,
+          "device": 140736296645840,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296640800,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736296774032,
+      "src": {
+        "device": 140736296645840,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "out7",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out7_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736296772496,
+          "device": 140736296645840,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296640800,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736297165312,
+      "src": {
+        "device": 140736296645840,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736153167792,
+          "device": 140736296645840,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296640800,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736297164960,
+      "src": {
+        "device": 140736296646512,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736297164784,
+          "device": 140736296646512,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736296640128,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
           "section_name": "__virtual__",

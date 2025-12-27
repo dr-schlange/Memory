@@ -22,8 +22,135 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140732124291696,
+      "repr": "VoiceAllocator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 76,
+        "out3": 76,
+        "out2": 93,
+        "out1": 42,
+        "out0": 41
+      },
+      "proxy": false,
+      "class": "VoiceAllocator"
+    },
+    {
+      "id": 140732124288336,
+      "repr": "ShiftRegister1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0,
+        "length": 8,
+        "output7": 0,
+        "output6": 0,
+        "output5": 0,
+        "output4": 0,
+        "output3": 0,
+        "output2": 0,
+        "output1": 0,
+        "output0": 0
+      },
+      "proxy": false,
+      "class": "ShiftRegister"
+    },
+    {
+      "id": 140732124288672,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 75.82780651448402,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "white_noise",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140732124292368,
+      "src": {
+        "device": 140732124288672,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732124287664,
+          "device": 140732124288672,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732124291696,
+        "repr": "VoiceAllocator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

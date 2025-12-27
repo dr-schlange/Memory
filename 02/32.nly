@@ -4,8 +4,8 @@
       "id": 140736279212304,
       "repr": "Amsynth",
       "ports": {
-        "input": "amsynth:MIDI OUT 131:1",
-        "output": "amsynth:MIDI IN 131:0"
+        "input": "amsynth:MIDI OUT 132:1",
+        "output": "amsynth:MIDI IN 132:0"
       },
       "channel": 0,
       "config": {
@@ -21,7 +21,8 @@
           "osc2_semitone": 111,
           "osc2_detune": 69,
           "sync_oscillators": 127,
-          "mix": 88
+          "mix": 88,
+          "ring_mod": 0
         },
         "amp": {
           "volume": 90,
@@ -62,8 +63,8 @@
       "id": 140735814870800,
       "repr": "MIDIBridge0",
       "ports": {
-        "input": null,
-        "output": "FLUID Synth (758):Synth input port (758:0) 128:0"
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "NallelyBridge0 + NallelyBridge0"
       },
       "channel": 9,
       "config": {
@@ -76,7 +77,7 @@
   ],
   "virtual_devices": [
     {
-      "id": 140736284924560,
+      "id": 140734483400752,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -92,14 +93,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0,
-        "gpcontrol0_up": 0.0,
-        "gpcontrol0_down": 0.0,
-        "gpcontrol0_left": 0.0,
-        "gpcontrol0_right": 0.0,
-        "gpcontrol0_a": 0.0,
-        "sliders0_s0": 50.0,
-        "sliders0_s1": 36.0
+        "set_pause": 0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -116,12 +110,12 @@
         "reset": 0,
         "length": 8,
         "output7": 68.0,
-        "output6": 0.0,
-        "output5": 0.0,
-        "output4": 0.0,
-        "output3": 0.0,
-        "output2": 0.0,
-        "output1": 0.0,
+        "output6": 68.0,
+        "output5": 68.0,
+        "output4": 68.0,
+        "output3": 68.0,
+        "output2": 68.0,
+        "output1": 68.0,
         "output0": 68.0
       },
       "proxy": false,
@@ -211,7 +205,7 @@
         "shift": 3,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 6,
+        "step_out": 1,
         "gate_out": 1,
         "trigger_out": 0
       },
@@ -230,13 +224,13 @@
         "mode": "gate",
         "div32": 0.0,
         "div16": 1.0,
-        "div8": 1.0,
+        "div8": 0.0,
         "div7": 0.0,
         "div6": 0.0,
         "div5": 1.0,
-        "div4": 1.0,
+        "div4": 0.0,
         "div3": 1.0,
-        "div2": 0.0,
+        "div2": 1.0,
         "div1": 1.0
       },
       "proxy": false,
@@ -244,612 +238,6 @@
     }
   ],
   "connections": [
-    {
-      "id": 140735815194896,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_a",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_a_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735815479120,
-          "device": 140736279204944,
-          "to_min": 0,
-          "to_max": 68,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140736279205264,
-        "repr": "ShiftRegister1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815195600,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "sliders0_s0",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "sliders0_s0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735814851024,
-          "device": 140736279204944,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140736279212304,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 7,
-          "channel": null,
-          "name": "volume",
-          "section_name": "amp",
-          "init_value": 64,
-          "description": "Master Volume",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815192256,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "sliders0_s1",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "sliders0_s1_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140736279273936,
-          "device": 140736279204944,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814870800,
-        "repr": "MIDIBridge0",
-        "parameter": {
-          "cc_note": 7,
-          "channel": null,
-          "name": "volume",
-          "section_name": "general",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815196656,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_left",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_left_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735814649424,
-          "device": 140736279204944,
-          "to_min": 0,
-          "to_max": 61,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814874960,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815197008,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_left",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_left_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735875563088,
-          "device": 140736279204944,
-          "to_min": 2,
-          "to_max": 2,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814874960,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "chord",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            9
-          ],
-          "accepted_values": [
-            "maj",
-            "min",
-            "maj7",
-            "min7",
-            "7th",
-            "maj7#11",
-            "dim",
-            "m7b5",
-            "min7maj",
-            "custom"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "chord_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815196480,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_right",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_right_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735875091280,
-          "device": 140736279204944,
-          "to_min": 53,
-          "to_max": 70,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814874960,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815196128,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_right",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_right_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735815001040,
-          "device": 140736279204944,
-          "to_min": 3,
-          "to_max": 3,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814874960,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "chord",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            9
-          ],
-          "accepted_values": [
-            "maj",
-            "min",
-            "maj7",
-            "min7",
-            "7th",
-            "maj7#11",
-            "dim",
-            "m7b5",
-            "min7maj",
-            "custom"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "chord_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815198768,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_down",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_down_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735815225680,
-          "device": 140736279204944,
-          "to_min": 2,
-          "to_max": 5,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814874960,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "chord",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            9
-          ],
-          "accepted_values": [
-            "maj",
-            "min",
-            "maj7",
-            "min7",
-            "7th",
-            "maj7#11",
-            "dim",
-            "m7b5",
-            "min7maj",
-            "custom"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "chord_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735815199120,
-      "src": {
-        "device": 140736279204944,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "gpcontrol0_down",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "gpcontrol0_down_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140736279276496,
-          "device": 140736279204944,
-          "to_min": 44,
-          "to_max": 67,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735814874960,
-        "repr": "ChordGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
     {
       "id": 140735815193136,
       "src": {
@@ -876,7 +264,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736279275984,
+          "id": 140734402146768,
           "device": 140736279205264,
           "to_min": 0,
           "to_max": 127,
@@ -941,7 +329,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735814744912,
+          "id": 140734402148560,
           "device": 140736279205264,
           "to_min": 0,
           "to_max": 127,
@@ -998,7 +386,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735814851536,
+          "id": 140734402149712,
           "device": 140736279203984,
           "to_min": 0,
           "to_max": 56,
@@ -1055,7 +443,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815479760,
+          "id": 140734402149456,
           "device": 140736279203984,
           "to_min": 0,
           "to_max": 1,
@@ -1120,7 +508,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815480400,
+          "id": 140734402786128,
           "device": 140736279203984,
           "to_min": 0,
           "to_max": 1,
@@ -1185,7 +573,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815475536,
+          "id": 140734402786256,
           "device": 140736279203984,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -1250,7 +638,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736279275344,
+          "id": 140734402786384,
           "device": 140736279203984,
           "to_min": 0,
           "to_max": 1,
@@ -1315,7 +703,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815321296,
+          "id": 140734402786512,
           "device": 140736279143696,
           "to_min": 0,
           "to_max": 127,
@@ -1372,7 +760,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815479888,
+          "id": 140734402786640,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1429,7 +817,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815320912,
+          "id": 140734402786768,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1486,7 +874,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735875090768,
+          "id": 140734402786896,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1543,7 +931,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815321168,
+          "id": 140734402787024,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1600,7 +988,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815475280,
+          "id": 140734402787152,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1665,7 +1053,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736279280208,
+          "id": 140734402787280,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1730,7 +1118,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735815482960,
+          "id": 140734402787408,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1795,7 +1183,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735875089616,
+          "id": 140734402787664,
           "device": 140735814874960,
           "to_min": 0,
           "to_max": 127,
@@ -1860,7 +1248,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736279276240,
+          "id": 140734402776912,
           "device": 140735814873680,
           "to_min": 0,
           "to_max": 51,
@@ -1917,7 +1305,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735875561552,
+          "id": 140734477305424,
           "device": 140735814873680,
           "to_min": 0,
           "to_max": 1,
@@ -1982,7 +1370,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736279276112,
+          "id": 140734477306064,
           "device": 140736279144032,
           "to_min": 0,
           "to_max": 1,

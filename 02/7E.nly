@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140732057875664,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 130:1",
+        "output": "amsynth:MIDI IN 130:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140732130854960,
@@ -29,24 +41,25 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 55.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
         "length": 8.0,
-        "step0": 0.0,
-        "step1": 0.0,
-        "step2": 0.0,
-        "step3": 0.0,
+        "step0": 56.0,
+        "step1": 51.0,
+        "step2": 56.0,
+        "step3": 60.0,
         "step4": 0.0,
-        "step5": 0.0,
-        "step6": 0.0,
-        "step7": 0.0,
+        "step5": 55.0,
+        "step6": 55.0,
+        "step7": 67.0,
         "edit_step": 0,
         "active0": 1,
         "active1": 1,
@@ -56,8 +69,8 @@
         "active5": 1,
         "active6": 1,
         "active7": 1,
-        "trig_out": 0.0,
-        "current_step": 0.0
+        "trig_out": 0,
+        "current_step": 6.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -70,14 +83,81 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 1,
+        "mul5": 1,
+        "mul3": 1,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 1,
+        "mul2": 1,
+        "div2": 1,
+        "div4": 0,
+        "lead": 1
       },
       "proxy": false,
       "class": "Clock"
     }
   ],
   "connections": [
+    {
+      "id": 140732125143200,
+      "src": {
+        "device": 140732124295728,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732058495568,
+          "device": 140732124295728,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732057875664,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732125142496,
       "src": {

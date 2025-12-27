@@ -1,22 +1,11 @@
 {
   "midi_devices": [
     {
-      "id": 140732337088768,
-      "repr": "Amsynth",
-      "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
-      },
-      "channel": 0,
-      "config": {},
-      "class": "Amsynth"
-    },
-    {
-      "id": 140732337093808,
+      "id": 140734031912912,
       "repr": "MIDIBridge0",
       "ports": {
         "input": "NallelyBridge0 + NallelyBridge0",
-        "output": "FLUID Synth (741):Synth input port (741:0) 128:0"
+        "output": "FLUID Synth (742):Synth input port (742:0) 128:0"
       },
       "channel": 0,
       "config": {},
@@ -25,7 +14,7 @@
   ],
   "virtual_devices": [
     {
-      "id": 140732343650352,
+      "id": 140734038476848,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -36,96 +25,29 @@
       "class": "TrevorBus"
     },
     {
-      "id": 140732337080368,
+      "id": 140734031906864,
       "repr": "WebSocketBus1",
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
-    },
-    {
-      "id": 140732337086416,
-      "repr": "DownScaler1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "set_pause": 0,
-        "input": 0.0,
-        "out1": 0.0,
-        "out0": 0.0
-      },
-      "proxy": false,
-      "class": "DownScaler"
-    },
-    {
-      "id": 140732337087088,
-      "repr": "DualRouter1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 71.71771652178006,
-        "set_pause": 0,
-        "in0": 71.71771652178006,
-        "in1": 0.0,
-        "type": "toggle",
-        "selector": 0.0
-      },
-      "proxy": false,
-      "class": "DualRouter"
-    },
-    {
-      "id": 140732337087424,
-      "repr": "LFO1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 16.89282615066297,
-        "set_pause": 0,
-        "speed": 0.01,
-        "subdiv": "1/1",
-        "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "sine",
-        "invert_polarity": 0.0,
-        "min_value": 0,
-        "max_value": 127.0,
-        "pulse_width": 0.3,
-        "step_size": 0.2
-      },
-      "proxy": false,
-      "class": "LFO"
-    },
-    {
-      "id": 140732337088432,
-      "repr": "Switch1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 16.89282615066297,
-        "set_pause": 0,
-        "input": 16.89282615066297,
-        "selector": 0,
-        "type": "toggle",
-        "hold_last": true,
-        "output2": 0
-      },
-      "proxy": false,
-      "class": "Switch"
     }
   ],
   "connections": [
     {
-      "id": 140732337156688,
+      "id": 140734031920304,
       "src": {
-        "device": 140732337087424,
-        "repr": "LFO1",
+        "device": 140734031906864,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "output",
+          "name": "pads0_p0",
           "stream": false,
-          "consumer": false,
+          "consumer": true,
           "description": null,
           "range": [
             0,
@@ -134,7 +56,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output_cv",
+          "cv_name": "pads0_p0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -143,8 +65,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732337159568,
-          "device": 140732337087424,
+          "id": 140734031919968,
+          "device": 140734031906864,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
@@ -154,29 +76,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732337088432,
-        "repr": "Switch1",
+        "device": 140734031912912,
+        "repr": "MIDIBridge0",
         "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
           "range": [
             0,
             127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
+          ]
         },
         "explicit": -1,
-        "type": "virtual"
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

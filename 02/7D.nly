@@ -4,16 +4,50 @@
       "id": 140732124363216,
       "repr": "Amsynth",
       "ports": {
-        "input": null,
-        "output": "FLUID Synth (737):Synth input port (737:0) 128:0"
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 130:0"
       },
       "channel": 0,
       "config": {
+        "general": {
+          "bank_select": 8,
+          "preset_select": 22
+        },
         "amp": {
           "volume": 127
         }
       },
       "class": "Amsynth"
+    },
+    {
+      "id": 140732124295392,
+      "repr": "AmsynthAuto",
+      "ports": {
+        "input": "amsynth:MIDI OUT 130:1",
+        "output": "amsynth:MIDI IN 130:0"
+      },
+      "channel": 0,
+      "config": {
+        "general": {
+          "bank_select": 6,
+          "preset_select": 45
+        },
+        "amp": {
+          "volume": 127
+        }
+      },
+      "class": "AmsynthAuto"
+    },
+    {
+      "id": 140732057871184,
+      "repr": "AmsynthAuto",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 130:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "AmsynthAuto"
     }
   ],
   "virtual_devices": [
@@ -46,11 +80,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 65,
-        "out3": 111,
-        "out2": 77,
-        "out1": 65,
-        "out0": 51
+        "input": 46,
+        "out3": 35,
+        "out2": 66,
+        "out1": 46,
+        "out0": 29
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -62,18 +96,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 29.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 0,
-        "output6": 0,
-        "output5": 0,
-        "output4": 0,
-        "output3": 0,
-        "output2": 0,
-        "output1": 0,
-        "output0": 0
+        "output7": 122.0,
+        "output6": 83.0,
+        "output5": 57.0,
+        "output4": 28.0,
+        "output3": 118.0,
+        "output2": 2.0,
+        "output1": 40.0,
+        "output0": 66.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -84,7 +118,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 64.84624495256901,
+        "output": 46.404749198653185,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -99,11 +133,35 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140732124290016,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 1,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
     }
   ],
   "connections": [
     {
-      "id": 140732057866064,
+      "id": 140732058796112,
       "src": {
         "device": 140732124291696,
         "repr": "VoiceAllocator1",
@@ -128,7 +186,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732057865744,
+          "id": 140732058799472,
           "device": 140732124291696,
           "to_min": 0,
           "to_max": 127,
@@ -139,44 +197,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732124363216,
-        "repr": "Amsynth",
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140732057866704,
-      "src": {
-        "device": 140732124291696,
-        "repr": "VoiceAllocator1",
-        "parameter": {
-          "name": "out1",
+          "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            127.0
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "out1_cv",
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -184,40 +219,14 @@
           "no_init": false
         },
         "explicit": -1,
-        "chain": {
-          "id": 140732057866384,
-          "device": 140732124291696,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
         "type": "virtual"
-      },
-      "dest": {
-        "device": 140732124363216,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140732124216848,
+      "id": 140732126785424,
       "src": {
         "device": 140732124291696,
         "repr": "VoiceAllocator1",
@@ -242,8 +251,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732124215328,
+          "id": 140732126788336,
           "device": 140732124291696,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732124840640,
+      "src": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732124845216,
+          "device": 140732124288336,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
@@ -274,23 +348,23 @@
       "velocity": null
     },
     {
-      "id": 140732124214112,
+      "id": 140732124421520,
       "src": {
-        "device": 140732124291696,
-        "repr": "VoiceAllocator1",
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
         "parameter": {
-          "name": "out3",
+          "name": "output5",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            127.0
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "out3_cv",
+          "cv_name": "output5_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -299,8 +373,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732124213200,
-          "device": 140732124291696,
+          "id": 140732124420944,
+          "device": 140732124288336,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
@@ -312,6 +386,234 @@
       "dest": {
         "device": 140732124363216,
         "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732124418640,
+      "src": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732124415568,
+          "device": 140732124288336,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732124295392,
+        "repr": "AmsynthAuto",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732125142848,
+      "src": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732125142672,
+          "device": 140732124288336,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732124295392,
+        "repr": "AmsynthAuto",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732125143200,
+      "src": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732125143024,
+          "device": 140732124288336,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732057871184,
+        "repr": "AmsynthAuto",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732125143376,
+      "src": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output5",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output5_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732058646832,
+          "device": 140732124288336,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732057871184,
+        "repr": "AmsynthAuto",
         "parameter": {
           "channel": null,
           "keys": {},
@@ -382,6 +684,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732125143552,
+      "src": {
+        "device": 140732124290016,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732058155152,
+          "device": 140732124290016,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732124288336,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -10,52 +10,51 @@
       "channel": 0,
       "config": {
         "general": {
-          "bank_select": 3,
-          "preset_select": 12
+          "bank_select": 15,
+          "preset_select": 76
         },
         "oscillators": {
           "osc1_waveform": 32,
-          "osc1_shape": 100,
+          "osc1_shape": 0,
           "osc2_waveform": 32,
-          "osc2_shape": 65,
-          "osc2_oct": 73,
-          "osc2_detune": 63,
+          "osc2_shape": 0,
+          "osc2_oct": 54,
           "sync_oscillators": 0,
-          "mix": 70,
-          "ring_mod": 0
+          "mix": 71,
+          "ring_mod": 127
         },
         "amp": {
           "volume": 67,
-          "attack": 2,
-          "decay": 11,
-          "sustain": 100,
-          "release": 22
+          "attack": 24,
+          "decay": 39,
+          "sustain": 108,
+          "release": 20
         },
         "filter": {
-          "type": 0,
-          "slope": 127,
-          "cutoff": 12,
-          "resonance": 88,
-          "env_amount": 108,
-          "decay": 3,
-          "sustain": 111,
-          "release": 45
+          "type": 32,
+          "cutoff": 104,
+          "resonance": 112,
+          "env_amount": 16,
+          "attack": 11,
+          "decay": 0,
+          "sustain": 119,
+          "release": 59
         },
         "lfo": {
           "waveform": 0,
-          "speed": 0,
-          "filter_mod_amount": 88,
-          "amp_mod_amount": 103
+          "speed": 1,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
         },
         "reverb": {
-          "amount": 42,
-          "size": 95,
+          "amount": 11,
+          "size": 0,
           "stereo": 127,
-          "damping": 112
+          "damping": 0
         },
         "keys": {
-          "portamento": 3,
-          "keyboard_mode": 127
+          "portamento": 4,
+          "keyboard_mode": 64
         }
       },
       "class": "Amsynth"
@@ -95,7 +94,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -114,7 +113,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.0,
+        "output": 47.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -143,7 +142,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 3.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -154,9 +153,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57,
+        "output": 47,
         "set_pause": 0,
-        "input": 57.0,
+        "input": 47.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -173,7 +172,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 57,
+        "input": 47,
         "chord": "maj7",
         "octave": 0,
         "inversion": "--",
@@ -185,13 +184,35 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 68,
-        "note2": 64,
-        "note1": 61,
-        "note0": 57
+        "note3": 58,
+        "note2": 54,
+        "note1": 51,
+        "note0": 47
       },
       "proxy": false,
       "class": "ChordGenerator"
+    },
+    {
+      "id": 140735234204944,
+      "repr": "Harmonizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 58,
+        "interval0": "+3/m3",
+        "interval1": "+5/b5",
+        "interval2": "+7/b7",
+        "interval3": "root",
+        "key": "C",
+        "scale_": "maj",
+        "out0": 62,
+        "out1": 65,
+        "out2": 67,
+        "out3": 57
+      },
+      "proxy": false,
+      "class": "Harmonizer"
     }
   ],
   "connections": [
@@ -654,6 +675,185 @@
         "chain": {
           "id": 140735234043984,
           "device": 140735234201248,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735234203600,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735233846528,
+      "src": {
+        "device": 140735234201248,
+        "repr": "ChordGenerator1",
+        "parameter": {
+          "name": "note3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734974396112,
+          "device": 140735234201248,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735234204944,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735233846704,
+      "src": {
+        "device": 140735234204944,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734974398800,
+          "device": 140735234204944,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735234203600,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735233847056,
+      "src": {
+        "device": 140735234204944,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734974409040,
+          "device": 140735234204944,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

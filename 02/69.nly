@@ -95,7 +95,7 @@
         "reset": 0,
         "mul7": 0,
         "mul5": 0,
-        "mul3": 0,
+        "mul3": 1,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -113,7 +113,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 56.0,
+        "output": 18.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -133,16 +133,16 @@
         "step6": 18.0,
         "step7": 50.0,
         "edit_step": 0,
-        "active0": 1,
+        "active0": 0,
         "active1": 1,
         "active2": 1,
-        "active3": 0,
-        "active4": 0,
-        "active5": 0,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
         "active6": 1,
-        "active7": 1,
+        "active7": 0,
         "trig_out": 0,
-        "current_step": 0
+        "current_step": 1
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -153,9 +153,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 55,
+        "output": 17,
         "set_pause": 0,
-        "input": 56.0,
+        "input": 18.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -172,7 +172,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 55,
+        "input": 17,
         "chord": "min",
         "octave": 0,
         "inversion": "--",
@@ -185,9 +185,9 @@
         "custom4": "--",
         "note4": 0,
         "note3": 0,
-        "note2": 62,
-        "note1": 58,
-        "note0": 55
+        "note2": 24,
+        "note1": 20,
+        "note0": 17
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -215,28 +215,30 @@
       "class": "Harmonizer"
     },
     {
-      "id": 140735234204608,
-      "repr": "BitCounter1",
+      "id": 140735234204272,
+      "repr": "TuringMachine1",
       "paused": false,
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
-        "length": 8,
-        "reset": 0,
-        "mode": "ondemand",
+        "trigger": 0.0,
+        "mutation": 0.5,
+        "random": 0.0,
+        "reset": 0.0,
         "out7": 0,
         "out6": 1,
-        "out5": 0,
-        "out4": 0,
-        "out3": 0,
+        "out5": 1,
+        "out4": 1,
+        "out3": 1,
         "out2": 1,
         "out1": 1,
-        "out0": 1,
-        "overflow": 0
+        "out0": 0,
+        "tape_out": 126,
+        "gate_out": 0,
+        "out_main": 0
       },
       "proxy": false,
-      "class": "BitCounter"
+      "class": "TuringMachine"
     }
   ],
   "connections": [
@@ -306,7 +308,7 @@
       "velocity": null
     },
     {
-      "id": 140735233847584,
+      "id": 140735233849344,
       "src": {
         "device": 140735234203264,
         "repr": "Clock1",
@@ -331,10 +333,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974410448,
+          "id": 140734974194000,
           "device": 140735234203264,
-          "to_min": 0,
-          "to_max": 1,
+          "to_min": 0.0,
+          "to_max": 1.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -342,16 +344,16 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "trigger",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": ">0",
@@ -973,18 +975,18 @@
       "velocity": null
     },
     {
-      "id": 140735233848288,
+      "id": 140735233849168,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out0",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -998,8 +1000,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974406608,
-          "device": 140735234204608,
+          "id": 140734938930512,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1038,18 +1040,18 @@
       "velocity": null
     },
     {
-      "id": 140735233848112,
+      "id": 140735233848992,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out1",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1063,8 +1065,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734973778768,
-          "device": 140735234204608,
+          "id": 140735234018000,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1103,18 +1105,18 @@
       "velocity": null
     },
     {
-      "id": 140735233848464,
+      "id": 140735233848816,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out2",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1128,8 +1130,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974305616,
-          "device": 140735234204608,
+          "id": 140734974390608,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1170,16 +1172,16 @@
     {
       "id": 140735233848640,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out3",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1193,8 +1195,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974409680,
-          "device": 140735234204608,
+          "id": 140734974190544,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1233,18 +1235,18 @@
       "velocity": null
     },
     {
-      "id": 140735233848816,
+      "id": 140735233848464,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out4",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1258,8 +1260,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974395984,
-          "device": 140735234204608,
+          "id": 140734938938064,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1298,18 +1300,18 @@
       "velocity": null
     },
     {
-      "id": 140735233848992,
+      "id": 140735233848112,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out5",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1323,8 +1325,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974406864,
-          "device": 140735234204608,
+          "id": 140734938938576,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1363,18 +1365,18 @@
       "velocity": null
     },
     {
-      "id": 140735233849168,
+      "id": 140735233848288,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out6",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1388,8 +1390,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734974409296,
-          "device": 140735234204608,
+          "id": 140735234016976,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,
@@ -1428,18 +1430,18 @@
       "velocity": null
     },
     {
-      "id": 140735233849344,
+      "id": 140735233847584,
       "src": {
-        "device": 140735234204608,
-        "repr": "BitCounter1",
+        "device": 140735234204272,
+        "repr": "TuringMachine1",
         "parameter": {
           "name": "out7",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            1
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1453,8 +1455,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734938930512,
-          "device": 140735234204608,
+          "id": 140735234018128,
+          "device": 140735234204272,
           "to_min": 0,
           "to_max": 1,
           "auto": false,

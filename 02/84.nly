@@ -67,6 +67,17 @@
         }
       },
       "class": "MIDIBridge"
+    },
+    {
+      "id": 140734577729152,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 24:0",
+        "output": "Minilab3:Minilab3 MIDI 24:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -98,7 +109,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 66.0,
+        "output": 121.0,
         "set_pause": 0,
         "input": 127.0,
         "write": 0.0,
@@ -127,7 +138,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 4.0
+        "current_step": 2.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -139,18 +150,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 66.0,
+        "input": 121.0,
         "trigger": 1,
         "reset": 0,
         "length": 8,
-        "output7": 66.0,
-        "output6": 94.0,
-        "output5": 94.0,
-        "output4": 60.0,
-        "output3": 56.0,
-        "output2": 65.0,
-        "output1": 121.0,
-        "output0": 76.0
+        "output7": 121.0,
+        "output6": 76.0,
+        "output5": 66.0,
+        "output4": 87.0,
+        "output3": 94.0,
+        "output2": 60.0,
+        "output1": 56.0,
+        "output0": 65.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -176,6 +187,33 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140734577730160,
+      "repr": "ChordGenerator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "chord": "maj",
+        "octave": 0,
+        "inversion": "--",
+        "drop": "--",
+        "omit": "--",
+        "custom0": "--",
+        "custom1": "--",
+        "custom2": "--",
+        "custom3": "--",
+        "custom4": "--",
+        "note4": 0,
+        "note3": 0,
+        "note2": 0,
+        "note1": 0,
+        "note0": 0
+      },
+      "proxy": false,
+      "class": "ChordGenerator"
     }
   ],
   "connections": [
@@ -450,6 +488,63 @@
         "explicit": -1,
         "chain": {
           "id": 140734280569296,
+          "device": 140734577727808,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734577757392,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734273476880,
+      "src": {
+        "device": 140734577727808,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734273204160,
           "device": 140734577727808,
           "to_min": 0,
           "to_max": 127,

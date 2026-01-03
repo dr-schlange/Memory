@@ -16,6 +16,7 @@ class KeySplitter(VirtualDevice):
     * range0_cv [0, 127] init=34: threshold for first note
     * range1_cv [0, 127] init=64: threshold for second note
     * range2_cv [0, 127] init=94: threshold for third note
+    * mode_cv [exclusive, keeplast]: should the module cut the last value of each range
 
     outputs:
     # * %outname [%range]: %doc
@@ -29,6 +30,7 @@ class KeySplitter(VirtualDevice):
     meta: disable default output
     """
 
+    mode_cv = VirtualParameter(name="mode", accepted_values=["exclusive", "keeplast"])
     input_cv = VirtualParameter(name="input", range=(0.0, 127.0))
     range0_cv = VirtualParameter(name="range0", range=(0.0, 127.0), default=34.0)
     range1_cv = VirtualParameter(name="range1", range=(0.0, 127.0), default=64.0)

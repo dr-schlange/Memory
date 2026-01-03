@@ -45,11 +45,15 @@ class KeySplitter(VirtualDevice):
     def on_input_any(self, value, ctx):
         val = ctx.raw_value
         if 0 < val <= self.range0:
-            return (val, [self.out0_cv])
+            yield (val, [self.out0_cv])
+            output = 0
         if self.range0 < val <= self.range1:
-            return (val, [self.out1_cv])
+            yield (val, [self.out1_cv])
+            output = 1
         if self.range1 < val <= self.range2:
-            return (val, [self.out2_cv])
+            yield (val, [self.out2_cv])
+            output = 2
         if self.range2 < val <= 127:
-            return (val, [self.out3_cv])
-        return (0, [getattr(self, f"out{i}_cv") for i in range(4)])
+            yield (val, [self.out3_cv])
+            output = 3
+        return (0, [getattr(self, f"out{i}_cv") for i in range(4) if i != output])

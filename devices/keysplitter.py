@@ -49,13 +49,13 @@ class KeySplitter(VirtualDevice):
         if 0 <= val <= self.range0:
             yield (val, [self.out0_cv])
             output = 0
-        if self.range0 < val <= self.range1:
+        elif self.range0 < val <= self.range1:
             yield (val, [self.out1_cv])
             output = 1
-        if self.range1 < val <= self.range2:
+        elif self.range1 < val <= self.range2:
             yield (val, [self.out2_cv])
             output = 2
-        if self.range2 < val <= 127:
+        elif self.range2 < val <= 127:
             yield (val, [self.out3_cv])
             output = 3
         if self.mode == "exclusive":

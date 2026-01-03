@@ -298,14 +298,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 107.01487853142548,
+        "input": 72.44211115064412,
         "range0": 35.0,
         "range1": 38.0,
         "range2": 82.0,
-        "out3": 107.01487853142548,
-        "out2": 80.92707618777011,
-        "out1": 37.79531848777129,
-        "out0": 34.86155526157227
+        "out3": 82.28593686633675,
+        "out2": 72.44211115064412,
+        "out1": 37.549716335061916,
+        "out0": 34.9191281030424
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -316,7 +316,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 107.01487853142548,
+        "output": 72.44211115064412,
         "set_pause": 0,
         "speed": 0.5,
         "subdiv": "1/1",
@@ -375,6 +375,42 @@
       },
       "proxy": false,
       "class": "BroadcastRAM8"
+    },
+    {
+      "id": 140735136393296,
+      "repr": "SampleHold1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 72.44211115064412,
+        "trigger": 0,
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "SampleHold"
+    },
+    {
+      "id": 140735105105408,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
     }
   ],
   "connections": [
@@ -855,6 +891,71 @@
       "velocity": null
     },
     {
+      "id": 140734267856816,
+      "src": {
+        "device": 140733733145968,
+        "repr": "KeySplitter1",
+        "parameter": {
+          "name": "out2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735101671760,
+          "device": 140733733145968,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735136393296,
+        "repr": "SampleHold1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733679819680,
       "src": {
         "device": 140733733146304,
@@ -1300,6 +1401,128 @@
           "cc_note": -1,
           "hidden": false,
           "default": 94.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734267858048,
+      "src": {
+        "device": 140735136393296,
+        "repr": "SampleHold1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734271381200,
+          "device": 140735136393296,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733683243664,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734267856992,
+      "src": {
+        "device": 140735105105408,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733893350096,
+          "device": 140735105105408,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735136393296,
+        "repr": "SampleHold1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,

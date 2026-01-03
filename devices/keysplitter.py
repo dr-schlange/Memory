@@ -58,4 +58,5 @@ class KeySplitter(VirtualDevice):
         if self.range2 < val <= 127:
             yield (val, [self.out3_cv])
             output = 3
-        return (0, [getattr(self, f"out{i}_cv") for i in range(4) if i != output])
+        if self.mode == "exclusive":
+            return (0, [getattr(self, f"out{i}_cv") for i in range(4) if i != output])

@@ -55,9 +55,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 79,
+        "output": 65,
         "set_pause": 0,
-        "input": 79.64670096016917,
+        "input": 65.76982177764606,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -73,17 +73,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -7.423752328171904,
+        "output": -4.844761897394276,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
         "freq": 1,
-        "z": 34.06625008506505,
-        "y": -14.884300863394873,
-        "x": -7.423752328171904,
-        "znorm": 79.64670096016917,
-        "ynorm": 6.074836687677612,
-        "xnorm": 0.0
+        "z": 28.13087258752782,
+        "y": -1.8089939589414756,
+        "x": -4.844761897394276,
+        "znorm": 65.76982177764606,
+        "ynorm": 41.73471083236719,
+        "xnorm": 21.0410877155528
       },
       "proxy": false,
       "class": "LorenzProjector"
@@ -115,15 +115,15 @@
       "config": {
         "set_pause": 0,
         "trigger": 0.0,
-        "io0": 0.0,
-        "io1": 0.0,
+        "io0": 65.0,
+        "io1": 67.0,
         "io2": 0.0,
-        "io3": 0.0,
+        "io3": 69.0,
         "io4": 0.0,
         "io5": 0.0,
         "io6": 0.0,
         "io7": 0.0,
-        "idx": 0.0,
+        "idx": 3,
         "length": 8.0
       },
       "proxy": false,
@@ -164,9 +164,12 @@
         "mul7": 0,
         "mul5": 0,
         "mul3": 0,
+        "div5": 0,
+        "div3": 0,
         "mul4": 0,
         "mul2": 0,
         "div2": 0,
+        "div4": 0,
         "lead": 0
       },
       "proxy": false,
@@ -174,6 +177,71 @@
     }
   ],
   "connections": [
+    {
+      "id": 140734807238000,
+      "src": {
+        "device": 140734857192048,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734857601360,
+          "device": 140734857192048,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734806638672,
+        "repr": "SuperShiftRegister1",
+        "parameter": {
+          "name": "io0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "io0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140734807238528,
       "src": {
@@ -416,6 +484,71 @@
           "range": [
             0,
             1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734807237824,
+      "src": {
+        "device": 140734807631312,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734857605328,
+          "device": 140734807631312,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734806638672,
+        "repr": "SuperShiftRegister1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": ">0",

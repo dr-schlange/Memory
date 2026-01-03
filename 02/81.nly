@@ -78,7 +78,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 127.0,
+        "pads0_p1": 127.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -91,13 +93,13 @@
       "config": {
         "set_pause": 0,
         "mode": "exclusive",
-        "input": 42.27951653296964,
+        "input": 66.40333385551344,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
         "out3": 0,
-        "out2": 0,
-        "out1": 42.27951653296964,
+        "out2": 66.40333385551344,
+        "out1": 0,
         "out0": 0
       },
       "proxy": false,
@@ -109,7 +111,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 42.27951653296964,
+        "output": 66.40333385551344,
         "set_pause": 0,
         "speed": 0.5,
         "subdiv": "1/1",
@@ -124,9 +126,183 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140733283549600,
+      "repr": "BroadcastRAM81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "previous",
+        "io0": 0.0,
+        "io1": 0.0,
+        "io2": 0.0,
+        "io3": 0.0,
+        "io4": 0.0,
+        "io5": 0.0,
+        "io6": 0.0,
+        "io7": 0.0,
+        "trigger": 0.0,
+        "reset": 0.0
+      },
+      "proxy": false,
+      "class": "BroadcastRAM8"
+    },
+    {
+      "id": 140733682792592,
+      "repr": "BroadcastRAM82",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "previous",
+        "io0": 0.0,
+        "io1": 0.0,
+        "io2": 0.0,
+        "io3": 0.0,
+        "io4": 0.0,
+        "io5": 0.0,
+        "io6": 0.0,
+        "io7": 0.0,
+        "trigger": 0.0,
+        "reset": 0.0
+      },
+      "proxy": false,
+      "class": "BroadcastRAM8"
     }
   ],
   "connections": [
+    {
+      "id": 140733678921936,
+      "src": {
+        "device": 140733733144960,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733678923088,
+          "device": 140733733144960,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733283549600,
+        "repr": "BroadcastRAM81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733681491200,
+      "src": {
+        "device": 140733733144960,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733681490928,
+          "device": 140733733144960,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733682792592,
+        "repr": "BroadcastRAM82",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140733733156720,
       "src": {

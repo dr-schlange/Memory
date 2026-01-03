@@ -2,7 +2,7 @@
   "midi_devices": [],
   "virtual_devices": [
     {
-      "id": 140735107762224,
+      "id": 140734863706160,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -29,10 +29,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 3.0,
+        "output": 1,
         "set_pause": 0,
         "trigger": 0,
-        "instance_number": 3.0
+        "instance_number": 1
       },
       "proxy": false,
       "class": "InstanceCreator"
@@ -43,147 +43,182 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4,
+        "output": 13,
         "set_pause": 0,
         "trigger": 0,
         "max_patch": 5.0,
-        "exclude_device": "InstanceCreator"
+        "exclude_device": "RandomPatcher"
       },
       "proxy": false,
       "class": "RandomPatcher"
-    }
-  ],
-  "connections": [
-    {
-      "id": 140734280409072,
-      "src": {
-        "device": 140734268822928,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "pads0_p0",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "pads0_p0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733894570960,
-          "device": 140734268822928,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735105105408,
-        "repr": "InstanceCreator1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
     },
     {
-      "id": 140734280407312,
-      "src": {
-        "device": 140734268822928,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "pads0_p1",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "pads0_p1_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733894560080,
-          "device": 140734268822928,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
+      "id": 140734857195408,
+      "repr": "Delay1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "buffer_size": 500,
+        "time": 20,
+        "feedback": 50,
+        "reset": 0,
+        "dry_output": 0
       },
-      "dest": {
-        "device": 140735072682064,
-        "repr": "RandomPatcher1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
+      "proxy": false,
+      "class": "Delay"
+    },
+    {
+      "id": 140734857194064,
+      "repr": "RingCounter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "length": 2,
+        "reset": 0,
+        "out7": 0,
+        "out6": 0,
+        "out5": 0,
+        "out4": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 0
       },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
+      "proxy": false,
+      "class": "RingCounter"
+    },
+    {
+      "id": 140734857192384,
+      "repr": "Morton1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      "proxy": false,
+      "class": "Morton"
+    },
+    {
+      "id": 140734857196416,
+      "repr": "BuddhabrotProjector1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "freq": 10,
+        "reset": 0,
+        "max_iter": 5000,
+        "real_min": -2,
+        "real_max": 1,
+        "imag_min": -1.5,
+        "imag_max": 1.5,
+        "y": 0.7749634423563183,
+        "x": 0.6666213152022991,
+        "ynorm": 0.2569107325421114,
+        "xnorm": 0.8194674570423683
+      },
+      "proxy": false,
+      "class": "BuddhabrotProjector"
+    },
+    {
+      "id": 140734857193056,
+      "repr": "Modulo1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "modulo": 1
+      },
+      "proxy": false,
+      "class": "Modulo"
+    },
+    {
+      "id": 140734857192720,
+      "repr": "Waveshaper1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "mode": "linear",
+        "amount": 0.5,
+        "symmetry": 0,
+        "bias": 0,
+        "exp_power": 2,
+        "log_scale": 4,
+        "sigmoid_gain": 3,
+        "fold_gain": 1,
+        "quantize_steps": 8,
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Waveshaper"
+    },
+    {
+      "id": 140734857194736,
+      "repr": "RosslerProjector1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.09573936501725469,
+        "set_pause": 0,
+        "freq": 1,
+        "c": 5.7,
+        "b": 0.2,
+        "a": 0.2,
+        "z": 0.023761804526431313,
+        "y": 0.019089622428366756,
+        "x": 0.09573936501725469,
+        "znorm": 127.0,
+        "ynorm": 127.0,
+        "xnorm": 0.0
+      },
+      "proxy": false,
+      "class": "RosslerProjector"
+    },
+    {
+      "id": 140734857194400,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "shift": 0
+      },
+      "proxy": false,
+      "class": "PitchShifter"
+    },
+    {
+      "id": 140734857211536,
+      "repr": "RingCounter2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "length": 2,
+        "reset": 0,
+        "out7": 0,
+        "out6": 0,
+        "out5": 0,
+        "out4": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 0
+      },
+      "proxy": false,
+      "class": "RingCounter"
     }
   ],
+  "connections": [],
   "playground_code": ""
 }

@@ -46,7 +46,7 @@ class KeySplitter(VirtualDevice):
     @on(input_cv, edge="any")
     def on_input_any(self, value, ctx):
         val = ctx.raw_value
-        if 0 < val <= self.range0:
+        if 0 <= val <= self.range0:
             yield (val, [self.out0_cv])
             output = 0
         if self.range0 < val <= self.range1:

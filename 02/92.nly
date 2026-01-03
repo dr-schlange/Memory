@@ -55,14 +55,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 89,
+        "output": 127,
         "set_pause": 0,
-        "input": 90.6390636745256,
+        "input": 127.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "sample&hold"
+        "type": "free"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -73,17 +73,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -12.219927598953847,
+        "output": 15.025197848088583,
         "set_pause": 0,
-        "sigma": 10.0,
-        "rho": 28.0,
-        "freq": 11.0,
-        "z": 38.767870776677626,
-        "y": -4.559448499231274,
-        "x": -12.219927598953847,
-        "znorm": 90.6390636745256,
-        "ynorm": 35.29160652053537,
-        "xnorm": 8.527953277978277
+        "sigma": 5.0,
+        "rho": 33.0,
+        "freq": 83.0,
+        "z": 51.752240231691125,
+        "y": -0.7805619742399199,
+        "x": 15.025197848088583,
+        "znorm": 122.38706395234163,
+        "ynorm": 61.06357653191148,
+        "xnorm": 120.04813705949014
       },
       "proxy": false,
       "class": "LorenzProjector"
@@ -115,15 +115,15 @@
       "config": {
         "set_pause": 0,
         "trigger": 0.0,
-        "io0": 89.0,
-        "io1": 74.0,
-        "io2": 36.0,
-        "io3": 50.0,
-        "io4": 38.0,
-        "io5": 41.0,
-        "io6": 40.0,
-        "io7": 43.0,
-        "idx": 6,
+        "io0": 127.0,
+        "io1": 127.0,
+        "io2": 127.0,
+        "io3": 0.0,
+        "io4": 127.0,
+        "io5": 127.0,
+        "io6": 127.0,
+        "io7": 127.0,
+        "idx": 0,
         "length": 8.0
       },
       "proxy": false,
@@ -174,6 +174,22 @@
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 140734806645728,
+      "repr": "Operator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 2587.612011584556,
+        "set_pause": 0,
+        "a": 51.752240231691125,
+        "b": 50.0,
+        "operator": "*",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
     }
   ],
   "connections": [
@@ -300,23 +316,23 @@
       "velocity": null
     },
     {
-      "id": 140734807238528,
+      "id": 140734807239760,
       "src": {
         "device": 140734857197760,
         "repr": "LorenzProjector1",
         "parameter": {
-          "name": "znorm",
+          "name": "x",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "znorm_cv",
+          "cv_name": "x_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -325,32 +341,32 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734857046864,
+          "id": 140734433318608,
           "device": 140734857197760,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 140734857192048,
-        "repr": "Quantizer1",
+        "device": 140734857210896,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
+          "name": "xyzscope0_x",
+          "stream": true,
+          "consumer": true,
           "description": null,
           "range": [
-            0,
-            127
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "xyzscope0_x_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -365,23 +381,23 @@
       "velocity": null
     },
     {
-      "id": 140734807237472,
+      "id": 140734807240112,
       "src": {
         "device": 140734857197760,
         "repr": "LorenzProjector1",
         "parameter": {
-          "name": "ynorm",
+          "name": "y",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "ynorm_cv",
+          "cv_name": "y_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -390,32 +406,32 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734857605840,
+          "id": 140734857973840,
           "device": 140734857197760,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 140734857192048,
-        "repr": "Quantizer1",
+        "device": 140734857210896,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
           "description": null,
           "range": [
-            0,
-            127
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "xyzscope0_y_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -430,23 +446,23 @@
       "velocity": null
     },
     {
-      "id": 140734807238704,
+      "id": 140734807241872,
       "src": {
         "device": 140734857197760,
         "repr": "LorenzProjector1",
         "parameter": {
-          "name": "xnorm",
+          "name": "z",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "xnorm_cv",
+          "cv_name": "z_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -455,32 +471,227 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734857051472,
+          "id": 140734857973456,
           "device": 140734857197760,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 140734857192048,
-        "repr": "Quantizer1",
+        "device": 140734857210896,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
+          "name": "xyzscope0_z",
+          "stream": true,
+          "consumer": true,
           "description": null,
           "range": [
-            0,
-            127
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "xyzscope0_z_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734807240464,
+      "src": {
+        "device": 140734857197760,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734431380816,
+          "device": 140734857197760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734806645728,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734807240288,
+      "src": {
+        "device": 140734857197760,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "y",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734857603920,
+          "device": 140734857197760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734806645728,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734807232720,
+      "src": {
+        "device": 140734857197760,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "z",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "z_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734431269712,
+          "device": 140734857197760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734806645728,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -737,7 +948,129 @@
       "bouncy": false,
       "muted": false,
       "velocity": null
+    },
+    {
+      "id": 140734807243808,
+      "src": {
+        "device": 140734806645728,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734807428304,
+          "device": 140734806645728,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734857192048,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734807238528,
+      "src": {
+        "device": 140734806645728,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734807427664,
+          "device": 140734806645728,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734806641696,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
     }
   ],
-  "playground_code": ""
+  "playground_code": "lp1 = virtual_devices[4]\n\nlp1.freq = 3"
 }

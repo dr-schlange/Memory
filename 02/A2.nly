@@ -8,7 +8,11 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "cutoff": 80
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -30,7 +34,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -43,16 +49,16 @@
       "config": {
         "set_pause": 0,
         "gate": 0.0,
-        "rise": 0.001,
-        "fall": 0.001,
+        "rise": 0.097,
+        "fall": 0.083,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 1.0,
-        "out": 0.0
+        "inv": 0.5284780335019595,
+        "out": 0.4506807255649158
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -328,6 +334,130 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732168739136,
+      "src": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732168737920,
+          "device": 140732428922432,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732428913024,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732131300496,
+      "src": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732131299344,
+          "device": 140732428922432,
+          "to_min": 39,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732428920752,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

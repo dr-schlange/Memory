@@ -229,8 +229,9 @@
       "channel": 0,
       "config": {
         "buttons": {
-          "b1": 87,
-          "b2": 75
+          "b1": 56,
+          "b2": 60,
+          "b3": 41
         }
       },
       "class": "Minilab3"
@@ -269,16 +270,16 @@
       "config": {
         "set_pause": 0,
         "gate": 0.0,
-        "rise": 0.549740180010374,
-        "fall": 0.2302526962179331,
+        "rise": 1.8583282578306146,
+        "fall": 0.07758250168566798,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.12180453027510141,
-        "out": 0.8781954697248986
+        "inv": 0.8764620559045542,
+        "out": 0.12461149977648453
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -289,9 +290,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 125,
+        "output": 17,
         "set_pause": 0,
-        "input": 126.78018824141652,
+        "input": 17.286108042693566,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -309,14 +310,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 113.6873644623435,
+        "input": 15.11923781296687,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
-        "out3": 113.6873644623435,
-        "out2": 93.92030932438365,
-        "out1": 63.9771782241575,
-        "out0": 33.764647007233
+        "out3": 95.0337524453662,
+        "out2": 65.31713060768881,
+        "out1": 35.57240744813061,
+        "out0": 15.11923781296687
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -330,9 +331,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 125.0,
-        "pitchwheel_out": 0,
-        "note_out": 125.0
+        "input": 15.563120341121575,
+        "pitchwheel_out": 4613,
+        "note_out": 15.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -865,8 +866,8 @@
         "chain": {
           "id": 140731579714288,
           "device": 140732428922432,
-          "to_min": 0,
-          "to_max": 127,
+          "to_min": 15,
+          "to_max": 102,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -970,21 +971,21 @@
     {
       "id": 140732465668960,
       "src": {
-        "device": 140732428924448,
-        "repr": "Quantizer1",
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
         "parameter": {
-          "name": "output",
+          "name": "out",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output_cv",
+          "cv_name": "out_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -993,8 +994,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140732428712368,
-          "device": 140732428924448,
+          "id": 140730982580688,
+          "device": 140732428922432,
           "to_min": 0.0,
           "to_max": 127.0,
           "auto": false,
@@ -1019,6 +1020,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732166850176,
+      "src": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732429323600,
+          "device": 140732428922432,
+          "to_min": 0.001,
+          "to_max": 7,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

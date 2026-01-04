@@ -235,7 +235,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -246,7 +247,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 116.48514264052847,
+        "output": 30.54970328724693,
         "set_pause": 0,
         "speed": 0.87,
         "subdiv": "1/1",
@@ -268,7 +269,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72.41790549149411,
+        "output": 64.00976230278457,
         "set_pause": 0,
         "speed": 0.66,
         "subdiv": "1/1",
@@ -291,15 +292,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "mode": "keeplast",
-        "input": 115.0,
-        "range0": 72.41790549149411,
-        "range1": 91.41790549149411,
+        "mode": "exclusive",
+        "input": 29.0,
+        "range0": 64.00976230278457,
+        "range1": 83.00976230278457,
         "range2": 74.0,
-        "out3": 115.0,
+        "out3": 0,
         "out2": 0,
-        "out1": 120.0,
-        "out0": 122.0
+        "out1": 0,
+        "out0": 29.0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -310,9 +311,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 91.41790549149411,
+        "output": 83.00976230278457,
         "set_pause": 0,
-        "a": 72.41790549149411,
+        "a": 64.00976230278457,
         "b": 19.0,
         "operator": "+",
         "type": "continuous"
@@ -326,9 +327,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 115,
+        "output": 29,
         "set_pause": 0,
-        "input": 116.48514264052847,
+        "input": 30.54970328724693,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -369,15 +370,80 @@
         "set_pause": 0,
         "finetune": 8191,
         "slide": 1.0,
-        "input": 115.0,
+        "input": 29.0,
         "pitchwheel_out": 0,
-        "note_out": 115.0
+        "note_out": 29.0
       },
       "proxy": false,
       "class": "FineTuneNote"
     }
   ],
   "connections": [
+    {
+      "id": 140735207732720,
+      "src": {
+        "device": 140735207589936,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735207730432,
+          "device": 140735207589936,
+          "to_min": 1,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735156375376,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "set_pause",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "set_pause_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": true
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140735209831504,
       "src": {

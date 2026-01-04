@@ -10,9 +10,42 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 80
+          "cutoff": 56
         }
       },
+      "class": "Amsynth"
+    },
+    {
+      "id": 140732167514192,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 130:1",
+        "output": "amsynth:MIDI IN 130:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    },
+    {
+      "id": 140732130145808,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 131:1",
+        "output": "amsynth:MIDI IN 131:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    },
+    {
+      "id": 140732168742176,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 132:1",
+        "output": "amsynth:MIDI IN 132:0"
+      },
+      "channel": 0,
+      "config": {},
       "class": "Amsynth"
     }
   ],
@@ -57,8 +90,8 @@
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.5284780335019595,
-        "out": 0.4506807255649158
+        "inv": 0.8105272502405365,
+        "out": 0.1772279655341187
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -84,6 +117,43 @@
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
+    },
+    {
+      "id": 140732428924448,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "proxy": false,
+      "class": "Quantizer"
+    },
+    {
+      "id": 140732428924784,
+      "repr": "KeySplitter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "exclusive",
+        "input": 25.477562899546754,
+        "range0": 34.0,
+        "range1": 64.0,
+        "range2": 94.0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 25.477562899546754
+      },
+      "proxy": false,
+      "class": "KeySplitter"
     }
   ],
   "connections": [
@@ -458,6 +528,71 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731579714560,
+      "src": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731579714832,
+          "device": 140732428922432,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732428924784,
+        "repr": "KeySplitter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

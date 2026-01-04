@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 56
+          "cutoff": 42
         }
       },
       "class": "Amsynth"
@@ -90,8 +90,8 @@
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.8105272502405365,
-        "out": 0.1772279655341187
+        "inv": 0.9672108764511897,
+        "out": 0.03278912354881027
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -125,7 +125,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 5.42819345876525,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -143,14 +143,14 @@
       "config": {
         "set_pause": 0,
         "mode": "exclusive",
-        "input": 25.477562899546754,
+        "input": 26.930825256001874,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 25.477562899546754
+        "out0": 26.930825256001874
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -534,7 +534,7 @@
       "velocity": null
     },
     {
-      "id": 140731579714560,
+      "id": 140731579716464,
       "src": {
         "device": 140732428922432,
         "repr": "UniversalSlopeGenerator1",
@@ -559,8 +559,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140731579714832,
+          "id": 140731579714288,
           "device": 140732428922432,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732428924448,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732169507408,
+      "src": {
+        "device": 140732428924448,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732169510992,
+          "device": 140732428924448,
           "to_min": 0.0,
           "to_max": 127.0,
           "auto": false,

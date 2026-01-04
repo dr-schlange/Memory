@@ -204,7 +204,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 62.978477020580975,
+        "output": 94.97817689577683,
         "set_pause": 0,
         "speed": 1.16,
         "subdiv": "1/1",
@@ -226,7 +226,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83.95223524980867,
+        "output": 71.77240717369162,
         "set_pause": 0,
         "speed": 0.66,
         "subdiv": "1/1",
@@ -250,14 +250,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 62.978477020580975,
-        "range0": 83.95223524980867,
-        "range1": 87.95223524980867,
+        "input": 93.0,
+        "range0": 71.77240717369162,
+        "range1": 90.0544692506939,
         "range2": 94.0,
-        "out3": 108.17879666339735,
-        "out2": 62.978477020580975,
-        "out1": 78.9533323054675,
-        "out0": 45.090537403778114
+        "out3": 115.0,
+        "out2": 93.0,
+        "out1": 98.0,
+        "out0": 23.266168362461173
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -268,20 +268,38 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 87.95223524980867,
+        "output": 90.0544692506939,
         "set_pause": 0,
-        "a": 83.95223524980867,
-        "b": 4.0,
+        "a": 71.77240717369162,
+        "b": 20.0,
         "operator": "+",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 140735142541136,
+      "repr": "Quantizer5",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 93,
+        "set_pause": 0,
+        "input": 94.97817689577683,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "proxy": false,
+      "class": "Quantizer"
     }
   ],
   "connections": [
     {
-      "id": 140735207591280,
+      "id": 140735209831504,
       "src": {
         "device": 140735211421184,
         "repr": "LFO1",
@@ -306,10 +324,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140735207600688,
+          "id": 140735209831248,
           "device": 140735211421184,
-          "to_min": 0.0,
-          "to_max": 127.0,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -317,16 +335,16 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735207597664,
-        "repr": "KeySplitter1",
+        "device": 140735142541136,
+        "repr": "Quantizer5",
         "parameter": {
           "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            127.0
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -759,6 +777,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 64.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735154030544,
+      "src": {
+        "device": 140735142541136,
+        "repr": "Quantizer5",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735154029344,
+          "device": 140735142541136,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735207597664,
+        "repr": "KeySplitter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,

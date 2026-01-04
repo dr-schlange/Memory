@@ -248,13 +248,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 37.043440492608404,
+        "output": 73.14793140291489,
         "set_pause": 0,
-        "speed": 0.78,
+        "speed": 1.07,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "sawtooth",
+        "sampling_rate": 21,
+        "waveform": "white_noise",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -270,7 +270,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 20.952311453314152,
+        "output": 114.44552874644482,
         "set_pause": 0,
         "speed": 1.9,
         "subdiv": "1/1",
@@ -294,14 +294,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 29.0,
-        "range0": 20.952311453314152,
-        "range1": 39.95231145331415,
+        "input": 5.0,
+        "range0": 114.44552874644482,
+        "range1": 127.0,
         "range2": 74.0,
-        "out3": 125.0,
+        "out3": 115.0,
         "out2": 74.0,
-        "out1": 29.0,
-        "out0": 19.0
+        "out1": 96.0,
+        "out0": 5.0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -312,9 +312,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 39.95231145331415,
+        "output": 133.44552874644484,
         "set_pause": 0,
-        "a": 20.952311453314152,
+        "a": 114.44552874644482,
         "b": 19.0,
         "operator": "+",
         "type": "continuous"
@@ -328,9 +328,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 29,
+        "output": 5,
         "set_pause": 0,
-        "input": 37.043440492608404,
+        "input": 73.14793140291489,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -371,9 +371,9 @@
         "set_pause": 0,
         "finetune": -8191,
         "slide": 1.0,
-        "input": 29.0,
+        "input": 5.0,
         "pitchwheel_out": 0,
-        "note_out": 29.0
+        "note_out": 5.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -401,6 +401,26 @@
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 140735242906192,
+      "repr": "EuclidianSequencer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "clock": 0,
+        "length": 13,
+        "hits": 4,
+        "shift": 0,
+        "trig_shift": 0,
+        "reset": 0,
+        "step_out": 0,
+        "gate_out": 1,
+        "trigger_out": 0
+      },
+      "proxy": false,
+      "class": "EuclidianSequencer"
     }
   ],
   "connections": [
@@ -1735,6 +1755,136 @@
         "chain": {
           "id": 140734739207248,
           "device": 140735242910224,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735142541136,
+        "repr": "Quantizer5",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734144520704,
+      "src": {
+        "device": 140735242910224,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735157888592,
+          "device": 140735242910224,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735242906192,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "clock",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "clock_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734144520880,
+      "src": {
+        "device": 140735242906192,
+        "repr": "EuclidianSequencer1",
+        "parameter": {
+          "name": "gate_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gate_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734146356816,
+          "device": 140735242906192,
           "to_min": 0,
           "to_max": 1,
           "auto": false,

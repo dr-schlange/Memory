@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 116
+          "cutoff": 118
         }
       },
       "class": "Amsynth"
@@ -105,7 +105,8 @@
       "channel": 0,
       "config": {
         "buttons": {
-          "b2": 3
+          "b1": 39,
+          "b2": 9
         }
       },
       "class": "Minilab3"
@@ -144,16 +145,16 @@
       "config": {
         "set_pause": 0,
         "gate": 0.0,
-        "rise": 0.001,
-        "fall": 0.2371968503937008,
+        "rise": 0.01691790012202838,
+        "fall": 0.001920722248123931,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.1289368479756532,
-        "out": 0.8710631520243468
+        "inv": 1.0,
+        "out": 0.0
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -186,9 +187,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 31,
+        "output": 43,
         "set_pause": 0,
-        "input": 31.56047035714936,
+        "input": 43.520117596723516,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -206,14 +207,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 31.0,
+        "input": 43.0,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
-        "out3": 95.0,
-        "out2": 65.0,
-        "out1": 35.0,
-        "out0": 31.0
+        "out3": 127.0,
+        "out2": 86.0,
+        "out1": 55.0,
+        "out0": 0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -395,6 +396,63 @@
           "no_init": false
         },
         "explicit": 76,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732166864432,
+      "src": {
+        "device": 140732428923440,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731010962352,
+          "device": 140732428923440,
+          "to_min": 0.0169,
+          "to_max": 0.026,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
         "type": "virtual"
       },
       "bouncy": false,
@@ -656,65 +714,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140732131300496,
-      "src": {
-        "device": 140732428922432,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732131299344,
-          "device": 140732428922432,
-          "to_min": 39,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732428920752,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 50,
-          "channel": null,
-          "name": "cutoff",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": "Filter Cutoff",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

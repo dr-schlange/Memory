@@ -248,7 +248,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 90.91440108551679,
+        "output": 29.435047416646817,
         "set_pause": 0,
         "speed": 0.78,
         "subdiv": "1/1",
@@ -270,7 +270,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.93624522115839,
+        "output": 23.392497773200454,
         "set_pause": 0,
         "speed": 0.9,
         "subdiv": "1/1",
@@ -294,14 +294,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 89.0,
-        "range0": 0.93624522115839,
-        "range1": 19.93624522115839,
+        "input": 27.0,
+        "range0": 23.392497773200454,
+        "range1": 42.39249777320045,
         "range2": 74.0,
-        "out3": 89.0,
-        "out2": 74.0,
-        "out1": 93.0,
-        "out0": 36.0
+        "out3": 111.0,
+        "out2": 38.0,
+        "out1": 27.0,
+        "out0": 21.0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -312,9 +312,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 19.93624522115839,
+        "output": 42.39249777320045,
         "set_pause": 0,
-        "a": 0.93624522115839,
+        "a": 23.392497773200454,
         "b": 19.0,
         "operator": "+",
         "type": "continuous"
@@ -328,14 +328,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 89,
+        "output": 27,
         "set_pause": 0,
-        "input": 90.91440108551679,
+        "input": 29.435047416646817,
         "trigger": 0,
         "reset": 0,
         "root": "C",
-        "scale_": "maj",
-        "type": "free"
+        "scale_": "min-melo",
+        "type": "sample&hold"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -369,14 +369,36 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "finetune": 8191,
+        "finetune": -8191,
         "slide": 1.0,
-        "input": 89.0,
+        "input": 27.0,
         "pitchwheel_out": 0,
-        "note_out": 89.0
+        "note_out": 27.0
       },
       "proxy": false,
       "class": "FineTuneNote"
+    },
+    {
+      "id": 140735242910224,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "lead": 0
+      },
+      "proxy": false,
+      "class": "Clock"
     }
   ],
   "connections": [
@@ -1418,6 +1440,71 @@
         },
         "explicit": -1,
         "type": "pitchwheel"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735207721632,
+      "src": {
+        "device": 140735242910224,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "mul2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "mul2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734739511920,
+          "device": 140735242910224,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735142541136,
+        "repr": "Quantizer5",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

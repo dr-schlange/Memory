@@ -248,7 +248,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 115.33281917779075,
+        "output": 11.721791217873568,
         "set_pause": 0,
         "speed": 1.07,
         "subdiv": "1/1",
@@ -270,13 +270,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 38.0304401655737,
+        "output": 51.421675871581876,
         "set_pause": 0,
         "speed": 1.9,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 37,
-        "waveform": "sine",
+        "waveform": "invert_sawtooth",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -294,14 +294,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 83.0,
-        "range0": 38.0304401655737,
-        "range1": 57.0304401655737,
+        "input": 43.0,
+        "range0": 51.421675871581876,
+        "range1": 70.42167587158187,
         "range2": 74.0,
-        "out3": 108.0,
-        "out2": 29.0,
-        "out1": 4.0,
-        "out0": 83.0
+        "out3": 115.0,
+        "out2": 72.0,
+        "out1": 64.0,
+        "out0": 43.0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -312,9 +312,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.0304401655737,
+        "output": 70.42167587158187,
         "set_pause": 0,
-        "a": 38.0304401655737,
+        "a": 51.421675871581876,
         "b": 19.0,
         "operator": "+",
         "type": "continuous"
@@ -328,9 +328,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 83,
+        "output": 43,
         "set_pause": 0,
-        "input": 115.33281917779075,
+        "input": 11.721791217873568,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -371,9 +371,9 @@
         "set_pause": 0,
         "finetune": -8191,
         "slide": 1.0,
-        "input": 83.0,
+        "input": 43.0,
         "pitchwheel_out": 0,
-        "note_out": 83.0
+        "note_out": 43.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -415,8 +415,8 @@
         "shift": 0,
         "trig_shift": 0,
         "reset": 0,
-        "step_out": 5,
-        "gate_out": 0,
+        "step_out": 3,
+        "gate_out": 1,
         "trigger_out": 0
       },
       "proxy": false,
@@ -428,13 +428,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 66.38629501872254,
+        "output": 102.7090484651286,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 0.14,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "triangle",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -2256,6 +2256,90 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734144522288,
+      "src": {
+        "device": 140734148163728,
+        "repr": "LFO4",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735154977232,
+          "device": 140734148163728,
+          "to_min": 0,
+          "to_max": 17,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735207586576,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "waveform",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            17
+          ],
+          "accepted_values": [
+            "sine",
+            "invert_sine",
+            "triangle",
+            "square",
+            "sawtooth",
+            "invert_sawtooth",
+            "random",
+            "smooth_random",
+            "smooth_random_exp",
+            "smooth_random_cosine",
+            "pulse",
+            "exponential",
+            "logarithmic",
+            "ramp_down",
+            "step",
+            "white_noise",
+            "half_wave_rectified_sine",
+            "tent_map"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "waveform_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

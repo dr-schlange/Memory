@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 99
+          "cutoff": 84
         }
       },
       "class": "Amsynth"
@@ -47,6 +47,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 140732428923440,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 20:0",
+        "output": "Minilab3:Minilab3 MIDI 20:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -90,8 +101,8 @@
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.3136751398053985,
-        "out": 0.6863248601946015
+        "inv": 0.5042943363733995,
+        "out": 0.5153368751086597
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -124,13 +135,14 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 12,
         "set_pause": 0,
-        "input": 87.16325724471439,
+        "input": 13.217642844225296,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "sample&hold"
+        "type": "free"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -142,21 +154,202 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "mode": "exclusive",
-        "input": 26.930825256001874,
+        "mode": "keeplast",
+        "input": 12.0,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
-        "out3": 0,
-        "out2": 0,
-        "out1": 0,
-        "out0": 26.930825256001874
+        "out3": 96.0,
+        "out2": 65.0,
+        "out1": 36.0,
+        "out0": 12.0
       },
       "proxy": false,
       "class": "KeySplitter"
     }
   ],
   "connections": [
+    {
+      "id": 140732131452176,
+      "src": {
+        "device": 140732428923440,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "b1",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "chain": {
+          "id": 140732131457328,
+          "device": 140732428923440,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 74,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731011394400,
+      "src": {
+        "device": 140732428923440,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "b2",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 71,
+        "chain": {
+          "id": 140731011384624,
+          "device": 140732428923440,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "fall",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "fall_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 71,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731581716176,
+      "src": {
+        "device": 140732428923440,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 76,
+          "channel": null,
+          "name": "b3",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 76,
+        "chain": {
+          "id": 140731581717328,
+          "device": 140732428923440,
+          "to_min": 0,
+          "to_max": 2,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732428922432,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "shape",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            2
+          ],
+          "accepted_values": [
+            "log",
+            "lin",
+            "exp"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shape_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 76,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732428919072,
       "src": {

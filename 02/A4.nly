@@ -11,9 +11,6 @@
       "config": {
         "amp": {
           "panning": 0
-        },
-        "filter": {
-          "cutoff": 1
         }
       },
       "class": "Amsynth"
@@ -52,7 +49,6 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 1,
           "resonance": 86,
           "env_amount": 93,
           "attack": 8,
@@ -167,7 +163,6 @@
           "release": 14
         },
         "filter": {
-          "cutoff": 1,
           "resonance": 92,
           "env_amount": 82,
           "decay": 56,
@@ -207,13 +202,13 @@
       "config": {
         "pads": {
           "p2": 127,
-          "p3": 62
+          "p3": 66
         },
         "buttons": {
-          "b1": 32,
-          "b5": 127,
-          "b6": 44,
-          "b7": 46
+          "b1": 58,
+          "b2": 38,
+          "b5": 57,
+          "b7": 80
         }
       },
       "class": "Minilab3"
@@ -248,7 +243,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7967677645128475,
+        "output": 0.23259350111400348,
         "set_pause": 0,
         "trigger": 0.0,
         "input": 0.0
@@ -264,38 +259,19 @@
       "config": {
         "set_pause": 0,
         "gate": 0.0,
-        "rise": 7.967880877363963,
-        "fall": 7.967880877363963,
-        "shape": "lin",
+        "rise": 0.06710759170575151,
+        "fall": 0.01573440750285611,
+        "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.20323223548715252,
-        "out": 0.7967677645128475
+        "inv": 0.6620525699318032,
+        "out": 0.33794743006819683
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
-    },
-    {
-      "id": 140735374720176,
-      "repr": "MultiPoleFilter1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 0.79914285308729,
-        "set_pause": 0,
-        "input": 0.7986131533681752,
-        "filter": "lowpass",
-        "mode": "cutoff",
-        "cutoff": 3000.0,
-        "smoothing": 0.1,
-        "poles": 2,
-        "type": "continuous"
-      },
-      "proxy": false,
-      "class": "MultiPoleFilter"
     },
     {
       "id": 140735377658208,
@@ -305,14 +281,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 102.2732551813614,
+        "input": 42.919323618661,
         "range0": 16.0,
         "range1": 39.0,
         "range2": 88.0,
-        "out3": 102.2732551813614,
-        "out2": 87.9515450528022,
-        "out1": 38.14765489208384,
-        "out0": 15.140667256220445
+        "out3": 94.50393698638594,
+        "out2": 42.919323618661,
+        "out1": 36.38367817862485,
+        "out0": 15.259294150739056
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -324,11 +300,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "finetune": 6286,
+        "finetune": -8192,
         "slide": 1.0,
-        "input": 101.18950609313163,
-        "pitchwheel_out": 1423,
-        "note_out": 101.0
+        "input": 0.23259350111400348,
+        "pitchwheel_out": -1681,
+        "note_out": 0.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -573,187 +549,6 @@
       "velocity": null
     },
     {
-      "id": 140735375199936,
-      "src": {
-        "device": 140735374718160,
-        "repr": "Minilab3",
-        "parameter": {
-          "cc_note": 93,
-          "channel": null,
-          "name": "b5",
-          "section_name": "buttons",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": 93,
-        "chain": {
-          "id": 140735670256816,
-          "device": 140735374718160,
-          "to_min": 0,
-          "to_max": 3000,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "control_change"
-      },
-      "dest": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "cutoff",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            3000
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "cutoff_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": 93,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375201520,
-      "src": {
-        "device": 140735374718160,
-        "repr": "Minilab3",
-        "parameter": {
-          "cc_note": 18,
-          "channel": null,
-          "name": "b6",
-          "section_name": "buttons",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": 18,
-        "chain": {
-          "id": 140735675003536,
-          "device": 140735374718160,
-          "to_min": 0,
-          "to_max": 2,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "control_change"
-      },
-      "dest": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "filter",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            2
-          ],
-          "accepted_values": [
-            "lowpass",
-            "highpass",
-            "bandpass"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "filter_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": 18,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375200288,
-      "src": {
-        "device": 140735374718160,
-        "repr": "Minilab3",
-        "parameter": {
-          "cc_note": 19,
-          "channel": null,
-          "name": "b7",
-          "section_name": "buttons",
-          "init_value": 0,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": 19,
-        "chain": {
-          "id": 140735375200464,
-          "device": 140735374718160,
-          "to_min": 1,
-          "to_max": 4,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "control_change"
-      },
-      "dest": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "poles",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            1,
-            4
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "poles_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": 19,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140735375046480,
       "src": {
         "device": 140735640354896,
@@ -819,7 +614,7 @@
       "velocity": null
     },
     {
-      "id": 140735375254544,
+      "id": 140735375254896,
       "src": {
         "device": 140735640354896,
         "repr": "_ExpA1",
@@ -844,10 +639,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734996461424,
+          "id": 140735373881296,
           "device": 140735640354896,
-          "to_min": 0,
-          "to_max": 127,
+          "to_min": 0.0,
+          "to_max": 127.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -855,16 +650,16 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
+        "device": 140735377657872,
+        "repr": "FineTuneNote1",
         "parameter": {
           "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            0.0,
+            127.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1057,443 +852,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375197472,
-      "src": {
-        "device": 140734996628176,
-        "repr": "UniversalSlopeGenerator18",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735374108624,
-          "device": 140734996628176,
-          "to_min": 0.0,
-          "to_max": 127.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735377657872,
-        "repr": "FineTuneNote1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375204512,
-      "src": {
-        "device": 140734996628176,
-        "repr": "UniversalSlopeGenerator18",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735341849936,
-          "device": 140734996628176,
-          "to_min": 0.001,
-          "to_max": 10,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734996628176,
-        "repr": "UniversalSlopeGenerator18",
-        "parameter": {
-          "name": "rise",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.001,
-            10.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "rise_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734939828960,
-      "src": {
-        "device": 140734996628176,
-        "repr": "UniversalSlopeGenerator18",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140735341843536,
-          "device": 140734996628176,
-          "to_min": 0.001,
-          "to_max": 10.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734996628176,
-        "repr": "UniversalSlopeGenerator18",
-        "parameter": {
-          "name": "fall",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.001,
-            10.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "fall_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375254896,
-      "src": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734996395920,
-          "device": 140735374720176,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735639570816,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "scope1_data",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "scope1_data_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375198528,
-      "src": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734996680912,
-          "device": 140735374720176,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735343681424,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 50,
-          "channel": null,
-          "name": "cutoff",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": "Filter Cutoff",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375209792,
-      "src": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734994892112,
-          "device": 140735374720176,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735374710096,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 50,
-          "channel": null,
-          "name": "cutoff",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": "Filter Cutoff",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140735375198000,
-      "src": {
-        "device": 140735374720176,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734996676944,
-          "device": 140735374720176,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735374811840,
-        "repr": "Amsynth",
-        "parameter": {
-          "cc_note": 50,
-          "channel": null,
-          "name": "cutoff",
-          "section_name": "filter",
-          "init_value": 0,
-          "description": "Filter Cutoff",
-          "range": [
-            0,
-            127
-          ],
-          "type": "control_change"
-        },
-        "explicit": -1,
-        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

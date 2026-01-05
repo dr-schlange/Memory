@@ -34,16 +34,15 @@ class _ExpA(VirtualDevice):
         usg.trig_cv = usg.eoc_cv
         self.output_cv = usg.out_cv
         usg.start()
-        usg.gate = 1
+        usg.set_parameter("gate", 1)
         usg.rise = 0.204
         usg.fall = 0.504
-        yield from self.sleep(10)
-        usg.gate = 0
+        usg.set_parameter("gate", 0)
         self.usg = usg
 
     @on(input_cv, edge="any")
     def on_input_any(self, value, ctx):
-        self.creating()
+        pass
 
     @on(VirtualDevice.output_cv, edge="any")
     def on_output_any(self, value, ctx):
@@ -51,4 +50,4 @@ class _ExpA(VirtualDevice):
 
     @on(trigger_cv, edge="rising")
     def on_trigger_rising(self, value, ctx):
-        self.creating()
+        yield from self.creating()

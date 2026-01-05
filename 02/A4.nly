@@ -15,8 +15,8 @@
       "id": 140735343681424,
       "repr": "Amsynth",
       "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
+        "input": "amsynth:MIDI OUT 130:1",
+        "output": "amsynth:MIDI IN 130:0"
       },
       "channel": 0,
       "config": {},
@@ -26,8 +26,8 @@
       "id": 140735343686544,
       "repr": "Amsynth",
       "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
+        "input": "amsynth:MIDI OUT 131:1",
+        "output": "amsynth:MIDI IN 131:0"
       },
       "channel": 0,
       "config": {},
@@ -37,8 +37,8 @@
       "id": 140735374811840,
       "repr": "Amsynth",
       "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
+        "input": "amsynth:MIDI OUT 132:1",
+        "output": "amsynth:MIDI IN 132:0"
       },
       "channel": 0,
       "config": {},
@@ -53,9 +53,14 @@
       },
       "channel": 0,
       "config": {
+        "pads": {
+          "p3": 66
+        },
         "buttons": {
-          "b1": 25,
-          "b2": 71
+          "b1": 78,
+          "b2": 37,
+          "b5": 96,
+          "b6": 127
         }
       },
       "class": "Minilab3"
@@ -90,7 +95,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.558522796938685,
+        "output": 0.30465009251193453,
         "set_pause": 0,
         "trigger": 0.0,
         "input": 0.0
@@ -106,16 +111,16 @@
       "config": {
         "set_pause": 0,
         "gate": 0.0,
-        "rise": 0.006129168695925736,
-        "fall": 0.17227429147699438,
+        "rise": 0.2862153445389276,
+        "fall": 0.014633706173946359,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.441477203061315,
-        "out": 0.558522796938685
+        "inv": 0.013536809888068158,
+        "out": 0.9864631901119318
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -126,14 +131,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.4179542811897291,
+        "output": 0.658753622984909,
         "set_pause": 0,
-        "input": 0.6143228283586765,
+        "input": 0.2925712596364307,
         "filter": "lowpass",
         "mode": "cutoff",
         "cutoff": 1.0,
         "smoothing": 0.1,
-        "poles": 1,
+        "poles": 4,
         "type": "continuous"
       },
       "proxy": false,
@@ -806,6 +811,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735375209792,
+      "src": {
+        "device": 140735374720176,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734996722896,
+          "device": 140735374720176,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735374710096,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

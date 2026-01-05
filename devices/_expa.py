@@ -30,3 +30,7 @@ class _ExpA(VirtualDevice):
 
     @on(input_cv, edge="any")
     def on_input_any(self, value, ctx): ...
+
+    @on(VirtualDevice.output_cv, edge="any")
+    def on_output_any(self, value, ctx):
+        return value

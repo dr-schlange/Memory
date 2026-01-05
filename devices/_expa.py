@@ -43,4 +43,5 @@ class _ExpA(VirtualDevice):
         return value
 
     @on(trigger_cv, edge="rising")
-    def on_trigger_rising(self, value, ctx): ...
+    def on_trigger_rising(self, value, ctx):
+        self.creating()

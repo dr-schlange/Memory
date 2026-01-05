@@ -50,4 +50,4 @@ class _ExpA(VirtualDevice):
 
     @on(trigger_cv, edge="rising")
     def on_trigger_rising(self, value, ctx):
-        yield from self.creating()
+        self.creating()

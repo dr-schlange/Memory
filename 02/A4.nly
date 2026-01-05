@@ -47,7 +47,6 @@
           "release": 27
         },
         "filter": {
-          "cutoff": 109,
           "resonance": 60,
           "env_amount": 82,
           "attack": 8,
@@ -238,7 +237,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.06057899530218629,
+        "output": 0.027546755506563797,
         "set_pause": 0,
         "trigger": 0.0,
         "input": 0.0
@@ -262,8 +261,8 @@
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.9394210046978138,
-        "out": 0.06057899530218629
+        "inv": 0.9724532444934362,
+        "out": 0.027546755506563797
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -274,9 +273,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.11687821874332605,
+        "output": 0.0674297410363547,
         "set_pause": 0,
-        "input": 0.11633411259386477,
+        "input": 0.060103179065597374,
         "filter": "lowpass",
         "mode": "cutoff",
         "cutoff": 47.24409448818898,
@@ -295,14 +294,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 7.6935324033776595,
+        "input": 3.4984379493336024,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
-        "out3": 94.07137768701102,
-        "out2": 64.00204510535096,
-        "out1": 34.000845020314486,
-        "out0": 14.366948810737
+        "out3": 94.07743983399654,
+        "out2": 64.24228768102473,
+        "out1": 34.02724571964228,
+        "out0": 8.325432297704415
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -1046,6 +1045,65 @@
       "velocity": null
     },
     {
+      "id": 140735375198528,
+      "src": {
+        "device": 140735374720176,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734996680912,
+          "device": 140735374720176,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735343681424,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140735375209792,
       "src": {
         "device": 140735374720176,
@@ -1071,7 +1129,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734996722896,
+          "id": 140734994892112,
           "device": 140735374720176,
           "to_min": 0,
           "to_max": 127,
@@ -1085,18 +1143,20 @@
         "device": 140735374710096,
         "repr": "Amsynth",
         "parameter": {
+          "cc_note": 50,
           "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
           "range": [
             0,
             127
-          ]
+          ],
+          "type": "control_change"
         },
         "explicit": -1,
-        "type": "note"
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

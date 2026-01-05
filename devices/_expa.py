@@ -35,6 +35,8 @@ class _ExpA(VirtualDevice):
         self.output_cv = usg.out_cv
         usg.start()
         usg.gate = 1
+        usg.rise = 0.204
+        usg.fall = 0.504
         yield from self.sleep(10)
         usg.gate = 0
         self.usg = usg

@@ -29,10 +29,12 @@ class _ExpA(VirtualDevice):
     def creating(self):
         from nallely.experimental.maths import UniversalSlopeGenerator
 
-        child = UniversalSlopeGenerator()
-        self.output_cv = child
-        child.start()
-        self.child = child
+        usg = UniversalSlopeGenerator()
+        usg.trig_cv = self.eoc_cv
+        usg.set_parameter("trig", 1)
+        self.output_cv = usg.out_cv
+        usg.start()
+        self.usg = usg
 
     @on(input_cv, edge="any")
     def on_input_any(self, value, ctx):

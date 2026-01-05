@@ -21,7 +21,7 @@ class _ExpA(VirtualDevice):
     input_cv = VirtualParameter(name="input", range=(0.0, 1270.0))
 
     def __post_init__(self, **kwargs):
-        from nallely import UniversalSlopeGenerator
+        from nallely.experimental import UniversalSlopeGenerator
 
         child = UniversalSlopeGenerator()
         self.output_cv = child

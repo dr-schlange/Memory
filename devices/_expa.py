@@ -15,13 +15,18 @@ class _ExpA(VirtualDevice):
 
     type: <ondemand | continuous>
     category: <category>
-    meta: disable default output
+    # meta: disable default output
     """
 
     input_cv = VirtualParameter(name="input", range=(0.0, 1270.0))
 
     def __post_init__(self, **kwargs):
-        return {"disable_output": True}
+        from nallely import UniversalSlopeGenerator
+
+        child = UniversalSlopeGenerator()
+        self.output_cv = child
+        child.start()
+        self.child = child
 
     @on(input_cv, edge="any")
     def on_input_any(self, value, ctx): ...

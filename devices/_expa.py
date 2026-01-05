@@ -1,3 +1,4 @@
+from t__expa import *
 from mydevice import *
 from nallely import VirtualDevice, VirtualParameter, on
 
@@ -30,8 +31,8 @@ class _ExpA(VirtualDevice):
         from nallely.experimental.maths import UniversalSlopeGenerator
 
         usg = UniversalSlopeGenerator()
-        usg.trig_cv = self.eoc_cv
-        usg.set_parameter("trig", 1)
+        usg.trig_cv = usg.eoc_cv
+        usg.gate = 1
         self.output_cv = usg.out_cv
         usg.start()
         self.usg = usg

@@ -32,9 +32,10 @@ class _ExpA(VirtualDevice):
 
         usg = UniversalSlopeGenerator()
         usg.trig_cv = usg.eoc_cv
-        usg.gate = 1
         self.output_cv = usg.out_cv
         usg.start()
+        usg.gate = 1
+        usg.gate = 0
         self.usg = usg
 
     @on(input_cv, edge="any")

@@ -14,6 +14,7 @@ class _ExpA(VirtualDevice):
 
     outputs:
     # * %outname [%range]: %doc
+    * output_cv [0, 1]: Parameter description
 
     type: <ondemand | continuous>
     category: <category>
@@ -26,6 +27,14 @@ class _ExpA(VirtualDevice):
     input_cv = VirtualParameter(name="input", range=(0.0, 127.0))
 
     def __post_init__(self, **kwargs): ...
+
+    @property
+    def min_range(self):
+        return 0.0
+
+    @property
+    def max_range(self):
+        return 1.0
 
     def creating(self):
         from nallely.experimental.maths import UniversalSlopeGenerator

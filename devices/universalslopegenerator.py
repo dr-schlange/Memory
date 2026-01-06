@@ -151,4 +151,3 @@ class UniversalSlopeGenerator(VirtualDevice):
         if value == "on" and self.phase == "idle":
             self.phase = "rising"
             self.value = 0.0
-            return (self.value, [self.out_cv])

@@ -102,7 +102,7 @@ class UniversalSlopeGenerator(VirtualDevice):
             if self.value >= 1.0:
                 self.value = 1.0
                 pulse = ("eor", self.eor_cv)
-                if self.gate == 1:
+                if self.gate != 1:
                     self.phase = "falling"
         elif self.phase == "falling":
             self.value -= delta

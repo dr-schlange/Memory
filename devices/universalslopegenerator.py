@@ -41,6 +41,7 @@ class UniversalSlopeGenerator(VirtualDevice):
     meta: disable default output
     """
 
+    trig_cv = VirtualParameter(name="trig", range=(0.0, 1.0), conversion_policy="round")
     gate_cv = VirtualParameter(name="gate", range=(0.0, 1.0), conversion_policy="round")
     rise_cv = VirtualParameter(name="rise", range=(0.001, 10.0), default=0.25)
     fall_cv = VirtualParameter(name="fall", range=(0.001, 10.0), default=0.25)
@@ -49,7 +50,6 @@ class UniversalSlopeGenerator(VirtualDevice):
     reset_cv = VirtualParameter(
         name="reset", range=(0.0, 1.0), conversion_policy="round"
     )
-    trig_cv = VirtualParameter(name="trig", range=(0.0, 1.0), conversion_policy="round")
     eoc_cv = VirtualParameter(name="eoc", range=(0.0, 1.0))
     eor_cv = VirtualParameter(name="eor", range=(0.0, 1.0))
     inv_cv = VirtualParameter(name="inv", range=(0.0, 1.0))

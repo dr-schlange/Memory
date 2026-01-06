@@ -1,4 +1,3 @@
-from t__expa import *
 from mydevice import *
 from nallely import VirtualDevice, VirtualParameter, on
 

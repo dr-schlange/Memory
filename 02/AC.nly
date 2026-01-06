@@ -218,15 +218,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "noise": "ideal",
-        "input": -8,
+        "noise": "rails",
+        "input": -3,
         "trig": 0.0,
-        "gate": 0.0,
+        "gate": 1.0,
         "rate": 0.5,
         "coupler": 0.0,
-        "hot": 0.0,
-        "stepped": -8,
-        "smooth": 0.4411679570708037
+        "hot": 0,
+        "stepped": -4,
+        "smooth": -2.9159113648348476
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -247,8 +247,8 @@
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.9371755581083658,
-        "out": 0.06047040943623866
+        "inv": 0.653460539728753,
+        "out": 0.3465394602712471
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -262,9 +262,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 70.62701390758937,
-        "pitchwheel_out": 5136,
-        "note_out": 70.0
+        "input": 45.40284408534622,
+        "pitchwheel_out": 3300,
+        "note_out": 45.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -277,14 +277,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 35.832792482305976,
+        "input": 0.0,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
         "out3": 0,
-        "out2": 64.41941572227532,
-        "out1": 35.832792482305976,
-        "out0": 33.13592616132678
+        "out2": 64.67655051301784,
+        "out1": 34.24525012978394,
+        "out0": -80.5319688621641
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -295,15 +295,29 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 18.324522869771407,
+        "output": -90.25462381172069,
         "set_pause": 0,
-        "a": 0.591113640960368,
+        "a": -2.9114394777974417,
         "b": 31.0,
         "operator": "*",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 140735014980304,
+      "repr": "Clock1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "tempo": 120.0,
+        "play": 0,
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "Clock"
     }
   ],
   "connections": [
@@ -1171,6 +1185,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734897976464,
+      "src": {
+        "device": 140735014980304,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734470137936,
+          "device": 140735014980304,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "trig",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "trig_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

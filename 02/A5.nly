@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140734984237008,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 28:0",
+        "output": "Minilab3:Minilab3 MIDI 28:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140735646091648,
@@ -22,8 +34,88 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140734996630736,
+      "repr": "UniversalSlopeGenerator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "gate": 0.0,
+        "rise": 0.001,
+        "fall": 0.001,
+        "shape": "log",
+        "cycle": "off",
+        "reset": 0.0,
+        "trig": 0.0,
+        "eoc": 0.0,
+        "eor": 0.0,
+        "inv": 1.0,
+        "out": 0.0
+      },
+      "proxy": false,
+      "class": "UniversalSlopeGenerator"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140735375206448,
+      "src": {
+        "device": 140734984237008,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735374669008,
+          "device": 140734984237008,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734996630736,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

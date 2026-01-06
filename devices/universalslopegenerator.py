@@ -21,14 +21,14 @@ class UniversalSlopeGenerator(VirtualDevice):
     NOTE: This module is LLM generated
 
     inputs:
-    * trig_cv [0, 1] round <rising>: Rising-edge trigger input. Starts a new slope immediately.
-    * gate_cv [0, 1] round <rising, falling>: Gate input. Rising edge begins rise phase; falling edge begins fall phase.
+    * trig_cv [0, 1] >0 <rising>: Rising-edge trigger input. Starts a new slope immediately.
+    * gate_cv [0, 1] >0 <rising, falling>: Gate input. Rising edge begins rise phase; falling edge begins fall phase.
     * rise_cv [0.001, 10.0]: Rise time control. Exponential response.
     * fall_cv [0.001, 10.0]: Fall time control. Exponential response.
     * shape_cv [log, lin, exp]: Curve mode for both rise and fall.
     * cycle_cv [off, on] <any>: Cycle enable. When non-zero, slope free-runs continuously,
                            restarting automatically after EOC.
-    * reset_cv [0, 1] round <rising>: Immediate reset. Forces output to 0 and stops the slope.
+    * reset_cv [0, 1] >0 <rising>: Immediate reset. Forces output to 0 and stops the slope.
 
     outputs:
     * out_cv [0, 1]: Main slope output.
@@ -41,15 +41,13 @@ class UniversalSlopeGenerator(VirtualDevice):
     meta: disable default output
     """
 
-    gate_cv = VirtualParameter(name="gate", range=(0.0, 1.0), conversion_policy="round")
+    gate_cv = VirtualParameter(name="gate", range=(0.0, 1.0), conversion_policy=">0")
     rise_cv = VirtualParameter(name="rise", range=(0.001, 10.0))
     fall_cv = VirtualParameter(name="fall", range=(0.001, 10.0))
     shape_cv = VirtualParameter(name="shape", accepted_values=["log", "lin", "exp"])
     cycle_cv = VirtualParameter(name="cycle", accepted_values=["off", "on"])
-    reset_cv = VirtualParameter(
-        name="reset", range=(0.0, 1.0), conversion_policy="round"
-    )
-    trig_cv = VirtualParameter(name="trig", range=(0.0, 1.0), conversion_policy="round")
+    reset_cv = VirtualParameter(name="reset", range=(0.0, 1.0), conversion_policy=">0")
+    trig_cv = VirtualParameter(name="trig", range=(0.0, 1.0), conversion_policy=">0")
     eoc_cv = VirtualParameter(name="eoc", range=(0.0, 1.0))
     eor_cv = VirtualParameter(name="eor", range=(0.0, 1.0))
     inv_cv = VirtualParameter(name="inv", range=(0.0, 1.0))
@@ -104,8 +102,7 @@ class UniversalSlopeGenerator(VirtualDevice):
             if self.value >= 1.0:
                 self.value = 1.0
                 pulse = ("eor", self.eor_cv)
-                if self.gate != 1:
-                    self.phase = "falling"
+                self.phase = "falling"
         elif self.phase == "falling":
             self.value -= delta
             if self.value <= 0.0:
@@ -113,10 +110,9 @@ class UniversalSlopeGenerator(VirtualDevice):
                 pulse = ("eoc", self.eoc_cv)
                 self.phase = "idle"
         if pulse:
-            channel, output = pulse
-            yield (1.0, [output])
-            yield (0.0, [output])
-            if channel == "eoc" and self.cycle == "on":
+            yield (1.0, [pulse[1]])
+            yield (0.0, [pulse[1]])
+            if pulse[0] == "eoc" and self.cycle == "on":
                 self.phase = "rising"
                 self.value = 0.0
         self.value = max(0.0, min(1.0, self.value))
@@ -143,10 +139,12 @@ class UniversalSlopeGenerator(VirtualDevice):
     @on(gate_cv, edge="rising")
     def on_gate_rising(self, value, ctx):
         self.phase = "rising"
+        return (self.value, [self.out_cv])
 
     @on(gate_cv, edge="falling")
     def on_gate_falling(self, value, ctx):
         self.phase = "falling"
+        return (self.value, [self.out_cv])
 
     @on(cycle_cv, edge="any")
     def on_cycle_any(self, value, ctx):

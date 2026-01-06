@@ -238,7 +238,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7978232195448026,
+        "output": 0.970687505136122,
         "set_pause": 0,
         "trigger": 0.0,
         "input": 0.0
@@ -254,14 +254,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 101.32354888218994,
+        "input": 124.52347562522681,
         "range0": 33.0,
-        "range1": 85.0,
-        "range2": 88.0,
-        "out3": 103.16631444249835,
-        "out2": 86.26962202171218,
-        "out1": 38.78416415671632,
-        "out0": 0.23604958823566127
+        "range1": 0.0,
+        "range2": 123.27731315228749,
+        "out3": 124.52347562522681,
+        "out2": 104.16562076500816,
+        "out1": 126.21608710404857,
+        "out0": 10.480127664209371
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -275,9 +275,9 @@
         "set_pause": 0,
         "finetune": -8192,
         "slide": 1.0,
-        "input": 101.32354888218994,
-        "pitchwheel_out": -3615,
-        "note_out": 101.0
+        "input": 123.42163717838984,
+        "pitchwheel_out": -3454,
+        "note_out": 123.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -290,16 +290,16 @@
       "config": {
         "set_pause": 0,
         "gate": 1.0,
-        "rise": 8.912051376255095,
-        "fall": 0.4361141660521928,
+        "rise": 0.001,
+        "fall": 4.0,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.20953950042166525,
-        "out": 0.7904604995783348
+        "inv": 0.02931249486387799,
+        "out": 0.970687505136122
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -310,13 +310,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 113.18167064550425,
+        "output": 0.0,
         "set_pause": 0,
-        "speed": 3.161841998313339,
+        "speed": 3.882750020544488,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 63,
-        "waveform": "square",
+        "sampling_rate": 77,
+        "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -1413,6 +1413,71 @@
       "velocity": null
     },
     {
+      "id": 140735375200288,
+      "src": {
+        "device": 140734996641296,
+        "repr": "UniversalSlopeGenerator19",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734996853200,
+          "device": 140734996641296,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735377658208,
+        "repr": "KeySplitter1",
+        "parameter": {
+          "name": "range2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "range2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 94.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140735375201168,
       "src": {
         "device": 140735639581568,
@@ -1533,6 +1598,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735375199232,
+      "src": {
+        "device": 140735639581568,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734994841168,
+          "device": 140735639581568,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735377658208,
+        "repr": "KeySplitter1",
+        "parameter": {
+          "name": "range1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "range1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 64.0,
           "no_init": false
         },
         "explicit": -1,

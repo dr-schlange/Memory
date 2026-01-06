@@ -120,7 +120,6 @@ class UniversalSlopeGenerator(VirtualDevice):
     def on_trig_rising(self, value, ctx):
         self.phase = "rising"
         self.value = 0.0
-        return (self.value, [self.out_cv])
 
     @on(reset_cv, edge="rising")
     def on_reset_rising(self, value, ctx):

@@ -141,12 +141,10 @@ class UniversalSlopeGenerator(VirtualDevice):
     @on(gate_cv, edge="rising")
     def on_gate_rising(self, value, ctx):
         self.phase = "rising"
-        return (self.value, [self.out_cv])
 
     @on(gate_cv, edge="falling")
     def on_gate_falling(self, value, ctx):
         self.phase = "falling"
-        return (self.value, [self.out_cv])
 
     @on(cycle_cv, edge="any")
     def on_cycle_any(self, value, ctx):

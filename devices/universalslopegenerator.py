@@ -73,10 +73,10 @@ class UniversalSlopeGenerator(VirtualDevice):
             yield (1.0 - self.value, [self.inv_cv])
             return
         if self.phase == "rising":
-            rate = max(self.rise, 0.001)
+            rate = max(self.rise, 0.0001)
             remaining = 1.0 - self.value
         elif self.phase == "falling":
-            rate = max(self.fall, 0.001)
+            rate = max(self.fall, 0.0001)
             remaining = self.value
         else:
             return

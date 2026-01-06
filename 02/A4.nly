@@ -200,8 +200,8 @@
           "p3": 66
         },
         "buttons": {
-          "b1": 18,
-          "b2": 27,
+          "b1": 4,
+          "b2": 2,
           "b5": 57,
           "b7": 80
         }
@@ -238,7 +238,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.970687505136122,
+        "output": 0.9976229143327913,
         "set_pause": 0,
         "trigger": 0.0,
         "input": 0.0
@@ -254,14 +254,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 124.52347562522681,
+        "input": 125.56445728306296,
         "range0": 33.0,
-        "range1": 0.0,
-        "range2": 123.27731315228749,
-        "out3": 124.52347562522681,
-        "out2": 104.16562076500816,
-        "out1": 126.21608710404857,
-        "out0": 10.480127664209371
+        "range1": 89.12102432424194,
+        "range2": 126.69811012026449,
+        "out3": 90.05373414204182,
+        "out2": 125.56445728306296,
+        "out1": 88.66905609017307,
+        "out0": 32.53133399627059
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -275,9 +275,9 @@
         "set_pause": 0,
         "finetune": -8192,
         "slide": 1.0,
-        "input": 123.42163717838984,
-        "pitchwheel_out": -3454,
-        "note_out": 123.0
+        "input": 125.56445728306296,
+        "pitchwheel_out": -4624,
+        "note_out": 125.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -290,16 +290,16 @@
       "config": {
         "set_pause": 0,
         "gate": 1.0,
-        "rise": 0.001,
-        "fall": 4.0,
+        "rise": 0.3159291338582677,
+        "fall": 0.15846456692913385,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "trig": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.02931249486387799,
-        "out": 0.970687505136122
+        "inv": 0.0023770856672087337,
+        "out": 0.9976229143327913
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -307,16 +307,16 @@
     {
       "id": 140735639581568,
       "repr": "LFO1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 0.0,
-        "set_pause": 0,
-        "speed": 3.882750020544488,
+        "output": 89.12102432424194,
+        "set_pause": 1,
+        "speed": 3.733110118231426,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 77,
-        "waveform": "sine",
+        "sampling_rate": 74,
+        "waveform": "invert_sine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -325,6 +325,29 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140735374720512,
+      "repr": "Waveshaper1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 4.94348257019933,
+        "set_pause": 0,
+        "input": 4.976229143327913,
+        "mode": "linear",
+        "amount": 0.5,
+        "symmetry": 0,
+        "bias": 0,
+        "exp_power": 2,
+        "log_scale": 4,
+        "sigmoid_gain": 3,
+        "fold_gain": 1,
+        "quantize_steps": 8,
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Waveshaper"
     }
   ],
   "connections": [
@@ -409,7 +432,7 @@
           "to_min": 0.001,
           "to_max": 10.0,
           "auto": false,
-          "method": "lin",
+          "method": "log",
           "as_int": false
         },
         "type": "control_change"
@@ -468,7 +491,7 @@
           "to_min": 0.001,
           "to_max": 10.0,
           "auto": false,
-          "method": "lin",
+          "method": "log",
           "as_int": false
         },
         "type": "control_change"
@@ -1478,6 +1501,71 @@
       "velocity": null
     },
     {
+      "id": 140735375201520,
+      "src": {
+        "device": 140734996641296,
+        "repr": "UniversalSlopeGenerator19",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735376440912,
+          "device": 140734996641296,
+          "to_min": -5,
+          "to_max": 5,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735374720512,
+        "repr": "Waveshaper1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5,
+            5
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140735375201168,
       "src": {
         "device": 140735639581568,
@@ -1663,6 +1751,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 64.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735375205040,
+      "src": {
+        "device": 140735374720512,
+        "repr": "Waveshaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735375701840,
+          "device": 140735374720512,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735639570816,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,

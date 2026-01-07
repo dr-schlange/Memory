@@ -125,7 +125,7 @@
       "repr": "Amsynth",
       "ports": {
         "input": "amsynth:MIDI OUT 132:1",
-        "output": "amsynth:MIDI IN 132:0"
+        "output": null
       },
       "channel": 0,
       "config": {
@@ -191,9 +191,8 @@
           "p3": 62
         },
         "buttons": {
-          "b1": 13,
-          "b2": 33,
-          "b3": 52,
+          "b2": 54,
+          "b3": 20,
           "b4": 31,
           "b5": 52,
           "b6": 127
@@ -221,7 +220,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -229,19 +229,19 @@
     {
       "id": 140734898066096,
       "repr": "SmoothSteppedGenerator1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "set_pause": 1,
+        "set_pause": 0,
         "noise": "nonlinear",
-        "input": -9,
+        "input": -3,
         "trig": 0,
-        "gate": 0.0,
-        "rate": 4.095078740157481,
+        "gate": 1.0,
+        "rate": 0.00426502184423342,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": -10,
-        "smooth": -1.1016816611736744
+        "stepped": -5,
+        "smooth": -2.8732914155363125
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -255,15 +255,15 @@
         "set_pause": 0,
         "trig": 0,
         "gate": 0,
-        "rise": 0.16329084214948916,
-        "fall": 0.010948889651276873,
+        "rise": 0.07801252994301519,
+        "fall": 0.050209673996144684,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.5156862710758429,
-        "out": 0.34516773888111496
+        "inv": 0.44203740040908834,
+        "out": 0.5233443538889495
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -277,9 +277,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 56.50432145154716,
-        "pitchwheel_out": 4131,
-        "note_out": 56.0
+        "input": 45.25459951134441,
+        "pitchwheel_out": 3372,
+        "note_out": 48.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -292,13 +292,13 @@
       "config": {
         "set_pause": 0,
         "mode": "lastoff",
-        "input": 53.0,
+        "input": 48.0,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
         "out3": 0,
         "out2": 0,
-        "out1": 53.0,
+        "out1": 48.0,
         "out0": 0
       },
       "proxy": false,
@@ -310,9 +310,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53.89831833882633,
+        "output": 52.62387233978625,
         "set_pause": 0,
-        "a": -1.1016816611736744,
+        "a": -2.3761276602137453,
         "b": 55.0,
         "operator": "+",
         "type": "ondemand"
@@ -350,9 +350,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53,
+        "output": 48,
         "set_pause": 0,
-        "input": 53.89831833882633,
+        "input": 52.62387233978625,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -564,7 +564,7 @@
           "to_min": 0.001,
           "to_max": 10.0,
           "auto": false,
-          "method": "lin",
+          "method": "log",
           "as_int": false
         },
         "type": "control_change"
@@ -849,6 +849,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734898187872,
+      "src": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "smooth",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "smooth_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734872075600,
+          "device": 140734898066096,
+          "to_min": -10.0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,

@@ -234,14 +234,14 @@
       "config": {
         "set_pause": 0,
         "noise": "nonlinear",
-        "input": -6,
+        "input": -10,
         "trig": 0,
         "gate": 0.0,
         "rate": 1.103251968503937,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": -10,
-        "smooth": -1.6635286312928939
+        "stepped": -5,
+        "smooth": -1.2819972724107727
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -255,15 +255,15 @@
         "set_pause": 0,
         "trig": 0,
         "gate": 0,
-        "rise": 1.4688063710840227,
+        "rise": 0.024337718575137474,
         "fall": 0.1852322215674121,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.8532046833599337,
-        "out": 0.1467953166400663
+        "inv": 0.9976659947419605,
+        "out": 0.002334005258039551
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -277,9 +277,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 52.939234856298725,
-        "pitchwheel_out": 7694,
-        "note_out": 52.0
+        "input": 55.37065317239051,
+        "pitchwheel_out": 3036,
+        "note_out": 55.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -310,9 +310,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 30.337212752394308,
+        "output": 30.718852541838746,
         "set_pause": 0,
-        "a": -1.6627872476056913,
+        "a": -1.2811474581612532,
         "b": 32.0,
         "operator": "+",
         "type": "ondemand"
@@ -328,8 +328,18 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div5": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
@@ -342,12 +352,12 @@
       "config": {
         "output": 29,
         "set_pause": 0,
-        "input": 30.336721672751818,
+        "input": 30.718852541838746,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "free"
+        "type": "sample&hold"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -762,71 +772,6 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope1_data_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734892362352,
-      "src": {
-        "device": 140734898066096,
-        "repr": "SmoothSteppedGenerator1",
-        "parameter": {
-          "name": "stepped",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -10.0,
-            10.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "stepped_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734892364368,
-          "device": 140734898066096,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140735014979968,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "scope2_data",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "scope2_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -2043,6 +1988,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733866293600,
+      "src": {
+        "device": 140734898064416,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735031122256,
+          "device": 140734898064416,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735014979968,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

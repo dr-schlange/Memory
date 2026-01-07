@@ -184,12 +184,18 @@
       },
       "channel": 0,
       "config": {
+        "keys": {
+          "mod": 127
+        },
         "pads": {
           "p3": 62
         },
         "buttons": {
-          "b1": 127,
-          "b2": 24
+          "b1": 63,
+          "b2": 115,
+          "b3": 24,
+          "b4": 67,
+          "b6": 15
         }
       },
       "class": "Minilab3"
@@ -227,14 +233,14 @@
       "config": {
         "set_pause": 0,
         "noise": "nonlinear",
-        "input": -10,
-        "trig": 0.0,
+        "input": 5,
+        "trig": 0,
         "gate": 1.0,
-        "rate": 0.5,
+        "rate": 1.8905748031496064,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": -10,
-        "smooth": -1.4450148368884999
+        "stepped": 10,
+        "smooth": 1.2855906016495329
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -246,17 +252,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trig": 1,
+        "trig": 0,
         "gate": 0,
-        "rise": 0.001,
-        "fall": 0.005700402367896365,
+        "rise": 0.09643883791544468,
+        "fall": 4.188391254457485,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.9984935713858013,
-        "out": 0.0015064286141986988
+        "inv": 0.28417318150924475,
+        "out": 0.7158268184907552
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -270,9 +276,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 54.05869758140944,
-        "pitchwheel_out": 481,
-        "note_out": 54.0
+        "input": 71.62846572150245,
+        "pitchwheel_out": 5148,
+        "note_out": 71.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -285,14 +291,14 @@
       "config": {
         "set_pause": 0,
         "mode": "lastoff",
-        "input": 0.0,
+        "input": 64.27800018152367,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
         "out3": 0,
-        "out2": 0,
+        "out2": 64.27800018152367,
         "out1": 0,
-        "out0": -32.412451594670955
+        "out0": 0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -303,11 +309,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -32.412539842931366,
+        "output": 64.27800018152367,
         "set_pause": 0,
-        "a": -1.412539842931365,
-        "b": 31.0,
-        "operator": "-",
+        "a": 1.2814410673143637,
+        "b": 63.0,
+        "operator": "+",
         "type": "ondemand"
       },
       "proxy": false,
@@ -465,10 +471,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734895076048,
+          "id": 140734474350032,
           "device": 140734898063072,
-          "to_min": 0.001,
-          "to_max": 10.0,
+          "to_min": 0.0,
+          "to_max": 1.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -479,7 +485,123 @@
         "device": 140734898066768,
         "repr": "UniversalSlopeGenerator1",
         "parameter": {
-          "name": "rise",
+          "name": "trig",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "trig_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734897974880,
+      "src": {
+        "device": 140734898063072,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734898467024,
+          "device": 140734898063072,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "trig",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "trig_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734897964496,
+      "src": {
+        "device": 140734898063072,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 76,
+          "channel": null,
+          "name": "b3",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 76,
+        "chain": {
+          "id": 140734874191440,
+          "device": 140734898063072,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "rate",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -490,14 +612,14 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "rise_cv",
+          "cv_name": "rate_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": 0.25,
+          "default": 0.5,
           "no_init": false
         },
-        "explicit": -1,
+        "explicit": 76,
         "type": "virtual"
       },
       "bouncy": false,
@@ -1025,71 +1147,6 @@
       "velocity": null
     },
     {
-      "id": 140734873731456,
-      "src": {
-        "device": 140734898066768,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734873731152,
-          "device": 140734898066768,
-          "to_min": -10.0,
-          "to_max": 10.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734898066096,
-        "repr": "SmoothSteppedGenerator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -10.0,
-            10.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 0.0,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140734897969600,
       "src": {
         "device": 140734898066768,
@@ -1141,6 +1198,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734897965376,
+      "src": {
+        "device": 140734898066768,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734895082448,
+          "device": 140734898066768,
+          "to_min": -10.0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

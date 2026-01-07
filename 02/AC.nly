@@ -188,7 +188,8 @@
           "p3": 62
         },
         "buttons": {
-          "b1": 54
+          "b1": 127,
+          "b2": 24
         }
       },
       "class": "Minilab3"
@@ -226,14 +227,14 @@
       "config": {
         "set_pause": 0,
         "noise": "nonlinear",
-        "input": -9,
+        "input": -10,
         "trig": 0.0,
         "gate": 1.0,
         "rate": 0.5,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": 8,
-        "smooth": 1.9550147437717378
+        "stepped": -10,
+        "smooth": -1.4450148368884999
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -245,17 +246,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trig": 0,
+        "trig": 1,
         "gate": 0,
-        "rise": 9.710783294331593,
-        "fall": 0.29021670566840646,
+        "rise": 0.001,
+        "fall": 0.005700402367896365,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.971075436976857,
-        "out": 0.028924563023142957
+        "inv": 0.9984935713858013,
+        "out": 0.0015064286141986988
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -269,9 +270,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 75.84579788462585,
-        "pitchwheel_out": 6929,
-        "note_out": 75.0
+        "input": 54.05869758140944,
+        "pitchwheel_out": 481,
+        "note_out": 54.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -291,7 +292,7 @@
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -29.055546358390263
+        "out0": -32.412451594670955
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -302,9 +303,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -29.055692446276232,
+        "output": -32.412539842931366,
         "set_pause": 0,
-        "a": 1.944307553723768,
+        "a": -1.412539842931365,
         "b": 31.0,
         "operator": "-",
         "type": "ondemand"
@@ -440,6 +441,63 @@
           "no_init": false
         },
         "explicit": 71,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734897964320,
+      "src": {
+        "device": 140734898063072,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734895076048,
+          "device": 140734898063072,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140734898066768,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": -1,
         "type": "virtual"
       },
       "bouncy": false,
@@ -772,6 +830,71 @@
       "velocity": null
     },
     {
+      "id": 140733867425504,
+      "src": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "stepped",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "stepped_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734898512464,
+          "device": 140734898066096,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734898066768,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734898068112,
       "src": {
         "device": 140734898066768,
@@ -1018,136 +1141,6 @@
         },
         "explicit": -1,
         "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140733867425504,
-      "src": {
-        "device": 140734898066768,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734898467024,
-          "device": 140734898066768,
-          "to_min": 0.001,
-          "to_max": 10.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734898066768,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "fall",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.001,
-            10.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "fall_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 0.25,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140734897964320,
-      "src": {
-        "device": 140734898066768,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734895077840,
-          "device": 140734898066768,
-          "to_min": 10,
-          "to_max": 0.001,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734898066768,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "rise",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.001,
-            10.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "rise_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 0.25,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

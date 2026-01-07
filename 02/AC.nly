@@ -185,18 +185,18 @@
       "channel": 0,
       "config": {
         "keys": {
-          "mod": 127
+          "mod": 26
         },
         "pads": {
-          "p3": 62
+          "p3": 66
         },
         "buttons": {
-          "b1": 26,
-          "b2": 28,
-          "b3": 5,
+          "b1": 19,
+          "b2": 18,
+          "b3": 26,
           "b4": 31,
-          "b5": 2,
-          "b6": 127
+          "b5": 11,
+          "b6": 8
         }
       },
       "class": "Minilab3"
@@ -234,15 +234,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "noise": "ideal",
-        "input": -6,
+        "noise": "nonlinear",
+        "input": -5,
         "trig": 0,
         "gate": 1.0,
-        "rate": 0.0014370779141993756,
-        "coupler": 0.0,
+        "rate": 0.006590185477903268,
+        "coupler": -0.02386550849605329,
         "hot": 0,
-        "stepped": -6,
-        "smooth": -6.108439996213518
+        "stepped": 0,
+        "smooth": -0.2386550849605318
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -256,15 +256,15 @@
         "set_pause": 0,
         "trig": 0,
         "gate": 0,
-        "rise": 0.40369753163857536,
-        "fall": 0.007618855973704612,
+        "rise": 2.3822534499746273,
+        "fall": 0.003689173954438247,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.9597262194580882,
-        "out": 0.040273780541911726
+        "inv": 0.7618508400865459,
+        "out": 0.23814915991345406
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -278,9 +278,9 @@
         "set_pause": 0,
         "finetune": 8192,
         "slide": 1.0,
-        "input": 24.711406024044162,
-        "pitchwheel_out": 4226,
-        "note_out": 24.0
+        "input": 61.98454021050062,
+        "pitchwheel_out": 1418,
+        "note_out": 60.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -292,14 +292,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "mode": "lastoff",
-        "input": 45.0,
+        "mode": "keeplast",
+        "input": 57.0,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
         "out3": 0,
-        "out2": 0,
-        "out1": 45.0,
+        "out2": 65.0,
+        "out1": 57.0,
         "out0": 0
       },
       "proxy": false,
@@ -311,10 +311,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 45.38530323299163,
+        "output": 58.59825177210047,
         "set_pause": 0,
-        "a": -6.108439996213518,
-        "b": 53.0,
+        "a": -0.4017482278995294,
+        "b": 59.0,
         "operator": "+",
         "type": "ondemand"
       },
@@ -351,9 +351,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 45,
+        "output": 57,
         "set_pause": 0,
-        "input": 45.085972772081654,
+        "input": 58.59825177210047,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -369,7 +369,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 0.1,
         "subdiv": "1/1",
@@ -995,6 +995,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733333981680,
+      "src": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "smooth",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "smooth_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733865088720,
+          "device": 140734898066096,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734898066096,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "coupler",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "coupler_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1843,77 +1908,12 @@
       "velocity": null
     },
     {
-      "id": 140733866293776,
-      "src": {
-        "device": 140735014980304,
-        "repr": "Clock1",
-        "parameter": {
-          "name": "mul4",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "mul4_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734894213584,
-          "device": 140735014980304,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734898064416,
-        "repr": "Quantizer1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140733333986432,
       "src": {
         "device": 140735014980304,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul3",
+          "name": "mul7",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -1924,7 +1924,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul3_cv",
+          "cv_name": "mul7_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1933,7 +1933,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734898512720,
+          "id": 140734874800720,
           "device": 140735014980304,
           "to_min": 0,
           "to_max": 1,
@@ -2130,8 +2130,8 @@
         "chain": {
           "id": 140734475690064,
           "device": 140734898062064,
-          "to_min": 53,
-          "to_max": 66,
+          "to_min": 57,
+          "to_max": 59,
           "auto": true,
           "method": "lin",
           "as_int": false

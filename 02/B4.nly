@@ -22,8 +22,181 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140733419754832,
+      "repr": "UniversalSlopeGenerator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trig": 0.0,
+        "gate": 0.0,
+        "rise": 0.25,
+        "fall": 0.25,
+        "shape": "log",
+        "cycle": "off",
+        "reset": 0.0,
+        "eoc": 0.0,
+        "eor": 0.0,
+        "inv": 1.0,
+        "out": 0.0
+      },
+      "proxy": false,
+      "class": "UniversalSlopeGenerator"
+    },
+    {
+      "id": 140733419758864,
+      "repr": "SmoothSteppedGenerator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "noise": "ideal",
+        "input": 0.0,
+        "trig": 0.0,
+        "gate": 0.0,
+        "rate": 0.5,
+        "coupler": 0.0,
+        "hot": 0.0,
+        "stepped": 0.0,
+        "smooth": 0.0
+      },
+      "proxy": false,
+      "class": "SmoothSteppedGenerator"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140733419762560,
+      "src": {
+        "device": 140733419751808,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733419759536,
+          "device": 140733419751808,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733419754832,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733301073040,
+      "src": {
+        "device": 140733419751808,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733301072720,
+          "device": 140733419751808,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733419754832,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "fall",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "fall_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

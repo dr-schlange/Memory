@@ -77,13 +77,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 17.409309065237146,
-        "in1": 19.05,
+        "in0": 106.88380796798589,
+        "in1": 44.449999999999996,
         "in2": 0,
         "in3": 0,
         "level": 60.0,
         "type": "ondemand",
-        "out0": 18.393723626094857,
+        "out0": 69.42352318719436,
         "out1": 0.0
       },
       "proxy": false,
@@ -95,13 +95,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 17.409309065237146,
+        "output": 106.88380796798589,
         "set_pause": 0,
-        "speed": 1.5,
+        "speed": 8.416047871494952,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 30,
-        "waveform": "random",
+        "sampling_rate": 168,
+        "waveform": "smooth_random_cosine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -118,15 +118,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "mode": "lastoff",
-        "input": 18.393723626094857,
+        "mode": "keeplast",
+        "input": 69.42352318719436,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
-        "out3": 0,
-        "out2": 0,
-        "out1": 0,
-        "out0": 18.393723626094857
+        "out3": 94.32404181626212,
+        "out2": 69.42352318719436,
+        "out1": 62.01522963328141,
+        "out0": 33.352914921622485
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -139,14 +139,14 @@
       "config": {
         "set_pause": 0,
         "noise": "ideal",
-        "input": -7,
+        "input": 1,
         "trig": 0,
         "gate": 0.0,
         "rate": 2.0,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": -7,
-        "smooth": -7.000001059018527
+        "stepped": -3,
+        "smooth": -2.999999999999825
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -274,6 +274,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733079168720,
+      "src": {
+        "device": 140733079046528,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads1_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads1_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732929526480,
+          "device": 140733079046528,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733079057280,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "rate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.5,
           "no_init": false
         },
         "explicit": -1,
@@ -595,6 +660,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733079169424,
+      "src": {
+        "device": 140733079059296,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732962041744,
+          "device": 140733079059296,
+          "to_min": 0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733079059296,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "speed_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

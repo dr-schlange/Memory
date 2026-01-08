@@ -8,7 +8,11 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "cutoff": 48
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -44,7 +48,7 @@
       "config": {
         "set_pause": 0,
         "trig": 0,
-        "gate": 0,
+        "gate": 1,
         "rise": 0.57,
         "fall": 0.79,
         "shape": "exp",
@@ -52,8 +56,8 @@
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.6080338664466776,
-        "out": 0.3919661335533224
+        "inv": 0.6190766946608735,
+        "out": 0.3809233053391265
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -64,7 +68,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 7.0,
         "subdiv": "1/1",
@@ -79,6 +83,41 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 140732482157744,
+      "repr": "Operator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "a": 0,
+        "b": 0,
+        "operator": "+",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
+    },
+    {
+      "id": 140732482154720,
+      "repr": "KeySplitter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "lastoff",
+        "input": 0.0,
+        "range0": 34.0,
+        "range1": 64.0,
+        "range2": 94.0,
+        "out3": 0.0,
+        "out2": 0.0,
+        "out1": 0.0,
+        "out0": 0.0
+      },
+      "proxy": false,
+      "class": "KeySplitter"
     }
   ],
   "connections": [
@@ -272,6 +311,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732187763552,
+      "src": {
+        "device": 140732482153376,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732187760016,
+          "device": 140732482153376,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732482151696,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

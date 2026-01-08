@@ -44,7 +44,7 @@
       "config": {
         "set_pause": 0,
         "trig": 0,
-        "gate": 0,
+        "gate": 1,
         "rise": 0.25,
         "fall": 0.25,
         "shape": "log",
@@ -52,8 +52,8 @@
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.8412064223106571,
-        "out": 0.15879357768934288
+        "inv": 0.0,
+        "out": 1.0
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -64,7 +64,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 80.97842648639524,
+        "output": 75.06892990729834,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -264,6 +264,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732230553536,
+      "src": {
+        "device": 140732482157408,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732482041888,
+          "device": 140732482157408,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732482153376,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

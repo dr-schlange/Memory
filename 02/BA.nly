@@ -44,16 +44,16 @@
       "config": {
         "set_pause": 0,
         "trig": 0,
-        "gate": 1,
-        "rise": 0.25,
-        "fall": 0.25,
-        "shape": "log",
+        "gate": 0,
+        "rise": 0.57,
+        "fall": 0.79,
+        "shape": "exp",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.0,
-        "out": 1.0
+        "inv": 0.6080338664466776,
+        "out": 0.3919661335533224
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -64,13 +64,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 75.06892990729834,
+        "output": 0.0,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 7.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
-        "waveform": "sine",
+        "sampling_rate": 140,
+        "waveform": "pulse",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -329,6 +329,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732230554752,
+      "src": {
+        "device": 140732482157408,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732230554448,
+          "device": 140732482157408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732482144640,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

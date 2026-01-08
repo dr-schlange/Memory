@@ -76,13 +76,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 51.462162279843746,
-        "in1": 79.25057686882334,
+        "in0": 88.65457659414992,
+        "in1": 100.36359673554347,
         "in2": 0,
         "in3": 0,
-        "level": 52.0,
+        "level": 60.0,
         "type": "ondemand",
-        "out0": 79.25057686882334,
+        "out0": 100.36359673554347,
         "out1": 0.0
       },
       "proxy": false,
@@ -94,7 +94,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.462162279843746,
+        "output": 88.65457659414992,
         "set_pause": 0,
         "speed": 0.31,
         "subdiv": "1/1",
@@ -117,18 +117,38 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "mode": "lastoff",
-        "input": 100.36719856509532,
+        "mode": "keeplast",
+        "input": 100.36359673554347,
         "range0": 34.0,
         "range1": 64.0,
         "range2": 94.0,
-        "out3": 100.36719856509532,
-        "out2": 0,
-        "out1": 0,
-        "out0": 0
+        "out3": 108.16961016313917,
+        "out2": 93.92819773444236,
+        "out1": 62.44953034208034,
+        "out0": 33.664098429614256
       },
       "proxy": false,
       "class": "KeySplitter"
+    },
+    {
+      "id": 140733079057280,
+      "repr": "SmoothSteppedGenerator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "noise": "ideal",
+        "input": 6,
+        "trig": 0.0,
+        "gate": 0.0,
+        "rate": 0.5,
+        "coupler": 0.0,
+        "hot": 0.0,
+        "stepped": 7,
+        "smooth": 2.7436191872710203
+      },
+      "proxy": false,
+      "class": "SmoothSteppedGenerator"
     }
   ],
   "connections": [
@@ -318,6 +338,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732930955920,
+      "src": {
+        "device": 140733079059968,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732930955696,
+          "device": 140733079059968,
+          "to_min": -10.0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733079057280,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,
@@ -680,6 +765,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732930951888,
+      "src": {
+        "device": 140733079057280,
+        "repr": "SmoothSteppedGenerator1",
+        "parameter": {
+          "name": "smooth",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "smooth_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732930957488,
+          "device": 140733079057280,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733079046528,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

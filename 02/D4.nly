@@ -41,17 +41,17 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -12.24717372282504,
+        "output": -10.179170704816409,
         "set_pause": 0,
         "sigma": 10.0,
         "rho": 28.0,
-        "freq": 93.0,
-        "z": 36.832694545625834,
-        "y": -7.100278583957836,
-        "x": -12.24717372282504,
-        "znorm": 105.02564313714271,
-        "ynorm": 31.377116349153795,
-        "xnorm": 5.593890332227086
+        "freq": 1889.77,
+        "z": 33.2843926756165,
+        "y": -6.248531369744786,
+        "x": -10.179170704816409,
+        "znorm": 86.053851653504,
+        "ynorm": 26.045866369665635,
+        "xnorm": 7.480702448857021
       },
       "proxy": false,
       "class": "LorenzProjector"
@@ -62,6 +62,7 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 48.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -89,8 +90,8 @@
         "active5": 1,
         "active6": 1,
         "active7": 1,
-        "trig_out": 0.0,
-        "current_step": 0.0
+        "trig_out": 0,
+        "current_step": 4.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -103,8 +104,17 @@
       "config": {
         "set_pause": 0,
         "tempo": 120.0,
-        "play": 0,
-        "reset": 0
+        "play": 1,
+        "reset": 0,
+        "mul7": 0,
+        "mul5": 0,
+        "mul3": 0,
+        "div3": 0,
+        "mul4": 0,
+        "mul2": 0,
+        "div2": 0,
+        "div4": 0,
+        "lead": 0
       },
       "proxy": false,
       "class": "Clock"
@@ -350,6 +360,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "freq_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733024352960,
+      "src": {
+        "device": 140733023680704,
+        "repr": "Clock1",
+        "parameter": {
+          "name": "lead",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "lead_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732724559568,
+          "device": 140733023680704,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140731113799376,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

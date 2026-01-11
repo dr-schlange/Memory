@@ -44,9 +44,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "length": 2,
-        "reset": 1,
+        "reset": 0,
         "mode": "ondemand",
         "out7": 0,
         "out6": 0,
@@ -54,8 +54,8 @@
         "out4": 0,
         "out3": 0,
         "out2": 1,
-        "out1": 1,
-        "out0": 0,
+        "out1": 0,
+        "out0": 1,
         "overflow": 0
       },
       "proxy": false,
@@ -73,7 +73,7 @@
         "reset": 0,
         "mul7": 0,
         "mul5": 0,
-        "mul3": 0,
+        "mul3": 1,
         "div5": 0,
         "div3": 0,
         "mul4": 0,
@@ -91,13 +91,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 64.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
@@ -111,8 +111,8 @@
         "step6": 52.0,
         "step7": 37.0,
         "edit_step": 0,
-        "active0": 0,
-        "active1": 1,
+        "active0": 1,
+        "active1": 0,
         "active2": 1,
         "active3": 1,
         "active4": 1,
@@ -120,7 +120,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1
+        "current_step": 3
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -131,10 +131,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 66,
+        "output": 78,
         "set_pause": 0,
-        "input": 0.0,
-        "trigger": 0,
+        "input": 74.0,
+        "trigger": 1,
         "reset": 0,
         "root": "G",
         "scale_": "min-harmo",
@@ -142,6 +142,20 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 140735338008592,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 74.0,
+        "set_pause": 0,
+        "input": 64.0,
+        "shift": 10.0
+      },
+      "proxy": false,
+      "class": "PitchShifter"
     }
   ],
   "connections": [
@@ -1511,6 +1525,71 @@
       "velocity": null
     },
     {
+      "id": 140734360699312,
+      "src": {
+        "device": 140735368791104,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734387147856,
+          "device": 140735368791104,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735338008592,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734366841184,
       "src": {
         "device": 140735338008256,
@@ -1562,6 +1641,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734360699136,
+      "src": {
+        "device": 140735338008592,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734376490320,
+          "device": 140735338008592,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735338008256,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

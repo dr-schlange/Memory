@@ -1,0 +1,162 @@
+{
+  "midi_devices": [],
+  "virtual_devices": [
+    {
+      "id": 140736320981376,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 140735004821888,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 140735004825920,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "gate": 0,
+        "attack": 0.1,
+        "decay": 0.2,
+        "sustain": 0.7,
+        "release": 0.3
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
+    },
+    {
+      "id": 140735004826592,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "a": 0,
+        "b": 0,
+        "comparator": "=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
+    },
+    {
+      "id": 140736314503728,
+      "repr": "MultiPoleFilter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "input": 0,
+        "filter": "lowpass",
+        "mode": "cutoff",
+        "cutoff": 1.0,
+        "smoothing": 0.1,
+        "poles": 1,
+        "type": "continuous"
+      },
+      "proxy": false,
+      "class": "MultiPoleFilter"
+    },
+    {
+      "id": 140736314498688,
+      "repr": "EnvelopeSlew1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "attack": 50.0,
+        "release": 50.0,
+        "type": "envelope",
+        "mode": "ondemand"
+      },
+      "proxy": false,
+      "class": "EnvelopeSlew"
+    }
+  ],
+  "connections": [
+    {
+      "id": 140735004833312,
+      "src": {
+        "device": 140735004825920,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736061102416,
+          "device": 140735004825920,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735004826592,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

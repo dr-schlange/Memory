@@ -29,7 +29,7 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 47,
+          "cutoff": 46,
           "resonance": 65,
           "env_amount": 87,
           "attack": 10,
@@ -86,7 +86,7 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 68,
+          "cutoff": 67,
           "resonance": 65,
           "env_amount": 87,
           "attack": 10,
@@ -142,9 +142,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 85.17600000000013,
+        "output": 1.8959999999999997,
         "set_pause": 0,
-        "input": 85.01800000000013,
+        "input": 1.8959999999999997,
         "shift": 0.158
       },
       "proxy": false,
@@ -158,14 +158,14 @@
       "config": {
         "set_pause": 0,
         "noise": "nonlinear",
-        "input": 3,
-        "trig": 1,
+        "input": -10,
+        "trig": 0,
         "gate": 0.0,
         "rate": 3.7,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": 4,
-        "smooth": 0.8294732386829688
+        "stepped": 10,
+        "smooth": 1.069865639869081
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -176,9 +176,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.5222808449949758,
+        "output": -7.931641283001885,
         "set_pause": 0,
-        "input": 85.17600000000013,
+        "input": 1.8959999999999997,
         "filter": "highpass",
         "mode": "cutoff",
         "cutoff": 68.0,
@@ -196,10 +196,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 88.89999999999999,
+        "input": 127.0,
         "in": 0.0,
-        "out1": 88.89999999999999,
-        "out0": 95.25
+        "out1": 127.0,
+        "out0": 120.64999999999999
       },
       "proxy": false,
       "class": "DownScaler"
@@ -210,10 +210,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 92.27187566322306,
+        "output": 126.02890650720107,
         "set_pause": 0,
-        "input": 88.89999999999999,
-        "attack": 20.494948191172302,
+        "input": 127.0,
+        "attack": 18.276314949637758,
         "release": 41.0,
         "type": "envelope",
         "mode": "ondemand"
@@ -227,7 +227,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 26.031187321520978,
+        "output": 23.21324131017097,
         "set_pause": 0,
         "speed": 0.15,
         "subdiv": "1/1",
@@ -250,17 +250,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 83,
+        "input": 121,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "+6/m6",
         "interval3": "-octave",
         "key": "C",
         "scale_": "maj",
-        "out0": 86,
-        "out1": 89,
-        "out2": 91,
-        "out3": 71
+        "out0": 125,
+        "out1": 127,
+        "out2": 129,
+        "out3": 108
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -304,6 +304,22 @@
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140733023669616,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "a": 1.8959999999999997,
+        "b": 127.0,
+        "comparator": ">=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
     }
   ],
   "connections": [
@@ -814,6 +830,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731651345760,
+      "src": {
+        "device": 140733023679696,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731651476688,
+          "device": 140733023679696,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733023669616,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -2057,6 +2138,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope3_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731651345584,
+      "src": {
+        "device": 140733023669616,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731651487056,
+          "device": 140733023669616,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732724678000,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

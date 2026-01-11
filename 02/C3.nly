@@ -42,7 +42,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.00011631288165164256,
+        "output": 0.00034893864495492863,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.905,
@@ -61,7 +61,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.00011631288165164256,
+        "a": 0.00034893864495492863,
         "b": 0,
         "comparator": "=",
         "type": "ondemand"
@@ -94,9 +94,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.018795086081013324,
+        "output": 0.11139001382521485,
         "set_pause": 0,
-        "input": 0.014771735969758604,
+        "input": 0.044315207909275935,
         "attack": 87.0,
         "release": 12.0,
         "type": "slew",
@@ -104,6 +104,22 @@
       },
       "proxy": false,
       "class": "EnvelopeSlew"
+    },
+    {
+      "id": 140736314489616,
+      "repr": "Operator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 10.816906062137832,
+        "set_pause": 0,
+        "a": 0.10816906062137832,
+        "b": 100.0,
+        "operator": "*",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
     }
   ],
   "connections": [
@@ -433,7 +449,7 @@
       "velocity": null
     },
     {
-      "id": 140736314610224,
+      "id": 140736315143840,
       "src": {
         "device": 140736314498688,
         "repr": "EnvelopeSlew1",
@@ -458,8 +474,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736315227984,
+          "id": 140736014309968,
           "device": 140736314498688,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736314489616,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736314610224,
+      "src": {
+        "device": 140736314489616,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736014310224,
+          "device": 140736314489616,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

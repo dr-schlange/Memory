@@ -26,7 +26,7 @@ class PitchShifter(VirtualDevice):
         if value == 0:
             return 0
         if value > 127:
-            return 0
+            return self.shift
         return value + self.shift
 
     @property

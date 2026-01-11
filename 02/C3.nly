@@ -18,7 +18,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -29,13 +30,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.0005815644082582145,
         "set_pause": 0,
         "gate": 0,
-        "attack": 0.1,
-        "decay": 0.2,
-        "sustain": 0.7,
-        "release": 0.3
+        "attack": 0.905,
+        "decay": 0.807,
+        "sustain": 0.922,
+        "release": 0.019
       },
       "proxy": false,
       "class": "ADSREnvelope"
@@ -46,8 +47,9 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0,
         "set_pause": 0,
-        "a": 0,
+        "a": 0.0005815644082582145,
         "b": 0,
         "comparator": "=",
         "type": "ondemand"
@@ -80,11 +82,12 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0.10436069523273517,
         "set_pause": 0,
-        "input": 0,
-        "attack": 50.0,
-        "release": 50.0,
-        "type": "envelope",
+        "input": 0.10340215178831055,
+        "attack": 87.0,
+        "release": 12.0,
+        "type": "slew",
         "mode": "ondemand"
       },
       "proxy": false,
@@ -92,6 +95,71 @@
     }
   ],
   "connections": [
+    {
+      "id": 140736314612864,
+      "src": {
+        "device": 140735004821888,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736315223120,
+          "device": 140735004821888,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735004825920,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140735004833312,
       "src": {

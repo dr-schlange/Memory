@@ -53,7 +53,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.01216300940438871,
+        "output": 0.00463949843260187,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.11,
@@ -72,7 +72,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.01216300940438871,
+        "a": 0.00463949843260187,
         "b": 0.0,
         "comparator": "=",
         "type": "ondemand"
@@ -86,9 +86,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.7442657011558822,
+        "output": 1.585018054838038,
         "set_pause": 0,
-        "input": 1.7442657011558822,
+        "input": 1.585018054838038,
         "filter": "lowpass",
         "mode": "smoothing",
         "cutoff": 58.0,
@@ -105,9 +105,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.585018054838038,
+        "output": 0.6295321614221621,
         "set_pause": 0,
-        "input": 1.5447021943573662,
+        "input": 0.6210658307210017,
         "attack": 68.0,
         "release": 21.0,
         "type": "slew",
@@ -122,9 +122,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 36.511655886670155,
+        "output": 29.632157454069215,
         "set_pause": 0,
-        "a": 1.5213189952779231,
+        "a": 0.6295321614221621,
         "b": 24.0,
         "operator": "*",
         "type": "ondemand"
@@ -138,9 +138,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 71.94161595050971,
+        "output": 63.623574228755814,
         "set_pause": 0,
-        "a": 1.998378220847492,
+        "a": 1.585018054838038,
         "b": 36.0,
         "operator": "*",
         "type": "ondemand"
@@ -154,14 +154,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72,
+        "output": 26,
         "set_pause": 0,
-        "input": 71.94161595050971,
+        "input": 63.62357422875582,
         "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
-        "type": "free"
+        "type": "sample&hold"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -415,6 +415,71 @@
           "conversion_policy": "!=0",
           "disable_policy": false,
           "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736016302512,
+      "src": {
+        "device": 140735004826592,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736063843408,
+          "device": 140735004826592,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736013150928,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 140736350890128,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
@@ -42,12 +53,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.010460541541309881,
+        "output": 0.008150470219435728,
         "set_pause": 0,
         "gate": 0,
-        "attack": 0.149,
-        "decay": 0.807,
-        "sustain": 0.922,
+        "attack": 0.11,
+        "decay": 0.845,
+        "sustain": 0.941,
         "release": 0.145
       },
       "proxy": false,
@@ -61,7 +72,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.010460541541309881,
+        "a": 0.008150470219435728,
         "b": 0.0,
         "comparator": "=",
         "type": "ondemand"
@@ -75,15 +86,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.9480274592278022,
         "set_pause": 0,
-        "input": 0,
+        "input": 0.9480274592278022,
         "filter": "lowpass",
-        "mode": "cutoff",
-        "cutoff": 1.0,
-        "smoothing": 0.1,
-        "poles": 1,
-        "type": "continuous"
+        "mode": "smoothing",
+        "cutoff": 58.0,
+        "smoothing": 1.0,
+        "poles": 4,
+        "type": "ondemand"
       },
       "proxy": false,
       "class": "MultiPoleFilter"
@@ -94,12 +105,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.4106410901515587,
+        "output": 1.1072751081306293,
         "set_pause": 0,
-        "input": 1.3520018514232817,
-        "attack": 43.0,
-        "release": 72.0,
-        "type": "envelope",
+        "input": 1.0988087774294661,
+        "attack": 68.0,
+        "release": 21.0,
+        "type": "slew",
         "mode": "ondemand"
       },
       "proxy": false,
@@ -111,10 +122,26 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 34.94336863192768,
+        "output": 4.407329867862245,
         "set_pause": 0,
-        "a": 1.4106410901515587,
+        "a": 0.1836387444942602,
         "b": 24.0,
+        "operator": "*",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
+    },
+    {
+      "id": 140736013155408,
+      "repr": "Operator2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 65.08672936786544,
+        "set_pause": 0,
+        "a": 0.9480274592278022,
+        "b": 36.0,
         "operator": "*",
         "type": "ondemand"
       },
@@ -384,6 +411,258 @@
       "velocity": null
     },
     {
+      "id": 140736016318000,
+      "src": {
+        "device": 140736314503728,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736019569232,
+          "device": 140736314503728,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736316931696,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736016317824,
+      "src": {
+        "device": 140736314503728,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736016068816,
+          "device": 140736314503728,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736314503728,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736016316768,
+      "src": {
+        "device": 140736314503728,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736018413520,
+          "device": 140736314503728,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735004821888,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736314610928,
+      "src": {
+        "device": 140736314503728,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736016519376,
+          "device": 140736314503728,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736013155408,
+        "repr": "Operator2",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140736314611808,
       "src": {
         "device": 140736314498688,
@@ -514,6 +793,71 @@
       "velocity": null
     },
     {
+      "id": 140736016318176,
+      "src": {
+        "device": 140736314498688,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736315227984,
+          "device": 140736314498688,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736314503728,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": true,
+      "velocity": null
+    },
+    {
       "id": 140736314610224,
       "src": {
         "device": 140736314489616,
@@ -551,6 +895,63 @@
       },
       "dest": {
         "device": 140736316931696,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736314613040,
+      "src": {
+        "device": 140736013155408,
+        "repr": "Operator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736016531024,
+          "device": 140736013155408,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736350890128,
         "repr": "Amsynth",
         "parameter": {
           "channel": null,

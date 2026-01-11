@@ -26,7 +26,6 @@ class PitchShifter(VirtualDevice):
         if value == 0:
             return 0
         if value >= 127:
-            print("overflow")
             return self.shift
         return value + self.shift
 

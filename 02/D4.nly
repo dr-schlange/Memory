@@ -29,7 +29,6 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 103,
           "resonance": 65,
           "env_amount": 87,
           "attack": 10,
@@ -86,7 +85,6 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 103,
           "resonance": 65,
           "env_amount": 87,
           "attack": 10,
@@ -142,9 +140,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 91.17663601553568,
+        "output": 13.835999999999805,
         "set_pause": 0,
-        "input": 91.17663601553568,
+        "input": 13.835999999999805,
         "shift": 0.004
       },
       "proxy": false,
@@ -158,14 +156,14 @@
       "config": {
         "set_pause": 0,
         "noise": "nonlinear",
-        "input": 4,
-        "trig": 1,
+        "input": -8,
+        "trig": 0,
         "gate": 0.031496062992125984,
         "rate": 3.7,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": 10,
-        "smooth": 1.0299607896696692
+        "stepped": 5,
+        "smooth": 0.8745221052916395
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -176,15 +174,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 92.36150541140309,
+        "output": -3.1862433017184544,
         "set_pause": 0,
-        "input": 0.21600000000000016,
-        "filter": "lowpass",
-        "mode": "cutoff",
-        "cutoff": 1.0,
-        "smoothing": 0.1,
+        "input": 13.835999999999805,
+        "filter": "highpass",
+        "mode": "smoothing",
+        "cutoff": 68.0,
+        "smoothing": 0.2,
         "poles": 1,
-        "type": "continuous"
+        "type": "ondemand"
       },
       "proxy": false,
       "class": "MultiPoleFilter"
@@ -196,9 +194,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 120.64999999999999,
+        "input": 95.25,
         "in": 0.0,
-        "out1": 120.64999999999999,
+        "out1": 69.85000000000001,
         "out0": 95.25
       },
       "proxy": false,
@@ -210,10 +208,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 92.75467209221331,
+        "output": 94.8465714838778,
         "set_pause": 0,
-        "input": 120.64999999999999,
-        "attack": 74.96792166055523,
+        "input": 95.25,
+        "attack": 9.976487162698918,
         "release": 41.0,
         "type": "envelope",
         "mode": "ondemand"
@@ -227,7 +225,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 95.21878238714386,
+        "output": 12.671405837211347,
         "set_pause": 0,
         "speed": 0.15,
         "subdiv": "1/1",
@@ -250,17 +248,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 95,
+        "input": 121,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "+6/m6",
         "interval3": "-octave",
         "key": "C",
         "scale_": "maj",
-        "out0": 98,
-        "out1": 101,
-        "out2": 103,
-        "out3": 83
+        "out0": 125,
+        "out1": 127,
+        "out2": 129,
+        "out3": 108
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -1042,6 +1040,124 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671949072,
+      "src": {
+        "device": 140732227950576,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732189109840,
+          "device": 140732227950576,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733023676336,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671949424,
+      "src": {
+        "device": 140732227950576,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732189107792,
+          "device": 140732227950576,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732228195728,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "filter": {
-          "cutoff": 61
+          "resonance": 127
         }
       },
       "class": "Amsynth"
@@ -42,20 +42,20 @@
     {
       "id": 140733023673984,
       "repr": "LorenzProjector1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": -8.808331375209235,
-        "set_pause": 0,
-        "sigma": 1.0,
-        "rho": 29.245000167206932,
+        "output": 1.2582380226904516e+68,
+        "set_pause": 1,
+        "sigma": -1.3326658923832994e+25,
+        "rho": 10.0,
         "b": 5.0,
-        "freq": 112.0,
-        "z": 29.08900893912789,
-        "y": -8.842209926577054,
-        "x": -8.808331375209235,
-        "znorm": 0.0,
-        "ynorm": 61.10287553088201,
+        "freq": 72.0,
+        "z": -5.935864204740465e+73,
+        "y": -3.320549647974522e+74,
+        "x": 1.2582380226904516e+68,
+        "znorm": 127.0,
+        "ynorm": 0.0,
         "xnorm": 127.0
       },
       "proxy": false,
@@ -67,7 +67,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 112.0,
+        "output": 73.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -96,7 +96,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7.0
+        "current_step": 1.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -128,16 +128,16 @@
     {
       "id": 140732724678000,
       "repr": "HenonProjector1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 1.0,
-        "set_pause": 0,
-        "a": 0.3,
-        "b": 0.3,
+        "output": -2.1900229904433533e+105,
+        "set_pause": 1,
+        "a": 41.10120118599569,
+        "b": 44.61644497006191,
         "freq": 41.0,
-        "y": 0.3,
-        "x": 1.0
+        "y": -3.2568071486957395e+53,
+        "x": -2.1900229904433533e+105
       },
       "proxy": false,
       "class": "HenonProjector"
@@ -775,6 +775,71 @@
       "velocity": null
     },
     {
+      "id": 140731671952944,
+      "src": {
+        "device": 140733023673984,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "ynorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ynorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732725479760,
+          "device": 140733023673984,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "b",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "b_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733024351376,
       "src": {
         "device": 140731113799376,
@@ -1143,71 +1208,6 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "b_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140731671940800,
-      "src": {
-        "device": 140732724678000,
-        "repr": "HenonProjector1",
-        "parameter": {
-          "name": "y",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732725481424,
-          "device": 140732724678000,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732724678000,
-        "repr": "HenonProjector1",
-        "parameter": {
-          "name": "a",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

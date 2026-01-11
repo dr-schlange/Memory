@@ -29,7 +29,7 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 46,
+          "cutoff": 49,
           "resonance": 65,
           "env_amount": 87,
           "attack": 10,
@@ -86,7 +86,7 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 67,
+          "cutoff": 69,
           "resonance": 65,
           "env_amount": 87,
           "attack": 10,
@@ -132,7 +132,9 @@
         "set_pause": 0,
         "pads0_p0": 33.0,
         "pads0_p1": 0.0,
-        "viewmatrix0_reset": 0.0
+        "viewmatrix0_reset": 0.0,
+        "viewmatrix0_rows": 4.0,
+        "viewmatrix0_cols": 2.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -143,9 +145,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 101.86800000000034,
+        "output": 114.31200000000001,
         "set_pause": 0,
-        "input": 101.86800000000034,
+        "input": 114.31200000000001,
         "shift": 0.004
       },
       "proxy": false,
@@ -159,14 +161,14 @@
       "config": {
         "set_pause": 0,
         "noise": "nonlinear",
-        "input": 6,
+        "input": 8,
         "trig": 1,
         "gate": 0.25984251968503935,
         "rate": 3.7,
         "coupler": 0.0,
         "hot": 0,
-        "stepped": 1,
-        "smooth": 0.8421494861931577
+        "stepped": 8,
+        "smooth": 0.8990335019756501
       },
       "proxy": false,
       "class": "SmoothSteppedGenerator"
@@ -177,9 +179,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.634621582784399,
+        "output": 9.604526060325014,
         "set_pause": 0,
-        "input": 101.86800000000034,
+        "input": 114.31200000000001,
         "filter": "highpass",
         "mode": "cutoff",
         "cutoff": 68.0,
@@ -199,8 +201,8 @@
         "set_pause": 0,
         "input": 114.3,
         "in": 0.0,
-        "out1": 95.25,
-        "out0": 114.3
+        "out1": 114.3,
+        "out0": 69.85000000000001
       },
       "proxy": false,
       "class": "DownScaler"
@@ -211,10 +213,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 104.12902793121313,
+        "output": 91.8977254750401,
         "set_pause": 0,
         "input": 114.3,
-        "attack": 60.51623803833966,
+        "attack": 70.96506310364467,
         "release": 41.0,
         "type": "envelope",
         "mode": "ondemand"
@@ -228,7 +230,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 76.86330863955533,
+        "output": 90.13464360598933,
         "set_pause": 0,
         "speed": 0.15,
         "subdiv": "1/1",
@@ -314,7 +316,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 101.86800000000034,
+        "a": 114.31200000000001,
         "b": 127.0,
         "comparator": ">=",
         "type": "ondemand"
@@ -2153,6 +2155,71 @@
       "velocity": null
     },
     {
+      "id": 140732224813936,
+      "src": {
+        "device": 140732724678000,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732225038672,
+          "device": 140732724678000,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733023668608,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "viewmatrix0_next",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "viewmatrix0_next_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140731651345584,
       "src": {
         "device": 140733023669616,
@@ -2204,71 +2271,6 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140732224813936,
-      "src": {
-        "device": 140733023669616,
-        "repr": "Comparator1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732228365648,
-          "device": 140733023669616,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140733023668608,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "viewmatrix0_next",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "viewmatrix0_next_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

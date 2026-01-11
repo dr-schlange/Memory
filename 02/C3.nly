@@ -53,7 +53,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.008150470219435728,
+        "output": 0.01216300940438871,
         "set_pause": 0,
         "gate": 0,
         "attack": 0.11,
@@ -72,7 +72,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.008150470219435728,
+        "a": 0.01216300940438871,
         "b": 0.0,
         "comparator": "=",
         "type": "ondemand"
@@ -86,9 +86,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9480274592278022,
+        "output": 1.7442657011558822,
         "set_pause": 0,
-        "input": 0.9480274592278022,
+        "input": 1.7442657011558822,
         "filter": "lowpass",
         "mode": "smoothing",
         "cutoff": 58.0,
@@ -105,9 +105,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.1072751081306293,
+        "output": 1.585018054838038,
         "set_pause": 0,
-        "input": 1.0988087774294661,
+        "input": 1.5447021943573662,
         "attack": 68.0,
         "release": 21.0,
         "type": "slew",
@@ -122,9 +122,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4.407329867862245,
+        "output": 36.511655886670155,
         "set_pause": 0,
-        "a": 0.1836387444942602,
+        "a": 1.5213189952779231,
         "b": 24.0,
         "operator": "*",
         "type": "ondemand"
@@ -138,15 +138,33 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65.08672936786544,
+        "output": 71.94161595050971,
         "set_pause": 0,
-        "a": 0.9480274592278022,
+        "a": 1.998378220847492,
         "b": 36.0,
         "operator": "*",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 140736013150928,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 72,
+        "set_pause": 0,
+        "input": 71.94161595050971,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "proxy": false,
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -940,8 +958,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140736016531024,
+          "id": 140736016521168,
           "device": 140736013155408,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736013150928,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736016302336,
+      "src": {
+        "device": 140736013150928,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736063836240,
+          "device": 140736013150928,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

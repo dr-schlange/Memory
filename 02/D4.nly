@@ -8,7 +8,11 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "cutoff": 61
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -41,18 +45,18 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -8.88882756541806,
+        "output": -8.808331375209235,
         "set_pause": 0,
-        "sigma": 5.0,
-        "rho": 34.73606412806396,
-        "b": 4.190314178400376,
-        "freq": 103.0,
-        "z": 29.629389817534438,
-        "y": -8.727308046339662,
-        "x": -8.88882756541806,
+        "sigma": 1.0,
+        "rho": 29.245000167206932,
+        "b": 5.0,
+        "freq": 112.0,
+        "z": 29.08900893912789,
+        "y": -8.842209926577054,
+        "x": -8.808331375209235,
         "znorm": 0.0,
-        "ynorm": 78.53700360660307,
-        "xnorm": 101.29247516421195
+        "ynorm": 61.10287553088201,
+        "xnorm": 127.0
       },
       "proxy": false,
       "class": "LorenzProjector"
@@ -63,7 +67,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 103.0,
+        "output": 112.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -92,7 +96,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 4.0
+        "current_step": 7.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -120,6 +124,23 @@
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 140732724678000,
+      "repr": "HenonProjector1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 1.0,
+        "set_pause": 0,
+        "a": 0.3,
+        "b": 0.3,
+        "freq": 41.0,
+        "y": 0.3,
+        "x": 1.0
+      },
+      "proxy": false,
+      "class": "HenonProjector"
     }
   ],
   "connections": [
@@ -305,71 +326,6 @@
         },
         "explicit": -1,
         "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140731671943968,
-      "src": {
-        "device": 140733023673984,
-        "repr": "LorenzProjector1",
-        "parameter": {
-          "name": "znorm",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "znorm_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732725481040,
-          "device": 140733023673984,
-          "to_min": 5,
-          "to_max": 20,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140733023673984,
-        "repr": "LorenzProjector1",
-        "parameter": {
-          "name": "sigma",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            5,
-            20
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "sigma_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
@@ -701,6 +657,124 @@
       "velocity": null
     },
     {
+      "id": 140731671942912,
+      "src": {
+        "device": 140733023673984,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "znorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "znorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733024144848,
+          "device": 140733023673984,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140731689900688,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 49,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Resonnance",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671940448,
+      "src": {
+        "device": 140733023673984,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "ynorm",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ynorm_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732188422608,
+          "device": 140733023673984,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140731689900688,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733024351376,
       "src": {
         "device": 140731113799376,
@@ -809,6 +883,331 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671948544,
+      "src": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732215583184,
+          "device": 140732724678000,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732228198288,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope1_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope1_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671942384,
+      "src": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "y",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731651518160,
+          "device": 140732724678000,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732228198288,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope1_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope1_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671948720,
+      "src": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733055976784,
+          "device": 140732724678000,
+          "to_min": 5,
+          "to_max": 20,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733023673984,
+        "repr": "LorenzProjector1",
+        "parameter": {
+          "name": "sigma",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            5,
+            20
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sigma_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671951360,
+      "src": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732724554704,
+          "device": 140732724678000,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "b",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "b_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140731671940800,
+      "src": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "y",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732725481424,
+          "device": 140732724678000,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732724678000,
+        "repr": "HenonProjector1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

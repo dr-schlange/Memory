@@ -24,9 +24,9 @@
           "b2": 53
         },
         "sliders": {
-          "s1": 46,
-          "s2": 1,
-          "s3": 43
+          "s1": 64,
+          "s2": 56,
+          "s3": 44
         }
       },
       "class": "Minilab3"
@@ -66,15 +66,15 @@
         "set_pause": 0,
         "trig": 0,
         "gate": 0,
-        "rise": 0.028107285020807296,
-        "fall": 0.0010752168531898928,
+        "rise": 0.10369266382873443,
+        "fall": 0.05804696634805443,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.2235707270501962,
-        "out": 0.7764292729498038
+        "inv": 0.15921661095043904,
+        "out": 0.840783389049561
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -85,26 +85,26 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 9.991687371452205,
+        "output": 119.29919897618186,
         "set_pause": 0,
-        "input": 98.60651766462509,
+        "input": 106.77949040929424,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
         "length": 8.0,
-        "step0": 9.991687371452205,
-        "step1": 89.03487652955056,
-        "step2": 89.0452125252787,
-        "step3": 88.85361394137335,
-        "step4": 10.048782727860505,
-        "step5": 88.74749341692008,
-        "step6": 88.91991513101026,
-        "step7": 89.3095665630324,
-        "edit_step": 3,
+        "step0": 9.776234819448476,
+        "step1": 9.854786443914936,
+        "step2": 9.896697449592878,
+        "step3": 9.73187114001842,
+        "step4": 9.748992642406295,
+        "step5": 9.664006158278001,
+        "step6": 9.709345630425648,
+        "step7": 9.801325016242656,
+        "edit_step": 1,
         "active0": 1,
         "active1": 1,
         "active2": 1,
@@ -114,7 +114,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -125,9 +125,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 7.593682402303676,
+        "output": 90.66739122189821,
         "set_pause": 0,
-        "a": 9.991687371452205,
+        "a": 119.29919897618186,
         "b": 0.76,
         "operator": "*",
         "type": "ondemand"
@@ -153,11 +153,27 @@
         "div5": 0.0,
         "div4": 0.0,
         "div3": 0.0,
-        "div2": 0.0,
+        "div2": 1.0,
         "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
+    },
+    {
+      "id": 140732149869136,
+      "repr": "DualRouter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "in0": 0.0,
+        "in1": 0.0,
+        "type": "absolute",
+        "selector": 0.0
+      },
+      "proxy": false,
+      "class": "DualRouter"
     }
   ],
   "connections": [
@@ -343,12 +359,12 @@
       "velocity": null
     },
     {
-      "id": 140732115269456,
+      "id": 140732114800848,
       "src": {
         "device": 140732055989264,
         "repr": "WebSocketBus1",
         "parameter": {
-          "name": "pads0_p0",
+          "name": "pads0_p1",
           "stream": false,
           "consumer": true,
           "description": null,
@@ -359,7 +375,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "pads0_p0_cv",
+          "cv_name": "pads0_p1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -368,7 +384,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140731050280912,
+          "id": 140732130701008,
           "device": 140732055989264,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -379,10 +395,10 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140732149872496,
-        "repr": "UniversalSlopeGenerator1",
+        "device": 140732149869136,
+        "repr": "DualRouter1",
         "parameter": {
-          "name": "gate",
+          "name": "selector",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -391,9 +407,9 @@
             1.0
           ],
           "accepted_values": [],
-          "conversion_policy": "round",
+          "conversion_policy": ">0",
           "disable_policy": false,
-          "cv_name": "gate_cv",
+          "cv_name": "selector_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -668,71 +684,6 @@
       "velocity": null
     },
     {
-      "id": 140732114607760,
-      "src": {
-        "device": 140732149872496,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "eoc",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "eoc_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140731050389456,
-          "device": 140732149872496,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732145337408,
-        "repr": "Sequencer81",
-        "parameter": {
-          "name": "write",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "write_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140732054257200,
       "src": {
         "device": 140732149872496,
@@ -784,6 +735,71 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732114812464,
+      "src": {
+        "device": 140732149872496,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "eoc",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "eoc_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732146860112,
+          "device": 140732149872496,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732149869136,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -985,7 +1001,7 @@
       "velocity": null
     },
     {
-      "id": 140732054244880,
+      "id": 140732114806128,
       "src": {
         "device": 140732145337072,
         "repr": "ClockDivider1",
@@ -1010,7 +1026,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140731056773072,
+          "id": 140731651579344,
           "device": 140732145337072,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -1024,7 +1040,7 @@
         "device": 140732145337408,
         "repr": "Sequencer81",
         "parameter": {
-          "name": "trigger",
+          "name": "next_edit_step",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -1035,7 +1051,72 @@
           "accepted_values": [],
           "conversion_policy": ">0",
           "disable_policy": false,
-          "cv_name": "trigger_cv",
+          "cv_name": "next_edit_step_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732114809472,
+      "src": {
+        "device": 140732149869136,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732056566992,
+          "device": 140732149869136,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732145337408,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "write",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "write_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

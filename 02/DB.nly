@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 140732145337408,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 20:0",
+        "output": "Minilab3:Minilab3 MIDI 20:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -44,9 +55,9 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 137.91465759277344,
+        "input": 0.028897762298583984,
         "gain": 6.0,
-        "reset": 1,
+        "reset": 0,
         "out": 1.0
       },
       "proxy": false,
@@ -60,7 +71,7 @@
       "config": {
         "output": 1,
         "set_pause": 0,
-        "a": 0.13791465759277344,
+        "a": 0.014729499816894531,
         "b": 0.9,
         "comparator": "<",
         "type": "continuous"
@@ -74,9 +85,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 137.91465759277344,
+        "output": 31.144142150878906,
         "set_pause": 0,
-        "a": 0.13791465759277344,
+        "a": 0.014729499816894531,
         "b": 1000.0,
         "operator": "*",
         "type": "ondemand"
@@ -91,10 +102,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 1.0,
         "gain": 1.0,
-        "reset": 138,
-        "out": 0.13791465759277344
+        "reset": 31,
+        "out": 0.014729499816894531
       },
       "proxy": false,
       "class": "Integrator"
@@ -118,6 +129,242 @@
     }
   ],
   "connections": [
+    {
+      "id": 140732054254736,
+      "src": {
+        "device": 140732145337408,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "b1",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "chain": {
+          "id": 140731689989072,
+          "device": 140732145337408,
+          "to_min": 0.0,
+          "to_max": 100.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732114575984,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "gain",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gain_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1.0,
+          "no_init": false
+        },
+        "explicit": 74,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732054254560,
+      "src": {
+        "device": 140732145337408,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "b2",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 71,
+        "chain": {
+          "id": 140731689987920,
+          "device": 140732145337408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732114575984,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": 71,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732054254384,
+      "src": {
+        "device": 140732145337408,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 76,
+          "channel": null,
+          "name": "b3",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 76,
+        "chain": {
+          "id": 140732054547280,
+          "device": 140732145337408,
+          "to_min": 0.0,
+          "to_max": 100.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732114561744,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "gain",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gain_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1.0,
+          "no_init": false
+        },
+        "explicit": 76,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732054254208,
+      "src": {
+        "device": 140732145337408,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 77,
+          "channel": null,
+          "name": "b4",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 77,
+        "chain": {
+          "id": 140731056596048,
+          "device": 140732145337408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732114561744,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": 77,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732054251392,
       "src": {

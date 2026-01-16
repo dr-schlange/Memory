@@ -8,12 +8,12 @@ class Integrator(VirtualDevice):
     non-determinism in async feedback loops.
 
     inputs:
-    * input_cv [-1.0, 1.0] init=0.0 round: Integrator input in integrator unit
+    * input_cv [0.0, 5.0] init=0.0 round: Integrator input in integrator unit
     * gain_cv [0.0, 100.0] init=1.0: Integrator gain
     * reset_cv [0, 1.0] round: Reset integrator
 
     outputs:
-    * out_cv [-1.0, 1.0]: output
+    * out_cv [0.0, 5.0]: output
 
     type: continuous
     category: math
@@ -21,13 +21,13 @@ class Integrator(VirtualDevice):
     """
 
     input_cv = VirtualParameter(
-        name="input", range=(-1.0, 1.0), conversion_policy="round", default=0.0
+        name="input", range=(0.0, 5.0), conversion_policy="round", default=0.0
     )
     gain_cv = VirtualParameter(name="gain", range=(0.0, 100.0), default=1.0)
     reset_cv = VirtualParameter(
         name="reset", range=(0.0, 1.0), conversion_policy="round"
     )
-    out_cv = VirtualParameter(name="out", range=(-1.0, 1.0))
+    out_cv = VirtualParameter(name="out", range=(0.0, 5.0))
 
     @property
     def range(self):

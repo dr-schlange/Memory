@@ -1,5 +1,28 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140732117001504,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    },
+    {
+      "id": 140732149655632,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 20:0",
+        "output": "Minilab3:Minilab3 MIDI 20:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Minilab3"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140732121041280,
@@ -41,14 +64,195 @@
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.6653430698268743,
-        "out": 0.3346569301731257
+        "inv": 0.7764524540343344,
+        "out": 0.2235475459656656
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
     }
   ],
   "connections": [
+    {
+      "id": 140732114612688,
+      "src": {
+        "device": 140732149655632,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "b1",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "chain": {
+          "id": 140732056511952,
+          "device": 140732149655632,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732149872496,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": 74,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732114613216,
+      "src": {
+        "device": 140732149655632,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 71,
+          "channel": null,
+          "name": "b2",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 71,
+        "chain": {
+          "id": 140731049361488,
+          "device": 140732149655632,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732149872496,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "fall",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "fall_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": 71,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732114612864,
+      "src": {
+        "device": 140732149655632,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 76,
+          "channel": null,
+          "name": "b3",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 76,
+        "chain": {
+          "id": 140732115057616,
+          "device": 140732149655632,
+          "to_min": 0,
+          "to_max": 2,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140732149872496,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "shape",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            2
+          ],
+          "accepted_values": [
+            "log",
+            "lin",
+            "exp"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shape_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": 76,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140732115269456,
       "src": {
@@ -239,6 +443,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732114602480,
+      "src": {
+        "device": 140732149872496,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731049362000,
+          "device": 140732149872496,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732117001504,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

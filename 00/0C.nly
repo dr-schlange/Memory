@@ -25,8 +25,8 @@
           "b2": 53
         },
         "sliders": {
-          "s1": 39,
-          "s2": 65,
+          "s1": 22,
+          "s2": 34,
           "s3": 43
         }
       },
@@ -67,15 +67,15 @@
         "set_pause": 0,
         "trig": 0,
         "gate": 0,
-        "rise": 0.01691790012202838,
-        "fall": 0.11149209970080924,
+        "rise": 0.004930754569028749,
+        "fall": 0.0117724306767693,
         "shape": "lin",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.9624153848037538,
-        "out": 0.037584615196246264
+        "inv": 0.5267415875371527,
+        "out": 0.4732584124628473
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -86,26 +86,26 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 21.273162654481364,
+        "output": 37.865962784239926,
         "set_pause": 0,
-        "input": 28.22129637786699,
+        "input": 104.36090620190103,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 1.0,
+        "trigger": 0.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
         "length": 8.0,
-        "step0": 21.163987007326813,
-        "step1": 21.273162654481364,
-        "step2": 23.513436070843404,
-        "step3": 21.18489876063753,
-        "step4": 23.478945256941376,
-        "step5": 23.37357174675246,
-        "step6": 23.427344826694213,
-        "step7": 23.43657858789633,
-        "edit_step": 3,
+        "step0": 37.93026377775874,
+        "step1": 37.59075453197946,
+        "step2": 37.865962784239926,
+        "step3": 37.451864385978844,
+        "step4": 37.315546279719,
+        "step5": 38.16431939416715,
+        "step6": 38.00999700972204,
+        "step7": 38.0125690494628,
+        "edit_step": 7,
         "active0": 1,
         "active1": 1,
         "active2": 1,
@@ -115,7 +115,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1.0
+        "current_step": 2.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -126,15 +126,39 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 50.417395491120836,
+        "output": 28.778131716022344,
         "set_pause": 0,
-        "a": 21.273162654481364,
-        "b": 2.37,
+        "a": 37.865962784239926,
+        "b": 0.76,
         "operator": "*",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 140732145337072,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 1.0,
+        "div16": 1.0,
+        "div8": 0.0,
+        "div7": 1.0,
+        "div6": 1.0,
+        "div5": 1.0,
+        "div4": 1.0,
+        "div3": 1.0,
+        "div2": 0.0,
+        "div1": 0.0
+      },
+      "proxy": false,
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -515,71 +539,6 @@
       "velocity": null
     },
     {
-      "id": 140732114611456,
-      "src": {
-        "device": 140732149872496,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140732056902864,
-          "device": 140732149872496,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140732145337408,
-        "repr": "Sequencer81",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140732114605296,
       "src": {
         "device": 140732149872496,
@@ -775,6 +734,71 @@
       "velocity": null
     },
     {
+      "id": 140732054257200,
+      "src": {
+        "device": 140732149872496,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "eoc",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "eoc_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731654108368,
+          "device": 140732149872496,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732145337072,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140732114608112,
       "src": {
         "device": 140732145337408,
@@ -956,6 +980,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732054244880,
+      "src": {
+        "device": 140732145337072,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731056773072,
+          "device": 140732145337072,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732145337408,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

@@ -2,7 +2,7 @@
   "midi_devices": [],
   "virtual_devices": [
     {
-      "id": 140732121041280,
+      "id": 140733603137920,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -13,7 +13,7 @@
       "class": "TrevorBus"
     },
     {
-      "id": 140732133173968,
+      "id": 140733596649856,
       "repr": "WebSocketBus1",
       "paused": false,
       "running": true,
@@ -22,8 +22,254 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 140733596655904,
+      "repr": "Integrator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0.0,
+        "gain": 1.0,
+        "reset": 0.0,
+        "out": 0.0
+      },
+      "proxy": false,
+      "class": "Integrator"
+    },
+    {
+      "id": 140733596656240,
+      "repr": "KeySplitter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "mode": "lastoff",
+        "input": 0.0,
+        "range0": 34.0,
+        "range1": 64.0,
+        "range2": 94.0,
+        "out3": 0.0,
+        "out2": 0.0,
+        "out1": 0.0,
+        "out0": 0.0
+      },
+      "proxy": false,
+      "class": "KeySplitter"
+    },
+    {
+      "id": 140733596639440,
+      "repr": "Integrator2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "gain": 1.0,
+        "reset": 0,
+        "out": 0.0
+      },
+      "proxy": false,
+      "class": "Integrator"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 140733596656912,
+      "src": {
+        "device": 140733596655904,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733596656576,
+          "device": 140733596655904,
+          "to_min": 0.0,
+          "to_max": 5.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733596639440,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733596640080,
+      "src": {
+        "device": 140733596655904,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733596639760,
+          "device": 140733596655904,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733596656240,
+        "repr": "KeySplitter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733596639120,
+      "src": {
+        "device": 140733596639440,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733596638160,
+          "device": 140733596639440,
+          "to_min": 0.0,
+          "to_max": 5.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733596655904,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

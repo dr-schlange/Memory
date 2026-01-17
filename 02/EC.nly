@@ -32,7 +32,9 @@
       "config": {
         "set_pause": 0,
         "pads0_p0": 0.0,
-        "pads0_p1": 0.0
+        "pads0_p1": 0.0,
+        "sliders0_s0": 10.0,
+        "sliders0_s1": 47.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -45,7 +47,7 @@
       "config": {
         "set_pause": 0,
         "input": 1,
-        "gain": 2.0,
+        "gain": 7.874015748031496,
         "reset": 0,
         "out": 1.0
       },
@@ -60,9 +62,9 @@
       "config": {
         "set_pause": 0,
         "input": -1,
-        "gain": 1.0,
+        "gain": 37.00787401574803,
         "reset": 0,
-        "out": 0.7444031238555908
+        "out": 0.6341419970895362
       },
       "proxy": false,
       "class": "Integrator"
@@ -73,9 +75,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1,
+        "output": 0,
         "set_pause": 0,
-        "a": 0.8570294380187988,
+        "a": 0.7126081797081655,
         "b": 0.719,
         "comparator": ">=",
         "type": "continuous"
@@ -92,7 +94,7 @@
         "output": -1.0,
         "set_pause": 0,
         "a": 1.0,
-        "b": -1.0,
+        "b": 1.0,
         "operator": "*",
         "type": "continuous"
       },
@@ -338,10 +340,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734886452688,
+          "id": 140734885941456,
           "device": 140734921253712,
           "to_min": 0.0,
-          "to_max": 5.0,
+          "to_max": 100.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -352,22 +354,87 @@
         "device": 140734952047680,
         "repr": "Integrator1",
         "parameter": {
-          "name": "input",
+          "name": "gain",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
             0.0,
-            5.0
+            100.0
           ],
           "accepted_values": [],
-          "conversion_policy": "round",
+          "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "gain_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": 0.0,
+          "default": 1.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734885181616,
+      "src": {
+        "device": 140734921253712,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders0_s1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders0_s1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734953570384,
+          "device": 140734921253712,
+          "to_min": 0.0,
+          "to_max": 100.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734921251152,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "gain",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gain_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1.0,
           "no_init": false
         },
         "explicit": -1,

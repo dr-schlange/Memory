@@ -43,9 +43,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.744133045130591e+129,
+        "output": 4.621840766771661e+140,
         "set_pause": 0,
-        "input": 2585815803373435930078596652588064306121858190899131319961386932485215626155439013303197360572351806248731052750858861463673503744,
+        "input": 702496730820200422243476901783372219562076626279189864909093048329862147884937975860922966110326341837437801722045314206566806900402198413312,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -61,9 +61,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.585815803373436e+129,
+        "output": 7.024967308202004e+140,
         "set_pause": 0,
-        "input": 1937803228699639452081368497310822495779544406410219176170148955371617336745291359823117041350261909834277223445052079978137518080,
+        "input": 205798028059291597606565124784343094013889850047986494164194959387626827978217741734402661090238454166841115748959750803664574628436555857920,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -79,9 +79,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.23795205250156e+129,
+        "output": 6.0030017155474745e+140,
         "set_pause": 0,
-        "input": 890372919996848628284293311055798818735218720631809964882773505898475720513069854433347343257785174503581067384398649174584721408,
+        "input": 234264722593296809704815717749997594398557626658571532035847148551879831026616506241850837054325820825661883852284099134827337091221546860544,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -97,7 +97,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 9.095158677910328e+128,
+        "output": 2.342647225932968e+140,
         "set_pause": 0,
         "input": 0,
         "initial": 0.0,
@@ -115,7 +115,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.01888255817206144,
+        "output": 5.6855488065208566e-05,
         "set_pause": 0,
         "input": 0,
         "initial": 0.0,
@@ -133,9 +133,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.13104711865401797,
+        "output": 0.00042073585823619353,
         "set_pause": 0,
-        "a": 0.026209423730803594,
+        "a": 8.41471716472387e-05,
         "b": 5.0,
         "operator": "*",
         "type": "continuous"
@@ -149,15 +149,39 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 1,
         "set_pause": 0,
-        "a": 0.13104711865401797,
+        "a": 0.00042073585823619353,
         "b": 0.01,
         "comparator": "<=",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Comparator"
+    },
+    {
+      "id": 140734977111248,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 1.0,
+        "reset": 0.0,
+        "mode": "gate",
+        "div32": 0.0,
+        "div16": 0.0,
+        "div8": 1.0,
+        "div7": 0.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 1.0,
+        "div3": 0.0,
+        "div2": 1.0,
+        "div1": 0.0
+      },
+      "proxy": false,
+      "class": "ClockDivider"
     }
   ],
   "connections": [
@@ -1251,7 +1275,7 @@
       "velocity": null
     },
     {
-      "id": 140733665600528,
+      "id": 140734673204720,
       "src": {
         "device": 140734083260944,
         "repr": "Comparator1",
@@ -1276,8 +1300,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734085271248,
+          "id": 140734977624784,
           "device": 140734083260944,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734977111248,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673205600,
+      "src": {
+        "device": 140734977111248,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734069528016,
+          "device": 140734977111248,
           "to_min": null,
           "to_max": null,
           "auto": true,

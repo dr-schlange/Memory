@@ -56,9 +56,9 @@
       "config": {
         "output": 1.0,
         "set_pause": 0,
-        "input": 1,
+        "input": 0,
         "initial": 0.0,
-        "gain": 0.5614606381641426,
+        "gain": 0.004398304019543639,
         "reset": 0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -72,11 +72,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9164397716522217,
+        "output": 0.21445559225962696,
         "set_pause": 0,
         "input": 1,
         "initial": 0.0,
-        "gain": 0.5,
+        "gain": 0.004399129803965117,
         "reset": 0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -92,7 +92,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.9164397716522217,
+        "a": 0.21445559225962696,
         "b": 1.0,
         "comparator": "=",
         "type": "ondemand"
@@ -106,9 +106,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 32.951233863830566,
+        "output": 7.720075489885366,
         "set_pause": 0,
-        "a": 0.9153120517730713,
+        "a": 0.2144465413857046,
         "b": 36.0,
         "operator": "*",
         "type": "ondemand"
@@ -124,14 +124,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 32.87712335586548,
+        "input": 7.719422944354177,
         "range0": 7.0,
         "range1": 12.0,
         "range2": 14.0,
-        "out3": 32.87712335586548,
-        "out2": 13.982364177703857,
-        "out1": 11.978681087493896,
-        "out0": 6.972421646118164
+        "out3": 36.0,
+        "out2": 13.977062346556751,
+        "out1": 7.719422944354177,
+        "out0": 6.9822156328605836
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -144,15 +144,15 @@
       "config": {
         "set_pause": 0,
         "trigger": 0.0,
-        "io0": 6.972421646118164,
-        "io1": 11.978681087493896,
-        "io2": 13.982364177703857,
-        "io3": 32.87712335586548,
-        "io4": 35.93420648574829,
-        "io5": 35.91636657714844,
-        "io6": 6.9723358154296875,
-        "io7": 35.8776912689209,
-        "idx": 6,
+        "io0": 6.9822156328605836,
+        "io1": 7.719422944354177,
+        "io2": 13.977062346556751,
+        "io3": 36.0,
+        "io4": 3.939181893110799,
+        "io5": 22.84475745050578,
+        "io6": 22.784174534949535,
+        "io7": 36.0,
+        "idx": 4,
         "length": 8.0
       },
       "proxy": false,
@@ -695,6 +695,71 @@
       "dest": {
         "device": 140734977104192,
         "repr": "Integrator1",
+        "parameter": {
+          "name": "gain",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "gain_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733671079648,
+      "src": {
+        "device": 140734977071120,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734675543376,
+          "device": 140734977071120,
+          "to_min": 0.001,
+          "to_max": 1,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734977071120,
+        "repr": "Integrator2",
         "parameter": {
           "name": "gain",
           "stream": false,

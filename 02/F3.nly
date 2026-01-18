@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140735012419104,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (737):Synth input port (737:0) 128:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "MIDIBridge"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140734983588224,
@@ -103,7 +115,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.876615151617089e-19,
+        "output": 4.8053664562823034e-06,
         "set_pause": 0,
         "input": 0,
         "initial": 0.0,
@@ -114,6 +126,22 @@
       },
       "proxy": false,
       "class": "Integrator"
+    },
+    {
+      "id": 140734671877648,
+      "repr": "Operator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 57.00000486983913,
+        "set_pause": 0,
+        "a": 4.8053664562823034e-06,
+        "b": 57.0,
+        "operator": "+",
+        "type": "continuous"
+      },
+      "proxy": false,
+      "class": "Operator"
     }
   ],
   "connections": [
@@ -502,6 +530,128 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733665606688,
+      "src": {
+        "device": 140734671872528,
+        "repr": "Integrator5",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734086256976,
+          "device": 140734671872528,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734671877648,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733665606864,
+      "src": {
+        "device": 140734671877648,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734072376656,
+          "device": 140734671877648,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735012419104,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

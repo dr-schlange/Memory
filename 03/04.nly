@@ -31,7 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 46.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -42,14 +43,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -9.305076220000446e-258,
+        "output": 65.62125904104488,
         "set_pause": 0,
-        "input": 0.0,
-        "filter": "highpass",
+        "input": 65.62125904104488,
+        "filter": "lowpass",
         "mode": "cutoff",
-        "cutoff": 76.0,
+        "cutoff": 384.0,
         "smoothing": 0.1,
-        "poles": 1,
+        "poles": 4,
         "type": "continuous"
       },
       "proxy": false,
@@ -87,6 +88,71 @@
           "device": 140734977800336,
           "to_min": 0,
           "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734084508368,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734067589904,
+      "src": {
+        "device": 140734977800336,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734675177680,
+          "device": 140734977800336,
+          "to_min": 0,
+          "to_max": 0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -188,6 +254,63 @@
       "velocity": null
     },
     {
+      "id": 140734067589552,
+      "src": {
+        "device": 140734084508368,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734082677712,
+          "device": 140734084508368,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734673236560,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733669706048,
       "src": {
         "device": 140734084508368,
@@ -213,7 +336,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734082669648,
+          "id": 140734976883664,
           "device": 140734084508368,
           "to_min": 0,
           "to_max": 127,

@@ -31,7 +31,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 127.0,
+        "pads0_p0": 0.0,
         "pads0_p1": 0.0
       },
       "proxy": false,
@@ -43,12 +43,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 102.41351112084871,
+        "output": 59.64238260355009,
         "set_pause": 0,
-        "input": 102.41351112084871,
+        "input": 59.64238260355009,
         "filter": "lowpass",
         "mode": "cutoff",
-        "cutoff": 161.56378870621117,
+        "cutoff": 151.8108333740564,
         "smoothing": 0.1,
         "poles": 4,
         "type": "continuous"
@@ -64,7 +64,7 @@
       "config": {
         "output": 1,
         "set_pause": 0,
-        "a": 102.41351112084871,
+        "a": 59.64238260355009,
         "b": 47.0,
         "comparator": ">",
         "type": "ondemand"
@@ -78,13 +78,35 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 13.240077712587812,
+        "output": 18.020329968857496,
         "set_pause": 0,
         "speed": 2.2,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 44,
         "waveform": "random",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 140734977801296,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 95.70399489207325,
+        "set_pause": 0,
+        "speed": 0.51,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -571,8 +593,8 @@
         "chain": {
           "id": 140734069532496,
           "device": 140734071207120,
-          "to_min": 160,
-          "to_max": 175,
+          "to_min": 145,
+          "to_max": 193,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -660,6 +682,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734067596240,
+      "src": {
+        "device": 140734977801296,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140735009944144,
+          "device": 140734977801296,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734084508368,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

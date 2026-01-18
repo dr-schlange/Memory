@@ -76,9 +76,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.155771484375,
+        "output": 0.6081671142578127,
         "set_pause": 0,
-        "input": 4,
+        "input": 6,
         "initial": 0.04,
         "gain": 6.4,
         "reset": 0,
@@ -96,7 +96,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.155771484375,
+        "a": 0.6081671142578127,
         "b": 1.0,
         "comparator": "=",
         "type": "ondemand"
@@ -110,9 +110,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 7.944345703124999,
+        "output": 26.530832519531256,
         "set_pause": 0,
-        "a": 0.155771484375,
+        "a": 0.6081671142578127,
         "b": 51.0,
         "operator": "*",
         "type": "ondemand"
@@ -128,14 +128,14 @@
       "config": {
         "set_pause": 0,
         "mode": "lastoff",
-        "input": 2.06677001953125,
+        "input": 26.530832519531256,
         "range0": 7.0,
         "range1": 12.0,
         "range2": 14.0,
-        "out3": 0,
+        "out3": 22.36124633789063,
         "out2": 0,
         "out1": 0,
-        "out0": 2.06677001953125
+        "out0": 0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -148,15 +148,15 @@
       "config": {
         "set_pause": 0,
         "trigger": 0.0,
-        "io0": 2.06677001953125,
+        "io0": 0.0,
         "io1": 0.0,
         "io2": 0.0,
-        "io3": 0.0,
-        "io4": 50.5435400390625,
-        "io5": 50.45109008789063,
-        "io6": 50.45513671875001,
-        "io7": 0.0,
-        "idx": 7,
+        "io3": 22.36124633789063,
+        "io4": 46.426248779296884,
+        "io5": 46.40196899414064,
+        "io6": 0.0,
+        "io7": 46.436987915039076,
+        "idx": 6,
         "length": 8.0
       },
       "proxy": false,
@@ -176,8 +176,8 @@
         "output7": 0.0,
         "output6": 0.0,
         "output5": 0.0,
-        "output4": 0.0,
-        "output3": 50.413736572265634,
+        "output4": 46.40897277832032,
+        "output3": 0.0,
         "output2": 0.0,
         "output1": 0.0,
         "output0": 0.0
@@ -191,9 +191,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4.0270232997612725,
+        "output": 5.678589336951254,
         "set_pause": 0,
-        "input": 0,
+        "input": 1,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -224,6 +224,25 @@
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 140734977113264,
+      "repr": "Crossfade1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 5.676587173557617,
+        "in1": 5.677112760931728,
+        "in2": 0,
+        "in3": 0,
+        "level": 50,
+        "type": "ondemand",
+        "out0": 5.677112760931728,
+        "out1": 0.0
+      },
+      "proxy": false,
+      "class": "Crossfade"
     }
   ],
   "connections": [
@@ -1943,7 +1962,7 @@
       "velocity": null
     },
     {
-      "id": 140734098095488,
+      "id": 140734673195392,
       "src": {
         "device": 140734083258384,
         "repr": "Integrator3",
@@ -1968,7 +1987,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734675416400,
+          "id": 140734977409872,
           "device": 140734083258384,
           "to_min": 0,
           "to_max": 127,
@@ -1979,21 +1998,94 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734083260944,
-        "repr": "Amsynth",
+        "device": 140734977113264,
+        "repr": "Crossfade1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673203136,
+      "src": {
+        "device": 140734977113264,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734096808912,
+          "device": 140734977113264,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734977113264,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

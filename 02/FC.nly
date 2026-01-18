@@ -78,7 +78,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 55.879999999999995,
+        "output": 4.7600819199999975,
         "set_pause": 0,
         "input": 0.0,
         "attack": 0.0,
@@ -97,7 +97,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 55.879999999999995,
+        "a": 4.7600819199999975,
         "b": 2.0,
         "comparator": "<",
         "type": "continuous"
@@ -113,14 +113,14 @@
       "config": {
         "set_pause": 0,
         "trigger": 0,
-        "input": 55.879999999999995,
+        "input": 4.7600819199999975,
         "buf_size": 77,
         "reset": 0.0,
         "length": 8,
-        "out7": 2.0944360447999983,
+        "out7": 0,
         "out6": 0,
         "out5": 0,
-        "out4": 0,
+        "out4": 24.587199999999996,
         "out3": 0,
         "out2": 0,
         "out1": 0,
@@ -128,6 +128,36 @@
       },
       "proxy": false,
       "class": "ConveyorLine"
+    },
+    {
+      "id": 140735007884688,
+      "repr": "DownScaler1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 4.7600819199999975,
+        "in": 0.0,
+        "out1": 24.587199999999996,
+        "out0": 10.818367999999992
+      },
+      "proxy": false,
+      "class": "DownScaler"
+    },
+    {
+      "id": 140734977078800,
+      "repr": "DownScaler2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 24.587199999999996,
+        "in": 0.0,
+        "out1": 127.0,
+        "out0": 24.587199999999996
+      },
+      "proxy": false,
+      "class": "DownScaler"
     }
   ],
   "connections": [
@@ -327,63 +357,6 @@
       "velocity": null
     },
     {
-      "id": 140734977256352,
-      "src": {
-        "device": 140734977108896,
-        "repr": "EnvelopeSlew1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733670045520,
-          "device": 140734977108896,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734084502928,
-        "repr": "MIDIBridge0",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "general",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140733669715904,
       "src": {
         "device": 140734977108896,
@@ -439,6 +412,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673204368,
+      "src": {
+        "device": 140734977108896,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734072384592,
+          "device": 140734977108896,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735007884688,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,
@@ -579,64 +617,7 @@
       "velocity": null
     },
     {
-      "id": 140733669715200,
-      "src": {
-        "device": 140735012419104,
-        "repr": "ConveyorLine1",
-        "parameter": {
-          "name": "out0",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734976883664,
-          "device": 140735012419104,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734084502928,
-        "repr": "MIDIBridge0",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "general",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140733669718720,
+      "id": 140734673200672,
       "src": {
         "device": 140735012419104,
         "repr": "ConveyorLine1",
@@ -661,7 +642,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734069535696,
+          "id": 140734675179984,
           "device": 140735012419104,
           "to_min": 0,
           "to_max": 127,
@@ -693,12 +674,12 @@
       "velocity": null
     },
     {
-      "id": 140733669717136,
+      "id": 140734673199440,
       "src": {
-        "device": 140735012419104,
-        "repr": "ConveyorLine1",
+        "device": 140735007884688,
+        "repr": "DownScaler1",
         "parameter": {
-          "name": "out6",
+          "name": "out0",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -709,7 +690,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "out6_cv",
+          "cv_name": "out0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -718,8 +699,309 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734675414736,
-          "device": 140735012419104,
+          "id": 140733664139472,
+          "device": 140735007884688,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734084502928,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673196624,
+      "src": {
+        "device": 140735007884688,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733670045520,
+          "device": 140735007884688,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734084502928,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673205776,
+      "src": {
+        "device": 140735007884688,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734096807632,
+          "device": 140735007884688,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140735012419104,
+        "repr": "ConveyorLine1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673199968,
+      "src": {
+        "device": 140735007884688,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734096808016,
+          "device": 140735007884688,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734977078800,
+        "repr": "DownScaler2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673195920,
+      "src": {
+        "device": 140734977078800,
+        "repr": "DownScaler2",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734675180112,
+          "device": 140734977078800,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734084502928,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734673196976,
+      "src": {
+        "device": 140734977078800,
+        "repr": "DownScaler2",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734675179728,
+          "device": 140734977078800,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

@@ -48,7 +48,7 @@
         "input": 0,
         "initial": 0.0,
         "gain": 100.0,
-        "reset": 0,
+        "reset": 1,
         "limits": "-1..1",
         "leakage_factor": 1e-05
       },
@@ -66,7 +66,7 @@
         "input": 0,
         "initial": 0.0,
         "gain": 55.0,
-        "reset": 0,
+        "reset": 1,
         "limits": "-1..1",
         "leakage_factor": 1e-05
       },
@@ -130,14 +130,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.6008340232594804,
+        "output": 0.9129107180924568,
         "set_pause": 0,
         "in0": 0.0,
-        "in1": 6.9474880956178495,
+        "in1": 7.256180276438421,
         "in2": 0,
         "in3": 0,
-        "level0": 67.0,
-        "level1": 47.0,
+        "level0": 0.7159753521863402,
+        "level1": 25.1622943012255,
         "level2": 50,
         "level3": 50,
         "nums": 2,
@@ -152,10 +152,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 6.9474880956178495,
+        "output": 28.735102713708997,
         "set_pause": 0,
-        "input": 6.9474880956178495,
-        "attack": 7.0,
+        "input": 28.58720891128067,
+        "attack": 0.7159037546511217,
         "release": 10.0,
         "type": "slew",
         "mode": "continuous"
@@ -169,7 +169,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 7.387513823999512,
+        "output": 125.07055630257854,
         "set_pause": 0,
         "speed": 1.0,
         "subdiv": "1/1",
@@ -1277,6 +1277,136 @@
       "velocity": null
     },
     {
+      "id": 140733255074224,
+      "src": {
+        "device": 140733254710144,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732796117584,
+          "device": 140733254710144,
+          "to_min": 0.0,
+          "to_max": 99.99,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733254708800,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "attack",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            99.99
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "attack_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733255077392,
+      "src": {
+        "device": 140733254710144,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733198150352,
+          "device": 140733254710144,
+          "to_min": 0,
+          "to_max": 100,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733254710144,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "level0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            100
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "level0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733255383392,
       "src": {
         "device": 140733254708800,
@@ -1519,6 +1649,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733255076688,
+      "src": {
+        "device": 140733254708800,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733204252880,
+          "device": 140733254708800,
+          "to_min": 0,
+          "to_max": 100,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733254710144,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "level1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            100
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "level1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50,
           "no_init": false
         },
         "explicit": -1,

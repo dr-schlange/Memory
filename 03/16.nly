@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140732298737184,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (730):Synth input port (730:0) 128:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "MIDIBridge"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140732305197440,
@@ -19,7 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 59.0,
+        "pads0_p1": 127.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -30,9 +43,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 41.0,
+        "output": 189.0,
         "set_pause": 0,
-        "a": 41.0,
+        "a": 189.0,
         "b": 1,
         "operator": "+",
         "type": "continuous"
@@ -48,7 +61,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 41.0,
+        "a": 151.0,
         "b": 369.0,
         "comparator": ">",
         "type": "ondemand"
@@ -378,6 +391,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732300998224,
+      "src": {
+        "device": 140732299267920,
+        "repr": "Operator3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140731861872528,
+          "device": 140732299267920,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732298737184,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

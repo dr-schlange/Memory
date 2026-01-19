@@ -18,7 +18,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -29,7 +31,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -0.6876680850982666,
         "set_pause": 0,
         "input": 0,
         "initial": 0.0,
@@ -47,9 +49,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -0.44309520721435547,
         "set_pause": 0,
-        "input": 0,
+        "input": -1,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -66,17 +68,45 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0,
+        "in0": -0.4407365322113037,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0
+        "out0": 0.4407365322113037
       },
       "proxy": false,
       "class": "Inverter"
+    },
+    {
+      "id": 140733273514944,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0.0,
+        "shift": 0.0
+      },
+      "proxy": false,
+      "class": "PitchShifter"
+    },
+    {
+      "id": 140732795536080,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "a": 0,
+        "b": 0,
+        "comparator": "=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
     }
   ],
   "connections": [
@@ -190,8 +220,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -320,8 +350,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -406,6 +436,71 @@
       "velocity": null
     },
     {
+      "id": 140732254727424,
+      "src": {
+        "device": 140733289785424,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733203175632,
+          "device": 140733289785424,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732795536720,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140732254725312,
       "src": {
         "device": 140733289779664,
@@ -450,8 +545,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": "round",

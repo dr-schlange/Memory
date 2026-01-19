@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 140733285467536,
+      "repr": "MIDIBridge0",
+      "ports": {
+        "input": "NallelyBridge0 + NallelyBridge0",
+        "output": "FLUID Synth (727):Synth input port (727:0) 128:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "MIDIBridge"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 140733261171072,
@@ -31,9 +43,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.5735626220703125e-05,
+        "output": 0.2145833969116211,
         "set_pause": 0,
-        "input": 0,
+        "input": 1,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -49,7 +61,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -0.9778904914855957,
         "set_pause": 0,
         "input": 0,
         "initial": 0.0,
@@ -69,7 +81,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.0,
+        "a": -0.9778904914855957,
         "b": 1.0,
         "comparator": ">=",
         "type": "continuous"
@@ -84,17 +96,33 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.0,
+        "in0": -0.9778904914855957,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -0.0
+        "out0": 0.9778904914855957
       },
       "proxy": false,
       "class": "Inverter"
+    },
+    {
+      "id": 140733254703760,
+      "repr": "Operator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": -73.34178686141968,
+        "set_pause": 0,
+        "a": -0.9778904914855957,
+        "b": 75.0,
+        "operator": "*",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
     }
   ],
   "connections": [
@@ -143,8 +171,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -338,8 +366,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -554,6 +582,71 @@
       "velocity": null
     },
     {
+      "id": 140733257153488,
+      "src": {
+        "device": 140733205632720,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733257149456,
+          "device": 140733205632720,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733254703760,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140732794978384,
       "src": {
         "device": 140733254703424,
@@ -728,8 +821,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -743,6 +836,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733257148560,
+      "src": {
+        "device": 140733254703760,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733257149232,
+          "device": 140733254703760,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733285467536,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

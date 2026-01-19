@@ -29,10 +29,11 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0.0,
         "set_pause": 0,
-        "a": 0,
+        "a": 352.0,
         "b": 0,
-        "operator": "+",
+        "operator": "*",
         "type": "ondemand"
       },
       "proxy": false,
@@ -44,9 +45,10 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 44.0,
         "set_pause": 0,
         "a": 0,
-        "b": 0,
+        "b": 44.0,
         "operator": "+",
         "type": "ondemand"
       },
@@ -59,10 +61,11 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 8.0,
         "set_pause": 0,
-        "a": 0,
-        "b": 0,
-        "operator": "+",
+        "a": 44.0,
+        "b": 36.0,
+        "operator": "-",
         "type": "ondemand"
       },
       "proxy": false,
@@ -74,10 +77,11 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 352.0,
         "set_pause": 0,
-        "a": 0,
-        "b": 0,
-        "operator": "+",
+        "a": 44.0,
+        "b": 8.0,
+        "operator": "*",
         "type": "ondemand"
       },
       "proxy": false,
@@ -100,6 +104,71 @@
     }
   ],
   "connections": [
+    {
+      "id": 140735141667856,
+      "src": {
+        "device": 140734876759248,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736151941968,
+          "device": 140734876759248,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736199293712,
+        "repr": "Operator1",
+        "parameter": {
+          "name": "b",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "b_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140736165517408,
       "src": {
@@ -412,6 +481,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735141666800,
+      "src": {
+        "device": 140736199293072,
+        "repr": "Operator4",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736151940304,
+          "device": 140736199293072,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734876759248,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

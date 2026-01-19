@@ -1,0 +1,280 @@
+{
+  "midi_devices": [],
+  "virtual_devices": [
+    {
+      "id": 140736146655616,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 140736140167552,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 140736140180992,
+      "repr": "Integrator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "input": 0.0,
+        "initial": 0.0,
+        "gain": 1.0,
+        "reset": 0.0,
+        "limits": "unbound",
+        "leakage_factor": 1e-05
+      },
+      "proxy": false,
+      "class": "Integrator"
+    },
+    {
+      "id": 140736140131728,
+      "repr": "Integrator2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.0,
+        "set_pause": 0,
+        "input": 0,
+        "initial": 0.0,
+        "gain": 1.0,
+        "reset": 0,
+        "limits": "unbound",
+        "leakage_factor": 1e-05
+      },
+      "proxy": false,
+      "class": "Integrator"
+    },
+    {
+      "id": 140736089931856,
+      "repr": "Inverter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 0,
+        "in1": 0,
+        "in2": 0,
+        "in3": 0,
+        "out3": 0,
+        "out2": 0,
+        "out1": 0,
+        "out0": 0
+      },
+      "proxy": false,
+      "class": "Inverter"
+    }
+  ],
+  "connections": [
+    {
+      "id": 140736089932528,
+      "src": {
+        "device": 140736140180992,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736089932192,
+          "device": 140736140180992,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736140131728,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736140132048,
+      "src": {
+        "device": 140736140131728,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736140130768,
+          "device": 140736140131728,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736089931856,
+        "repr": "Inverter1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736140706480,
+      "src": {
+        "device": 140736089931856,
+        "repr": "Inverter1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736140706176,
+          "device": 140736089931856,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736140180992,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

@@ -4,7 +4,7 @@ from nallely import VirtualDevice, VirtualParameter, on
 
 class ShiftRegister(VirtualDevice):
     input_cv = VirtualParameter("input", range=(0, 127))
-    trigger_cv = VirtualParameter("trigger", range=(0, 1), conversion_policy="round")
+    trigger_cv = VirtualParameter("trigger", range=(0, 1), conversion_policy=">0")
     reset_cv = VirtualParameter("reset", range=(0, 1))
     length_cv = VirtualParameter(
         "length", range=(2, 8), conversion_policy="round", default=8

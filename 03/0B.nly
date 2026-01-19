@@ -31,13 +31,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -5.036970853805542,
+        "output": 0.0,
         "set_pause": 0,
-        "input": 16,
+        "input": 0,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
-        "limits": "unbound",
+        "limits": "-1..1",
         "leakage_factor": 1e-05
       },
       "proxy": false,
@@ -49,13 +49,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -15.602298498153687,
+        "output": 0.0,
         "set_pause": 0,
-        "input": -5,
+        "input": 0,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
-        "limits": "unbound",
+        "limits": "-1..1",
         "leakage_factor": 1e-05
       },
       "proxy": false,
@@ -68,14 +68,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -15.591166734695435,
+        "in0": 0.0,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 15.591166734695435
+        "out0": -0.0
       },
       "proxy": false,
       "class": "Inverter"
@@ -83,12 +83,12 @@
     {
       "id": 140736089936896,
       "repr": "WindowDetector1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 0,
-        "set_pause": 0,
-        "input": -15.591166734695435,
+        "output": 1,
+        "set_pause": 1,
+        "input": 0.0,
         "upperbound": 6.0,
         "lowerbound": -6.0,
         "type": "ondemand"
@@ -102,12 +102,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 31.161672115325928,
+        "output": -0.0,
         "set_pause": 0,
-        "a": 15.580836057662964,
-        "b": 2.0,
+        "a": -0.0,
+        "b": 1.0,
         "operator": "*",
-        "type": "ondemand"
+        "type": "continuous"
       },
       "proxy": false,
       "class": "Operator"
@@ -118,11 +118,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 15.580836057662964,
+        "output": -0.0,
         "set_pause": 0,
-        "in0": 15.580836057662964,
-        "in1": 31.161672115325928,
-        "type": "toggle",
+        "in0": -0.0,
+        "in1": -0.0,
+        "type": "absolute",
         "selector": 0.0
       },
       "proxy": false,
@@ -370,8 +370,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -576,71 +576,6 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 140736140706480,
-      "src": {
-        "device": 140736089931856,
-        "repr": "Inverter1",
-        "parameter": {
-          "name": "out0",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140736140706176,
-          "device": 140736089931856,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140736140180992,
-        "repr": "Integrator1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,
@@ -1031,6 +966,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736140874320,
+      "src": {
+        "device": 140736089938912,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736140879504,
+          "device": 140736089938912,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736140180992,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,

@@ -47,8 +47,8 @@
         "set_pause": 0,
         "input": 0,
         "initial": 0.0,
-        "gain": 100.0,
-        "reset": 0,
+        "gain": 71.0,
+        "reset": 1,
         "limits": "-1..1",
         "leakage_factor": 1e-05
       },
@@ -66,7 +66,7 @@
         "input": 0,
         "initial": 0.0,
         "gain": 55.0,
-        "reset": 0,
+        "reset": 1,
         "limits": "-1..1",
         "leakage_factor": 1e-05
       },
@@ -76,12 +76,12 @@
     {
       "id": 140733254703424,
       "repr": "Comparator1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 1,
-        "set_pause": 0,
-        "a": 0.0,
+        "output": 0,
+        "set_pause": 1,
+        "a": 0.5619192123413086,
         "b": 0.0,
         "comparator": "<=",
         "type": "continuous"
@@ -114,10 +114,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 5069.202771763734,
         "set_pause": 0,
-        "a": 0.0,
-        "b": 44.0,
+        "a": 85.91869104684295,
+        "b": 59.0,
         "operator": "*",
         "type": "continuous"
       },
@@ -130,14 +130,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.891192358127029,
+        "output": 2566.423514194019,
         "set_pause": 0,
-        "in0": 0.0,
-        "in1": 41.573983064920874,
+        "in0": 5069.202771763734,
+        "in1": 89.90450818110641,
         "in2": 0,
         "in3": 0,
-        "level0": 2.2765294158480542,
-        "level1": 32.735419736158164,
+        "level0": 100.0,
+        "level1": 70.79095132370583,
         "level2": 50,
         "level3": 50,
         "nums": 2,
@@ -152,10 +152,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 41.573983064920874,
+        "output": 89.90450818110641,
         "set_pause": 0,
-        "input": 41.573983064920874,
-        "attack": 2.2763017629064692,
+        "input": 89.90450818110641,
+        "attack": 99.99,
         "release": 10.0,
         "type": "slew",
         "mode": "continuous"
@@ -169,13 +169,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 63.201018157315,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 1.0,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -192,18 +192,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 41.573983064920874,
-        "trigger": 0,
+        "input": 89.90450818110641,
+        "trigger": 1,
         "reset": 0,
         "length": 8,
-        "output7": 0,
-        "output6": 0,
-        "output5": 0,
-        "output4": 0,
-        "output3": 0,
-        "output2": 0,
-        "output1": 0,
-        "output0": 0
+        "output7": 82.99599567042654,
+        "output6": 82.99599661512656,
+        "output5": 83.99118210792234,
+        "output4": 84.94487813504601,
+        "output3": 85.91869104684295,
+        "output2": 86.89805413299936,
+        "output1": 87.88887061512379,
+        "output0": 88.89096098308282
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -1044,7 +1044,7 @@
         "type": "note"
       },
       "bouncy": false,
-      "muted": true,
+      "muted": false,
       "velocity": null
     },
     {
@@ -2007,12 +2007,12 @@
       "velocity": null
     },
     {
-      "id": 140733255076336,
+      "id": 140733254770496,
       "src": {
-        "device": 140733254706784,
-        "repr": "ShiftRegister1",
+        "device": 140733254709472,
+        "repr": "LFO1",
         "parameter": {
-          "name": "output1",
+          "name": "output",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -2023,7 +2023,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output1_cv",
+          "cv_name": "output_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -2032,10 +2032,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733203260240,
-          "device": 140733254706784,
+          "id": 140733204155216,
+          "device": 140733254709472,
           "to_min": 0,
-          "to_max": 127,
+          "to_max": 1,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -2043,33 +2043,41 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140733285467536,
-        "repr": "MIDIBridge0",
+        "device": 140733254706784,
+        "repr": "ShiftRegister1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "general",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
-            127
-          ]
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140733255077216,
+      "id": 140733254764864,
       "src": {
         "device": 140733254706784,
         "repr": "ShiftRegister1",
         "parameter": {
-          "name": "output4",
+          "name": "output0",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -2080,7 +2088,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output4_cv",
+          "cv_name": "output0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -2089,44 +2097,52 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733199058256,
+          "id": 140733199057232,
           "device": 140733254706784,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 140733285467536,
-        "repr": "MIDIBridge0",
+        "device": 140733254703760,
+        "repr": "Operator1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "general",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
-            0,
-            127
-          ]
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
       "velocity": null
     },
     {
-      "id": 140733255081264,
+      "id": 140733254771024,
       "src": {
         "device": 140733254706784,
         "repr": "ShiftRegister1",
         "parameter": {
-          "name": "output7",
+          "name": "output3",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -2137,7 +2153,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output7_cv",
+          "cv_name": "output3_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -2146,32 +2162,40 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140733204425552,
+          "id": 140733197658704,
           "device": 140733254706784,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 140733285467536,
-        "repr": "MIDIBridge0",
+        "device": 140733254703760,
+        "repr": "Operator1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "general",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
-            0,
-            127
-          ]
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

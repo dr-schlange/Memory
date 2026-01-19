@@ -20,7 +20,8 @@
       "config": {
         "set_pause": 0,
         "pads0_p0": 0.0,
-        "pads0_p1": 0.0
+        "pads0_p1": 0.0,
+        "pads1_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -31,9 +32,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.942288875579834,
+        "output": -14837.689244270325,
         "set_pause": 0,
-        "input": 0,
+        "input": 56,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -49,9 +50,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.08478617668151855,
+        "output": -1599.2897765636444,
         "set_pause": 0,
-        "input": 1,
+        "input": -14838,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -68,14 +69,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -0.08478617668151855,
+        "in0": -1599.2897765636444,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0.08741307258605957
+        "out0": 1534.8646516799927
       },
       "proxy": false,
       "class": "Inverter"
@@ -86,9 +87,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 56.057999999999865,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 56.057999999999865,
         "shift": 0.001
       },
       "proxy": false,
@@ -100,11 +101,12 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0,
         "set_pause": 0,
-        "a": 0,
-        "b": 0,
-        "comparator": "=",
-        "type": "ondemand"
+        "a": 56.057999999999865,
+        "b": 126.0,
+        "comparator": ">=",
+        "type": "continuous"
       },
       "proxy": false,
       "class": "Comparator"
@@ -813,6 +815,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140732254726368,
+      "src": {
+        "device": 140733273514944,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733200148048,
+          "device": 140733273514944,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732795536720,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

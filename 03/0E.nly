@@ -7,9 +7,27 @@
         "input": null,
         "output": "FLUID Synth (727):Synth input port (727:0) 128:0"
       },
-      "channel": 0,
+      "channel": 9,
       "config": {},
       "class": "MIDIBridge"
+    },
+    {
+      "id": 140733285467200,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 28:0",
+        "output": "Minilab3:Minilab3 MIDI 28:0"
+      },
+      "channel": 0,
+      "config": {
+        "pads": {
+          "p3": 66
+        },
+        "buttons": {
+          "b1": 127
+        }
+      },
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -34,7 +52,7 @@
         "pads0_p0": 0.0,
         "pads0_p1": 0.0,
         "pads1_p0": 0.0,
-        "pads1_p1": 109.0
+        "pads1_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -45,9 +63,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": 0.5892760753631592,
         "set_pause": 0,
-        "input": 69,
+        "input": 0,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -63,7 +81,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 8.554664267324236,
+        "output": 32.17401777181433,
         "set_pause": 0,
         "input": 1,
         "initial": 0.0,
@@ -82,14 +100,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 8.424050075545946,
+        "in0": 32.17401777181433,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -8.424050075545946
+        "out0": -31.94696727112335
       },
       "proxy": false,
       "class": "Inverter"
@@ -100,10 +118,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 68.78740157480314,
+        "output": 0,
         "set_pause": 0,
-        "input": 34.39370078740157,
-        "shift": 34.39370078740157
+        "input": 0.0,
+        "shift": 48.0
       },
       "proxy": false,
       "class": "PitchShifter"
@@ -116,7 +134,7 @@
       "config": {
         "output": 1,
         "set_pause": 0,
-        "a": 127.0,
+        "a": 0,
         "b": 126.0,
         "comparator": ">=",
         "type": "continuous"
@@ -126,6 +144,122 @@
     }
   ],
   "connections": [
+    {
+      "id": 140733255081792,
+      "src": {
+        "device": 140733285467200,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "b1",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "chain": {
+          "id": 140732794386000,
+          "device": 140733285467200,
+          "to_min": -48.0,
+          "to_max": 48.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 140733273514944,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -48.0,
+            48.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": 74,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733255083200,
+      "src": {
+        "device": 140733285467200,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732794384592,
+          "device": 140733285467200,
+          "to_min": -48.0,
+          "to_max": 48.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 140733273514944,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -48.0,
+            48.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140733255075280,
       "src": {
@@ -647,6 +781,63 @@
       "velocity": null
     },
     {
+      "id": 140733255084608,
+      "src": {
+        "device": 140733289785424,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733203177680,
+          "device": 140733289785424,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733197637328,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140732254725312,
       "src": {
         "device": 140733289779664,
@@ -1090,7 +1281,7 @@
         "type": "virtual"
       },
       "bouncy": false,
-      "muted": true,
+      "muted": false,
       "velocity": null
     }
   ],

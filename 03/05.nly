@@ -43,11 +43,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
+        "output": -0.06997489929199219,
         "set_pause": 0,
-        "input": 0,
+        "input": -1,
         "initial": 0.0,
-        "gain": 7.0,
+        "gain": 100.0,
         "reset": 0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -61,13 +61,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.006703376770019531,
+        "output": 0.9319772720336914,
         "set_pause": 0,
-        "input": -1,
+        "input": 0,
         "initial": 0.0,
-        "gain": 36.0,
+        "gain": 91.0,
         "reset": 0,
-        "limits": "unbound",
+        "limits": "-1..1",
         "leakage_factor": 1e-05
       },
       "proxy": false,
@@ -81,7 +81,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": -0.006703376770019531,
+        "a": 0.9319772720336914,
         "b": 0.0,
         "comparator": "<=",
         "type": "continuous"
@@ -96,14 +96,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.07097339630126953,
+        "in0": 0.9319772720336914,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -0.07097339630126953
+        "out0": -0.9319772720336914
       },
       "proxy": false,
       "class": "Inverter"
@@ -114,9 +114,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.35486698150634766,
+        "output": 4.659886360168457,
         "set_pause": 0,
-        "a": -0.006703376770019531,
+        "a": 0.9319772720336914,
         "b": 5.0,
         "operator": "*",
         "type": "ondemand"
@@ -171,8 +171,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -366,8 +366,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -756,8 +756,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -767,6 +767,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733201010128,
+      "src": {
+        "device": 140733254703424,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733201011856,
+          "device": 140733254703424,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733254697040,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,
@@ -821,8 +886,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",

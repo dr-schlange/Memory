@@ -34,7 +34,7 @@
         "pads0_p0": 0.0,
         "pads0_p1": 0.0,
         "pads1_p0": 2.0,
-        "pads1_p1": 2.0
+        "pads1_p1": 3.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -45,7 +45,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.758085851594219,
+        "output": 1.3756143765186697,
         "set_pause": 0,
         "input": 47,
         "initial": 0.0,
@@ -63,11 +63,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.012984613733967459,
+        "output": 0.6631524544062578,
         "set_pause": 0,
         "input": 1,
         "initial": 0.0,
-        "gain": 1.574803149606299,
+        "gain": 2.3622047244094486,
         "reset": 0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -82,14 +82,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.012984613733967459,
+        "in0": 0.6577835308285211,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -0.012984613733967459
+        "out0": -0.6577835308285211
       },
       "proxy": false,
       "class": "Inverter"
@@ -100,10 +100,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -9.545838559934952e-05,
+        "output": -0.4294558061464706,
         "set_pause": 0,
-        "a": 0.012984613733967459,
-        "b": -0.009770280732883243,
+        "a": 0.6577835308285211,
+        "b": -0.6528831842377432,
         "operator": "*",
         "type": "continuous"
       },
@@ -116,9 +116,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 46.9999045416144,
+        "output": 46.57054419385353,
         "set_pause": 0,
-        "a": -9.545838559934952e-05,
+        "a": -0.4294558061464706,
         "b": 47.0,
         "operator": "+",
         "type": "continuous"
@@ -134,7 +134,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": -9.545838559934952e-05,
+        "a": -0.4230909267340324,
         "b": -1.0,
         "comparator": "<=",
         "type": "ondemand"
@@ -148,7 +148,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 53.0,
         "set_pause": 0,
         "input": 63.5,
         "write": 0.0,
@@ -177,10 +177,32 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1.0
+        "current_step": 4.0
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 140736200162144,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 67.1083068377092,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -229,8 +251,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -554,8 +576,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -879,8 +901,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -1261,8 +1283,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": "round",
@@ -1398,6 +1420,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "reset_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140736200318784,
+      "src": {
+        "device": 140736165645680,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140736151931344,
+          "device": 140736165645680,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140736200147024,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -57,7 +57,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "length": 4,
         "reset": 0,
         "out7": 0,
@@ -78,7 +78,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 6.12,
         "subdiv": "1/1",
@@ -96,71 +96,6 @@
     }
   ],
   "connections": [
-    {
-      "id": 140733475432144,
-      "src": {
-        "device": 140733648863984,
-        "repr": "RingCounter1",
-        "parameter": {
-          "name": "out1",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out1_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140733475431968,
-          "device": 140733648863984,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140733648863984,
-        "repr": "RingCounter1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
     {
       "id": 140733475433200,
       "src": {
@@ -451,6 +386,63 @@
           "device": 140733648863984,
           "to_min": 0,
           "to_max": 67,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733653396048,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733475432144,
+      "src": {
+        "device": 140733648863984,
+        "repr": "RingCounter1",
+        "parameter": {
+          "name": "out2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732996076624,
+          "device": 140733648863984,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false

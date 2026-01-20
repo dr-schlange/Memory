@@ -61,10 +61,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 2.3814134725348137,
+        "output": 3.7521888274780477,
         "set_pause": 0,
         "selector": 1,
-        "out": 2.3814134725348137,
+        "out": 3.7521888274780477,
         "in2": 0.0,
         "in3": 0.0,
         "in4": 0.0,
@@ -72,8 +72,8 @@
         "in6": 0.0,
         "in7": 0.0,
         "in8": 0.0,
-        "in0": 53.08747939208795,
-        "in1": 2.3814134725348137
+        "in0": 83.7002685999895,
+        "in1": 3.7521888274780477
       },
       "proxy": false,
       "class": "Multiplexer"
@@ -84,12 +84,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53.08747939208795,
+        "output": 83.7002685999895,
         "set_pause": 0,
-        "speed": 1.1687615846678214,
+        "speed": 1.2659031452543499,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 23,
+        "sampling_rate": 25,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -108,7 +108,7 @@
       "config": {
         "output": 127.0,
         "set_pause": 0,
-        "speed": 0.6781372282604782,
+        "speed": 0.7806755422129248,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -128,9 +128,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.171963975592921,
+        "output": 3.7521888274780477,
         "set_pause": 0,
-        "input": 53.08747939208795,
+        "input": 83.7002685999895,
         "trigger": 1,
         "reset": 0
       },
@@ -144,16 +144,16 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 2.3814134725348137,
-        "selector": 0,
+        "input": 3.7521888274780477,
+        "selector": 1,
         "out7": 0,
         "out6": 0,
         "out5": 0,
         "out4": 0,
         "out3": 0,
         "out2": 0,
-        "out1": 0,
-        "out0": 2.3814134725348137
+        "out1": 1,
+        "out0": 0
       },
       "proxy": false,
       "class": "Demultiplexer"
@@ -868,6 +868,71 @@
       "velocity": null
     },
     {
+      "id": 140733475432672,
+      "src": {
+        "device": 140733005552592,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733019143120,
+          "device": 140733005552592,
+          "to_min": 0.0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733024065552,
+        "repr": "Demultiplexer2",
+        "parameter": {
+          "name": "selector",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            7.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "selector_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140733019969808,
       "src": {
         "device": 140733618094496,
@@ -927,6 +992,120 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733475433904,
+      "src": {
+        "device": 140733024065552,
+        "repr": "Demultiplexer2",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732996760784,
+          "device": 140733024065552,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732997694352,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733475432496,
+      "src": {
+        "device": 140733024065552,
+        "repr": "Demultiplexer2",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732996759248,
+          "device": 140733024065552,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140732997694352,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "general",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

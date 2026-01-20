@@ -18,7 +18,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -48,9 +49,10 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 22.704232735301673,
         "set_pause": 0,
-        "selector": 0.0,
-        "out": 0.0,
+        "selector": 0,
+        "out": 95.73241431615669,
         "in2": 0.0,
         "in3": 0.0,
         "in4": 0.0,
@@ -58,8 +60,8 @@
         "in6": 0.0,
         "in7": 0.0,
         "in8": 0.0,
-        "in0": 0.0,
-        "in1": 0.0
+        "in0": 95.73241431615669,
+        "in1": 95.73241431615669
       },
       "proxy": false,
       "class": "Multiplexer"
@@ -91,7 +93,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 68.90296380367695,
+        "output": 95.73241431615669,
         "set_pause": 0,
         "speed": 0.61,
         "subdiv": "1/1",
@@ -109,6 +111,71 @@
     }
   ],
   "connections": [
+    {
+      "id": 140733019975088,
+      "src": {
+        "device": 140733005553232,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140733019091664,
+          "device": 140733005553232,
+          "to_min": 0.0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733618097520,
+        "repr": "Multiplexer1",
+        "parameter": {
+          "name": "selector",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            7.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "selector_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 140733019978080,
       "src": {
@@ -226,6 +293,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140733019975440,
+      "src": {
+        "device": 140733476251088,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140732996084560,
+          "device": 140733476251088,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140733618097520,
+        "repr": "Multiplexer1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

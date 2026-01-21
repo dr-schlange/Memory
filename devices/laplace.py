@@ -47,13 +47,13 @@ class Laplace(VirtualDevice):
         return 1.0
 
     def __post_init__(self, **kwargs):
-        self.output = 0
+        self.out_prev = 0
         self.in_prev = 0
 
     def main(self, ctx):
         in_now = self.input
         in_prev = self.in_prev
-        out_prev = self.output
+        self.out_prev = self.output
         out_now = self.b0 * in_now + self.b1 * in_prev - self.a1 * out_prev
         self.in_prev = in_now
         out_now *= self.gain
@@ -77,5 +77,5 @@ class Laplace(VirtualDevice):
 
     @on(reset_cv, edge="rising")
     def on_reset_rising(self, value, ctx):
-        self.output = 0
+        self.out_prev = 0
         self.in_prev = 0

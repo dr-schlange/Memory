@@ -77,7 +77,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0,
+        "pads0_p0": 76.0,
         "pads0_p1": 0.0
       },
       "proxy": false,
@@ -130,9 +130,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
+        "output": 1.0,
         "set_pause": 0,
-        "input": -1,
+        "input": 1,
         "initial": 0.0,
         "gain": 10.0,
         "reset": 0,
@@ -145,14 +145,14 @@
     {
       "id": 140734756680272,
       "repr": "KineticShaper3",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 0.3147306778623303,
-        "set_pause": 1,
-        "input": 0.3147306778623302,
+        "output": 0.7381870985899606,
+        "set_pause": 0,
+        "input": 0.7381870985899606,
         "drive": -1.0,
-        "momentum": 1.0,
+        "momentum": -1.0,
         "inertia": 1.0,
         "rate": 0.803,
         "clipping": "soft_cubic",
@@ -168,9 +168,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.4814181327819824,
+        "output": -0.04882669448852539,
         "set_pause": 0,
-        "input": -1,
+        "input": 1,
         "initial": 0.0,
         "gain": 10.0,
         "reset": 0,
@@ -187,17 +187,33 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.4814181327819824,
+        "in0": -0.07077312469482422,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -0.5047211647033691
+        "out0": 0.07077312469482422
       },
       "proxy": false,
       "class": "Inverter"
+    },
+    {
+      "id": 140734631512784,
+      "repr": "FineTuneNote1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "finetune": 2048.0,
+        "slide": 1.0,
+        "input": 127.0,
+        "pitchwheel_out": 0,
+        "note_out": 127.0
+      },
+      "proxy": false,
+      "class": "FineTuneNote"
     }
   ],
   "connections": [
@@ -592,6 +608,71 @@
       "velocity": null
     },
     {
+      "id": 140734631291104,
+      "src": {
+        "device": 140734756688560,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734631590992,
+          "device": 140734756688560,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734631512784,
+        "repr": "FineTuneNote1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734631009808,
       "src": {
         "device": 140734756680272,
@@ -917,63 +998,6 @@
       "velocity": null
     },
     {
-      "id": 140734757219760,
-      "src": {
-        "device": 140734756675792,
-        "repr": "Integrator2",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140734630962256,
-          "device": 140734756675792,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140734756693936,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140734756745504,
       "src": {
         "device": 140734631512112,
@@ -1033,6 +1057,119 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734631290224,
+      "src": {
+        "device": 140734631512784,
+        "repr": "FineTuneNote1",
+        "parameter": {
+          "name": "note_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "note_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734757390032,
+          "device": 140734631512784,
+          "to_min": 59,
+          "to_max": 65,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734756693936,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734631290928,
+      "src": {
+        "device": 140734631512784,
+        "repr": "FineTuneNote1",
+        "parameter": {
+          "name": "pitchwheel_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -8192.0,
+            8191.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pitchwheel_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734757398224,
+          "device": 140734631512784,
+          "to_min": -8192,
+          "to_max": 8192,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734756693936,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "section_name": "keys",
+          "name": "pitchwheel",
+          "cc_note": -1,
+          "range": [
+            -8192,
+            8192
+          ]
+        },
+        "explicit": -1,
+        "type": "pitchwheel"
       },
       "bouncy": false,
       "muted": false,

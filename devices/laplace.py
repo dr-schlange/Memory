@@ -49,7 +49,6 @@ class Laplace(VirtualDevice):
     def __post_init__(self, **kwargs):
         self.out_prev = 0
         self.in_prev = 0
-        return {"output": 0}
 
     def main(self, ctx):
         in_now = self.input

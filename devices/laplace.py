@@ -53,6 +53,9 @@ class Laplace(VirtualDevice):
     def main(self, ctx):
         in_now = self.input
         in_prev = self.in_prev
+        import pdb
+
+        pdb.set_trace()
         out_now = self.b0 * in_now + self.b1 * in_prev - self.a1 * self.out_prev
         self.in_prev = in_now
         self.out_prev = self.output

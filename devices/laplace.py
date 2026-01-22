@@ -55,7 +55,7 @@ class Laplace(VirtualDevice):
         in_now = self.input
         in_prev = self.in_prev
         self.out_prev = self.output
-        out_now = self.b0 * in_now + self.b1 * in_prev - self.a1 * out_prev
+        out_now = self.b0 * in_now + self.b1 * in_prev - self.a1 * self.out_prev
         self.in_prev = in_now
         out_now *= self.gain
         match self.clipping:

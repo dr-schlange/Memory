@@ -31,7 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 127.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -42,7 +43,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 56.45320762515336,
+        "output": 125.10599252004384,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -96,18 +97,18 @@
       "class": "Integrator"
     },
     {
-      "id": 140734756682512,
-      "repr": "KineticShaper2",
+      "id": 140734756680272,
+      "repr": "KineticShaper3",
       "paused": false,
       "running": true,
       "config": {
-        "output": -5.551115123125841e-17,
+        "output": -1.0,
         "set_pause": 0,
-        "input": -1.1102230246251565e-16,
+        "input": -1.0,
         "drive": 1.0,
-        "momentum": -0.512,
+        "momentum": 1.0,
         "inertia": 1.0,
-        "rate": 1.897,
+        "rate": 1000.0,
         "clipping": "tanh",
         "nonlinear": "off",
         "reset": 0
@@ -118,14 +119,14 @@
   ],
   "connections": [
     {
-      "id": 140734756680592,
+      "id": 140734631013616,
       "src": {
-        "device": 140734756682512,
-        "repr": "KineticShaper2",
+        "device": 140734756687888,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "output",
+          "name": "pads0_p1",
           "stream": false,
-          "consumer": false,
+          "consumer": true,
           "description": null,
           "range": [
             0,
@@ -134,7 +135,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output_cv",
+          "cv_name": "pads0_p1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -143,8 +144,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734756680272,
-          "device": 140734756682512,
+          "id": 140734631010080,
+          "device": 140734756687888,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
+        "parameter": {
+          "name": "reset",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "reset_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734631730768,
+      "src": {
+        "device": 140734756687888,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734631726416,
+          "device": 140734756687888,
           "to_min": -1.0,
           "to_max": 1.0,
           "auto": false,
@@ -154,8 +220,8 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734756682512,
-        "repr": "KineticShaper2",
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
         "parameter": {
           "name": "input",
           "stream": false,
@@ -183,10 +249,10 @@
       "velocity": null
     },
     {
-      "id": 140734758971872,
+      "id": 140734631009808,
       "src": {
-        "device": 140734756682512,
-        "repr": "KineticShaper2",
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -208,8 +274,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734758975520,
-          "device": 140734756682512,
+          "id": 140734631013072,
+          "device": 140734756680272,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -248,10 +314,10 @@
       "velocity": null
     },
     {
-      "id": 140734758974912,
+      "id": 140734631728720,
       "src": {
-        "device": 140734756682512,
-        "repr": "KineticShaper2",
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -273,10 +339,75 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734758972480,
-          "device": 140734756682512,
-          "to_min": 0,
-          "to_max": 127,
+          "id": 140734631727952,
+          "device": 140734756680272,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734604744160,
+      "src": {
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734604742240,
+          "device": 140734756680272,
+          "to_min": 63,
+          "to_max": 48,
           "auto": false,
           "method": "lin",
           "as_int": false

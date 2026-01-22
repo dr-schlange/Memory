@@ -18,30 +18,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
-    },
-    {
-      "id": 140734756685872,
-      "repr": "KineticShaper1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 0.9202656717364931,
-        "set_pause": 0,
-        "input": 0.9202656717364932,
-        "drive": 1.0,
-        "momentum": 1.0,
-        "inertia": 0.5,
-        "rate": 1.0,
-        "clipping": "soft_cubic",
-        "nonlinear": "off",
-        "reset": 0.0
-      },
-      "proxy": false,
-      "class": "KineticShaper"
     },
     {
       "id": 140734756688224,
@@ -49,7 +30,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 108.58597936790964,
+        "output": 111.91259077307097,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -101,14 +82,34 @@
       },
       "proxy": false,
       "class": "Integrator"
+    },
+    {
+      "id": 140734756682512,
+      "repr": "KineticShaper2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": -5.551115123125855e-17,
+        "set_pause": 0,
+        "input": -1.1102230246251565e-16,
+        "drive": 1.0,
+        "momentum": -0.473,
+        "inertia": 1.0,
+        "rate": 1.989,
+        "clipping": "tanh",
+        "nonlinear": "off",
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "KineticShaper"
     }
   ],
   "connections": [
     {
-      "id": 140734756686208,
+      "id": 140734756680592,
       "src": {
-        "device": 140734756685872,
-        "repr": "KineticShaper1",
+        "device": 140734756682512,
+        "repr": "KineticShaper2",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -130,8 +131,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734756689568,
-          "device": 140734756685872,
+          "id": 140734756680272,
+          "device": 140734756682512,
           "to_min": -1.0,
           "to_max": 1.0,
           "auto": false,
@@ -141,8 +142,8 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 140734756685872,
-        "repr": "KineticShaper1",
+        "device": 140734756682512,
+        "repr": "KineticShaper2",
         "parameter": {
           "name": "input",
           "stream": false,
@@ -170,10 +171,10 @@
       "velocity": null
     },
     {
-      "id": 140734756680272,
+      "id": 140734758971872,
       "src": {
-        "device": 140734756685872,
-        "repr": "KineticShaper1",
+        "device": 140734756682512,
+        "repr": "KineticShaper2",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -195,8 +196,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140734756680592,
-          "device": 140734756685872,
+          "id": 140734758975520,
+          "device": 140734756682512,
           "to_min": null,
           "to_max": null,
           "auto": true,

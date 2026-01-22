@@ -41,7 +41,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.9813031005562615,
+        "output": -0.981303100495788,
         "set_pause": 0,
         "reset": 0,
         "input": -0.9813031005562615,
@@ -61,14 +61,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -0.9813031005562615,
+        "in0": -0.981303100495788,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0.9813031005562615
+        "out0": 0.9813031035793488
       },
       "proxy": false,
       "class": "Inverter"
@@ -79,13 +79,13 @@
       "paused": true,
       "running": true,
       "config": {
-        "output": 98.2013601714198,
+        "output": 119.19698395181102,
         "set_pause": 1,
         "speed": 0.36,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "smooth_random_cosine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -101,13 +101,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67,
+        "output": 66,
         "set_pause": 0,
         "input": 67.70084960890019,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
-        "root": "C",
-        "scale_": "maj",
+        "root": "F#/Gb",
+        "scale_": "min-harmo",
         "type": "sample&hold"
       },
       "proxy": false,
@@ -124,7 +124,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -144,21 +144,43 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 1.187253114677397,
+        "input": 1.1872531185174653,
         "trigger": 0,
         "reset": 0,
         "length": 8,
         "output7": 125.81274688532261,
         "output6": 1.187253114677397,
-        "output5": 18.608136028880452,
-        "output4": 45.0,
+        "output5": 38.0,
+        "output4": 30.732982961077006,
         "output3": 125.81274688532261,
         "output2": 118.58838936920598,
-        "output1": 60.0,
+        "output1": 110.93654233063653,
         "output0": 125.81274688532261
       },
       "proxy": false,
       "class": "ShiftRegister"
+    },
+    {
+      "id": 140735476992592,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 78.17085857450272,
+        "set_pause": 0,
+        "speed": 0.75,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "random",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -1181,6 +1203,84 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140735506574592,
+      "src": {
+        "device": 140735476992592,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734958884816,
+          "device": 140735476992592,
+          "to_min": 0,
+          "to_max": 11,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734963007904,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "root",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            11
+          ],
+          "accepted_values": [
+            "C",
+            "C#/Db",
+            "D",
+            "D#/Eb",
+            "E",
+            "F",
+            "F#/Gb",
+            "G",
+            "G#/Ab",
+            "A",
+            "A#/Bb",
+            "B"
+          ],
+          "conversion_policy": null,
+          "disable_policy": true,
+          "cv_name": "root_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

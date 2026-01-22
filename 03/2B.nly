@@ -27,6 +27,7 @@
         },
         "amp": {
           "volume": 103,
+          "panning": 32,
           "attack": 2,
           "decay": 36,
           "sustain": 0,
@@ -35,7 +36,7 @@
         "filter": {
           "type": 0,
           "slope": 127,
-          "cutoff": 93,
+          "cutoff": 127,
           "resonance": 89,
           "env_amount": 53,
           "attack": 3,
@@ -91,7 +92,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 0.66,
         "subdiv": "1/1",
@@ -132,7 +133,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": -1.0,
         "set_pause": 0,
         "input": -1,
         "initial": 63,
@@ -150,11 +151,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
+        "output": -0.5035491562672819,
         "set_pause": 0,
-        "input": -1.0,
+        "input": -0.5035491562672819,
         "drive": -1.0,
-        "momentum": 1.0,
+        "momentum": -1.0,
         "inertia": 1.0,
         "rate": 0.803,
         "clipping": "soft_cubic",
@@ -170,9 +171,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": -1.0,
         "set_pause": 0,
-        "input": 1,
+        "input": -1,
         "initial": 0.0,
         "gain": 10.0,
         "reset": 0,
@@ -189,14 +190,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 1.0,
+        "in0": -1.0,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -1.0
+        "out0": 1.0
       },
       "proxy": false,
       "class": "Inverter"
@@ -210,9 +211,9 @@
         "set_pause": 0,
         "finetune": 2048.0,
         "slide": 1.0,
-        "input": 127.0,
+        "input": 0.0,
         "pitchwheel_out": 0,
-        "note_out": 127.0
+        "note_out": 0.0
       },
       "proxy": false,
       "class": "FineTuneNote"
@@ -224,7 +225,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 62,
+        "input": 31,
         "chord": "7th",
         "octave": 0,
         "inversion": "--",
@@ -236,10 +237,10 @@
         "custom3": "--",
         "custom4": "--",
         "note4": 0,
-        "note3": 72,
-        "note2": 69,
-        "note1": 66,
-        "note0": 62
+        "note3": 41,
+        "note2": 38,
+        "note1": 35,
+        "note0": 31
       },
       "proxy": false,
       "class": "ChordGenerator"
@@ -767,6 +768,65 @@
       "velocity": null
     },
     {
+      "id": 140734756741984,
+      "src": {
+        "device": 140734756688560,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734631590224,
+          "device": 140734756688560,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734756693936,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 140734631009808,
       "src": {
         "device": 140734756680272,
@@ -956,6 +1016,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 140734756740752,
+      "src": {
+        "device": 140734756680272,
+        "repr": "KineticShaper3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 140734631441616,
+          "device": 140734756680272,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 140734756693936,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

@@ -77,8 +77,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 90.0,
-        "pads0_p1": 0.0
+        "pads0_p0": 41.0,
+        "pads0_p1": 1.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -109,15 +109,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -1.0,
         "set_pause": 0,
         "reset": 0.0,
-        "input": 0.0,
+        "input": -1.0,
         "b0": 1.0,
         "b1": 1.0,
-        "a1": 1.0,
-        "gain": 0.001,
-        "clipping": "tanh"
+        "a1": -0.09510047063541482,
+        "gain": 0.7883937007874016,
+        "clipping": "soft_cubic"
       },
       "proxy": false,
       "class": "Laplace"
@@ -128,10 +128,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -0.09510047063541485,
         "set_pause": 0,
         "reset": 0,
-        "input": 0.0,
+        "input": -0.09510047063541482,
         "b0": 1.0,
         "b1": 1.0,
         "a1": 1.0,
@@ -148,18 +148,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 63.5,
+        "input": 57.46112011465116,
         "trigger": 1,
         "reset": 0,
         "length": 8,
-        "output7": 63.5,
-        "output6": 63.5,
-        "output5": 63.5,
-        "output4": 63.5,
-        "output3": 63.5,
-        "output2": 63.5,
-        "output1": 63.5,
-        "output0": 63.5
+        "output7": 57.00582930600914,
+        "output6": 70.01639575646286,
+        "output5": 59.050625964307635,
+        "output4": 70.13695364253023,
+        "output3": 57.2900042628429,
+        "output2": 60.98193076770603,
+        "output1": 57.60343447158213,
+        "output0": 63.94270445053283
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -185,6 +185,24 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 4000832889872,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 57,
+        "set_pause": 0,
+        "input": 70.01639575646286,
+        "trigger": 1,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "proxy": false,
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -709,71 +727,6 @@
       "velocity": null
     },
     {
-      "id": 4000847220112,
-      "src": {
-        "device": 4000831709328,
-        "repr": "Laplace2",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4000831047696,
-          "device": 4000831709328,
-          "to_min": -1.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4000832882576,
-        "repr": "Laplace1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -1.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 4000847220496,
       "src": {
         "device": 4000831709328,
@@ -801,7 +754,7 @@
         "chain": {
           "id": 4000831046672,
           "device": 4000831709328,
-          "to_min": -1.0,
+          "to_min": -1,
           "to_max": 1.0,
           "auto": false,
           "method": "lin",
@@ -829,6 +782,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000844405904,
+      "src": {
+        "device": 4000831709328,
+        "repr": "Laplace2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000831047312,
+          "device": 4000831709328,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000831709328,
+        "repr": "Laplace2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,
@@ -892,7 +910,7 @@
         "type": "note"
       },
       "bouncy": false,
-      "muted": false,
+      "muted": true,
       "velocity": null
     },
     {
@@ -949,7 +967,7 @@
         "type": "note"
       },
       "bouncy": false,
-      "muted": false,
+      "muted": true,
       "velocity": null
     },
     {
@@ -1004,6 +1022,136 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope2_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000844388048,
+      "src": {
+        "device": 4000832891024,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000831047184,
+          "device": 4000832891024,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000832889872,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000844387856,
+      "src": {
+        "device": 4000832891024,
+        "repr": "ShiftRegister1",
+        "parameter": {
+          "name": "output6",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output6_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000831046544,
+          "device": 4000832891024,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000832889872,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1077,6 +1225,128 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000844403600,
+      "src": {
+        "device": 4000832889104,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000831048336,
+          "device": 4000832889104,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000832889872,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000844389584,
+      "src": {
+        "device": 4000832889872,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000831047440,
+          "device": 4000832889872,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000832881040,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

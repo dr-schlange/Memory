@@ -78,7 +78,7 @@
       "config": {
         "set_pause": 0,
         "pads0_p0": 0.0,
-        "pads0_p1": 1.0
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -106,17 +106,17 @@
     {
       "id": 4000832882576,
       "repr": "Laplace1",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
-        "set_pause": 1,
+        "output": 0.0,
+        "set_pause": 0,
         "reset": 0.0,
-        "input": -1.0,
+        "input": 0.0,
         "b0": 1.0,
         "b1": 1.0,
-        "a1": -0.1371680623017164,
-        "gain": 0.7883937007874016,
+        "a1": -0.0008269964318947665,
+        "gain": 0.001,
         "clipping": "soft_cubic"
       },
       "proxy": false,
@@ -128,10 +128,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.0433212653510335,
+        "output": 6.589741718526211e-09,
         "set_pause": 0,
         "reset": 0,
-        "input": -0.04332126535103353,
+        "input": 6.589741641249702e-09,
         "b0": 1.0,
         "b1": 1.0,
         "a1": 1.0,
@@ -148,18 +148,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 60.749099650209374,
-        "trigger": 1,
+        "input": 63.50000522633384,
+        "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 68.6859605321631,
-        "output6": 59.51196222487447,
-        "output5": 60.691687157216705,
-        "output4": 64.90571583527851,
-        "output3": 56.832597365579595,
-        "output2": 57.251527772494605,
-        "output1": 55.88653905207782,
-        "output0": 68.24778408298616
+        "output7": 63.51276833896361,
+        "output6": 63.512758974939395,
+        "output5": 63.474477470694694,
+        "output4": 63.538171002075124,
+        "output3": 63.50000089077995,
+        "output2": 63.51276349334534,
+        "output1": 63.51276494416241,
+        "output0": 63.461712518759214
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -170,9 +170,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
-        "speed": 10.0,
+        "speed": 10.000000064676808,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 200,
@@ -192,10 +192,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57,
+        "output": 62,
         "set_pause": 0,
-        "input": 59.51196222487447,
-        "trigger": 1,
+        "input": 63.512758974939395,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -843,6 +843,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000847181136,
+      "src": {
+        "device": 4000831709328,
+        "repr": "Laplace2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000831048592,
+          "device": 4000831709328,
+          "to_min": 10,
+          "to_max": 25,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000832889104,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "speed_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

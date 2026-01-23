@@ -31,8 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 60.0,
-        "pads0_p1": 1.0
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -63,15 +63,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7484124218877145,
+        "output": 0.9190030108579732,
         "set_pause": 0,
         "reset": 0.0,
-        "input": 0.7484124218877146,
-        "b0": -1.0,
-        "b1": -1.0,
-        "a1": -0.13211372357140827,
-        "gain": 0.7883937007874016,
-        "clipping": "algebraic"
+        "input": 0.9190030108579732,
+        "b0": 1.0,
+        "b1": 1.0,
+        "a1": 0.2961375001304605,
+        "gain": 1.01,
+        "clipping": "tanh"
       },
       "proxy": false,
       "class": "Laplace"
@@ -82,12 +82,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.2642274471428165,
+        "output": 0.592275000260921,
         "set_pause": 0,
         "reset": 0,
-        "input": -0.26422744714281654,
-        "b0": -1.0,
-        "b1": -1.0,
+        "input": 0.9190030108579732,
+        "b0": 1.0,
+        "b1": 1.0,
         "a1": 1.0,
         "gain": 1.0,
         "clipping": "tanh"
@@ -669,6 +669,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4000835240176,
+      "src": {
+        "device": 4000831709328,
+        "repr": "Laplace2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4000835240848,
+          "device": 4000831709328,
+          "to_min": 40,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4000832881040,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

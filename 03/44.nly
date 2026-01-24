@@ -22,8 +22,94 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 4001567550736,
+      "repr": "KineticShaper1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": -0.7615941559557869,
+        "set_pause": 0,
+        "input": -1.0,
+        "drive": 1.0,
+        "momentum": 1.0,
+        "inertia": 0.0,
+        "rate": 1.0,
+        "clipping": "tanh",
+        "nonlinear": "off",
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "KineticShaper"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 4001577147792,
+      "src": {
+        "device": 4001567550736,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001571669648,
+          "device": 4001567550736,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001567549136,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

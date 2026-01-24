@@ -2,7 +2,6 @@ from nallely.newmodule import *
 from nallely import VirtualDevice, VirtualParameter, on
 from nallely import *
 
-
 class MyDevice(VirtualDevice):
     """
     MyDevice

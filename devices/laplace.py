@@ -44,6 +44,7 @@ class Laplace(VirtualDevice):
     def __post_init__(self, **kwargs):
         self.out_prev = 0
         self.in_prev = 0
+        self.child = None
 
     def main(self, ctx):
         in_now = self.input
@@ -68,6 +69,12 @@ class Laplace(VirtualDevice):
                 out_now = math.tanh(out_now)
             case 'linear':
                 ...
+        if self.child is None and out_now >= self.threshold:
+            self.child = self.__class__()
+            self.child.start()
+        elif self.child is not None and out_now < self.threshold:
+            self.child.stop()
+            self.child = None
         return out_now
 
     @on(reset_cv, edge='rising')

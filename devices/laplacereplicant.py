@@ -76,8 +76,8 @@ class LaplaceReplicant(VirtualDevice):
                 self.child.depth = self.depth + 1
                 self.child.start()
                 self.child.input_cv = self.output_cv
-                self.child.set_parameter('a1', 2)
-                self.a1_cv = self.child.output_cv.scale(-1, 1)
+                self.child.set_parameter('a1', 1)
+                self.a1_cv = self.child.output_cv.scale(1, -1)
             elif self.child is not None and out_now < self.threshold:
                 self.child.stop()
                 self.child = None

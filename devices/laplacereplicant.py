@@ -44,6 +44,7 @@ class LaplaceReplicant(VirtualDevice):
     def __post_init__(self, **kwargs):
         self.out_prev = 0
         self.in_prev = 0
+        self.depth = 0
         self.child = None
 
     def main(self, ctx):
@@ -69,15 +70,16 @@ class LaplaceReplicant(VirtualDevice):
                 out_now = math.tanh(out_now)
             case 'linear':
                 ...
-        if self.child is None and out_now >= self.threshold:
-            self.child = self.__class__()
-            self.child.start()
-            self.child.child = self.child
-            self.child.input_cv = self.output_cv
-            self.a1_cv = self.child.output_cv.scale(-0.5, -0.5)
-        elif self.child is not None and out_now < self.threshold:
-            self.child.stop()
-            self.child = None
+        if self.depth <= 1:
+            if self.child is None and out_now >= self.threshold:
+                self.child = self.__class__()
+                self.child.depth = self.depth + 1
+                self.child.start()
+                self.child.input_cv = self.output_cv
+                self.a1_cv = self.child.output_cv.scale(-0.5, -0.5)
+            elif self.child is not None and out_now < self.threshold:
+                self.child.stop()
+                self.child = None
         return out_now
 
     @on(reset_cv, edge='rising')

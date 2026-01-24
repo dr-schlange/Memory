@@ -70,7 +70,7 @@ class LaplaceReplicant(VirtualDevice):
                 out_now = math.tanh(out_now)
             case 'linear':
                 ...
-        if self.depth <= 1:
+        if self.depth < 1:
             if self.child is None and out_now >= self.threshold:
                 self.child = self.__class__()
                 self.child.depth = self.depth + 1

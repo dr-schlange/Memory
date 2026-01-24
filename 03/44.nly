@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 4326342528784,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 4325708975888,
@@ -19,7 +31,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 81.0,
+        "pads0_p0": 127.0,
         "pads0_p1": 127.0
       },
       "proxy": false,
@@ -31,9 +43,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9903667096503569,
+        "output": 0.5279300625742329,
         "set_pause": 0,
-        "input": 0.990366709650357,
+        "input": 0.5279300625742329,
         "drive": 1.0,
         "momentum": 1.0,
         "inertia": 1.0,
@@ -51,11 +63,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": -0.9978787899017334,
         "set_pause": 0,
-        "input": 0,
+        "input": 1,
         "initial": 0.0,
-        "gain": 0.911,
+        "gain": 1.0,
         "reset": 0.0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -391,6 +403,63 @@
       "velocity": null
     },
     {
+      "id": 4326349983120,
+      "src": {
+        "device": 4001567550736,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4326341938576,
+          "device": 4001567550736,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4326342528784,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 4326578587728,
       "src": {
         "device": 4326581862800,
@@ -456,7 +525,7 @@
       "velocity": null
     },
     {
-      "id": 4326348934544,
+      "id": 4326349982928,
       "src": {
         "device": 4326581862800,
         "repr": "Integrator1",
@@ -481,9 +550,74 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4326341938832,
+          "id": 4326341939216,
           "device": 4326581862800,
-          "to_min": 0,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001567549136,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4326349984272,
+      "src": {
+        "device": 4326581862800,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4326341935248,
+          "device": 4326581862800,
+          "to_min": -1.0,
           "to_max": 1.0,
           "auto": false,
           "method": "lin",

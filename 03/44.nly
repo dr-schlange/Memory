@@ -5,7 +5,7 @@
       "repr": "Amsynth",
       "ports": {
         "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
+        "output": "FLUID Synth (744):Synth input port (744:0) 128:0"
       },
       "channel": 0,
       "config": {},
@@ -31,8 +31,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 127.0,
-        "pads0_p1": 127.0
+        "pads0_p0": 78.0,
+        "pads0_p1": 7.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -43,14 +43,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.5279300625742329,
+        "output": 0.08779900953465382,
         "set_pause": 0,
-        "input": 0.5279300625742329,
+        "input": 0.060977465235613426,
         "drive": 1.0,
         "momentum": 1.0,
         "inertia": 1.0,
         "rate": 1.004,
-        "clipping": "soft_cubic",
+        "clipping": "tanh",
         "nonlinear": "off",
         "reset": 0
       },
@@ -63,11 +63,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.9978787899017334,
+        "output": 1.0,
         "set_pause": 0,
-        "input": 1,
+        "input": 0,
         "initial": 0.0,
-        "gain": 1.0,
+        "gain": 5.511811023622047,
         "reset": 0.0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -143,7 +143,7 @@
       "velocity": null
     },
     {
-      "id": 4326578587344,
+      "id": 4326341667344,
       "src": {
         "device": 4001567549136,
         "repr": "WebSocketBus1",
@@ -168,10 +168,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4326577735056,
+          "id": 4326341938192,
           "device": 4001567549136,
-          "to_min": -1.0,
-          "to_max": 1.0,
+          "to_min": 0.0,
+          "to_max": 100.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -179,25 +179,25 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4001567550736,
-        "repr": "KineticShaper1",
+        "device": 4326581862800,
+        "repr": "Integrator1",
         "parameter": {
-          "name": "inertia",
+          "name": "gain",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            0.0,
+            100.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "inertia_cv",
+          "cv_name": "gain_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": 0.0,
+          "default": 1.0,
           "no_init": false
         },
         "explicit": -1,

@@ -148,9 +148,9 @@
         "gain": 1.0,
         "tsleep": 10.0,
         "reset": 0.0,
-        "z": 28.409060463466606,
-        "y": 8.534743523177237,
-        "x": 8.299414643092994
+        "z": 25.879694943883575,
+        "y": 14.34616576867125,
+        "x": 11.318811287114194
       },
       "proxy": false,
       "class": "LorenzAttractor"
@@ -161,16 +161,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.11347862988160033,
+        "output": 0.08605229539565684,
         "set_pause": 0,
         "threshold": 0.92,
         "reset": 0.0,
-        "input": 0.047348434105777715,
+        "input": 0.037729370957047426,
         "b0": 1.0,
         "b1": 1.0,
         "a1": 0.0,
         "gain": 1.0,
-        "clipping": "soft_cubic"
+        "clipping": "tanh"
       },
       "proxy": false,
       "class": "Laplace"
@@ -200,10 +200,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 70.70589299748163,
+        "input": 68.96432075762421,
         "in": 0.0,
-        "out1": 70.63896413439885,
-        "out0": 68.83923532998975
+        "out1": 69.23875416521805,
+        "out0": 68.96432075762421
       },
       "proxy": false,
       "class": "DownScaler"
@@ -215,10 +215,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 70.63896413439885,
+        "input": 69.23875416521805,
         "in": 0.0,
-        "out1": 70.63896413439885,
-        "out0": 70.7555970347452
+        "out1": 68.44956093188382,
+        "out0": 69.23875416521805
       },
       "proxy": false,
       "class": "DownScaler"
@@ -229,9 +229,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 69,
+        "output": 67,
         "set_pause": 0,
-        "input": 70.63896413439885,
+        "input": 68.44956093188382,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -271,14 +271,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 69.0,
+        "input": 67.0,
         "range0": 65.0,
         "range1": 116.0,
         "range2": 94.0,
         "out3": 0,
         "out2": 0,
-        "out1": 69.0,
-        "out0": 62.0
+        "out1": 67.0,
+        "out0": 65.0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -1060,6 +1060,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5800996367056,
+      "src": {
+        "device": 5800997427984,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5800995986192,
+          "device": 5800997427984,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5800994190352,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

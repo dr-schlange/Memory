@@ -148,9 +148,9 @@
         "gain": 6.0,
         "tsleep": 10.0,
         "reset": 0.0,
-        "z": 99.53555300728246,
-        "y": 30.977923034778193,
-        "x": 30.105394563856805
+        "z": 119.32772858644697,
+        "y": -8.881173850963588,
+        "x": -23.69610300121164
       },
       "proxy": false,
       "class": "LorenzAttractor"
@@ -161,16 +161,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.024741278274593832,
+        "output": 0.9777997870362878,
         "set_pause": 0,
         "threshold": 1.0,
         "reset": 0.0,
-        "input": 0.10035131521285612,
-        "b0": 0.099,
-        "b1": -0.115,
+        "input": 0.9777997870362878,
+        "b0": -0.048,
+        "b1": -0.64,
         "a1": 1.0,
-        "gain": 1.0,
-        "clipping": "tanh"
+        "gain": 3.0,
+        "clipping": "algebraic"
       },
       "proxy": false,
       "class": "Laplace"
@@ -181,9 +181,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.7357378005981445,
+        "output": 0.7477297782897949,
         "set_pause": 0,
-        "input": 0,
+        "input": -1,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0.0,
@@ -200,10 +200,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 61.8259425896656,
+        "input": 1.4100761595529303,
         "in": 0.0,
-        "out1": 65.07289176150958,
-        "out0": 61.8259425896656
+        "out1": 125.58950363844447,
+        "out0": 1.4100761595529303
       },
       "proxy": false,
       "class": "DownScaler"
@@ -215,10 +215,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 65.07289176150958,
+        "input": 125.58950363844447,
         "in": 0.0,
-        "out1": 65.0736022909942,
-        "out0": 65.07289176150958
+        "out1": 125.5544965842835,
+        "out0": 125.58950363844447
       },
       "proxy": false,
       "class": "DownScaler"
@@ -229,9 +229,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65,
+        "output": 125,
         "set_pause": 0,
-        "input": 65.0736022909942,
+        "input": 125.5544965842835,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -271,14 +271,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 65.0,
+        "input": 125.0,
         "range0": 65.0,
         "range1": 116.0,
         "range2": 94.0,
-        "out3": 124.0,
+        "out3": 125.0,
         "out2": 0,
-        "out1": 67.0,
-        "out0": 65.0
+        "out1": 110.0,
+        "out0": 0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -731,6 +731,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5801004352272,
+      "src": {
+        "device": 5800997425680,
+        "repr": "Laplace1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5800995991312,
+          "device": 5800997425680,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5800997425680,
+        "repr": "Laplace1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,

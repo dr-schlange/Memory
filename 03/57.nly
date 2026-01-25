@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 5800994190352,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 130:1",
+        "output": "amsynth:MIDI IN 130:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
@@ -48,9 +59,9 @@
         "gain": 1.0,
         "tsleep": 10.0,
         "reset": 0.0,
-        "z": 31.77885262730162,
-        "y": -13.060829910263301,
-        "x": -12.532469327492336
+        "z": 28.00478023919761,
+        "y": -9.622076311042944,
+        "x": -9.422715147221156
       },
       "proxy": false,
       "class": "LorenzAttractor"
@@ -61,11 +72,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.15829994240600814,
+        "output": -0.09509603833582353,
         "set_pause": 0,
         "threshold": 0.92,
         "reset": 0.0,
-        "input": 0.052964754378836076,
+        "input": -0.03207358770347635,
         "b0": 1.0,
         "b1": 1.0,
         "a1": 0.0,
@@ -100,10 +111,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 73.55204634278151,
+        "input": 57.46140156567521,
         "in": 0.0,
-        "out1": 64.39805274513155,
-        "out0": 73.55204634278151
+        "out1": 64.92464082130886,
+        "out0": 57.46140156567521
       },
       "proxy": false,
       "class": "DownScaler"
@@ -115,10 +126,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 64.39805274513155,
+        "input": 64.92464082130886,
         "in": 0.0,
-        "out1": 64.39805274513155,
-        "out0": 64.41523261446589
+        "out1": 64.83364932513551,
+        "out0": 64.92464082130886
       },
       "proxy": false,
       "class": "DownScaler"
@@ -129,9 +140,10 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 64,
         "set_pause": 0,
-        "input": 64.41523261446589,
-        "trigger": 0,
+        "input": 64.83364932513551,
+        "trigger": 1,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -146,12 +158,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
-        "speed": 1.05,
+        "speed": 10.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 21,
+        "sampling_rate": 200,
         "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -1075,12 +1087,12 @@
       "velocity": null
     },
     {
-      "id": 5800996350736,
+      "id": 5801004313296,
       "src": {
         "device": 5800994181072,
         "repr": "DownScaler2",
         "parameter": {
-          "name": "out0",
+          "name": "out1",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -1091,7 +1103,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "out0_cv",
+          "cv_name": "out1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1100,7 +1112,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 5800993562288,
+          "id": 5800995980432,
           "device": 5800994181072,
           "to_min": 0,
           "to_max": 127,
@@ -1197,7 +1209,7 @@
       "velocity": null
     },
     {
-      "id": 5801006391952,
+      "id": 5801004305424,
       "src": {
         "device": 5800997434128,
         "repr": "LFO1",
@@ -1222,10 +1234,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 5801006391760,
+          "id": 5800993559408,
           "device": 5800997434128,
           "to_min": 0,
-          "to_max": 127,
+          "to_max": 1,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1236,18 +1248,18 @@
         "device": 5800997433744,
         "repr": "Quantizer1",
         "parameter": {
-          "name": "input",
+          "name": "trigger",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
             0,
-            127
+            1
           ],
           "accepted_values": [],
-          "conversion_policy": null,
+          "conversion_policy": ">0",
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

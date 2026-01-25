@@ -2,7 +2,7 @@
   "midi_devices": [],
   "virtual_devices": [
     {
-      "id": 5800694697744,
+      "id": 3304110739216,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -18,7 +18,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -29,18 +30,34 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0010970628759759,
+        "output": 128.0,
         "set_pause": 0,
-        "input": 0.0010970628759759792,
+        "input": 127.0,
         "shift": 1.0
       },
       "proxy": false,
       "class": "PitchShifter"
+    },
+    {
+      "id": 3304412886928,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "a": 0,
+        "b": 127.0,
+        "comparator": ">=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
     }
   ],
   "connections": [
     {
-      "id": 5800927760912,
+      "id": 3304175042832,
       "src": {
         "device": 5800925397648,
         "repr": "WebSocketBus1",
@@ -65,7 +82,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 5800929335184,
+          "id": 3304175633520,
           "device": 5800925397648,
           "to_min": 0.0,
           "to_max": 127.0,
@@ -84,8 +101,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            127.0
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -105,7 +122,7 @@
       "velocity": null
     },
     {
-      "id": 5800932003216,
+      "id": 3304679538960,
       "src": {
         "device": 5800929790224,
         "repr": "PitchShifter1",
@@ -130,7 +147,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 5800929332880,
+          "id": 3304409270160,
           "device": 5800929790224,
           "to_min": null,
           "to_max": null,
@@ -160,6 +177,201 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3304411694864,
+      "src": {
+        "device": 5800929790224,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3304412028432,
+          "device": 5800929790224,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5800929790224,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3304411694640,
+      "src": {
+        "device": 5800929790224,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3304412028112,
+          "device": 5800929790224,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3304412886928,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3304411693968,
+      "src": {
+        "device": 3304412886928,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3304412349968,
+          "device": 3304412886928,
+          "to_min": -1,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5800929790224,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -48,
+            48
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0,
           "no_init": false
         },
         "explicit": -1,

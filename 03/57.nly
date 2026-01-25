@@ -48,9 +48,9 @@
         "gain": 1.0,
         "tsleep": 10.0,
         "reset": 0.0,
-        "z": 26.74737129643064,
-        "y": -8.518478929085894,
-        "x": -8.402361136091088
+        "z": 31.77885262730162,
+        "y": -13.060829910263301,
+        "x": -12.532469327492336
       },
       "proxy": false,
       "class": "LorenzAttractor"
@@ -61,11 +61,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.13338249251133022,
+        "output": 0.15829994240600814,
         "set_pause": 0,
         "threshold": 0.92,
         "reset": 0.0,
-        "input": 0.04457895216071761,
+        "input": 0.052964754378836076,
         "b0": 1.0,
         "b1": 1.0,
         "a1": 0.0,
@@ -100,10 +100,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 71.96978827446948,
+        "input": 73.55204634278151,
         "in": 0.0,
-        "out1": 71.96978827446948,
-        "out0": 65.04139354631448
+        "out1": 64.39805274513155,
+        "out0": 73.55204634278151
       },
       "proxy": false,
       "class": "DownScaler"
@@ -115,10 +115,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 71.96978827446948,
+        "input": 64.39805274513155,
         "in": 0.0,
-        "out1": 58.13333027284828,
-        "out0": 71.96978827446948
+        "out1": 64.39805274513155,
+        "out0": 64.41523261446589
       },
       "proxy": false,
       "class": "DownScaler"
@@ -130,7 +130,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 127.0,
+        "input": 64.41523261446589,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -146,7 +146,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 1.05,
         "subdiv": "1/1",
@@ -1075,7 +1075,7 @@
       "velocity": null
     },
     {
-      "id": 5801006391568,
+      "id": 5800996350736,
       "src": {
         "device": 5800994181072,
         "repr": "DownScaler2",
@@ -1100,8 +1100,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 5801006391376,
+          "id": 5800993562288,
           "device": 5800994181072,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5800997433744,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5800996368784,
+      "src": {
+        "device": 5800997433744,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5800993562448,
+          "device": 5800997433744,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

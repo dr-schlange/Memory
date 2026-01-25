@@ -146,11 +146,11 @@
         "rho": 20.0,
         "beta": 2.6666666666666665,
         "gain": 6.0,
-        "tsleep": 10.0,
+        "tsleep": 14.949073227469173,
         "reset": 0.0,
-        "z": 119.32772858644697,
-        "y": -8.881173850963588,
-        "x": -23.69610300121164
+        "z": 39.215329946290886,
+        "y": 17.251307708674638,
+        "x": 10.365844949604494
       },
       "proxy": false,
       "class": "LorenzAttractor"
@@ -161,16 +161,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9777997870362878,
+        "output": 0.02305579751304374,
         "set_pause": 0,
         "threshold": 1.0,
         "reset": 0.0,
-        "input": 0.9777997870362878,
-        "b0": -0.048,
-        "b1": -0.64,
+        "input": 0.03455281649868169,
+        "b0": 0.822,
+        "b1": -0.35,
         "a1": 1.0,
-        "gain": 3.0,
-        "clipping": "algebraic"
+        "gain": 1.0,
+        "clipping": "tanh"
       },
       "proxy": false,
       "class": "Laplace"
@@ -181,9 +181,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.7477297782897949,
+        "output": -3.661945104598999,
         "set_pause": 0,
-        "input": -1,
+        "input": 0,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0.0,
@@ -200,10 +200,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 1.4100761595529303,
+        "input": 64.96430915123662,
         "in": 0.0,
-        "out1": 125.58950363844447,
-        "out0": 1.4100761595529303
+        "out1": 64.96430915123662,
+        "out0": 63.07104822688295
       },
       "proxy": false,
       "class": "DownScaler"
@@ -215,10 +215,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 125.58950363844447,
+        "input": 64.96430915123662,
         "in": 0.0,
-        "out1": 125.5544965842835,
-        "out0": 125.58950363844447
+        "out1": 64.96484163063272,
+        "out0": 64.96457531403632
       },
       "proxy": false,
       "class": "DownScaler"
@@ -229,10 +229,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 125,
+        "output": 65,
         "set_pause": 0,
-        "input": 125.5544965842835,
-        "trigger": 0,
+        "input": 64.96484163063272,
+        "trigger": 1,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -247,7 +247,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 10.0,
         "subdiv": "1/1",
@@ -271,14 +271,14 @@
       "config": {
         "set_pause": 0,
         "mode": "keeplast",
-        "input": 125.0,
+        "input": 65.0,
         "range0": 65.0,
         "range1": 116.0,
         "range2": 94.0,
-        "out3": 125.0,
+        "out3": 120.0,
         "out2": 0,
-        "out1": 110.0,
-        "out0": 0
+        "out1": 67.0,
+        "out0": 65.0
       },
       "proxy": false,
       "class": "KeySplitter"
@@ -741,7 +741,7 @@
       "velocity": null
     },
     {
-      "id": 5801004352272,
+      "id": 5801006372176,
       "src": {
         "device": 5800997425680,
         "repr": "Laplace1",
@@ -766,10 +766,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 5800995991312,
+          "id": 5800995990544,
           "device": 5800997425680,
-          "to_min": -1.0,
-          "to_max": 1.0,
+          "to_min": 0.1,
+          "to_max": 30.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -777,25 +777,25 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 5800997425680,
-        "repr": "Laplace1",
+        "device": 5800997425296,
+        "repr": "LorenzAttractor1",
         "parameter": {
-          "name": "input",
+          "name": "tsleep",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            -1.0,
-            1.0
+            0.1,
+            30.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "tsleep_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": null,
+          "default": 10.0,
           "no_init": false
         },
         "explicit": -1,

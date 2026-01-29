@@ -18,7 +18,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -29,13 +31,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 12.529413997005047,
         "set_pause": 0,
-        "input": 0.0,
-        "gain": 2.0,
-        "sat": 5.0,
-        "response": 0.1,
-        "reset": 0.0
+        "input": 0.933377742767334,
+        "gain": 20.0,
+        "sat": 15.0,
+        "response": 1.0,
+        "reset": 1
       },
       "proxy": false,
       "class": "Transistor"
@@ -46,12 +48,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.5,
+        "output": 1.0,
         "set_pause": 0,
-        "input": 0.0,
-        "initial": 0.5,
+        "input": 0,
+        "initial": 1.0,
         "gain": 1.0,
-        "reset": 0.0,
+        "reset": 0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
       },
@@ -64,9 +66,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": 0.0933377742767334,
         "set_pause": 0,
-        "input": 0,
+        "input": 1,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -83,14 +85,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0,
+        "in0": 12.529413997005047,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0
+        "out0": -12.529413997005047
       },
       "proxy": false,
       "class": "Inverter"
@@ -293,6 +295,136 @@
       "velocity": null
     },
     {
+      "id": 5688921491728,
+      "src": {
+        "device": 5688920184464,
+        "repr": "Transistor1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5688921491984,
+          "device": 5688920184464,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5688790669712,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5689188615504,
+      "src": {
+        "device": 5688920184464,
+        "repr": "Transistor1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5689188615280,
+          "device": 5688920184464,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5688920182544,
+        "repr": "Inverter1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 5688920186768,
       "src": {
         "device": 5688920181392,
@@ -474,6 +606,136 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5688921648656,
+      "src": {
+        "device": 5688921628496,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5688921647696,
+          "device": 5688921628496,
+          "to_min": -10.0,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5688920184464,
+        "repr": "Transistor1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -10.0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5689188615952,
+      "src": {
+        "device": 5688920182544,
+        "repr": "Inverter1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5689188615728,
+          "device": 5688920182544,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5688790669712,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope2_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope2_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

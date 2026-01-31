@@ -91,7 +91,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 127.0,
         "set_pause": 0,
         "speed": 3.41,
         "subdiv": "1/1",
@@ -115,16 +115,16 @@
       "config": {
         "set_pause": 0,
         "trig": 0.0,
-        "gate": 0,
-        "rise": 5.919101652187762,
-        "fall": 19.69070038182237,
+        "gate": 1,
+        "rise": 5.906064304820974,
+        "fall": 19.640854536120358,
         "shape": "log",
         "cycle": "on",
         "reset": 0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.01574204082744457,
-        "out": 0.9842579591725554
+        "inv": 0.01827898330006328,
+        "out": 0.9817210166999367
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -138,7 +138,7 @@
         "output": 0,
         "set_pause": 0,
         "a": 0.0,
-        "b": 0.5632508709924428,
+        "b": 0.5055843791918534,
         "comparator": ">",
         "type": "ondemand"
       },
@@ -151,12 +151,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 80.32860616040226,
+        "output": 7.092161573653826,
         "set_pause": 0,
-        "speed": 10.0,
+        "speed": 1.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 200,
+        "sampling_rate": 50,
         "waveform": "random",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -173,13 +173,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65.0,
+        "output": 54.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
@@ -202,7 +202,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -213,13 +213,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4,
+        "output": 7,
         "set_pause": 0,
-        "input": 80.32860616040226,
+        "input": 7.092161573653826,
         "trigger": 1,
         "reset": 0,
         "root": "C",
-        "scale_": "maj",
+        "scale_": "min-melo",
         "type": "sample&hold"
       },
       "proxy": false,
@@ -339,6 +339,71 @@
           "range": [
             0.0,
             1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106835474512,
+      "src": {
+        "device": 4106695216272,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106831534864,
+          "device": 4106695216272,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106829239312,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
           ],
           "accepted_values": [],
           "conversion_policy": ">0",

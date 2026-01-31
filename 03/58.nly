@@ -8,7 +8,12 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "amp": {
+          "volume": 0,
+          "panning": 0
+        }
+      },
       "class": "Amsynth"
     },
     {
@@ -19,7 +24,13 @@
         "output": "amsynth:MIDI IN 130:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "amp": {
+          "volume": 127,
+          "panning": 0,
+          "drive": 4
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -54,9 +65,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.16885085066974476,
+        "output": 0.06582054455228031,
         "set_pause": 0,
-        "input": -0.056677661628086407,
+        "input": 1.0,
         "initial": 0.0,
         "gain": 29.0,
         "reset": 0.0,
@@ -72,9 +83,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.056677661628086407,
+        "output": -1.0,
         "set_pause": 0,
-        "input": -0.17224411550917706,
+        "input": -0.11325565021090322,
         "initial": 0.0,
         "gain": 2000.0,
         "reset": 0,
@@ -91,7 +102,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0.9818097553976218,
+        "in0": 1.0,
         "in1": 0,
         "in2": 0,
         "in3": 0,
@@ -109,7 +120,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.0676061436705439,
+        "output": 0.03745907042695634,
         "set_pause": 0,
         "input": -1.0,
         "initial": 0.0,
@@ -127,9 +138,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.9818097553976218,
+        "output": 1.0,
         "set_pause": 0,
-        "input": -0.004431657510265641,
+        "input": 0.09752219412995933,
         "initial": 0.0,
         "gain": 2000.0,
         "reset": 0,
@@ -778,6 +789,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2880314553264,
+      "src": {
+        "device": 2880313663184,
+        "repr": "Integrator4",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2880314553040,
+          "device": 2880313663184,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2880313666704,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

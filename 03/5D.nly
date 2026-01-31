@@ -34,7 +34,7 @@
         "filter": {
           "type": 0,
           "slope": 127,
-          "cutoff": 64,
+          "cutoff": 92,
           "resonance": 105,
           "env_amount": 78,
           "attack": 3,
@@ -91,7 +91,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 3.41,
         "subdiv": "1/1",
@@ -115,16 +115,16 @@
       "config": {
         "set_pause": 0,
         "trig": 0.0,
-        "gate": 1,
-        "rise": 3.4409888726427216,
-        "fall": 10.216102231890288,
+        "gate": 0,
+        "rise": 4.604929557048362,
+        "fall": 14.666210534517653,
         "shape": "log",
         "cycle": "on",
         "reset": 0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.4979589662107956,
-        "out": 0.5020410337892044
+        "inv": 0.2714672977138817,
+        "out": 0.7285327022861183
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -137,7 +137,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.5016034454141458,
+        "a": 0.7286624266381636,
         "b": 0.82,
         "comparator": ">",
         "type": "ondemand"
@@ -151,7 +151,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 97.37066413786411,
+        "output": 13.416709000445655,
         "set_pause": 0,
         "speed": 1.0,
         "subdiv": "1/1",
@@ -173,13 +173,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.0,
+        "output": 54.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 1.0,
+        "trigger": 0.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
@@ -202,7 +202,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 1.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -213,10 +213,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 45,
+        "output": 51,
         "set_pause": 0,
-        "input": 46.57110759405811,
-        "trigger": 1,
+        "input": 53.12396449353572,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "min-melo",
@@ -224,6 +224,28 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 4106359997072,
+      "repr": "Harmonizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 54,
+        "interval0": "+2/b2",
+        "interval1": "+3/m3",
+        "interval2": "+6/m6",
+        "interval3": "-octave",
+        "key": "C",
+        "scale_": "maj",
+        "out0": 55,
+        "out1": 57,
+        "out2": 62,
+        "out3": 41
+      },
+      "proxy": false,
+      "class": "Harmonizer"
     }
   ],
   "connections": [
@@ -929,6 +951,136 @@
       "velocity": null
     },
     {
+      "id": 4106361503952,
+      "src": {
+        "device": 4106835595024,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106361700880,
+          "device": 4106835595024,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106829239312,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106361504336,
+      "src": {
+        "device": 4106835595024,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106361702288,
+          "device": 4106835595024,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106359997072,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 4106837463824,
       "src": {
         "device": 4106829239312,
@@ -956,6 +1108,234 @@
         "chain": {
           "id": 4106831533200,
           "device": 4106829239312,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106695220112,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106361504528,
+      "src": {
+        "device": 4106359997072,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106361702800,
+          "device": 4106359997072,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106695220112,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106361504720,
+      "src": {
+        "device": 4106359997072,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106361703312,
+          "device": 4106359997072,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106695220112,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106361504912,
+      "src": {
+        "device": 4106359997072,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out2",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106361703824,
+          "device": 4106359997072,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106695220112,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106361505104,
+      "src": {
+        "device": 4106359997072,
+        "repr": "Harmonizer1",
+        "parameter": {
+          "name": "out3",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106361704336,
+          "device": 4106359997072,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

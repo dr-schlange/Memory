@@ -105,9 +105,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.14688182286697798,
+        "output": 0.3876610460368787,
         "set_pause": 0,
-        "input": -0.848635563775161,
+        "input": 1.0,
         "initial": 0.0,
         "gain": 29.0,
         "reset": 0,
@@ -123,9 +123,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8486355637751609,
+        "output": -1.0,
         "set_pause": 0,
-        "input": -0.14688182286697793,
+        "input": 0.3876610460368788,
         "initial": 0.0,
         "gain": 2000.0,
         "reset": 0,
@@ -142,14 +142,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 1.0,
+        "in0": -1.0,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": -1.0
+        "out0": 1.0
       },
       "proxy": false,
       "class": "Inverter"
@@ -160,9 +160,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.026067680501122736,
+        "output": 0.06954494288493707,
         "set_pause": 0,
-        "input": -1.0,
+        "input": 1.0,
         "initial": 0.0,
         "gain": 29.0,
         "reset": 0,
@@ -178,9 +178,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": -1.0,
         "set_pause": 0,
-        "input": -0.08514899649538543,
+        "input": -0.1698916835493891,
         "initial": 0.0,
         "gain": 2000.0,
         "reset": 0,
@@ -197,7 +197,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 89.26079964808835,
+        "input": 0.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -214,7 +214,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 127.0,
+        "input": 0.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -223,6 +223,38 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 2880316119440,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "a": -1.0,
+        "b": 0,
+        "comparator": "=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
+    },
+    {
+      "id": 2880313674384,
+      "repr": "Comparator2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "a": -1.0,
+        "b": 0,
+        "comparator": "=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
     }
   ],
   "connections": [
@@ -877,6 +909,71 @@
       "velocity": null
     },
     {
+      "id": 2880316933328,
+      "src": {
+        "device": 2880313641104,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2880319274160,
+          "device": 2880313641104,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2880316119440,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2880315863056,
       "src": {
         "device": 2880316124048,
@@ -1188,6 +1285,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2880316959056,
+      "src": {
+        "device": 2880313663184,
+        "repr": "Integrator4",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2880317623440,
+          "device": 2880313663184,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2880313674384,
+        "repr": "Comparator2",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

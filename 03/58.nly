@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 2880316113680,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 2880116936464,
@@ -30,11 +42,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.0209019492099528,
+        "output": 0.1680518098241317,
         "set_pause": 0,
-        "input": -0.3971756699676052,
+        "input": 0.6401454325582079,
         "initial": 0.0,
-        "gain": 1.0,
+        "gain": 29.0,
         "reset": 0.0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -48,9 +60,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.3971756699676052,
+        "output": -0.10441825118439985,
         "set_pause": 0,
-        "input": -0.020901949209952808,
+        "input": 0.1294654678350362,
         "initial": 0.0,
         "gain": 2000.0,
         "reset": 0,
@@ -317,6 +329,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2880313649744,
+      "src": {
+        "device": 2880313641104,
+        "repr": "Integrator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2880313661904,
+          "device": 2880313641104,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2880316113680,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

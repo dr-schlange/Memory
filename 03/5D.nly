@@ -34,7 +34,7 @@
         "filter": {
           "type": 0,
           "slope": 127,
-          "cutoff": 99,
+          "cutoff": 87,
           "resonance": 105,
           "env_amount": 78,
           "attack": 3,
@@ -116,18 +116,34 @@
         "set_pause": 0,
         "trig": 0.0,
         "gate": 0,
-        "rise": 4.853668954101566,
-        "fall": 4.7347811616681135,
+        "rise": 4.391948444969403,
+        "fall": 6.5000826918157575,
         "shape": "log",
-        "cycle": "off",
-        "reset": 0.0,
+        "cycle": "on",
+        "reset": 0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.22306500212073055,
-        "out": 0.7769349978792695
+        "inv": 0.3129113747870398,
+        "out": 0.6870886252129602
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
+    },
+    {
+      "id": 4106835592336,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "a": 0.6870886252129602,
+        "b": 0.7,
+        "comparator": ">",
+        "type": "continuous"
+      },
+      "proxy": false,
+      "class": "Comparator"
     }
   ],
   "connections": [
@@ -563,6 +579,136 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "shape_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106834273104,
+      "src": {
+        "device": 4106700786320,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106831530640,
+          "device": 4106700786320,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106835592336,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106834273296,
+      "src": {
+        "device": 4106835592336,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106831529360,
+          "device": 4106835592336,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106700786320,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "reset",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "reset_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

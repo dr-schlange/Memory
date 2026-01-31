@@ -34,7 +34,7 @@
         "filter": {
           "type": 0,
           "slope": 127,
-          "cutoff": 45,
+          "cutoff": 123,
           "resonance": 105,
           "env_amount": 78,
           "attack": 3,
@@ -91,7 +91,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 3.02,
         "subdiv": "1/1",
@@ -115,16 +115,16 @@
       "config": {
         "set_pause": 0,
         "trig": 0.0,
-        "gate": 1,
-        "rise": 2.6940795707069722,
-        "fall": 12.991565011626662,
+        "gate": 0,
+        "rise": 5.843271524024808,
+        "fall": 19.400778148285546,
         "shape": "log",
         "cycle": "on",
         "reset": 0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.6433003365037999,
-        "out": 0.3566996634962001
+        "inv": 0.030497854830743742,
+        "out": 0.9695021451692563
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -137,13 +137,35 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0.3566996634962001,
-        "b": 0.55,
+        "a": 0.0,
+        "b": 0.5764767346105466,
         "comparator": ">",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Comparator"
+    },
+    {
+      "id": 4106829235792,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 97.12545295539415,
+        "set_pause": 0,
+        "speed": 0.82,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -486,8 +508,8 @@
         "chain": {
           "id": 4106698031632,
           "device": 4106700786320,
-          "to_min": 20,
-          "to_max": 0.352,
+          "to_min": 0.352,
+          "to_max": 20,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -514,75 +536,6 @@
           "cc_note": -1,
           "hidden": false,
           "default": 0.25,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4106835460688,
-      "src": {
-        "device": 4106700786320,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "out",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "out_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4106831530896,
-          "device": 4106700786320,
-          "to_min": 0.001,
-          "to_max": 1,
-          "auto": false,
-          "method": "log",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4106700786320,
-        "repr": "UniversalSlopeGenerator1",
-        "parameter": {
-          "name": "shape",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            2
-          ],
-          "accepted_values": [
-            "log",
-            "lin",
-            "exp"
-          ],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "shape_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
           "no_init": false
         },
         "explicit": -1,
@@ -620,8 +573,8 @@
         "chain": {
           "id": 4106831530640,
           "device": 4106700786320,
-          "to_min": null,
-          "to_max": null,
+          "to_min": 0,
+          "to_max": 0,
           "auto": true,
           "method": "lin",
           "as_int": false
@@ -709,6 +662,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "reset_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4106835488528,
+      "src": {
+        "device": 4106829235792,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4106831528080,
+          "device": 4106829235792,
+          "to_min": 0.5,
+          "to_max": 0.6,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4106835592336,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "b",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "b_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

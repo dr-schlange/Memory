@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "Amsynth"
+    },
+    {
+      "id": 2880313666704,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 130:1",
+        "output": "amsynth:MIDI IN 130:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
@@ -31,7 +42,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -42,9 +54,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.05119597973368911,
+        "output": -0.16885085066974476,
         "set_pause": 0,
-        "input": 1.0,
+        "input": -0.056677661628086407,
         "initial": 0.0,
         "gain": 29.0,
         "reset": 0.0,
@@ -60,9 +72,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
+        "output": 0.056677661628086407,
         "set_pause": 0,
-        "input": 0.05119597973368917,
+        "input": -0.17224411550917706,
         "initial": 0.0,
         "gain": 2000.0,
         "reset": 0,
@@ -79,14 +91,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 0,
+        "in0": 0.9818097553976218,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0
+        "out0": -1.0
       },
       "proxy": false,
       "class": "Inverter"
@@ -97,13 +109,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -0.0676061436705439,
         "set_pause": 0,
-        "input": 0.0,
+        "input": -1.0,
         "initial": 0.0,
-        "gain": 1.0,
+        "gain": 29.0,
         "reset": 0,
-        "limits": "unbound",
+        "limits": "-1..1",
         "leakage_factor": 1e-05
       },
       "proxy": false,
@@ -115,13 +127,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.9818097553976218,
         "set_pause": 0,
-        "input": 0.0,
+        "input": -0.004431657510265641,
         "initial": 0.0,
-        "gain": 1.0,
+        "gain": 2000.0,
         "reset": 0,
-        "limits": "unbound",
+        "limits": "-1..1",
         "leakage_factor": 1e-05
       },
       "proxy": false,
@@ -693,6 +705,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2880315864592,
+      "src": {
+        "device": 2880313663184,
+        "repr": "Integrator4",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2880315864336,
+          "device": 2880313663184,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2880116939152,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

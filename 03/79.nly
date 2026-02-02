@@ -20,7 +20,8 @@
       "config": {
         "set_pause": 0,
         "pharo_output": 0.0,
-        "pads0_p0": 0.0
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -34,8 +35,8 @@
         "output": 0,
         "set_pause": 0,
         "a": 1.0,
-        "b": 0.0,
-        "comparator": "<=",
+        "b": 127.0,
+        "comparator": ">=",
         "type": "continuous"
       },
       "proxy": false,
@@ -56,6 +57,21 @@
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 2450352057232,
+      "repr": "DualRouter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "in0": 0.0,
+        "in1": 0.0,
+        "type": "toggle",
+        "selector": 0.0
+      },
+      "proxy": false,
+      "class": "DualRouter"
     }
   ],
   "connections": [
@@ -152,8 +168,8 @@
         "chain": {
           "id": 2450351989008,
           "device": 2450349261968,
-          "to_min": null,
-          "to_max": null,
+          "to_min": 0,
+          "to_max": 127,
           "auto": true,
           "method": "lin",
           "as_int": false
@@ -255,7 +271,7 @@
       "velocity": null
     },
     {
-      "id": 2450355986704,
+      "id": 2450353470352,
       "src": {
         "device": 2450352056848,
         "repr": "Comparator1",
@@ -280,10 +296,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2450351983248,
+          "id": 2450352007696,
           "device": 2450352056848,
-          "to_min": 0,
-          "to_max": 127,
+          "to_min": 0.0,
+          "to_max": 1.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -291,21 +307,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 2450349261968,
-        "repr": "WebSocketBus1",
+        "device": 2450352057232,
+        "repr": "DualRouter1",
         "parameter": {
-          "name": "pharo_input",
+          "name": "selector",
           "stream": false,
-          "consumer": true,
+          "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            0.0,
+            1.0
           ],
           "accepted_values": [],
-          "conversion_policy": null,
+          "conversion_policy": ">0",
           "disable_policy": false,
-          "cv_name": "pharo_input_cv",
+          "cv_name": "selector_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -371,6 +387,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2450353434064,
+      "src": {
+        "device": 2450352057232,
+        "repr": "DualRouter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2450351990928,
+          "device": 2450352057232,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2450349261968,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pharo_input",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pharo_input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

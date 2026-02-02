@@ -42,12 +42,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.27735216698252263,
+        "output": -0.29055849281536134,
         "set_pause": 0,
-        "input": 0.2514379302616945,
-        "smear": 0.24313585954311592,
-        "decay": 0.24313585954311592,
-        "feedback": 0.7492954990523153,
+        "input": -0.25215679588433004,
+        "smear": 0.734897021463677,
+        "decay": 0.734897021463677,
+        "feedback": 0.2624519487509598,
         "reset": 0
       },
       "proxy": false,
@@ -59,7 +59,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 79.4663085716176,
+        "output": 20.984057948460055,
         "set_pause": 0,
         "speed": 3.0,
         "subdiv": "1/1",
@@ -81,7 +81,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 30.878254161975722,
+        "output": 93.33192172588697,
         "set_pause": 0,
         "speed": 0.46,
         "subdiv": "1/1",
@@ -103,14 +103,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 89,
+        "output": 44,
         "set_pause": 0,
-        "input": 81.11186260339018,
+        "input": 45.04953570622456,
         "trigger": 0,
         "reset": 0,
-        "root": "C",
-        "scale_": "maj",
-        "type": "sample&hold"
+        "root": "A",
+        "scale_": "min-harmo",
+        "type": "free"
       },
       "proxy": false,
       "class": "Quantizer"
@@ -138,6 +138,28 @@
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 2790257395920,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 127.0,
+        "set_pause": 0,
+        "speed": 0.55,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "pulse",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.29,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -364,8 +386,8 @@
         "chain": {
           "id": 2790019039888,
           "device": 2790019498320,
-          "to_min": -1.0,
-          "to_max": 1.0,
+          "to_min": -0.5,
+          "to_max": 1,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -770,6 +792,74 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2790256236688,
+      "src": {
+        "device": 2790257395920,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2790256348816,
+          "device": 2790257395920,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2790257394640,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "type",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [
+            "sample&hold",
+            "free"
+          ],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "type_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

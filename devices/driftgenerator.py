@@ -1,3 +1,4 @@
+import time
 from mydevice import *
 from nallely import VirtualDevice, VirtualParameter, on
 

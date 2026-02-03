@@ -25,18 +25,18 @@
         },
         "amp": {
           "volume": 102,
-          "panning": 101,
+          "panning": 118,
           "drive": 57,
-          "attack": 51,
+          "attack": 100,
           "decay": 47,
           "sustain": 101,
           "release": 27
         },
         "filter": {
           "slope": 127,
-          "cutoff": 68,
+          "cutoff": 50,
           "resonance": 109,
-          "env_amount": 76,
+          "env_amount": 27,
           "attack": 5,
           "decay": 45,
           "sustain": 38,
@@ -50,9 +50,9 @@
           "amp_mod_amount": 28
         },
         "reverb": {
-          "amount": 15,
-          "size": 3,
-          "stereo": 127,
+          "amount": 127,
+          "size": 27,
+          "stereo": 82,
           "damping": 112
         }
       },
@@ -78,7 +78,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pharo_output": 61.599450674342904
+        "pharo_output": 31.872962546900126
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -89,13 +89,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 51.05528280798115,
+        "output": 100.19302610981632,
         "set_pause": 0,
         "speed": 0.9,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "sine",
+        "waveform": "smooth_random_cosine",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -517,6 +517,124 @@
           "section_name": "amp",
           "init_value": 64,
           "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2450852730704,
+      "src": {
+        "device": 2450817549584,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2450849732624,
+          "device": 2450817549584,
+          "to_min": 127,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2450851037968,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 92,
+          "channel": null,
+          "name": "size",
+          "section_name": "reverb",
+          "init_value": 64,
+          "description": "Reverb Room Size",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2450852687888,
+      "src": {
+        "device": 2450817549584,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2450849733520,
+          "device": 2450817549584,
+          "to_min": 49,
+          "to_max": 91,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2450851037968,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 93,
+          "channel": null,
+          "name": "stereo",
+          "section_name": "reverb",
+          "init_value": 64,
+          "description": "Reverb Width",
           "range": [
             0,
             127

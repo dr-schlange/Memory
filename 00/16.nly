@@ -72,7 +72,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 113.0
+        "pads0_p0": 82.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -85,15 +86,37 @@
       "config": {
         "set_pause": 0,
         "speed": 300.0,
-        "curl": 3.246533410188503,
-        "drift": 0.036984248477548574,
-        "noise": 0.46,
-        "reset": 1,
-        "x": -4.815078757612257,
-        "y": -2.0138663592459873
+        "curl": 4.108229577110828,
+        "drift": 0.007044676369493352,
+        "noise": 0.0,
+        "reset": 0,
+        "x": -4.964776618152533,
+        "y": 3.2164591542216563
       },
       "proxy": false,
       "class": "DriftingFlowPainter"
+    },
+    {
+      "id": 2450447927504,
+      "repr": "LFO1",
+      "paused": true,
+      "running": true,
+      "config": {
+        "output": 127.0,
+        "set_pause": 1,
+        "speed": 10.0,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 200,
+        "waveform": "square",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -153,6 +176,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 1.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2450453492112,
+      "src": {
+        "device": 2450850911568,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p1",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2450449305104,
+          "device": 2450850911568,
+          "to_min": 0.0,
+          "to_max": 2.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2450859756944,
+        "repr": "DriftingFlowPainter1",
+        "parameter": {
+          "name": "drift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            2.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "drift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.2,
           "no_init": false
         },
         "explicit": -1,
@@ -407,7 +495,7 @@
       "velocity": null
     },
     {
-      "id": 2450861163344,
+      "id": 2450453492688,
       "src": {
         "device": 2450859756944,
         "repr": "DriftingFlowPainter1",
@@ -432,7 +520,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2450849728400,
+          "id": 2450449305360,
           "device": 2450859756944,
           "to_min": 0.0,
           "to_max": 2.0,
@@ -472,7 +560,7 @@
       "velocity": null
     },
     {
-      "id": 2450861151056,
+      "id": 2450453493072,
       "src": {
         "device": 2450859756944,
         "repr": "DriftingFlowPainter1",
@@ -497,9 +585,74 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2450849734672,
+          "id": 2450449304080,
           "device": 2450859756944,
-          "to_min": 2.5,
+          "to_min": 0.0,
+          "to_max": 5.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2450859756944,
+        "repr": "DriftingFlowPainter1",
+        "parameter": {
+          "name": "curl",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "curl_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 1.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2450453492304,
+      "src": {
+        "device": 2450447927504,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2450449302800,
+          "device": 2450447927504,
+          "to_min": 0.0,
           "to_max": 5.0,
           "auto": false,
           "method": "lin",

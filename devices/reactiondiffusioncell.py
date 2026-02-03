@@ -66,7 +66,5 @@ class ReactionDiffusionCell(VirtualDevice):
         self.u = max(0.0, min(1.0, self.u))
         self.v = max(0.0, min(1.0, self.v))
         pattern = self.u - self.v
-        yield (self.u, [self.u_cv])
-        yield (self.v, [self.v_cv])
         yield (max(-1.0, min(1.0, pattern)), [self.pattern_cv])
         return max(-1.0, min(1.0, pattern))

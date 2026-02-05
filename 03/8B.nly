@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 4001371854096,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 4000767856400,
@@ -30,10 +42,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 126.99999999999866,
+        "output": 13.673597334991374,
         "set_pause": 0,
-        "input": 126.99999999999866,
-        "shift": 0.0
+        "input": 14.56593121424341,
+        "shift": 1.0
       },
       "proxy": false,
       "class": "PitchShifter"
@@ -64,7 +76,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 0,
+        "a": 16.50464802048655,
         "b": 126.0,
         "comparator": ">=",
         "type": "ondemand"
@@ -321,6 +333,128 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4001369379472,
+      "src": {
+        "device": 4001337639696,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001369379152,
+          "device": 4001337639696,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001371854096,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4001369377232,
+      "src": {
+        "device": 4001371849872,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001369375952,
+          "device": 4001371849872,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001337639696,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

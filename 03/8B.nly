@@ -18,7 +18,8 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -29,8 +30,9 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 126.99999999999866,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 126.99999999999866,
         "shift": 0.0
       },
       "proxy": false,
@@ -53,6 +55,22 @@
       },
       "proxy": false,
       "class": "FeedbackDamper"
+    },
+    {
+      "id": 4001371849872,
+      "repr": "Comparator1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "a": 0,
+        "b": 126.0,
+        "comparator": ">=",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Comparator"
     }
   ],
   "connections": [
@@ -238,6 +256,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4001369366032,
+      "src": {
+        "device": 4001337639696,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001369363792,
+          "device": 4001337639696,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001371849872,
+        "repr": "Comparator1",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

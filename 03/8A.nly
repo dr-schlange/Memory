@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 2482729748240,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 2482564026128,
@@ -29,11 +41,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 5.519999907681749,
+        "output": -0.4744104297554055,
         "set_pause": 0,
-        "input": 9.569680857604858,
-        "gain": 19.569680857604858,
-        "sat": 5.52,
+        "input": -9.600803648254303,
+        "gain": 0.3991963517456965,
+        "sat": 0.49720036998696804,
         "response": 0.09,
         "reset": 0.0
       },
@@ -46,12 +58,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 124.26747344579084,
+        "output": 2.5348968335851727,
         "set_pause": 0,
-        "speed": 0.72,
+        "speed": 1.91,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 38,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -124,6 +136,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2482743661648,
+      "src": {
+        "device": 2482729330448,
+        "repr": "Transistor1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2482727498128,
+          "device": 2482729330448,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2482729748240,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,
@@ -315,6 +384,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": 2.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2482743632656,
+      "src": {
+        "device": 2482729722320,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2482727501328,
+          "device": 2482729722320,
+          "to_min": 0.1,
+          "to_max": 20.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2482729330448,
+        "repr": "Transistor1",
+        "parameter": {
+          "name": "sat",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.1,
+            20.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sat_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 5.0,
           "no_init": false
         },
         "explicit": -1,

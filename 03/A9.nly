@@ -22,8 +22,176 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 4001408156048,
+      "repr": "ReactionDiffusionCell1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 1.0,
+        "set_pause": 0,
+        "u_diffuse": 0.0,
+        "v_diffuse": 0.0,
+        "feed": 0.036,
+        "kill": 0.065,
+        "reaction": 1.0,
+        "reset": 0.0,
+        "pattern": 1.0
+      },
+      "proxy": false,
+      "class": "ReactionDiffusionCell"
+    },
+    {
+      "id": 4001408156432,
+      "repr": "SoftLifeReactor1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "growth": 1.0,
+        "decay": 0.2,
+        "spread": 0.3,
+        "noise": 0.05,
+        "reset": 0.0,
+        "x": -0.31985710919715427,
+        "y": -0.3682858353325349
+      },
+      "proxy": false,
+      "class": "SoftLifeReactor"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 4001407496592,
+      "src": {
+        "device": 4001408156432,
+        "repr": "SoftLifeReactor1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001402193552,
+          "device": 4001408156432,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4002038417936,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4001407497360,
+      "src": {
+        "device": 4001408156432,
+        "repr": "SoftLifeReactor1",
+        "parameter": {
+          "name": "y",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001402192528,
+          "device": 4001408156432,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4002038417936,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

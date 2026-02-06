@@ -23,18 +23,18 @@
           "mix": 85
         },
         "amp": {
-          "volume": 112,
-          "attack": 8,
+          "drive": 29,
+          "attack": 35,
           "decay": 6,
-          "sustain": 110,
-          "release": 24
+          "sustain": 50,
+          "release": 42
         },
         "filter": {
           "slope": 127,
-          "cutoff": 66,
+          "cutoff": 8,
           "resonance": 127,
-          "env_amount": 108,
-          "decay": 10,
+          "env_amount": 83,
+          "decay": 37,
           "sustain": 0,
           "release": 95
         },
@@ -84,28 +84,28 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.0009528984385344427,
+        "output": -0.08558785982305701,
         "set_pause": 0,
-        "speed": 0.21,
-        "amount": 0.4966470741136683,
-        "center": -0.9863005616768302,
+        "speed": 2.8643273203763537,
+        "amount": 0.28603816569459006,
+        "center": -0.4279236686108199,
         "reset": 0.0
       },
       "proxy": false,
       "class": "DriftGenerator"
     },
     {
-      "id": 4002545074960,
-      "repr": "LFO1",
+      "id": 4002541671440,
+      "repr": "LFO2",
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8699143335212809,
+        "output": 36.326847043212936,
         "set_pause": 0,
-        "speed": 1.03,
+        "speed": 4.762930904477552,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 20,
+        "sampling_rate": 95,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -306,10 +306,10 @@
       "velocity": null
     },
     {
-      "id": 4002547167632,
+      "id": 4002547985232,
       "src": {
-        "device": 4002545074960,
-        "repr": "LFO1",
+        "device": 4002545074576,
+        "repr": "DriftGenerator1",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -331,32 +331,32 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4002544157840,
-          "device": 4002545074960,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
+          "id": 4002544158992,
+          "device": 4002545074576,
+          "to_min": 0,
+          "to_max": 10.0,
+          "auto": false,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 4001269548304,
-        "repr": "WebSocketBus1",
+        "device": 4002541671440,
+        "repr": "LFO2",
         "parameter": {
-          "name": "xyscope0_y",
-          "stream": true,
-          "consumer": true,
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            0,
+            10.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "xyscope0_y_cv",
+          "cv_name": "speed_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -371,10 +371,10 @@
       "velocity": null
     },
     {
-      "id": 4002547169936,
+      "id": 4002548019408,
       "src": {
-        "device": 4002545074960,
-        "repr": "LFO1",
+        "device": 4002541671440,
+        "repr": "LFO2",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -396,8 +396,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4002544159504,
-          "device": 4002545074960,
+          "id": 4002544160144,
+          "device": 4002541671440,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4002545074576,
+        "repr": "DriftGenerator1",
+        "parameter": {
+          "name": "amount",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "amount_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.1,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4002547966800,
+      "src": {
+        "device": 4002541671440,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4002544160400,
+          "device": 4002541671440,
           "to_min": -1.0,
           "to_max": 1.0,
           "auto": false,

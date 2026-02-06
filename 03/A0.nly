@@ -126,7 +126,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 65.0
+        "pads0_p0": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -137,9 +137,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 64.99524956684446,
+        "output": 8.229542519444522e-05,
         "set_pause": 0,
-        "input": 65.0,
+        "input": 0.0,
         "attack": 80.0,
         "release": 28.0,
         "type": "slew",
@@ -156,10 +156,10 @@
       "config": {
         "output": 1.0,
         "set_pause": 0,
-        "input": 0.02356219926733183,
-        "smear": 0.11,
-        "decay": 0.5117810996336659,
-        "feedback": 0.568,
+        "input": -0.9999953714609003,
+        "smear": 0.45,
+        "decay": 0.731,
+        "feedback": 0.981,
         "reset": 0
       },
       "proxy": false,
@@ -171,9 +171,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 1,
         "set_pause": 0,
-        "a": 64.99619965347557,
+        "a": 8.229542519444522e-05,
         "b": 1.0,
         "comparator": "<=",
         "type": "ondemand"
@@ -189,7 +189,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 64.99619965347557,
+        "a": 8.229542519444522e-05,
         "b": 116.0,
         "comparator": ">=",
         "type": "ondemand"
@@ -204,17 +204,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 82,
+        "input": 35,
         "interval0": "-octave",
         "interval1": "-5/b5",
         "interval2": "-3/m3",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 69,
-        "out1": 74,
-        "out2": 77,
-        "out3": 81
+        "out0": 23,
+        "out1": 28,
+        "out2": 31,
+        "out3": 35
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -226,15 +226,15 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0,
+        "trigger": 1,
         "reset": 0,
         "steps": 4,
         "mode": "IOs->OI",
-        "io4": 77.0,
-        "io3": 74.0,
-        "io2": 69.0,
-        "io1": 81.0,
-        "oi": 23.0
+        "io4": 31.0,
+        "io3": 28.0,
+        "io2": 23.0,
+        "io1": 35.0,
+        "oi": 24.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -250,7 +250,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 0,
+        "mul5": 1,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -269,7 +269,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65.0,
+        "output": 64.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -298,10 +298,26 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5.0
+        "current_step": 4.0
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 4001132254864,
+      "repr": "WindowDetector1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "input": 2.304271905728683e-05,
+        "upperbound": 99.0,
+        "lowerbound": 58.0,
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "WindowDetector"
     }
   ],
   "connections": [
@@ -696,7 +712,7 @@
       "velocity": null
     },
     {
-      "id": 4001135002768,
+      "id": 4001371634384,
       "src": {
         "device": 4001132249488,
         "repr": "EnvelopeSlew1",
@@ -721,36 +737,36 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4001371262352,
+          "id": 4001371266320,
           "device": 4001132249488,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 4001132252944,
-        "repr": "EchoWithoutDelay1",
+        "device": 4001132254864,
+        "repr": "WindowDetector1",
         "parameter": {
-          "name": "decay",
+          "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            1.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "decay_cv",
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": 0.5,
+          "default": null,
           "no_init": false
         },
         "explicit": -1,
@@ -942,71 +958,6 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4001135059216,
-      "src": {
-        "device": 4001133701776,
-        "repr": "Comparator1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4001371264912,
-          "device": 4001133701776,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4001132249488,
-        "repr": "EnvelopeSlew1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1796,6 +1747,71 @@
         "chain": {
           "id": 4001371265936,
           "device": 4001132254480,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001132249488,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4001371596752,
+      "src": {
+        "device": 4001132254864,
+        "repr": "WindowDetector1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001371261584,
+          "device": 4001132254864,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

@@ -1,28 +1,5 @@
 {
-  "midi_devices": [
-    {
-      "id": 4001403570704,
-      "repr": "Amsynth",
-      "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
-      },
-      "channel": 0,
-      "config": {},
-      "class": "Amsynth"
-    },
-    {
-      "id": 4001403572624,
-      "repr": "Amsynth",
-      "ports": {
-        "input": "amsynth:MIDI OUT 130:1",
-        "output": "FLUID Synth (746):Synth input port (746:0) 128:0"
-      },
-      "channel": 0,
-      "config": {},
-      "class": "Amsynth"
-    }
-  ],
+  "midi_devices": [],
   "virtual_devices": [
     {
       "id": 4000767856400,
@@ -36,53 +13,30 @@
       "class": "TrevorBus"
     },
     {
-      "id": 4002038417936,
+      "id": 4001403579344,
       "repr": "WebSocketBus1",
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0,
-        "pads0_p0": 0.0,
-        "pads0_p1": 0.0,
-        "xypad0_x": 0.0,
-        "xypad0_y": 0.0
+        "set_pause": 0
       },
       "proxy": false,
       "class": "WebSocketBus"
     },
     {
-      "id": 4001408156048,
-      "repr": "ReactionDiffusionCell1",
-      "paused": false,
-      "running": true,
-      "config": {
-        "output": 1.0,
-        "set_pause": 0,
-        "u_diffuse": 0.0,
-        "v_diffuse": 0.0,
-        "feed": 0.036,
-        "kill": 0.065,
-        "reaction": 1.0,
-        "reset": 0.0,
-        "pattern": 1.0
-      },
-      "proxy": false,
-      "class": "ReactionDiffusionCell"
-    },
-    {
-      "id": 4001408156432,
+      "id": 4001403579024,
       "repr": "SoftLifeReactor1",
       "paused": false,
       "running": true,
       "config": {
         "set_pause": 0,
-        "growth": 0.9374903414550196,
-        "decay": 0.4474801827479575,
-        "spread": 0.0,
+        "growth": 1.0,
+        "decay": 0.2,
+        "spread": 0.3,
         "noise": 0.05,
-        "reset": 0.0,
-        "x": -0.3125482927249017,
-        "y": -0.5251974056002044
+        "reset": 0,
+        "x": -0.31118149728643907,
+        "y": -0.3196805693895852
       },
       "proxy": false,
       "class": "SoftLifeReactor"
@@ -90,74 +44,9 @@
   ],
   "connections": [
     {
-      "id": 4001407474128,
+      "id": 4001407472592,
       "src": {
-        "device": 4002038417936,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "pads0_p0",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "pads0_p0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4001402194320,
-          "device": 4002038417936,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "spread",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "spread_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 0.3,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4001407496592,
-      "src": {
-        "device": 4001408156432,
+        "device": 4001403579024,
         "repr": "SoftLifeReactor1",
         "parameter": {
           "name": "x",
@@ -180,8 +69,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4001402193552,
-          "device": 4001408156432,
+          "id": 4001402192272,
+          "device": 4001403579024,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -191,7 +80,7 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4002038417936,
+        "device": 4001403579344,
         "repr": "WebSocketBus1",
         "parameter": {
           "name": "xyscope0_x",
@@ -220,9 +109,9 @@
       "velocity": null
     },
     {
-      "id": 4001407497360,
+      "id": 4001407475280,
       "src": {
-        "device": 4001408156432,
+        "device": 4001403579024,
         "repr": "SoftLifeReactor1",
         "parameter": {
           "name": "y",
@@ -245,8 +134,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4001402192528,
-          "device": 4001408156432,
+          "id": 4001402194064,
+          "device": 4001403579024,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -256,7 +145,7 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4002038417936,
+        "device": 4001403579344,
         "repr": "WebSocketBus1",
         "parameter": {
           "name": "xyscope0_y",
@@ -285,9 +174,9 @@
       "velocity": null
     },
     {
-      "id": 4001408609552,
+      "id": 4001407466256,
       "src": {
-        "device": 4001408156432,
+        "device": 4001403579024,
         "repr": "SoftLifeReactor1",
         "parameter": {
           "name": "x",
@@ -310,138 +199,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4001402193680,
-          "device": 4001408156432,
-          "to_min": 0.0,
-          "to_max": 2.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "growth",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            2.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "growth_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 1.0,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4001408595920,
-      "src": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "y",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -5.0,
-            5.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4001402195088,
-          "device": 4001408156432,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "decay",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "decay_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 0.2,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4001404291920,
-      "src": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4001402194192,
-          "device": 4001408156432,
+          "id": 4001402192144,
+          "device": 4001403579024,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -451,7 +210,7 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4002038417936,
+        "device": 4001403579344,
         "repr": "WebSocketBus1",
         "parameter": {
           "name": "scope0_data",
@@ -480,12 +239,12 @@
       "velocity": null
     },
     {
-      "id": 4001404307856,
+      "id": 4001407499664,
       "src": {
-        "device": 4001408156432,
+        "device": 4001403579024,
         "repr": "SoftLifeReactor1",
         "parameter": {
-          "name": "x",
+          "name": "y",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -496,7 +255,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "x_cv",
+          "cv_name": "y_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -505,8 +264,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4001402192016,
-          "device": 4001408156432,
+          "id": 4001402195088,
+          "device": 4001403579024,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -516,7 +275,7 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4002038417936,
+        "device": 4001403579344,
         "repr": "WebSocketBus1",
         "parameter": {
           "name": "scope1_data",
@@ -539,120 +298,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4001404336272,
-      "src": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4001402192400,
-          "device": 4001408156432,
-          "to_min": 34,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4001403570704,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4001404329168,
-      "src": {
-        "device": 4001408156432,
-        "repr": "SoftLifeReactor1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4001402192656,
-          "device": 4001408156432,
-          "to_min": 30,
-          "to_max": 113,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4001403572624,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,

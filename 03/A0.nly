@@ -126,7 +126,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 65.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -137,9 +137,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 63.0,
+        "output": 64.99524956684446,
         "set_pause": 0,
-        "input": 63.0,
+        "input": 65.0,
         "attack": 80.0,
         "release": 28.0,
         "type": "slew",
@@ -156,9 +156,9 @@
       "config": {
         "output": 1.0,
         "set_pause": 0,
-        "input": -0.007874015748031482,
+        "input": 0.02356219926733183,
         "smear": 0.11,
-        "decay": 0.368,
+        "decay": 0.5117810996336659,
         "feedback": 0.568,
         "reset": 0
       },
@@ -173,7 +173,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 63.0,
+        "a": 64.99619965347557,
         "b": 1.0,
         "comparator": "<=",
         "type": "ondemand"
@@ -189,7 +189,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "a": 63.0,
+        "a": 64.99619965347557,
         "b": 116.0,
         "comparator": ">=",
         "type": "ondemand"
@@ -204,7 +204,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 81,
+        "input": 82,
         "interval0": "-octave",
         "interval1": "-5/b5",
         "interval2": "-3/m3",
@@ -234,7 +234,7 @@
         "io3": 74.0,
         "io2": 69.0,
         "io1": 81.0,
-        "oi": 24.0
+        "oi": 23.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -269,7 +269,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 63.0,
+        "output": 65.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -298,7 +298,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 0.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -686,6 +686,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4001135002768,
+      "src": {
+        "device": 4001132249488,
+        "repr": "EnvelopeSlew1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001371262352,
+          "device": 4001132249488,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001132252944,
+        "repr": "EchoWithoutDelay1",
+        "parameter": {
+          "name": "decay",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "decay_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.5,
           "no_init": false
         },
         "explicit": -1,
@@ -1639,12 +1704,12 @@
       "velocity": null
     },
     {
-      "id": 4001371599632,
+      "id": 4001135055952,
       "src": {
         "device": 4001133691216,
         "repr": "Clock1",
         "parameter": {
-          "name": "mul3",
+          "name": "mul7",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -1655,7 +1720,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "mul3_cv",
+          "cv_name": "mul7_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1664,7 +1729,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4001371263120,
+          "id": 4001371263504,
           "device": 4001133691216,
           "to_min": 0.0,
           "to_max": 1.0,

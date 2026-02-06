@@ -16,7 +16,7 @@
       "repr": "Amsynth",
       "ports": {
         "input": "amsynth:MIDI OUT 130:1",
-        "output": "amsynth:MIDI IN 130:0"
+        "output": "FLUID Synth (746):Synth input port (746:0) 128:0"
       },
       "channel": 0,
       "config": {},
@@ -42,7 +42,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0,
+        "xypad0_x": 0.0,
+        "xypad0_y": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -73,19 +76,84 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "growth": 0.9375219286539573,
-        "decay": 0.4555489743867168,
-        "spread": 0.3,
+        "growth": 0.9374903414550196,
+        "decay": 0.4474801827479575,
+        "spread": 0.0,
         "noise": 0.05,
         "reset": 0.0,
-        "x": -0.3123903567302131,
-        "y": -0.44451025613283157
+        "x": -0.3125482927249017,
+        "y": -0.5251974056002044
       },
       "proxy": false,
       "class": "SoftLifeReactor"
     }
   ],
   "connections": [
+    {
+      "id": 4001407474128,
+      "src": {
+        "device": 4002038417936,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4001402194320,
+          "device": 4002038417936,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001408156432,
+        "repr": "SoftLifeReactor1",
+        "parameter": {
+          "name": "spread",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "spread_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.3,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 4001407496592,
       "src": {
@@ -504,7 +572,7 @@
         "chain": {
           "id": 4001402192400,
           "device": 4001408156432,
-          "to_min": 52,
+          "to_min": 34,
           "to_max": 127,
           "auto": false,
           "method": "lin",

@@ -1,5 +1,60 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 4002541667920,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {
+        "general": {
+          "bank_select": 7,
+          "preset_select": 12
+        },
+        "oscillators": {
+          "osc1_waveform": 0,
+          "osc1_shape": 127,
+          "osc2_shape": 48,
+          "osc2_semitone": 0,
+          "osc2_detune": 67,
+          "sync_oscillators": 0,
+          "mix": 85
+        },
+        "amp": {
+          "volume": 112,
+          "attack": 8,
+          "decay": 6,
+          "sustain": 110,
+          "release": 24
+        },
+        "filter": {
+          "slope": 127,
+          "cutoff": 66,
+          "resonance": 127,
+          "env_amount": 108,
+          "decay": 10,
+          "sustain": 0,
+          "release": 95
+        },
+        "lfo": {
+          "waveform": 106,
+          "speed": 0,
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 0
+        },
+        "reverb": {
+          "amount": 20,
+          "damping": 100
+        },
+        "keys": {
+          "portamento": 3
+        }
+      },
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 4000767856400,
@@ -29,11 +84,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.0028891206419035193,
+        "output": -0.0009528984385344427,
         "set_pause": 0,
-        "speed": 1.0,
-        "amount": 0.1,
-        "center": 0.0,
+        "speed": 0.21,
+        "amount": 0.4966470741136683,
+        "center": -0.9863005616768302,
         "reset": 0.0
       },
       "proxy": false,
@@ -45,12 +100,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 111.38569084356364,
+        "output": 0.8699143335212809,
         "set_pause": 0,
-        "speed": 0.01,
+        "speed": 1.03,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 20,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -64,7 +119,7 @@
   ],
   "connections": [
     {
-      "id": 4002546254032,
+      "id": 4002547154192,
       "src": {
         "device": 4002545074576,
         "repr": "DriftGenerator1",
@@ -89,7 +144,72 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4002544158480,
+          "id": 4002544158736,
+          "device": 4002545074576,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4001269548304,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4002547166864,
+      "src": {
+        "device": 4002545074576,
+        "repr": "DriftGenerator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4002544157712,
           "device": 4002545074576,
           "to_min": null,
           "to_max": null,
@@ -129,7 +249,7 @@
       "velocity": null
     },
     {
-      "id": 4002546254416,
+      "id": 4002547168592,
       "src": {
         "device": 4002545074576,
         "repr": "DriftGenerator1",
@@ -154,8 +274,65 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4002544159504,
+          "id": 4002544157328,
           "device": 4002545074576,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4002541667920,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4002547167632,
+      "src": {
+        "device": 4002545074960,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4002544157840,
+          "device": 4002545074960,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -168,7 +345,7 @@
         "device": 4001269548304,
         "repr": "WebSocketBus1",
         "parameter": {
-          "name": "scope0_data",
+          "name": "xyscope0_y",
           "stream": true,
           "consumer": true,
           "description": null,
@@ -179,11 +356,76 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "scope0_data_cv",
+          "cv_name": "xyscope0_y_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4002547169936,
+      "src": {
+        "device": 4002545074960,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4002544159504,
+          "device": 4002545074960,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4002545074576,
+        "repr": "DriftGenerator1",
+        "parameter": {
+          "name": "center",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "center_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,

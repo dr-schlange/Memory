@@ -18,37 +18,34 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
     },
     {
-      "id": 4692796903184,
-      "repr": "Waveshaper1",
+      "id": 4692796899728,
+      "repr": "EnvelopeSlew1",
       "paused": false,
       "running": true,
       "config": {
+        "output": 17.78550559660537,
         "set_pause": 0,
-        "input": 0,
-        "mode": "linear",
-        "amount": 0.5,
-        "symmetry": 0,
-        "bias": 0,
-        "exp_power": 2,
-        "log_scale": 4,
-        "sigmoid_gain": 3,
-        "fold_gain": 1,
-        "quantize_steps": 8,
-        "type": "ondemand"
+        "input": 17.78550559660537,
+        "attack": 62.0,
+        "release": 30.0,
+        "type": "slew",
+        "mode": "ondemand"
       },
       "proxy": false,
-      "class": "Waveshaper"
+      "class": "EnvelopeSlew"
     }
   ],
   "connections": [
     {
-      "id": 4692809087248,
+      "id": 4692802664912,
       "src": {
         "device": 4692791413520,
         "repr": "WebSocketBus1",
@@ -73,10 +70,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4692791004560,
+          "id": 4692791001616,
           "device": 4692791413520,
-          "to_min": -5,
-          "to_max": 5,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -84,16 +81,16 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4692796903184,
-        "repr": "Waveshaper1",
+        "device": 4692796899728,
+        "repr": "EnvelopeSlew1",
         "parameter": {
           "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            -5,
-            5
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -113,10 +110,10 @@
       "velocity": null
     },
     {
-      "id": 4692809086480,
+      "id": 4692802654160,
       "src": {
-        "device": 4692796903184,
-        "repr": "Waveshaper1",
+        "device": 4692796899728,
+        "repr": "EnvelopeSlew1",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -138,10 +135,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4692791005072,
-          "device": 4692796903184,
-          "to_min": -5,
-          "to_max": 5,
+          "id": 4692791002256,
+          "device": 4692796899728,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -149,41 +146,10 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4692796903184,
-        "repr": "Waveshaper1",
+        "device": 4692796899728,
+        "repr": "EnvelopeSlew1",
         "parameter": {
           "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -5,
-            5
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4692809085712,
-      "src": {
-        "device": 4692796903184,
-        "repr": "Waveshaper1",
-        "parameter": {
-          "name": "output",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -194,41 +160,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4692791003792,
-          "device": 4692796903184,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4692791413520,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "scope0_data",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "scope0_data_cv",
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

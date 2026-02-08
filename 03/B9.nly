@@ -196,10 +196,10 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "gbemu0_ch1_freq": 75.0,
-        "gbemu0_ch2_freq": 72.0,
-        "gbemu0_ch3_freq": 51.0,
-        "gbemu0_ch4_freq": 89.0,
+        "gbemu0_ch1_freq": 70.0,
+        "gbemu0_ch2_freq": 62.0,
+        "gbemu0_ch3_freq": 46.0,
+        "gbemu0_ch4_freq": 127.0,
         "gpcontrol0_down": 0.0,
         "gpcontrol0_left": 0.0,
         "gpcontrol0_right": 0.0,
@@ -209,7 +209,11 @@
         "sliders0_s0": 13.0,
         "sliders0_s1": 70.0,
         "sliders0_s2": 105.0,
-        "sliders0_s3": 92.0
+        "sliders0_s3": 92.0,
+        "sliders1_s0": 0.0,
+        "sliders1_s1": 0.0,
+        "sliders1_s2": 0.0,
+        "sliders1_s3": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -220,9 +224,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.7954474505128563,
+        "output": 0.7468597211293969,
         "set_pause": 0,
-        "input": 0.47939924096162756,
+        "input": -0.46519653371660596,
         "initial": 0.0,
         "gain": 69.0,
         "reset": 0,
@@ -238,9 +242,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.47939924096162756,
+        "output": 0.465196533716606,
         "set_pause": 0,
-        "input": -0.7348058971590083,
+        "input": 0.6800576158327742,
         "initial": 0.0,
         "gain": 31.0,
         "reset": 0,
@@ -257,11 +261,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 30,
-        "out3": 47,
-        "out2": 51,
-        "out1": 40,
-        "out0": 44
+        "input": 71,
+        "out3": 67,
+        "out2": 63,
+        "out1": 59,
+        "out0": 55
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -273,11 +277,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 30,
-        "out3": 105,
-        "out2": 107,
-        "out1": 101,
-        "out0": 103
+        "input": 34,
+        "out3": 26,
+        "out2": 0,
+        "out1": 31,
+        "out0": 29
       },
       "proxy": false,
       "class": "VoiceAllocator"
@@ -1313,7 +1317,7 @@
       "velocity": null
     },
     {
-      "id": 4854770177680,
+      "id": 4854770184016,
       "src": {
         "device": 4854392613008,
         "repr": "WebSocketBus1",
@@ -1338,10 +1342,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4854759692688,
+          "id": 4854759692304,
           "device": 4854392613008,
           "to_min": 0,
-          "to_max": 1,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1349,21 +1353,46 @@
         "type": "virtual"
       },
       "dest": {
+        "device": 4854757008784,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4854770232784,
+      "src": {
         "device": 4854392613008,
         "repr": "WebSocketBus1",
         "parameter": {
-          "name": "gbemu0_volume",
+          "name": "sliders1_s1",
           "stream": false,
           "consumer": true,
           "description": null,
           "range": [
             0,
-            1
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "gbemu0_volume_cv",
+          "cv_name": "sliders1_s1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1371,7 +1400,153 @@
           "no_init": false
         },
         "explicit": -1,
+        "chain": {
+          "id": 4854759691408,
+          "device": 4854392613008,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
         "type": "virtual"
+      },
+      "dest": {
+        "device": 4854758462416,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4854770187280,
+      "src": {
+        "device": 4854392613008,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders1_s2",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders1_s2_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4854759686544,
+          "device": 4854392613008,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4854758470096,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Master Volume",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4854770184592,
+      "src": {
+        "device": 4854392613008,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "sliders1_s3",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "sliders1_s3_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4854759687824,
+          "device": 4854392613008,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4854757014160,
+        "repr": "MIDIBridge0",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "volume",
+          "section_name": "general",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

@@ -29,9 +29,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": -1.0,
         "set_pause": 0,
-        "input": 0.0,
+        "input": -1.0,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0.0,
@@ -42,8 +42,8 @@
       "class": "Integrator"
     },
     {
-      "id": 4854758448656,
-      "repr": "Integrator2",
+      "id": 4854758455696,
+      "repr": "Integrator3",
       "paused": false,
       "running": true,
       "config": {
@@ -53,7 +53,7 @@
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
-        "limits": "-1..1",
+        "limits": "unbound",
         "leakage_factor": 1e-05
       },
       "proxy": false,
@@ -582,7 +582,7 @@
       "velocity": null
     },
     {
-      "id": 4854757003792,
+      "id": 4854761065328,
       "src": {
         "device": 4854757003408,
         "repr": "Integrator1",
@@ -607,27 +607,27 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4854757004176,
+          "id": 4854761064656,
           "device": 4854757003408,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 4854758448656,
-        "repr": "Integrator2",
+        "device": 4854758455696,
+        "repr": "Integrator3",
         "parameter": {
           "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -647,10 +647,10 @@
       "velocity": null
     },
     {
-      "id": 4854758444496,
+      "id": 4854761065104,
       "src": {
-        "device": 4854758448656,
-        "repr": "Integrator2",
+        "device": 4854758455696,
+        "repr": "Integrator3",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -672,11 +672,11 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4854758445776,
-          "device": 4854758448656,
-          "to_min": "1",
+          "id": 4854761065552,
+          "device": 4854758455696,
+          "to_min": 1,
           "to_max": -1,
-          "auto": true,
+          "auto": false,
           "method": "lin",
           "as_int": false
         },
@@ -691,8 +691,8 @@
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            -1.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,

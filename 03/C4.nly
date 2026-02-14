@@ -8,7 +8,12 @@
         "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "filter": {
+          "cutoff": 53,
+          "resonance": 77
+        }
+      },
       "class": "Amsynth"
     }
   ],
@@ -43,13 +48,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8098078868813825,
+        "output": 0.5764705882352945,
         "set_pause": 0,
         "gate": 1.0,
-        "attack": 0.46,
-        "decay": 0.67,
-        "sustain": 0.69,
-        "release": 0.95
+        "attack": 0.68,
+        "decay": 0.32,
+        "sustain": 0.54,
+        "release": 0.49
       },
       "proxy": false,
       "class": "ADSREnvelope"
@@ -60,11 +65,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.6974771950672759,
+        "output": 0.2005211229768652,
         "set_pause": 0,
-        "input": 0.6411150981932441,
-        "smear": 0.8,
-        "decay": 0.1,
+        "input": 0.12352941176470655,
+        "smear": 0.822,
+        "decay": 0.714,
         "feedback": 0.9,
         "reset": 0.0
       },
@@ -391,6 +396,65 @@
       "velocity": null
     },
     {
+      "id": 6482651582480,
+      "src": {
+        "device": 6482650273040,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 6482651580176,
+          "device": 6482650273040,
+          "to_min": 127,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 6482650271504,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 6482651584528,
       "src": {
         "device": 6482650280720,
@@ -442,6 +506,65 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 6482651586576,
+      "src": {
+        "device": 6482650280720,
+        "repr": "EchoWithoutDelay1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 6482651585552,
+          "device": 6482650280720,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 6482650271504,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 49,
+          "channel": null,
+          "name": "resonance",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Resonnance",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

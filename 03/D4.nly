@@ -29,7 +29,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 12.909751496260887,
+        "output": 53.14966735802741,
         "set_pause": 0,
         "speed": 1.89,
         "subdiv": "1/1",
@@ -55,7 +55,7 @@
         "tempo": 120.0,
         "play": 1,
         "reset": 0,
-        "mul7": 0,
+        "mul7": 1,
         "mul5": 0,
         "mul3": 0,
         "div5": 0,
@@ -75,14 +75,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
+        "output": 0.006913017365627648,
         "set_pause": 0,
-        "input": -1.0,
-        "drive": 1.0,
+        "input": 0.0069130173656275495,
+        "drive": -1.0,
         "momentum": 1.0,
-        "inertia": 0.0,
-        "rate": 1.0,
-        "clipping": "soft_cubic",
+        "inertia": 1.0,
+        "rate": 13.0,
+        "clipping": "tanh",
         "nonlinear": "off",
         "reset": 0.0
       },
@@ -95,15 +95,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": -0.005905830119001421,
         "set_pause": 0,
-        "u_diffuse": 0.0,
-        "v_diffuse": 0.0,
-        "feed": 0.036,
-        "kill": 0.065,
-        "reaction": 1.0,
+        "u_diffuse": 0.005905830119001365,
+        "v_diffuse": -0.005905830119001365,
+        "feed": 0.1,
+        "kill": 0.075,
+        "reaction": 3.0,
         "reset": 0.0,
-        "pattern": 1.0
+        "pattern": -0.005905830119001421
       },
       "proxy": false,
       "class": "ReactionDiffusionCell"
@@ -162,6 +162,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "xyscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4565390692176,
+      "src": {
+        "device": 4565387445008,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4565385675664,
+          "device": 4565387445008,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4565387445008,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -296,6 +361,136 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4565390688912,
+      "src": {
+        "device": 4565387445392,
+        "repr": "ReactionDiffusionCell1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4565385676944,
+          "device": 4565387445392,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4565387445392,
+        "repr": "ReactionDiffusionCell1",
+        "parameter": {
+          "name": "v_diffuse",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "v_diffuse_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4565390659920,
+      "src": {
+        "device": 4565387445392,
+        "repr": "ReactionDiffusionCell1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4565385677968,
+          "device": 4565387445392,
+          "to_min": 1,
+          "to_max": -1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4565387445392,
+        "repr": "ReactionDiffusionCell1",
+        "parameter": {
+          "name": "u_diffuse",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "u_diffuse_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,

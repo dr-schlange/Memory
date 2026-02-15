@@ -38,7 +38,6 @@
         "lfo": {
           "waveform": 0,
           "speed": 0,
-          "freq_mod_amount": 17,
           "filter_mod_amount": 21,
           "amp_mod_amount": 0
         },
@@ -47,10 +46,6 @@
           "size": 0,
           "stereo": 127,
           "damping": 112
-        },
-        "keys": {
-          "portamento": 2,
-          "keyboard_mode": 127
         }
       },
       "class": "Amsynth"
@@ -59,8 +54,8 @@
       "id": 4564646852624,
       "repr": "Amsynth",
       "ports": {
-        "input": "amsynth:MIDI OUT 130:1",
-        "output": "amsynth:MIDI IN 130:0"
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
       },
       "channel": 0,
       "config": {
@@ -89,8 +84,8 @@
         "filter": {
           "type": 0,
           "slope": 127,
-          "cutoff": 66,
-          "resonance": 61,
+          "cutoff": 62,
+          "resonance": 69,
           "env_amount": 88,
           "attack": 3,
           "decay": 71,
@@ -150,7 +145,7 @@
         "attack": 3.0,
         "release": 0.5,
         "min_gain": 0.1,
-        "reset": 0.0
+        "reset": 0
       },
       "proxy": false,
       "class": "FeedbackDamper"
@@ -165,10 +160,10 @@
         "speed": 1.0,
         "curl": 0.0,
         "drift": 2.0,
-        "noise": 10.0,
+        "noise": 1.5814208920945902,
         "reset": 0,
-        "x": -0.15660012595323583,
-        "y": -0.15566835025070644
+        "x": 0.46691386797690454,
+        "y": 0.09223539101166277
       },
       "proxy": false,
       "class": "DriftingFlowPainter"
@@ -179,12 +174,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 97.47851628059615,
+        "output": 12.102397818238915,
         "set_pause": 0,
         "speed": 1.45,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 28,
+        "sampling_rate": 28.0,
         "waveform": "smooth_random_cosine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -203,11 +198,11 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "speed": 4.807736438320239,
+        "speed": 4.7650563361283105,
         "sync": 0.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 96,
+        "sampling_rate": 95,
         "waveform": "pulse",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -224,9 +219,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 74,
+        "output": 69,
         "set_pause": 0,
-        "input": 61.48522458301176,
+        "input": 69.18984957649103,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -267,25 +262,47 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 74,
+        "input": 69,
         "interval0": "+3/m3",
         "interval1": "-5/b5",
         "interval2": "-octave",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 77,
-        "out1": 67,
-        "out2": 62,
-        "out3": 74
+        "out0": 72,
+        "out1": 62,
+        "out2": 57,
+        "out3": 69
       },
       "proxy": false,
       "class": "Harmonizer"
+    },
+    {
+      "id": 4564682083472,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 71.17611838134096,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
     {
-      "id": 4564646697744,
+      "id": 4564849459600,
       "src": {
         "device": 4564280997008,
         "repr": "WebSocketBus1",
@@ -310,7 +327,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564646696976,
+          "id": 4564849590416,
           "device": 4564280997008,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -350,7 +367,7 @@
       "velocity": null
     },
     {
-      "id": 4564656604624,
+      "id": 4564849459792,
       "src": {
         "device": 4564280997008,
         "repr": "WebSocketBus1",
@@ -375,7 +392,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564656648208,
+          "id": 4564849590544,
           "device": 4564280997008,
           "to_min": null,
           "to_max": null,
@@ -415,266 +432,6 @@
       "velocity": null
     },
     {
-      "id": 4564645384720,
-      "src": {
-        "device": 4564645387408,
-        "repr": "DriftingFlowPainter1",
-        "parameter": {
-          "name": "x",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -5.0,
-            5.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "x_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4564645380496,
-          "device": 4564645387408,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4564280997008,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "xyscope0_x",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xyscope0_x_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4564646829264,
-      "src": {
-        "device": 4564645387408,
-        "repr": "DriftingFlowPainter1",
-        "parameter": {
-          "name": "y",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -5.0,
-            5.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4564646829584,
-          "device": 4564645387408,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4564280997008,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "xyscope0_y",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xyscope0_y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4564646836624,
-      "src": {
-        "device": 4564645387408,
-        "repr": "DriftingFlowPainter1",
-        "parameter": {
-          "name": "x",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -5.0,
-            5.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "x_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4564646836304,
-          "device": 4564645387408,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4564280997008,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "xyzscope0_x",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xyzscope0_x_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 4564646834384,
-      "src": {
-        "device": 4564645387408,
-        "repr": "DriftingFlowPainter1",
-        "parameter": {
-          "name": "y",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            -5.0,
-            5.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4564646833744,
-          "device": 4564645387408,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4564280997008,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "xyzscope0_y",
-          "stream": true,
-          "consumer": true,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "xyzscope0_y_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 4564651871312,
       "src": {
         "device": 4564645387408,
@@ -700,7 +457,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564651872208,
+          "id": 4564950124944,
           "device": 4564645387408,
           "to_min": 0,
           "to_max": 127,
@@ -765,7 +522,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564648279376,
+          "id": 4564950125072,
           "device": 4564645387408,
           "to_min": 127,
           "to_max": 0,
@@ -824,7 +581,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564648279536,
+          "id": 4564950125200,
           "device": 4564645387408,
           "to_min": 0,
           "to_max": 127,
@@ -858,7 +615,267 @@
       "velocity": null
     },
     {
-      "id": 4564646837264,
+      "id": 4564916765648,
+      "src": {
+        "device": 4564645387408,
+        "repr": "DriftingFlowPainter1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4564950124432,
+          "device": 4564645387408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4564280997008,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4564916766032,
+      "src": {
+        "device": 4564645387408,
+        "repr": "DriftingFlowPainter1",
+        "parameter": {
+          "name": "y",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4564950124560,
+          "device": 4564645387408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4564280997008,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4565318566288,
+      "src": {
+        "device": 4564645387408,
+        "repr": "DriftingFlowPainter1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4564950124688,
+          "device": 4564645387408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4564280997008,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4565318566672,
+      "src": {
+        "device": 4564645387408,
+        "repr": "DriftingFlowPainter1",
+        "parameter": {
+          "name": "y",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4564950124816,
+          "device": 4564645387408,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4564280997008,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4565318567056,
       "src": {
         "device": 4564645388176,
         "repr": "LFO1",
@@ -883,7 +900,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564646836944,
+          "id": 4564950125328,
           "device": 4564645388176,
           "to_min": null,
           "to_max": null,
@@ -948,7 +965,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564646695440,
+          "id": 4564950125456,
           "device": 4564646852304,
           "to_min": 0.0,
           "to_max": 1.0,
@@ -1013,7 +1030,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564651869744,
+          "id": 4564950125584,
           "device": 4564645395856,
           "to_min": 0,
           "to_max": 127,
@@ -1070,7 +1087,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564656640336,
+          "id": 4564950125712,
           "device": 4564645395856,
           "to_min": 0,
           "to_max": 127,
@@ -1135,7 +1152,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564651870192,
+          "id": 4564950125840,
           "device": 4564645396240,
           "to_min": 0,
           "to_max": 1,
@@ -1200,7 +1217,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564656602512,
+          "id": 4564950125968,
           "device": 4564645396624,
           "to_min": 0,
           "to_max": 127,
@@ -1257,7 +1274,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564656648784,
+          "id": 4564950126096,
           "device": 4564645396624,
           "to_min": 0,
           "to_max": 127,
@@ -1314,7 +1331,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4564648276976,
+          "id": 4564950126224,
           "device": 4564645396624,
           "to_min": 0,
           "to_max": 127,

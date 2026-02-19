@@ -43,9 +43,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.0002907750506704763,
+        "output": -7.94909188931985e-12,
         "set_pause": 0,
-        "input": 0.0002907750506704332,
+        "input": 7.949085834013658e-12,
         "initial": 0.0,
         "gain": 1.0,
         "reset": 0,
@@ -62,17 +62,49 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -0.0002925705308667906,
+        "in0": -7.94909188931985e-12,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0.0002925705308667906
+        "out0": 7.999644937800096e-12
       },
       "proxy": false,
       "class": "Inverter"
+    },
+    {
+      "id": 2730766501008,
+      "repr": "Operator2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": -63500000.1589667,
+        "set_pause": 0,
+        "a": -0.500000001013504,
+        "b": 127000000.0,
+        "operator": "*",
+        "type": "ondemand"
+      },
+      "proxy": false,
+      "class": "Operator"
+    },
+    {
+      "id": 2730762119504,
+      "repr": "Operator3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 64.0,
+        "set_pause": 0,
+        "a": 127,
+        "b": 64.0,
+        "operator": "min",
+        "type": "continuous"
+      },
+      "proxy": false,
+      "class": "Operator"
     }
   ],
   "connections": [
@@ -337,6 +369,71 @@
       "velocity": null
     },
     {
+      "id": 2730763094896,
+      "src": {
+        "device": 2730096470160,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2730763094672,
+          "device": 2730096470160,
+          "to_min": -128,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730766501008,
+        "repr": "Operator2",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -128,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2730090377744,
       "src": {
         "device": 2730096468240,
@@ -402,7 +499,7 @@
       "velocity": null
     },
     {
-      "id": 2730762111184,
+      "id": 2730762570768,
       "src": {
         "device": 2730096468240,
         "repr": "Inverter1",
@@ -427,8 +524,138 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2730762110864,
+          "id": 2730762571792,
           "device": 2730096468240,
+          "to_min": -128,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730766501008,
+        "repr": "Operator2",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -128,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2730762571280,
+      "src": {
+        "device": 2730766501008,
+        "repr": "Operator2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2730762570256,
+          "device": 2730766501008,
+          "to_min": -128,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730762119504,
+        "repr": "Operator3",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -128,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2730763094448,
+      "src": {
+        "device": 2730762119504,
+        "repr": "Operator3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2730763094224,
+          "device": 2730762119504,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

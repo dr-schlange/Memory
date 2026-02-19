@@ -10,14 +10,18 @@
       "channel": 0,
       "config": {
         "ocs": {
-          "type": 89,
+          "type": 27,
           "shape": 97,
           "alt": 9
         },
         "delay": {
           "type": 127,
-          "time": 75,
-          "depth": 110
+          "time": 111,
+          "depth": 63
+        },
+        "reverb": {
+          "time": 126,
+          "depth": 82
         }
       },
       "class": "NTS1"
@@ -107,9 +111,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.06866863046550031,
+        "output": -0.06447914521420113,
         "set_pause": 0,
-        "input": 0.06866863046550031,
+        "input": 0.06447914521420117,
         "initial": 0.0,
         "gain": 2.0,
         "reset": 0,
@@ -126,14 +130,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -0.05680885082831165,
+        "in0": -0.039168872585424425,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 0.05680885082831165
+        "out0": 0.039168872585424425
       },
       "proxy": false,
       "class": "Inverter"
@@ -144,9 +148,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 18.83809007643192,
+        "output": 4.491537864389523,
         "set_pause": 0,
-        "input": 0.04669495678119255,
+        "input": 0.011133409257934896,
         "amplitude": 1.0,
         "gain": 6.0
       },
@@ -159,7 +163,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 69.28340951923563,
+        "output": 68.35574034819516,
         "set_pause": 0,
         "speed": 2.24,
         "subdiv": "1/1",
@@ -243,9 +247,31 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 88.53297507219054,
+        "output": 26.94649641628314,
         "set_pause": 0,
         "speed": 0.23,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 2730126089744,
+      "repr": "LFO5",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 111.233517350213,
+        "set_pause": 0,
+        "speed": 0.01,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -1640,6 +1666,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2730773555216,
+      "src": {
+        "device": 2730126089744,
+        "repr": "LFO5",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2730797567120,
+          "device": 2730126089744,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730096462480,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 30,
+          "channel": null,
+          "name": "time",
+          "section_name": "delay",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

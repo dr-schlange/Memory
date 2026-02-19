@@ -1,3 +1,4 @@
+import math
 from nallely.eg import *
 from nallely import VirtualDevice, VirtualParameter, on
 
@@ -31,10 +32,10 @@ class VCA(VirtualDevice):
 
     @on(input_cv, edge='any')
     def sending_modulated_input(self, value, ctx):
-        return value * e ^ self.amplitude * self.gain
+        return value * math.exp(self.amplitude * self.gain)
 
     @on(amplitude_cv, edge='any')
     def change_amplitude(self, value, ctx):
         if self.amplitude > 0:
-            return self.input * e ^ self.amplitude * self.gain
+            return self.input * math.exp(self.amplitude * self.gain)
         return 0

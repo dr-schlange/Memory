@@ -59,9 +59,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.97093714216439e-17,
+        "output": -6.143741177188567e-08,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 6.143741182462747e-08,
         "initial": 0.0,
         "gain": 51.0,
         "reset": 0,
@@ -78,14 +78,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -1.97093714216439e-17,
+        "in0": -6.143741177188567e-08,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 1.97093714216439e-17
+        "out0": 4.727220723562716e-08
       },
       "proxy": false,
       "class": "Inverter"
@@ -96,9 +96,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -5e+17,
+        "output": -5.000076191857943e+17,
         "set_pause": 0,
-        "a": -0.5,
+        "a": -0.5000076191857943,
         "b": 1e+18,
         "operator": "*",
         "type": "continuous"
@@ -121,6 +121,21 @@
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 2730127655696,
+      "repr": "VCA1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 9.454441447125433e-06,
+        "set_pause": 0,
+        "input": 4.727220723562716e-08,
+        "amplitude": 2.0,
+        "gain": 100.0
+      },
+      "proxy": false,
+      "class": "VCA"
     }
   ],
   "connections": [
@@ -184,63 +199,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 2730773551952,
-      "src": {
-        "device": 2729625319696,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "pads0_p0",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "pads0_p0_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 2730764339344,
-          "device": 2729625319696,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 2730766501776,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,
@@ -954,6 +912,71 @@
       "velocity": null
     },
     {
+      "id": 2730773567120,
+      "src": {
+        "device": 2730096468240,
+        "repr": "Inverter1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2730764340624,
+          "device": 2730096468240,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730127655696,
+        "repr": "VCA1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2730762571280,
       "src": {
         "device": 2730766501008,
@@ -1076,10 +1099,10 @@
       "velocity": null
     },
     {
-      "id": 2730773555600,
+      "id": 2730773574224,
       "src": {
-        "device": 2730762119504,
-        "repr": "Operator3",
+        "device": 2730127655696,
+        "repr": "VCA1",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -1101,8 +1124,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2730762905616,
-          "device": 2730762119504,
+          "id": 2730764337808,
+          "device": 2730127655696,
           "to_min": 0,
           "to_max": 127,
           "auto": false,
@@ -1112,8 +1135,8 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 2730766501776,
-        "repr": "Amsynth",
+        "device": 2730096462480,
+        "repr": "NTS1",
         "parameter": {
           "channel": null,
           "keys": {},

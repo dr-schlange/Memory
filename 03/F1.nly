@@ -10,7 +10,9 @@
       "channel": 0,
       "config": {
         "ocs": {
-          "shape": 95
+          "type": 75,
+          "shape": 25,
+          "alt": 40
         }
       },
       "class": "NTS1"
@@ -101,10 +103,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 122.16709999999999,
+        "output": 15.118110236220472,
         "set_pause": 0,
-        "input": 122.16709999999999,
-        "shift": 0.2363
+        "input": 127.0,
+        "shift": 15.118110236220472
       },
       "proxy": false,
       "class": "PitchShifter"
@@ -115,16 +117,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 109,
+        "output": 15,
         "set_pause": 0,
-        "inA": 109,
+        "inA": 15,
         "inB": 0.0,
         "inC": 0.0,
         "inD": 0.0,
-        "volA": 4,
-        "volB": 127,
-        "volC": 127,
-        "volD": 127
+        "volA": 47,
+        "volB": 0,
+        "volC": 0,
+        "volD": 0
       },
       "proxy": false,
       "class": "VolumeMixer"
@@ -132,11 +134,11 @@
     {
       "id": 2786059170192,
       "repr": "LFO1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "output": 4.269126041310792,
-        "set_pause": 0,
+        "output": 27.5224419362713,
+        "set_pause": 1,
         "speed": 1.91,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -153,6 +155,65 @@
     }
   ],
   "connections": [
+    {
+      "id": 2786065596944,
+      "src": {
+        "device": 2786059164048,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 55,
+          "channel": null,
+          "name": "alt",
+          "section_name": "ocs",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": 55,
+        "chain": {
+          "id": 2786065587728,
+          "device": 2786059164048,
+          "to_min": 0,
+          "to_max": 48,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 2786059162512,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "shift",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -48.0,
+            48.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "shift_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": 55,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 2786060607952,
       "src": {
@@ -414,7 +475,7 @@
       "velocity": null
     },
     {
-      "id": 2786064466608,
+      "id": 2786065595600,
       "src": {
         "device": 2786059162512,
         "repr": "PitchShifter1",
@@ -439,32 +500,32 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2786064467056,
+          "id": 2786065588688,
           "device": 2786059162512,
-          "to_min": 0.0,
-          "to_max": 127.0,
-          "auto": false,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 2786059162512,
-        "repr": "PitchShifter1",
+        "device": 2785661221136,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
+          "name": "xyzscope0_z",
+          "stream": true,
+          "consumer": true,
           "description": null,
           "range": [
-            0.0,
-            127.0
+            null,
+            null
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "xyzscope0_z_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -652,6 +713,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2786065620368,
+      "src": {
+        "device": 2786059171728,
+        "repr": "VolumeMixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2786065602128,
+          "device": 2786059171728,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2785661221136,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

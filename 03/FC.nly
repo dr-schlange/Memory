@@ -10,13 +10,13 @@
       "channel": 0,
       "config": {
         "ocs": {
-          "type": 90,
+          "type": 2,
           "shape": 13,
           "alt": 38
         },
         "delay": {
           "type": 127,
-          "time": 118,
+          "time": 127,
           "depth": 104
         },
         "reverb": {
@@ -112,11 +112,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -4.8506006165546927e-17,
+        "output": -0.108840389209113,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 0.10884038920911299,
         "initial": 0.0,
-        "gain": 6.22,
+        "gain": 2.0,
         "reset": 0,
         "limits": "-1..1",
         "leakage_factor": 1e-05
@@ -131,14 +131,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": -4.8506006165546927e-17,
+        "in0": -0.1054175002059667,
         "in1": 0,
         "in2": 0,
         "in3": 0,
         "out3": 0,
         "out2": 0,
         "out1": 0,
-        "out0": 4.8506006165546927e-17
+        "out0": 0.1054175002059667
       },
       "proxy": false,
       "class": "Inverter"
@@ -149,11 +149,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 6.1602627830244595e-15,
+        "output": 0.21694750044278704,
         "set_pause": 0,
-        "input": 4.8506006165546927e-17,
+        "input": 0.10847375022139352,
         "amplitude": 1.0,
-        "gain": 127.0
+        "gain": 2.0
       },
       "proxy": false,
       "class": "VCA"
@@ -164,9 +164,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 38,
+        "output": 55,
         "set_pause": 0,
-        "input": 39.0,
+        "input": 56.61624066414221,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -183,17 +183,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 38,
+        "input": 55,
         "interval0": "-5/b5",
         "interval1": "-3/m3",
         "interval2": "-4/b4",
         "interval3": "+4/b4",
         "key": "C",
         "scale_": "maj",
-        "out0": 31,
-        "out1": 33,
-        "out2": 33,
-        "out3": 43
+        "out0": 48,
+        "out1": 50,
+        "out2": 50,
+        "out3": 60
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -209,7 +209,7 @@
         "speed": 10.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 200.0,
+        "sampling_rate": 200,
         "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -226,7 +226,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 90.46291166697671,
+        "output": 2.5472358455738804,
         "set_pause": 0,
         "speed": 0.23,
         "subdiv": "1/1",
@@ -248,12 +248,34 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 118.13775006920397,
+        "output": 126.78390729331664,
         "set_pause": 0,
-        "speed": 0.001,
+        "speed": 0.176,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 2243485437392,
+      "repr": "LFO5",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 3.4418134623156793,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -492,7 +514,7 @@
           "to_min": 1,
           "to_max": -1,
           "auto": false,
-          "method": "log",
+          "method": "lin",
           "as_int": false
         },
         "type": "virtual"
@@ -657,23 +679,23 @@
       "velocity": null
     },
     {
-      "id": 2730773567120,
+      "id": 2243495020560,
       "src": {
-        "device": 2730096468240,
-        "repr": "Inverter1",
+        "device": 2730096470160,
+        "repr": "Integrator1",
         "parameter": {
-          "name": "out0",
+          "name": "output",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "out0_cv",
+          "cv_name": "output_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -682,10 +704,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2243521022736,
-          "device": 2730096468240,
-          "to_min": 42,
-          "to_max": 98,
+          "id": 2243487665936,
+          "device": 2730096470160,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -693,8 +715,8 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 2730127655696,
-        "repr": "VCA1",
+        "device": 2730127656464,
+        "repr": "Quantizer1",
         "parameter": {
           "name": "input",
           "stream": false,
@@ -982,6 +1004,71 @@
       "velocity": null
     },
     {
+      "id": 2243495014416,
+      "src": {
+        "device": 2730096468240,
+        "repr": "Inverter1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2243487664656,
+          "device": 2730096468240,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730127655696,
+        "repr": "VCA1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2730773536016,
       "src": {
         "device": 2730127655696,
@@ -1112,7 +1199,7 @@
       "velocity": null
     },
     {
-      "id": 2730792921424,
+      "id": 2243495028240,
       "src": {
         "device": 2730127656464,
         "repr": "Quantizer1",
@@ -1137,7 +1224,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2243518991664,
+          "id": 2243487662352,
           "device": 2730127656464,
           "to_min": 0,
           "to_max": 127,
@@ -1574,6 +1661,71 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2243495009424,
+      "src": {
+        "device": 2243485437392,
+        "repr": "LFO5",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2243487664272,
+          "device": 2243485437392,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2730096470160,
+        "repr": "Integrator1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

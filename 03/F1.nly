@@ -10,6 +10,17 @@
       "channel": 0,
       "config": {},
       "class": "NTS1"
+    },
+    {
+      "id": 2786060621392,
+      "repr": "Amsynth",
+      "ports": {
+        "input": null,
+        "output": null
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
@@ -31,7 +42,8 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 0.0
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -42,9 +54,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67.1092,
+        "output": 35.2087,
         "set_pause": 0,
-        "input": 67.1092,
+        "input": 35.2087,
         "shift": 0.2363
       },
       "proxy": false,
@@ -56,13 +68,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 36,
+        "output": 3,
         "set_pause": 0,
-        "inA": 36,
+        "inA": 3,
         "inB": 0.0,
         "inC": 0.0,
         "inD": 0.0,
-        "volA": 5,
+        "volA": 97,
         "volB": 127,
         "volC": 127,
         "volD": 127
@@ -76,12 +88,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4.752517282591449,
+        "output": 96.87733106059684,
         "set_pause": 0,
-        "speed": 0.81,
+        "speed": 1.91,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 50,
+        "sampling_rate": 38,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -160,14 +172,14 @@
       "velocity": null
     },
     {
-      "id": 2786059162128,
+      "id": 2786064468176,
       "src": {
-        "device": 2786059162512,
-        "repr": "PitchShifter1",
+        "device": 2785661221136,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "name": "output",
+          "name": "pads0_p1",
           "stream": false,
-          "consumer": false,
+          "consumer": true,
           "description": null,
           "range": [
             0,
@@ -176,7 +188,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "output_cv",
+          "cv_name": "pads0_p1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -185,10 +197,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2786059161360,
-          "device": 2786059162512,
+          "id": 2786064467952,
+          "device": 2785661221136,
           "to_min": 0.0,
-          "to_max": 127.0,
+          "to_max": 0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -341,6 +353,71 @@
           "conversion_policy": "round",
           "disable_policy": false,
           "cv_name": "inA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2786064466608,
+      "src": {
+        "device": 2786059162512,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2786064467056,
+          "device": 2786059162512,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2786059162512,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -47,7 +47,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "pads0_p0": 47.0
+        "pads0_p0": 127.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -58,13 +58,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 69.1370659472288,
+        "output": 103.68595813105088,
         "set_pause": 0,
-        "input": 57.862934052771195,
-        "attack": 67.17921296568986,
-        "release": 77.21387343859817,
-        "type": "slew",
-        "mode": "continuous"
+        "input": 101.85972885617085,
+        "attack": 34.84097612458443,
+        "release": 77.56153060892761,
+        "type": "envelope",
+        "mode": "ondemand"
       },
       "proxy": false,
       "class": "EnvelopeSlew"
@@ -75,13 +75,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 110.94635611898657,
+        "output": 126.96686234673707,
         "set_pause": 0,
         "speed": 0.004,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "white_noise",
+        "waveform": "logarithmic",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -97,14 +97,14 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 85.32613307973409,
+        "output": 82.7475350752853,
         "set_pause": 0,
         "speed": 0.09223494658262626,
-        "sync": 38.373987164690185,
+        "sync": 63.708577278171965,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
-        "waveform": "white_noise",
+        "waveform": "logarithmic",
         "invert_polarity": 0.0,
         "min_value": 0,
         "max_value": 127.0,
@@ -120,10 +120,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 67,
+        "output": 83,
         "set_pause": 0,
-        "input": 69.12883072292789,
-        "trigger": 1,
+        "input": 103.68626046331482,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -135,21 +135,21 @@
     {
       "id": 140718682014480,
       "repr": "Harmonizer1",
-      "paused": false,
+      "paused": true,
       "running": true,
       "config": {
-        "set_pause": 0,
-        "input": 67,
+        "set_pause": 1,
+        "input": 74,
         "interval0": "+3/m3",
         "interval1": "+5/b5",
         "interval2": "-octave",
         "interval3": "root",
         "key": "C",
         "scale_": "maj",
-        "out0": 71,
-        "out1": 74,
-        "out2": 55,
-        "out3": 67
+        "out0": 77,
+        "out1": 81,
+        "out2": 62,
+        "out3": 74
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -160,7 +160,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 6.15,
         "subdiv": "1/1",
@@ -439,71 +439,6 @@
       "velocity": null
     },
     {
-      "id": 140718674305616,
-      "src": {
-        "device": 140718682014096,
-        "repr": "EnvelopeSlew1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 140718665237904,
-          "device": 140718682014096,
-          "to_min": 50,
-          "to_max": 99.99,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 140718682014096,
-        "repr": "EnvelopeSlew1",
-        "parameter": {
-          "name": "release",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            99.99
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "release_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": 50.0,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 140718674282384,
       "src": {
         "device": 140718682014096,
@@ -726,8 +661,8 @@
         "chain": {
           "id": 140718665240208,
           "device": 140718664980112,
-          "to_min": 0.0,
-          "to_max": 99.99,
+          "to_min": 99.99,
+          "to_max": 0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -894,7 +829,7 @@
       "velocity": null
     },
     {
-      "id": 140718674337104,
+      "id": 140718674339984,
       "src": {
         "device": 140718664980432,
         "repr": "Quantizer1",
@@ -919,7 +854,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 140718665238160,
+          "id": 140718665239824,
           "device": 140718664980432,
           "to_min": 0,
           "to_max": 127,

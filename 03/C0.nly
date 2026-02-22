@@ -1,5 +1,32 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 2711738260240,
+      "repr": "NTS1",
+      "ports": {
+        "input": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 28:0",
+        "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 28:0"
+      },
+      "channel": 0,
+      "config": {
+        "ocs": {
+          "type": 75
+        }
+      },
+      "class": "NTS1"
+    },
+    {
+      "id": 2711738266768,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 133:1",
+        "output": "amsynth:MIDI IN 133:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 2711304584464,
@@ -53,9 +80,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53.0,
+        "output": 98.0,
         "set_pause": 0,
-        "input": 0.0,
+        "input": 49.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
@@ -64,14 +91,14 @@
         "reset": 0.0,
         "set_step": 0.0,
         "length": 8.0,
-        "step0": 40.0,
+        "step0": 72.0,
         "step1": 49.0,
-        "step2": 59.0,
-        "step3": 56.0,
-        "step4": 53.0,
-        "step5": 60.0,
+        "step2": 31.0,
+        "step3": 81.0,
+        "step4": 98.0,
+        "step5": 82.0,
         "step6": 71.0,
-        "step7": 64.0,
+        "step7": 109.0,
         "edit_step": 0,
         "active0": 1,
         "active1": 1,
@@ -93,16 +120,34 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 0.0,
         "set_pause": 0,
-        "input": 0,
+        "input": 0.0,
         "buffer_size": 500,
-        "time": 20,
-        "feedback": 50,
+        "time": 72,
+        "feedback": 3.0,
         "reset": 0,
-        "dry_output": 0
+        "dry_output": 0.0
       },
       "proxy": false,
       "class": "Delay"
+    },
+    {
+      "id": 2711738265232,
+      "repr": "BernoulliTrigger1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0,
+        "probability": 0.5,
+        "bias": 0.0,
+        "quantized": "off",
+        "outA": 0,
+        "outB": 0
+      },
+      "proxy": false,
+      "class": "BernoulliTrigger"
     }
   ],
   "connections": [
@@ -367,6 +412,250 @@
       "velocity": null
     },
     {
+      "id": 2711738726160,
+      "src": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2711738731280,
+          "device": 2711738254480,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2711738260240,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2711741664784,
+      "src": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2711741665296,
+          "device": 2711738254480,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2711738266768,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": true,
+      "velocity": null
+    },
+    {
+      "id": 2711741664272,
+      "src": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2711741663760,
+          "device": 2711738254480,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2711741664016,
+      "src": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trig_out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "trig_out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2711741663504,
+          "device": 2711738254480,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2711738265232,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2711738727120,
       "src": {
         "device": 2711738256400,
@@ -418,6 +707,136 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2711737863472,
+      "src": {
+        "device": 2711738265232,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outB",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outB_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2711737864144,
+          "device": 2711738265232,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "write",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "write_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2711737863248,
+      "src": {
+        "device": 2711738265232,
+        "repr": "BernoulliTrigger1",
+        "parameter": {
+          "name": "outA",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "outA_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2711737863024,
+          "device": 2711738265232,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2711738254480,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "next_edit_step",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "next_edit_step_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

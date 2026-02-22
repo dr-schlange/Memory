@@ -51,8 +51,11 @@ class SuperShiftRegister(VirtualDevice):
         pvalue = getattr(self, f'io{int(prev)}')
         value = getattr(self, f'io{int(self.idx)}')
         yield (pvalue, [getattr(self, f'io{int(self.idx)}_cv')])
+        if self.type == 'each_noteoff':
+            yield (0, [getattr(self, f'io{int(self.idx)}_cv')])
         if self.idx < 1:
             self.idx = self.length
         self.idx -= 1
         yield (value, [getattr(self, f'io{int(self.idx)}_cv')])
-        yield (0, [getattr(self, f'io{int(self.idx)}_cv')])
+        if self.type == 'noteoff':
+            yield (0, [getattr(self, f'io{int(self.idx)}_cv')])

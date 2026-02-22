@@ -20,6 +20,7 @@ class SuperShiftRegister(VirtualDevice):
     * io7_cv [0, 127]: io, in to write out to read
     * idx_cv [0, 7] round: index sequence
     * length_cv [1, 8] init=8 round: length sequence
+    * type_cv [noteoff, each_noteoff, noteon_only]: 
 
     outputs:
     # * %outname [%range]: %doc
@@ -28,6 +29,7 @@ class SuperShiftRegister(VirtualDevice):
     category: <category>
     meta: disable default output
     """
+    type_cv = VirtualParameter(name='type', accepted_values=['noteoff', 'each_noteoff', 'noteon_only'])
     trigger_cv = VirtualParameter(name='trigger', range=(0.0, 1.0), conversion_policy='>0')
     io0_cv = VirtualParameter(name='io0', range=(0.0, 127.0))
     io1_cv = VirtualParameter(name='io1', range=(0.0, 127.0))

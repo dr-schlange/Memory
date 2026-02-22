@@ -14,7 +14,7 @@
           "alt": 49
         },
         "filter": {
-          "cutoff": 37,
+          "cutoff": 50,
           "resonance": 126,
           "sweep_depth": 111,
           "sweep_rate": 96
@@ -26,8 +26,8 @@
         },
         "delay": {
           "type": 127,
-          "time": 15,
-          "depth": 14
+          "time": 20,
+          "depth": 51
         }
       },
       "class": "NTS1"
@@ -78,15 +78,15 @@
         "set_pause": 0,
         "type": "noteon_only",
         "trigger": 1.0,
-        "io0": 20.0,
-        "io1": 14.0,
-        "io2": 15.0,
-        "io3": 77.0,
-        "io4": 69.0,
-        "io5": 0.0,
-        "io6": 51.0,
-        "io7": 25.0,
-        "idx": 6,
+        "io0": 25.0,
+        "io1": 51.0,
+        "io2": 20.0,
+        "io3": 14.0,
+        "io4": 15.0,
+        "io5": 77.0,
+        "io6": 69.0,
+        "io7": 0.0,
+        "idx": 1,
         "length": 8
       },
       "proxy": false,
@@ -100,15 +100,37 @@
       "config": {
         "output": 51.0,
         "set_pause": 0,
-        "input": 25.0,
+        "input": 0.0,
         "buffer_size": 208,
         "time": 232,
         "feedback": 99.0,
         "reset": 0,
-        "dry_output": 25.0
+        "dry_output": 0.0
       },
       "proxy": false,
       "class": "Delay"
+    },
+    {
+      "id": 4229171380624,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 86.60312979281898,
+        "set_pause": 0,
+        "speed": 0.48,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "smooth_random_cosine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -1032,6 +1054,65 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4230456199056,
+      "src": {
+        "device": 4229171380624,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4230443830576,
+          "device": 4229171380624,
+          "to_min": 27,
+          "to_max": 61,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4227893107088,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 43,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

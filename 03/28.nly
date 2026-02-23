@@ -1,0 +1,205 @@
+{
+  "midi_devices": [],
+  "virtual_devices": [
+    {
+      "id": 4227495148816,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 4229805249552,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 4232187478672,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 40.851817734365525,
+        "set_pause": 0,
+        "speed": 0.0010182231467106555,
+        "sync": 126.98652823991358,
+        "subdiv": "1/1",
+        "phase": 0.44658355981659525,
+        "sampling_rate": 50,
+        "waveform": "exponential",
+        "invert_polarity": 104.4898332728326,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 4232187479312,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.301741155394619,
+        "set_pause": 0,
+        "speed": 0.008,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    }
+  ],
+  "connections": [
+    {
+      "id": 4232192327888,
+      "src": {
+        "device": 4232187478672,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4232190559888,
+          "device": 4232187478672,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4229805249552,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4232192328848,
+      "src": {
+        "device": 4232187479312,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4232190558480,
+          "device": 4232187479312,
+          "to_min": 0.001,
+          "to_max": 2,
+          "auto": false,
+          "method": "log",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4232187478672,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "speed",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "speed_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

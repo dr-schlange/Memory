@@ -10,13 +10,14 @@
       "channel": 0,
       "config": {
         "ocs": {
-          "shape": 37,
-          "alt": 95
+          "type": 50,
+          "shape": 73,
+          "alt": 38
         },
         "delay": {
           "type": 127,
-          "time": 82,
-          "depth": 104
+          "time": 83,
+          "depth": 111
         }
       },
       "class": "NTS1"
@@ -44,7 +45,7 @@
         },
         "amp": {
           "volume": 56,
-          "panning": 123,
+          "panning": 120,
           "attack": 15,
           "decay": 54,
           "sustain": 66,
@@ -62,7 +63,7 @@
         },
         "lfo": {
           "waveform": 127,
-          "speed": 123,
+          "speed": 120,
           "target": 76,
           "freq_mod_amount": 94,
           "filter_mod_amount": 79,
@@ -109,7 +110,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "input": 122.76241942062596,
+        "input": 120.12257788380933,
         "upperbound": 74.0,
         "lowerbound": 53.0,
         "type": "continuous"
@@ -123,7 +124,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 122.76241942062596,
+        "output": 120.12257788380933,
         "set_pause": 0,
         "speed": 4.08,
         "subdiv": "1/1",
@@ -147,7 +148,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "input": 88.20819501233638,
+        "input": 8.755043487715431,
         "gate": 0.0
       },
       "proxy": false,
@@ -159,7 +160,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 7,
         "set_pause": 0,
         "input": 0.0,
         "trigger": 0,
@@ -170,6 +171,50 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 2548527596176,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 73.71950560975314,
+        "set_pause": 0,
+        "speed": 0.14,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 2548527596816,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 38.627003627130534,
+        "set_pause": 0,
+        "speed": 0.04,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -912,6 +957,124 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2548530217168,
+      "src": {
+        "device": 2548527596176,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2548529891344,
+          "device": 2548527596176,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837809424,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 54,
+          "channel": null,
+          "name": "shape",
+          "section_name": "ocs",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2548530217360,
+      "src": {
+        "device": 2548527596816,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2548529891856,
+          "device": 2548527596816,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837809424,
+        "repr": "NTS1",
+        "parameter": {
+          "cc_note": 55,
+          "channel": null,
+          "name": "alt",
+          "section_name": "ocs",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

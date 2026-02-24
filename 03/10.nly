@@ -8,8 +8,74 @@
         "output": "NTS-1 digital kit:NTS-1 digital kit _ SOUND 28:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "ocs": {
+          "shape": 37,
+          "alt": 95
+        },
+        "delay": {
+          "type": 127,
+          "time": 82,
+          "depth": 104
+        }
+      },
       "class": "NTS1"
+    },
+    {
+      "id": 2544837826064,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 133:1",
+        "output": "amsynth:MIDI IN 133:0"
+      },
+      "channel": 0,
+      "config": {
+        "general": {
+          "bank_select": 19,
+          "preset_select": 22
+        },
+        "oscillators": {
+          "osc1_shape": 0,
+          "osc2_shape": 69,
+          "osc2_oct": 54,
+          "osc2_detune": 65,
+          "sync_oscillators": 0,
+          "mix": 65
+        },
+        "amp": {
+          "volume": 56,
+          "panning": 1,
+          "attack": 15,
+          "decay": 54,
+          "sustain": 66,
+          "release": 51
+        },
+        "filter": {
+          "type": 0,
+          "cutoff": 45,
+          "resonance": 79,
+          "env_amount": 84,
+          "attack": 16,
+          "decay": 30,
+          "sustain": 31,
+          "release": 52
+        },
+        "lfo": {
+          "waveform": 127,
+          "speed": 1,
+          "target": 76,
+          "freq_mod_amount": 94,
+          "filter_mod_amount": 79,
+          "amp_mod_amount": 55
+        },
+        "reverb": {
+          "amount": 25,
+          "size": 0,
+          "stereo": 127,
+          "damping": 112
+        }
+      },
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
@@ -43,7 +109,7 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "input": 97.4001514069128,
+        "input": 0.5705917255340792,
         "upperbound": 74.0,
         "lowerbound": 53.0,
         "type": "continuous"
@@ -57,7 +123,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 97.4001514069128,
+        "output": 0.5705917255340792,
         "set_pause": 0,
         "speed": 3.33,
         "subdiv": "1/1",
@@ -81,11 +147,29 @@
       "config": {
         "output": 0,
         "set_pause": 0,
-        "input": 78.8844962149289,
+        "input": 34.10825821749261,
         "gate": 0.0
       },
       "proxy": false,
       "class": "Gate"
+    },
+    {
+      "id": 2544836358544,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "input": 0.0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "proxy": false,
+      "class": "Quantizer"
     }
   ],
   "connections": [
@@ -206,6 +290,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2544842816976,
+      "src": {
+        "device": 2544836350864,
+        "repr": "WindowDetector1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839036816,
+          "device": 2544836350864,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544836358544,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -415,6 +564,124 @@
       "velocity": null
     },
     {
+      "id": 2544842825040,
+      "src": {
+        "device": 2544837810064,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839033232,
+          "device": 2544837810064,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837826064,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2544842829456,
+      "src": {
+        "device": 2544837810064,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839035280,
+          "device": 2544837810064,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837826064,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 119,
+          "channel": null,
+          "name": "speed",
+          "section_name": "lfo",
+          "init_value": 64,
+          "description": "LFO Speed",
+          "range": [
+            0,
+            127
+          ],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2544842701648,
       "src": {
         "device": 2544836358160,
@@ -453,6 +720,185 @@
       "dest": {
         "device": 2544837809424,
         "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2544842797584,
+      "src": {
+        "device": 2544836358160,
+        "repr": "Gate1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839036944,
+          "device": 2544836358160,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544836358544,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2544842808912,
+      "src": {
+        "device": 2544836358160,
+        "repr": "Gate1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839033488,
+          "device": 2544836358160,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837826064,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 2544842829264,
+      "src": {
+        "device": 2544836358544,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839036176,
+          "device": 2544836358544,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837826064,
+        "repr": "Amsynth",
         "parameter": {
           "channel": null,
           "keys": {},

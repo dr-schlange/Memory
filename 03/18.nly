@@ -10,7 +10,15 @@
       "channel": 0,
       "config": {
         "ocs": {
-          "alt": 31
+          "type": 25,
+          "alt": 127,
+          "lfo_rate": 119,
+          "lfo_depth": 61
+        },
+        "filter": {
+          "cutoff": 83,
+          "resonance": 23,
+          "sweep_rate": 75
         }
       },
       "class": "NTS1"
@@ -45,7 +53,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 102.89655654203473,
+        "output": 111.67562310081551,
         "set_pause": 0,
         "speed": 10.0,
         "subdiv": "1/1",
@@ -68,13 +76,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "growth": 1.6204182132603895,
+        "growth": 1.7586712299341025,
         "decay": 0.53,
         "spread": 0.57,
         "noise": 0.5,
         "reset": 0,
-        "x": -0.310657239414839,
-        "y": -0.31668165861749475
+        "x": -0.3105933119702904,
+        "y": -0.3155508531876672
       },
       "proxy": false,
       "class": "SoftLifeReactor"
@@ -85,9 +93,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 59.56590039304464,
+        "output": 59.570695417190805,
         "set_pause": 0,
-        "input": 59.554653059431544,
+        "input": 59.56631860566447,
         "attack": 91.0,
         "release": 93.0,
         "type": "slew",
@@ -294,7 +302,7 @@
       "velocity": null
     },
     {
-      "id": 2544842769360,
+      "id": 2544842806608,
       "src": {
         "device": 2544836352016,
         "repr": "LFO1",
@@ -319,7 +327,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 2544839241296,
+          "id": 2544839036176,
           "device": 2544836352016,
           "to_min": 0,
           "to_max": 127,
@@ -611,6 +619,63 @@
       "velocity": null
     },
     {
+      "id": 2544842827920,
+      "src": {
+        "device": 2544836360464,
+        "repr": "SoftLifeReactor1",
+        "parameter": {
+          "name": "x",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -5.0,
+            5.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 2544839033488,
+          "device": 2544836360464,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 2544837799824,
+        "repr": "NTS1",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 2544842641552,
       "src": {
         "device": 2544836361232,
@@ -670,63 +735,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 2544842818128,
-      "src": {
-        "device": 2544836361232,
-        "repr": "EnvelopeSlew1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 2544839241456,
-          "device": 2544836361232,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 2544837799824,
-        "repr": "NTS1",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,

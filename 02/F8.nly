@@ -1,5 +1,17 @@
 {
-  "midi_devices": [],
+  "midi_devices": [
+    {
+      "id": 4905493928528,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 129:1",
+        "output": "amsynth:MIDI IN 129:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
   "virtual_devices": [
     {
       "id": 4904925576464,
@@ -30,7 +42,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 12.050799488666321,
+        "output": 29.680500019699267,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -49,11 +61,11 @@
     {
       "id": 4905493922768,
       "repr": "LFO2",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 0.879898531008688,
-        "set_pause": 1,
+        "output": 42.6152902979109,
+        "set_pause": 0,
         "speed": 0.05,
         "subdiv": "1/1",
         "phase": 0.0,
@@ -74,7 +86,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 68.88295694062143,
+        "output": 5.814140773254362,
         "set_pause": 0,
         "speed": 0.3,
         "subdiv": "1/1",
@@ -93,16 +105,16 @@
     {
       "id": 4905493923728,
       "repr": "LFO4",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 34.405905319142356,
-        "set_pause": 1,
-        "speed": 100.0,
+        "output": 13.949525056008778,
+        "set_pause": 0,
+        "speed": 10.0,
         "sync": 0.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 2000,
+        "sampling_rate": 200,
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -695,6 +707,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4905493006608,
+      "src": {
+        "device": 4905493923728,
+        "repr": "LFO4",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4905493006352,
+          "device": 4905493923728,
+          "to_min": 0,
+          "to_max": 62,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4905493928528,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

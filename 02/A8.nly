@@ -33,8 +33,10 @@
         "set_pause": 0,
         "pads0_p0": 0.0,
         "pads0_p1": 0.0,
-        "sliders0_s0": 9.0,
-        "sliders0_s1": 0.0
+        "sliders0_s0": 33.0,
+        "sliders0_s1": 84.0,
+        "sliders0_s2": 22.0,
+        "sliders0_s3": 34.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -45,7 +47,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 53.0,
+        "output": 36.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -74,7 +76,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 5.0
+        "current_step": 0.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -88,15 +90,15 @@
         "set_pause": 0,
         "trig": 0,
         "gate": 0,
-        "rise": 0.07179527559055118,
-        "fall": 0.001,
+        "rise": 0.006019044567806663,
+        "fall": 0.0964388379154446,
         "shape": "log",
         "cycle": "off",
         "reset": 0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 0.5467193065508648,
-        "out": 0.45328069344913524
+        "inv": 0.4547550864130092,
+        "out": 0.5452449135869908
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
@@ -107,9 +109,66 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.8082001323181937,
+        "output": 67.41560159883245,
         "set_pause": 0,
         "speed": 1.0,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
+    },
+    {
+      "id": 4718566900112,
+      "repr": "Quantizer1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 36,
+        "set_pause": 0,
+        "input": 36.0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "free"
+      },
+      "proxy": false,
+      "class": "Quantizer"
+    },
+    {
+      "id": 4718561201296,
+      "repr": "Quantizer2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 0,
+        "trigger": 0,
+        "reset": 0,
+        "root": "C",
+        "scale_": "maj",
+        "type": "sample&hold"
+      },
+      "proxy": false,
+      "class": "Quantizer"
+    },
+    {
+      "id": 4718561202256,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 126.9937332154881,
+        "set_pause": 0,
+        "speed": 0.01,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -443,6 +502,71 @@
       "velocity": null
     },
     {
+      "id": 4718561396048,
+      "src": {
+        "device": 4718495990544,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718561395856,
+          "device": 4718495990544,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718566900112,
+        "repr": "Quantizer1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 4718494619920,
       "src": {
         "device": 4718495991312,
@@ -762,6 +886,63 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718561395472,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718561395280,
+          "device": 4718495991312,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718529151760,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
       },
       "bouncy": false,
       "muted": false,

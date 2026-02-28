@@ -30,7 +30,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "pads0_p0": 0.0,
+        "pads0_p1": 0.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -41,6 +43,7 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 35.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -51,14 +54,14 @@
         "reset": 0.0,
         "set_step": 0.0,
         "length": 8.0,
-        "step0": 0.0,
-        "step1": 0.0,
-        "step2": 0.0,
-        "step3": 0.0,
-        "step4": 0.0,
-        "step5": 0.0,
-        "step6": 0.0,
-        "step7": 0.0,
+        "step0": 36.0,
+        "step1": 48.0,
+        "step2": 52.0,
+        "step3": 53.0,
+        "step4": 51.0,
+        "step5": 53.0,
+        "step6": 45.0,
+        "step7": 35.0,
         "edit_step": 0,
         "active0": 1,
         "active1": 1,
@@ -68,8 +71,8 @@
         "active5": 1,
         "active6": 1,
         "active7": 1,
-        "trig_out": 0.0,
-        "current_step": 0.0
+        "trig_out": 0,
+        "current_step": 7.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -81,22 +84,752 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trig": 0.0,
-        "gate": 0.0,
-        "rise": 0.25,
-        "fall": 0.25,
+        "trig": 0,
+        "gate": 0,
+        "rise": 6.744203450246728,
+        "fall": 6.744203450246728,
         "shape": "log",
         "cycle": "off",
         "reset": 0.0,
         "eoc": 0.0,
         "eor": 0.0,
-        "inv": 1.0,
-        "out": 0.0
+        "inv": 0.325612216196947,
+        "out": 0.6741409028807323
       },
       "proxy": false,
       "class": "UniversalSlopeGenerator"
+    },
+    {
+      "id": 4718495992848,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 75.66740600991636,
+        "set_pause": 0,
+        "speed": 2.5,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 4718494621520,
+      "src": {
+        "device": 4717960297104,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "pads0_p0",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "pads0_p0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494622480,
+          "device": 4717960297104,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718494624720,
+      "src": {
+        "device": 4718495990544,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494619280,
+          "device": 4718495990544,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718529151760,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718494619920,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "eoc",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "eoc_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494618960,
+          "device": 4718495991312,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "trig",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "trig_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718494623440,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494622160,
+          "device": 4718495991312,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4717960297104,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718494624400,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "eor",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "eor_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494623120,
+          "device": 4718495991312,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718495990544,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718494620880,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494619600,
+          "device": 4718495991312,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4717960297104,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718494625360,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "inv",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "inv_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718494620240,
+          "device": 4718495991312,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4717960297104,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718496123152,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718496122640,
+          "device": 4718495991312,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "rise",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "rise_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718493828880,
+      "src": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "out",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718493828656,
+          "device": 4718495991312,
+          "to_min": 0.001,
+          "to_max": 10.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4718495991312,
+        "repr": "UniversalSlopeGenerator1",
+        "parameter": {
+          "name": "fall",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.001,
+            10.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "fall_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.25,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718496122896,
+      "src": {
+        "device": 4718495992848,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718496123408,
+          "device": 4718495992848,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4717960297104,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_z",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_z_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4718496122384,
+      "src": {
+        "device": 4718495992848,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4718496121872,
+          "device": 4718495992848,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4717960297104,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

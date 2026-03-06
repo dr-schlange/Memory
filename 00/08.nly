@@ -1,88 +1,214 @@
 {
   "midi_devices": [
     {
-      "id": 140734717585328,
+      "id": 5412398115344,
       "repr": "Minilab3",
       "ports": {
-        "input": "Minilab3:Minilab3 MIDI 36:0",
-        "output": "Minilab3:Minilab3 MIDI 36:0"
+        "input": "Minilab3:Minilab3 MIDI 28:0",
+        "output": "Minilab3:Minilab3 MIDI 28:0"
       },
       "channel": 0,
       "config": {},
       "class": "Minilab3"
     },
     {
-      "id": 140734717589696,
-      "repr": "S1",
+      "id": 5412399551184,
+      "repr": "Provsmini",
       "ports": {
-        "input": "S-1:S-1 MIDI IN 16:0",
-        "output": "S-1:S-1 MIDI IN 16:0"
+        "input": null,
+        "output": null
       },
       "channel": 0,
       "config": {},
-      "class": "S1"
+      "class": "Provsmini"
+    },
+    {
+      "id": 5412398121872,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 131:1",
+        "output": "amsynth:MIDI IN 131:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
     }
   ],
   "virtual_devices": [
     {
-      "id": 140734735464304,
+      "id": 5412268590608,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
       "config": {
         "set_pause": 0
       },
+      "proxy": false,
       "class": "TrevorBus"
+    },
+    {
+      "id": 5412268599056,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "ERGN:Integrator2_output": 0.5573911820359222,
+        "ERGN:Integrator1_output": -0.8313177699924985
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 5414350881168,
+      "repr": "Laplace1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 1.0,
+        "set_pause": 0,
+        "reset": 0.0,
+        "input": 0.6803561486939098,
+        "b0": 1.0,
+        "b1": 1.0,
+        "a1": 0.0,
+        "gain": 1.0,
+        "clipping": "soft_cubic"
+      },
+      "proxy": false,
+      "class": "Laplace"
     }
   ],
   "connections": [
     {
-      "id": 140734717855792,
+      "id": 5412569088784,
       "src": {
-        "device": 140734717585328,
-        "repr": "Minilab3",
+        "device": 5412268599056,
+        "repr": "WebSocketBus1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
+          "name": "ERGN:Integrator2_output",
+          "stream": false,
+          "consumer": true,
+          "description": null,
           "range": [
-            0,
-            127
-          ]
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ERGN:Integrator2_output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
         "chain": {
-          "id": 140734717855456,
-          "device": 140734717585328,
-          "to_min": 0,
-          "to_max": 127,
+          "id": 5412569088400,
+          "device": 5412268599056,
+          "to_min": -1.0,
+          "to_max": 1.0,
           "auto": false,
           "method": "lin",
           "as_int": false
         },
-        "type": "note"
+        "type": "virtual"
       },
       "dest": {
-        "device": 140734717589696,
-        "repr": "S1",
+        "device": 5414350881168,
+        "repr": "Laplace1",
         "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
           "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5412566860752,
+      "src": {
+        "device": 5414350881168,
+        "repr": "Laplace1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
           "range": [
             0,
             127
-          ]
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
         },
         "explicit": -1,
-        "type": "note"
+        "chain": {
+          "id": 5412566860432,
+          "device": 5414350881168,
+          "to_min": 1,
+          "to_max": -1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5412268599056,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "ERGN:Integrator1_input",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ERGN:Integrator1_input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
-      "muted": false
+      "muted": false,
+      "velocity": null
     }
   ],
   "playground_code": ""

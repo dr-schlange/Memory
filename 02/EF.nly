@@ -38,47 +38,47 @@
       "channel": 0,
       "config": {
         "general": {
-          "bank_select": 6,
-          "preset_select": 10
+          "bank_select": 4,
+          "preset_select": 8
         },
         "oscillators": {
-          "osc1_waveform": 32,
-          "osc2_waveform": 32,
-          "osc2_shape": 61,
-          "osc2_oct": 54,
-          "osc2_detune": 61,
-          "sync_oscillators": 0,
-          "mix": 76,
-          "ring_mod": 127
+          "osc1_shape": 56,
+          "osc2_shape": 107,
+          "osc2_oct": 91,
+          "osc2_semitone": 79,
+          "osc2_detune": 98,
+          "sync_oscillators": 127,
+          "mix": 88,
+          "ring_mod": 0
         },
         "amp": {
-          "volume": 111,
-          "attack": 8,
-          "decay": 27,
-          "sustain": 117,
-          "release": 56
+          "volume": 115,
+          "attack": 22,
+          "decay": 8,
+          "sustain": 119,
+          "release": 27
         },
         "filter": {
-          "slope": 127,
-          "cutoff": 62,
-          "resonance": 90,
-          "env_amount": 78,
-          "decay": 22,
-          "sustain": 83,
-          "release": 61
+          "cutoff": 47,
+          "resonance": 95,
+          "env_amount": 58,
+          "attack": 23,
+          "decay": 33,
+          "sustain": 75,
+          "release": 100
         },
         "lfo": {
           "waveform": 0,
-          "speed": 51,
+          "speed": 39,
           "target": 0,
-          "filter_mod_amount": 34,
-          "amp_mod_amount": 76
+          "filter_mod_amount": 0,
+          "amp_mod_amount": 82
         },
         "reverb": {
-          "amount": 42,
-          "size": 43,
-          "stereo": 124,
-          "damping": 23
+          "amount": 17,
+          "size": 106,
+          "stereo": 127,
+          "damping": 81
         }
       },
       "class": "Amsynth"
@@ -103,11 +103,11 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "ERGN:Integrator2_output": -0.7503751735961771,
-        "ERGN:Integrator1_output": 0.7381684656542818,
+        "ERGN:Integrator2_output": -0.9981281492135797,
+        "ERGN:Integrator1_output": 0.03977881856243939,
         "pads0_p0": 0.0,
         "pads0_p1": 0.0,
-        "HRMN:Quantizer1_output": 17.0
+        "HRMN:Quantizer1_output": 38.0
       },
       "proxy": false,
       "class": "WebSocketBus"
@@ -118,11 +118,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.6448506511509097,
+        "output": -0.4740331145847584,
         "set_pause": 0,
         "reset": 0.0,
-        "input": -0.8655389100850237,
-        "b0": 0.7172761049797993,
+        "input": -1.0,
+        "b0": 0.011443685595397657,
         "b1": 1.0,
         "a1": 1.0,
         "gain": 1.0,
@@ -133,6 +133,55 @@
     }
   ],
   "connections": [
+    {
+      "id": 5414144312848,
+      "src": {
+        "device": 5412398115344,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5414144312592,
+          "device": 5412398115344,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 5412399551184,
+        "repr": "Provsmini",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
     {
       "id": 5412569088784,
       "src": {
@@ -453,63 +502,6 @@
         },
         "explicit": -1,
         "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
-      "id": 5413978834448,
-      "src": {
-        "device": 5412268599056,
-        "repr": "WebSocketBus1",
-        "parameter": {
-          "name": "HRMN:Quantizer1_output",
-          "stream": false,
-          "consumer": true,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "HRMN:Quantizer1_output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 5413978834192,
-          "device": 5412268599056,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 5412399551184,
-        "repr": "Provsmini",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
       },
       "bouncy": false,
       "muted": false,

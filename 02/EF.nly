@@ -52,12 +52,164 @@
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0
+        "set_pause": 0,
+        "ERGN:Integrator2_output": -0.6122114773723849,
+        "ERGN:Integrator1_output": 0.7928995155615576
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 5414350881168,
+      "repr": "Laplace1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": -1.0,
+        "set_pause": 0,
+        "reset": 0.0,
+        "input": -0.8491022694078826,
+        "b0": 1.0,
+        "b1": 1.0,
+        "a1": 0.0,
+        "gain": 1.0,
+        "clipping": "soft_cubic"
+      },
+      "proxy": false,
+      "class": "Laplace"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 5412569088784,
+      "src": {
+        "device": 5412268599056,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "ERGN:Integrator2_output",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ERGN:Integrator2_output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5412569088400,
+          "device": 5412268599056,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5414350881168,
+        "repr": "Laplace1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5412566860752,
+      "src": {
+        "device": 5414350881168,
+        "repr": "Laplace1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5412566860432,
+          "device": 5414350881168,
+          "to_min": 1,
+          "to_max": -1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5412268599056,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "ERGN:Integrator1_input",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "ERGN:Integrator1_input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

@@ -16,7 +16,7 @@
           "voice_D_wave": 49
         },
         "vcf": {
-          "resonance": 48
+          "resonance": 12
         }
       },
       "class": "Provsmini"
@@ -31,7 +31,7 @@
       "channel": 0,
       "config": {
         "sliders": {
-          "s1": 32
+          "s1": 9
         }
       },
       "class": "Minilab3"
@@ -105,12 +105,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 7.266526125341284e-84,
+        "output": 1.6095483020265926e-46,
         "set_pause": 0,
         "input": 0,
         "filter": "lowpass",
         "mode": "cutoff",
-        "cutoff": 1.0078740157480315,
+        "cutoff": 1.3464566929133859,
         "smoothing": 0.1,
         "poles": 1,
         "type": "continuous"
@@ -124,16 +124,16 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 17.58284466706007,
+        "output": 4.97236551967075e-45,
         "set_pause": 0,
-        "speed": 3.0,
+        "speed": 10.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 60,
+        "sampling_rate": 200,
         "waveform": "sine",
         "invert_polarity": 0.0,
-        "min_value": 7.266526125341284e-84,
-        "max_value": 127.0,
+        "min_value": 1e-323,
+        "max_value": 1.6095483020265926e-46,
         "pulse_width": 0.3,
         "step_size": 0.2
       },
@@ -148,7 +148,7 @@
       "config": {
         "output": 1,
         "set_pause": 0,
-        "a": 7.266526125341284e-84,
+        "a": 1.6095483020265926e-46,
         "b": -1.0,
         "comparator": ">=",
         "type": "ondemand"
@@ -178,9 +178,10 @@
       "paused": false,
       "running": true,
       "config": {
+        "output": 25.995817481705664,
         "set_pause": 0,
-        "input": 0,
-        "gate": 0
+        "input": 25.995817481705664,
+        "gate": 1.0
       },
       "proxy": false,
       "class": "Gate"
@@ -431,7 +432,7 @@
           "id": 4812513479536,
           "device": 4812515384848,
           "to_min": 0,
-          "to_max": 4,
+          "to_max": 19,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -870,71 +871,6 @@
       "velocity": null
     },
     {
-      "id": 4812513479312,
-      "src": {
-        "device": 4812515388688,
-        "repr": "MultiPoleFilter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4812513480656,
-          "device": 4812515388688,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4812512774928,
-        "repr": "LFO2",
-        "parameter": {
-          "name": "min_value",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "min_value_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null
-    },
-    {
       "id": 4812512353232,
       "src": {
         "device": 4812515388688,
@@ -986,6 +922,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812512331344,
+      "src": {
+        "device": 4812515388688,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812515509904,
+          "device": 4812515388688,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812512774928,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "max_value",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "max_value_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1260,7 +1261,7 @@
       "velocity": null
     },
     {
-      "id": 4812512337104,
+      "id": 4812512345936,
       "src": {
         "device": 4812512781328,
         "repr": "Gate2",
@@ -1285,7 +1286,7 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4812515509264,
+          "id": 4812515510800,
           "device": 4812512781328,
           "to_min": 0,
           "to_max": 127,

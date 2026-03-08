@@ -151,7 +151,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.9417043858459165,
+        "output": -0.8071354187400273,
         "set_pause": 0,
         "potential": 6.0,
         "mass": 10.0,
@@ -169,17 +169,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 54,
+        "input": 63,
         "interval0": "-octave",
         "interval1": "-2/b2",
         "interval2": "+3/m3",
         "interval3": "+6/m6",
         "key": "C",
         "scale_": "maj",
-        "out0": 41,
-        "out1": 52,
-        "out2": 57,
-        "out3": 62
+        "out0": 50,
+        "out1": 60,
+        "out2": 67,
+        "out3": 72
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -190,10 +190,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 54.07605369981058,
+        "output": 63.13214645405877,
         "set_pause": 0,
-        "input": 54.29147807077042,
-        "trigger": 1,
+        "input": 57.29886202518117,
+        "trigger": 0,
         "reset": 0
       },
       "proxy": false,
@@ -233,14 +233,14 @@
         "mode": "gate",
         "div32": 1.0,
         "div16": 1.0,
-        "div8": 1.0,
+        "div8": 0.0,
         "div7": 0.0,
-        "div6": 0.0,
-        "div5": 0.0,
-        "div4": 1.0,
-        "div3": 0.0,
+        "div6": 1.0,
+        "div5": 1.0,
+        "div4": 0.0,
+        "div3": 1.0,
         "div2": 1.0,
-        "div1": 1.0
+        "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -251,9 +251,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 9,
+        "output": 2,
         "set_pause": 0,
-        "input": 3.7017714987843,
+        "input": 6.7184593161013,
         "trigger": 1,
         "reset": 0,
         "root": "C",
@@ -262,6 +262,28 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 5883571094096,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 28.324726719411526,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -577,6 +599,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5883573771216,
+      "src": {
+        "device": 5883576975760,
+        "repr": "SchrodingerNeuron1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5883570565904,
+          "device": 5883576975760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5883571078416,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_x_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -1130,6 +1217,71 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5883573797904,
+      "src": {
+        "device": 5883571094096,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5883570568208,
+          "device": 5883571094096,
+          "to_min": -1,
+          "to_max": 1,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5883571078416,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

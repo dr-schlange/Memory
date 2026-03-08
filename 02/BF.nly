@@ -8,7 +8,11 @@
         "output": "PROVS-MINI:PROVS-MINI MIDI 1 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 96
+        }
+      },
       "class": "Provsmini"
     },
     {
@@ -55,7 +59,7 @@
         },
         "filter": {
           "type": 0,
-          "cutoff": 113,
+          "cutoff": 121,
           "resonance": 7,
           "env_amount": 92,
           "decay": 0,
@@ -97,7 +101,7 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "HRMN:Sequencer81_output": 60.0,
+        "HRMN:Sequencer81_output": 59.0,
         "HRMN:Sequencer81_step0": 41.0,
         "HRMN:Sequencer81_step1": 59.0,
         "HRMN:Sequencer81_step2": 62.0,
@@ -107,14 +111,36 @@
         "HRMN:Sequencer81_step6": 68.0,
         "HRMN:Sequencer81_step7": 56.0,
         "HRMN:Sequencer81_trig_out": 0.0,
-        "HRMN:Sequencer81_current_step": 5.0,
-        "HRMN:Harmonizer1_out0": 48.0,
-        "HRMN:Harmonizer1_out1": 64.0,
-        "HRMN:Harmonizer1_out2": 67.0,
+        "HRMN:Sequencer81_current_step": 1.0,
+        "HRMN:Harmonizer1_out0": 47.0,
+        "HRMN:Harmonizer1_out1": 62.0,
+        "HRMN:Harmonizer1_out2": 65.0,
         "HRMN:Harmonizer1_out3": 57.0
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 4812345121680,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 120.66131236533482,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -504,6 +530,66 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812346733584,
+      "src": {
+        "device": 4812345121680,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812346886288,
+          "device": 4812345121680,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812345116240,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 50,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

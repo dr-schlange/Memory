@@ -11,12 +11,9 @@
       "config": {
         "oscillator": {
           "voice_A_wave": 15,
-          "voice_B_wave": 14,
-          "voice_C_wave": 65,
+          "voice_B_wave": 25,
+          "voice_C_wave": 73,
           "voice_D_wave": 49
-        },
-        "vcf": {
-          "cutoff": 85
         }
       },
       "class": "Provsmini"
@@ -84,9 +81,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.661538461538462,
+        "output": 0.0,
         "set_pause": 0,
-        "gate": 1.0,
+        "gate": 0.0,
         "attack": 0.65,
         "decay": 0.26,
         "sustain": 1.0,
@@ -94,6 +91,25 @@
       },
       "proxy": false,
       "class": "ADSREnvelope"
+    },
+    {
+      "id": 4812515388688,
+      "repr": "MultiPoleFilter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 3.0651090222150232e-21,
+        "set_pause": 0,
+        "input": 0,
+        "filter": "lowpass",
+        "mode": "cutoff",
+        "cutoff": 5.0,
+        "smoothing": 0.1,
+        "poles": 1,
+        "type": "continuous"
+      },
+      "proxy": false,
+      "class": "MultiPoleFilter"
     }
   ],
   "connections": [
@@ -255,6 +271,63 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812514526736,
+      "src": {
+        "device": 4812515384848,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812514527504,
+          "device": 4812515384848,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 4812515388688,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,
@@ -489,10 +562,10 @@
       "velocity": null
     },
     {
-      "id": 4812514528528,
+      "id": 4812514526224,
       "src": {
-        "device": 4812515387920,
-        "repr": "ADSREnvelope1",
+        "device": 4812515388688,
+        "repr": "MultiPoleFilter1",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -514,8 +587,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4812514528272,
-          "device": 4812515387920,
+          "id": 4812514526992,
+          "device": 4812515388688,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4810671188496,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812513477296,
+      "src": {
+        "device": 4812515388688,
+        "repr": "MultiPoleFilter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812513477520,
+          "device": 4812515388688,
           "to_min": 0,
           "to_max": 127,
           "auto": false,

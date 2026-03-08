@@ -16,7 +16,8 @@
           "voice_D_wave": 49
         },
         "vcf": {
-          "resonance": 12
+          "cutoff": 62,
+          "resonance": 5
         }
       },
       "class": "Provsmini"
@@ -31,7 +32,8 @@
       "channel": 0,
       "config": {
         "sliders": {
-          "s1": 9
+          "s1": 9,
+          "s2": 3
         }
       },
       "class": "Minilab3"
@@ -67,17 +69,17 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 0,
+        "input": 62,
         "interval0": "root",
         "interval1": "+5/b5",
         "interval2": "-5/b5",
         "interval3": "-octave",
         "key": "C",
         "scale_": "maj",
-        "out0": 0,
-        "out1": 0,
-        "out2": 0,
-        "out3": 0
+        "out0": 62,
+        "out1": 69,
+        "out2": 55,
+        "out3": 50
       },
       "proxy": false,
       "class": "Harmonizer"
@@ -88,9 +90,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 1.0,
         "set_pause": 0,
-        "gate": 0.0,
+        "gate": 1.0,
         "attack": 0.65,
         "decay": 0.26,
         "sustain": 1.0,
@@ -105,9 +107,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.6095483020265926e-46,
+        "output": 61.98368426629265,
         "set_pause": 0,
-        "input": 0,
+        "input": 62.0,
         "filter": "lowpass",
         "mode": "cutoff",
         "cutoff": 1.3464566929133859,
@@ -124,7 +126,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 4.97236551967075e-45,
+        "output": 50.282617680590704,
         "set_pause": 0,
         "speed": 10.0,
         "subdiv": "1/1",
@@ -133,7 +135,7 @@
         "waveform": "sine",
         "invert_polarity": 0.0,
         "min_value": 1e-323,
-        "max_value": 1.6095483020265926e-46,
+        "max_value": 61.98368426629265,
         "pulse_width": 0.3,
         "step_size": 0.2
       },
@@ -148,8 +150,8 @@
       "config": {
         "output": 1,
         "set_pause": 0,
-        "a": 1.6095483020265926e-46,
-        "b": -1.0,
+        "a": 61.98225644201684,
+        "b": 61.0,
         "comparator": ">=",
         "type": "ondemand"
       },
@@ -162,9 +164,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -1.0,
+        "output": 61.0,
         "set_pause": 0,
-        "a": 0,
+        "a": 62,
         "b": 1.0,
         "operator": "-",
         "type": "ondemand"
@@ -178,13 +180,28 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 25.995817481705664,
+        "output": 19.836118617601873,
         "set_pause": 0,
-        "input": 25.995817481705664,
+        "input": 127.0,
         "gate": 1.0
       },
       "proxy": false,
       "class": "Gate"
+    },
+    {
+      "id": 4812279906704,
+      "repr": "VCA1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 178.8402450212631,
+        "set_pause": 0,
+        "input": 107.18445767274797,
+        "amplitude": 0.5119394939661996,
+        "gain": 1.0
+      },
+      "proxy": false,
+      "class": "VCA"
     }
   ],
   "connections": [
@@ -1001,10 +1018,10 @@
       "velocity": null
     },
     {
-      "id": 4812512354192,
+      "id": 4812281610448,
       "src": {
-        "device": 4812512774928,
-        "repr": "LFO2",
+        "device": 4812515388688,
+        "repr": "MultiPoleFilter1",
         "parameter": {
           "name": "output",
           "stream": false,
@@ -1026,36 +1043,36 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4812512304272,
-          "device": 4812512774928,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
+          "id": 4812279842064,
+          "device": 4812515388688,
+          "to_min": 1,
+          "to_max": 0,
+          "auto": false,
           "method": "lin",
           "as_int": false
         },
         "type": "virtual"
       },
       "dest": {
-        "device": 4810671188496,
-        "repr": "WebSocketBus1",
+        "device": 4812279906704,
+        "repr": "VCA1",
         "parameter": {
-          "name": "scope1_data",
-          "stream": true,
-          "consumer": true,
+          "name": "amplitude",
+          "stream": false,
+          "consumer": false,
           "description": null,
           "range": [
-            null,
-            null
+            0.0,
+            1.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "scope1_data_cv",
+          "cv_name": "amplitude_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
-          "default": null,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,
@@ -1066,7 +1083,7 @@
       "velocity": null
     },
     {
-      "id": 4812512331536,
+      "id": 4812281610640,
       "src": {
         "device": 4812512774928,
         "repr": "LFO2",
@@ -1091,10 +1108,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4812515511696,
+          "id": 4812279842576,
           "device": 4812512774928,
-          "to_min": 0,
-          "to_max": 127,
+          "to_min": 0.0,
+          "to_max": 127.0,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -1102,16 +1119,16 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4812512781328,
-        "repr": "Gate2",
+        "device": 4812279906704,
+        "repr": "VCA1",
         "parameter": {
           "name": "input",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0,
-            127
+            0.0,
+            127.0
           ],
           "accepted_values": [],
           "conversion_policy": null,
@@ -1315,6 +1332,136 @@
         },
         "explicit": -1,
         "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812281611216,
+      "src": {
+        "device": 4812512781328,
+        "repr": "Gate2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812279844624,
+          "device": 4812512781328,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4810671188496,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope1_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812281610832,
+      "src": {
+        "device": 4812279906704,
+        "repr": "VCA1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812279843088,
+          "device": 4812279906704,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812512781328,
+        "repr": "Gate2",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
       },
       "bouncy": false,
       "muted": false,

@@ -1,17 +1,5 @@
 {
-  "midi_devices": [
-    {
-      "id": 5883603783120,
-      "repr": "Amsynth",
-      "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
-      },
-      "channel": 0,
-      "config": {},
-      "class": "Amsynth"
-    }
-  ],
+  "midi_devices": [],
   "virtual_devices": [
     {
       "id": 5879715389328,
@@ -25,7 +13,7 @@
       "class": "TrevorBus"
     },
     {
-      "id": 5883603780240,
+      "id": 5883571078416,
       "repr": "WebSocketBus1",
       "paused": false,
       "running": true,
@@ -34,8 +22,156 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 5883576975760,
+      "repr": "SchrodingerNeuron1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": -0.3286060431865229,
+        "set_pause": 0,
+        "potential": 0.0,
+        "mass": 1.0,
+        "hbar": 1.0,
+        "observe": 0.0,
+        "reset": 0.0
+      },
+      "proxy": false,
+      "class": "SchrodingerNeuron"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 5883573764688,
+      "src": {
+        "device": 5883576975760,
+        "repr": "SchrodingerNeuron1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5883570554384,
+          "device": 5883576975760,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5883576975760,
+        "repr": "SchrodingerNeuron1",
+        "parameter": {
+          "name": "observe",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "observe_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 5883573764880,
+      "src": {
+        "device": 5883576975760,
+        "repr": "SchrodingerNeuron1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 5883570554896,
+          "device": 5883576975760,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 5883571078416,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
   "playground_code": ""
 }

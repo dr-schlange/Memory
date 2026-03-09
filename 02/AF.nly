@@ -1,0 +1,249 @@
+{
+  "midi_devices": [
+    {
+      "id": 4812478678288,
+      "repr": "Amsynth",
+      "ports": {
+        "input": "amsynth:MIDI OUT 137:1",
+        "output": "amsynth:MIDI IN 137:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Amsynth"
+    }
+  ],
+  "virtual_devices": [
+    {
+      "id": 4810671186192,
+      "repr": "TrevorBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "TrevorBus"
+    },
+    {
+      "id": 4811941282448,
+      "repr": "WebSocketBus1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0
+      },
+      "proxy": false,
+      "class": "WebSocketBus"
+    },
+    {
+      "id": 4812482544016,
+      "repr": "KineticShaper1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.016096772533798293,
+        "set_pause": 0,
+        "input": 0.016096772533798376,
+        "drive": 15.0,
+        "momentum": 1.0,
+        "inertia": 50.0,
+        "rate": 1.0,
+        "clipping": "tanh",
+        "nonlinear": "off",
+        "reset": 0
+      },
+      "proxy": false,
+      "class": "KineticShaper"
+    }
+  ],
+  "connections": [
+    {
+      "id": 4812483068112,
+      "src": {
+        "device": 4812482544016,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479334032,
+          "device": 4812482544016,
+          "to_min": -1.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812482544016,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483068304,
+      "src": {
+        "device": 4812482544016,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479334544,
+          "device": 4812482544016,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "scope0_data",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "scope0_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483068496,
+      "src": {
+        "device": 4812482544016,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479335184,
+          "device": 4812482544016,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812478678288,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    }
+  ],
+  "playground_code": ""
+}

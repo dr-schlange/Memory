@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "amp": {
-          "panning": 32
+          "panning": 1
         }
       },
       "class": "Amsynth"
@@ -45,13 +45,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": -0.7663468556628852,
+        "output": -0.7494976283221176,
         "set_pause": 0,
-        "input": 0.7663468556628852,
-        "drive": -0.7663468556628852,
-        "momentum": 1.0,
-        "inertia": 22.532861110332,
-        "rate": 1.4747107076308206,
+        "input": 0.7494976283221176,
+        "drive": -0.7494976283221176,
+        "momentum": -1.0,
+        "inertia": 10.436319343264282,
+        "rate": 1.2651688704895314,
         "clipping": "algebraic",
         "nonlinear": "off",
         "reset": 0
@@ -65,7 +65,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 120.57651973822844,
+        "output": 67.35289310434099,
         "set_pause": 0,
         "speed": 4.1,
         "subdiv": "1/1",
@@ -87,7 +87,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 0.5,
         "subdiv": "1/1",
@@ -109,9 +109,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 65,
+        "output": 36,
         "set_pause": 0,
-        "input": 22.47385283200813,
+        "input": 22.297324154288592,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -151,7 +151,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 31.833467220243286,
+        "output": 1.1082511318912778,
         "set_pause": 0,
         "speed": 0.01,
         "subdiv": "1/1",
@@ -166,6 +166,21 @@
       },
       "proxy": false,
       "class": "LFO"
+    },
+    {
+      "id": 4812482544784,
+      "repr": "DownScaler1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "input": 9.263698041424684,
+        "in": 0.0,
+        "out1": 9.056534483441805,
+        "out0": 9.263698041424684
+      },
+      "proxy": false,
+      "class": "DownScaler"
     }
   ],
   "connections": [
@@ -485,6 +500,71 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483119376,
+      "src": {
+        "device": 4812482544016,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479334288,
+          "device": 4812482544016,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
           "no_init": false
         },
         "explicit": -1,
@@ -988,6 +1068,396 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483117072,
+      "src": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479336208,
+          "device": 4812482544784,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483070032,
+      "src": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479335312,
+          "device": 4812482544784,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483091920,
+      "src": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479334416,
+          "device": 4812482544784,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope1_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope1_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483125520,
+      "src": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479332880,
+          "device": 4812482544784,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope1_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope1_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483078096,
+      "src": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479333392,
+          "device": 4812482544784,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope1_z",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope1_z_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483083856,
+      "src": {
+        "device": 4812482544784,
+        "repr": "DownScaler1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479333136,
+          "device": 4812482544784,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4811941282448,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope1_z",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope1_z_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

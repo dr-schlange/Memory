@@ -10,7 +10,7 @@
       "channel": 0,
       "config": {
         "amp": {
-          "panning": 76
+          "panning": 111
         }
       },
       "class": "Amsynth"
@@ -45,13 +45,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.736160320611086,
+        "output": -0.5835291030368205,
         "set_pause": 0,
-        "input": -0.8247581566132677,
-        "drive": 0.736160320611086,
-        "momentum": 1.0,
-        "inertia": 50.0,
-        "rate": 1.2244439358762358,
+        "input": -0.5835291030368205,
+        "drive": -0.5835291030368205,
+        "momentum": -1.0,
+        "inertia": 53.57146521431134,
+        "rate": 1.1109193957841048,
         "clipping": "tanh",
         "nonlinear": "off",
         "reset": 0
@@ -65,7 +65,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.008759712563894,
+        "output": 28.173526529162615,
         "set_pause": 0,
         "speed": 4.1,
         "subdiv": "1/1",
@@ -87,7 +87,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 0.5,
         "subdiv": "1/1",
@@ -109,10 +109,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 17,
+        "output": 69,
         "set_pause": 0,
-        "input": 19.81627766857853,
-        "trigger": 1,
+        "input": 19.95819141949024,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -136,14 +136,36 @@
         "mul3": 0,
         "div5": 0,
         "div3": 0,
-        "mul4": 1,
-        "mul2": 1,
+        "mul4": 0,
+        "mul2": 0,
         "div2": 0,
         "div4": 0,
         "lead": 0
       },
       "proxy": false,
       "class": "Clock"
+    },
+    {
+      "id": 4812478681488,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 110.6715216443508,
+        "set_pause": 0,
+        "speed": 0.01,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -654,6 +676,131 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483070224,
+      "src": {
+        "device": 4812478681488,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479333008,
+          "device": 4812478681488,
+          "to_min": 10,
+          "to_max": 60,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812482544016,
+        "repr": "KineticShaper1",
+        "parameter": {
+          "name": "inertia",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            -1.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "inertia_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 0.0,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4812483122640,
+      "src": {
+        "device": 4812478681488,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4812479335184,
+          "device": 4812478681488,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4812478678288,
+        "repr": "Amsynth",
+        "parameter": {
+          "cc_note": 10,
+          "channel": null,
+          "name": "panning",
+          "section_name": "amp",
+          "init_value": 64,
+          "description": "Panning sound",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

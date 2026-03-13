@@ -61,14 +61,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 64.655533050317,
+        "input": 17.673171646602906,
         "nums": 4,
         "mode": "cv",
         "level1": 48.69289418575672,
         "level2": 38.293675972852924,
         "level3": 43.0,
         "level4": 31.0,
-        "out1": 64.655533050317,
+        "out1": 18.76796829298599,
         "out2": 63.5,
         "out3": 0.0,
         "out4": 0.0
@@ -82,9 +82,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 12,
+        "output": 74,
         "set_pause": 0,
-        "input": 64.655533050317,
+        "input": 19.257073635307513,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -123,18 +123,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 12.0,
+        "input": 74.0,
         "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 17.0,
-        "output6": 48.0,
-        "output5": 89.0,
-        "output4": 60.0,
-        "output3": 65.0,
-        "output2": 19.0,
-        "output1": 71.0,
-        "output0": 12.0
+        "output7": 12.0,
+        "output6": 63.0,
+        "output5": 19.0,
+        "output4": 71.0,
+        "output3": 71.0,
+        "output2": 62.0,
+        "output1": 72.0,
+        "output0": 29.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -142,12 +142,12 @@
     {
       "id": 3162339161552,
       "repr": "Quantizer2",
-      "paused": true,
+      "paused": false,
       "running": true,
       "config": {
-        "output": 48,
-        "set_pause": 1,
-        "input": 48.41732283464567,
+        "output": 31,
+        "set_pause": 0,
+        "input": 50.93700787401575,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -168,14 +168,14 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 1.0,
-        "div16": 0.0,
-        "div8": 1.0,
+        "div16": 1.0,
+        "div8": 0.0,
         "div7": 1.0,
         "div6": 0.0,
         "div5": 0.0,
-        "div4": 1.0,
+        "div4": 0.0,
         "div3": 0.0,
-        "div2": 1.0,
+        "div2": 0.0,
         "div1": 1.0
       },
       "proxy": false,
@@ -189,7 +189,7 @@
       "config": {
         "output": 1,
         "set_pause": 0,
-        "input": 48,
+        "input": 31,
         "upperbound": 75.0,
         "lowerbound": 29.0,
         "type": "continuous"
@@ -1608,6 +1608,71 @@
           "hidden": false,
           "default": null,
           "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3162343932112,
+      "src": {
+        "device": 3162342764560,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div6",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div6_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3162342168336,
+          "device": 3162342764560,
+          "to_min": 0,
+          "to_max": 1,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3162339161552,
+        "repr": "Quantizer2",
+        "parameter": {
+          "name": "set_pause",
+          "stream": false,
+          "consumer": true,
+          "description": null,
+          "range": [
+            0,
+            1
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "set_pause_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": true
         },
         "explicit": -1,
         "type": "virtual"

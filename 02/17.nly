@@ -8,7 +8,11 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "oscillator": {
+          "osc1_coarse_tune": 1
+        }
+      },
       "class": "Jt4000mmicro"
     },
     {
@@ -53,14 +57,14 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 46.267448316193374,
+        "input": 27.97867027102269,
         "nums": 2,
         "mode": "cv",
-        "level1": 36.431061666294,
-        "level2": 63.568938333706,
+        "level1": 22.03044903230133,
+        "level2": 77.96955096769867,
         "level3": 58.0,
         "level4": 76.0,
-        "out1": 46.267448316193374,
+        "out1": 22.723064043635887,
         "out2": 43.815,
         "out3": 81.915,
         "out4": 127.0
@@ -74,10 +78,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 21,
+        "output": 12,
         "set_pause": 0,
-        "input": 65.55797780429694,
-        "trigger": 1,
+        "input": 21.938473515196467,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -92,7 +96,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
         "speed": 6.976,
         "subdiv": "1/1",
@@ -115,18 +119,18 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "input": 21.0,
-        "trigger": 1,
+        "input": 12.0,
+        "trigger": 0,
         "reset": 0,
         "length": 8,
-        "output7": 72.0,
-        "output6": 88.0,
-        "output5": 79.0,
-        "output4": 48.0,
-        "output3": 77.0,
-        "output2": 117.0,
-        "output1": 115.0,
-        "output0": 21.0
+        "output7": 74.0,
+        "output6": 69.0,
+        "output5": 69.0,
+        "output4": 113.0,
+        "output3": 89.0,
+        "output2": 0.0,
+        "output1": 9.0,
+        "output0": 9.0
       },
       "proxy": false,
       "class": "ShiftRegister"
@@ -137,10 +141,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 72,
+        "output": 89,
         "set_pause": 0,
-        "input": 77.0,
-        "trigger": 1,
+        "input": 69.0,
+        "trigger": 0,
         "reset": 0,
         "root": "C",
         "scale_": "maj",
@@ -156,19 +160,19 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 1.0,
+        "trigger": 0.0,
         "reset": 0.0,
         "mode": "gate",
-        "div32": 1.0,
+        "div32": 0.0,
         "div16": 1.0,
-        "div8": 1.0,
-        "div7": 1.0,
-        "div6": 1.0,
+        "div8": 0.0,
+        "div7": 0.0,
+        "div6": 0.0,
         "div5": 1.0,
-        "div4": 1.0,
+        "div4": 0.0,
         "div3": 1.0,
-        "div2": 1.0,
-        "div1": 0.0
+        "div2": 0.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -495,6 +499,66 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3162343964560,
+      "src": {
+        "device": 3162342763024,
+        "repr": "HarmonicGenerator1",
+        "parameter": {
+          "name": "out1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3162342163344,
+          "device": 3162342763024,
+          "to_min": 0,
+          "to_max": 12,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3162342752656,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 115,
+          "channel": null,
+          "name": "osc1_coarse_tune",
+          "section_name": "oscillator",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

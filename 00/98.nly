@@ -8,7 +8,16 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 28:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "lfo": {
+          "lfo1_waveform": 84,
+          "lfo1_rate": 121,
+          "lfo1_amount": 65
+        },
+        "vcf": {
+          "cutoff": 4
+        }
+      },
       "class": "Jt4000mmicro"
     }
   ],
@@ -66,7 +75,7 @@
         "play": 1,
         "reset": 0,
         "mul7": 0,
-        "mul5": 1,
+        "mul5": 0,
         "mul3": 0,
         "div5": 0,
         "div3": 0,
@@ -90,15 +99,15 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 1.0,
-        "div16": 0.0,
-        "div8": 1.0,
-        "div7": 0.0,
-        "div6": 0.0,
-        "div5": 1.0,
-        "div4": 1.0,
+        "div16": 1.0,
+        "div8": 0.0,
+        "div7": 1.0,
+        "div6": 1.0,
+        "div5": 0.0,
+        "div4": 0.0,
         "div3": 1.0,
-        "div2": 0.0,
-        "div1": 0.0
+        "div2": 1.0,
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
@@ -109,13 +118,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 30.0,
+        "output": 28.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 0.0,
+        "trigger": 1.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0,
@@ -138,10 +147,32 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7.0
+        "current_step": 1.0
       },
       "proxy": false,
       "class": "Sequencer8"
+    },
+    {
+      "id": 4915389627984,
+      "repr": "LFO1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 5.8969991643403965,
+        "set_pause": 0,
+        "speed": 0.03,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -449,6 +480,186 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4915404249744,
+      "src": {
+        "device": 4915389627984,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4915392810384,
+          "device": 4915389627984,
+          "to_min": 0,
+          "to_max": 91,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4915389650064,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4915404222480,
+      "src": {
+        "device": 4915389627984,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4915392807312,
+          "device": 4915389627984,
+          "to_min": 66,
+          "to_max": 50,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4915389650064,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 70,
+          "channel": null,
+          "name": "lfo1_amount",
+          "section_name": "lfo",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4915404255888,
+      "src": {
+        "device": 4915389627984,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4915392807056,
+          "device": 4915389627984,
+          "to_min": 127,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4915389650064,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 72,
+          "channel": null,
+          "name": "lfo1_rate",
+          "section_name": "lfo",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

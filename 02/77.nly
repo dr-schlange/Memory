@@ -42,13 +42,13 @@
       "running": true,
       "config": {
         "set_pause": 0,
-        "in0": 12.592926811783686,
-        "in1": 12.589133991321368,
+        "in0": 18.01299936839269,
+        "in1": 18.17972796902005,
         "in2": 0.0,
         "in3": 0,
-        "level": 4.373676676465734,
+        "level": 36.35822124179531,
         "type": "continuous",
-        "out0": 12.589133991321368,
+        "out0": 18.17972796902005,
         "out1": 0.0
       },
       "proxy": false,
@@ -60,15 +60,15 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 12.6024635807781,
+        "output": 17.940443758266653,
         "set_pause": 0,
-        "in0": 70.33446333018964,
-        "in1": 12.6024635807781,
-        "in2": 12.589133991321368,
+        "in0": 83.53559238214521,
+        "in1": 17.940443758266653,
+        "in2": 34.595681152150604,
         "in3": 0,
-        "level0": 45.29368297106827,
+        "level0": 44.79471506508334,
         "level1": 39.0,
-        "level2": 9.912703930174306,
+        "level2": 27.160055064036253,
         "level3": 50,
         "nums": 3,
         "type": "continuous"
@@ -82,7 +82,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 70.33446333018964,
+        "output": 83.53559238214521,
         "set_pause": 0,
         "speed": 0.43,
         "subdiv": "1/1",
@@ -104,7 +104,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.52297737325671,
+        "output": 56.889288132655835,
         "set_pause": 0,
         "speed": 0.32,
         "subdiv": "1/1",
@@ -126,9 +126,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 43,
+        "output": 55,
         "set_pause": 0,
-        "input": 44.041543104287896,
+        "input": 50.012999368392684,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -168,15 +168,37 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 45.52749101863663,
+        "output": 51.01299936839269,
         "set_pause": 0,
-        "a": 12.527491018636631,
+        "a": 18.01299936839269,
         "b": 33.0,
         "operator": "+",
-        "type": "ondemand"
+        "type": "continuous"
       },
       "proxy": false,
       "class": "Operator"
+    },
+    {
+      "id": 3464196540240,
+      "repr": "LFO3",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 83.72762351489139,
+        "set_pause": 0,
+        "speed": 0.43,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 50,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -492,6 +514,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "xyscope0_x_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3464200638224,
+      "src": {
+        "device": 3464196205840,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3464197639056,
+          "device": 3464196205840,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3464031169040,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_x",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_x_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -896,6 +983,71 @@
       "velocity": null
     },
     {
+      "id": 3464200621328,
+      "src": {
+        "device": 3464196204304,
+        "repr": "Mixer1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3464197639824,
+          "device": 3464196204304,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3464031169040,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_y",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_y_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
       "id": 3464196537040,
       "src": {
         "device": 3464196205456,
@@ -1264,6 +1416,71 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "input_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 3464200640528,
+      "src": {
+        "device": 3464196540240,
+        "repr": "LFO3",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3464197638928,
+          "device": 3464196540240,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3464031169040,
+        "repr": "WebSocketBus1",
+        "parameter": {
+          "name": "xyzscope0_z",
+          "stream": true,
+          "consumer": true,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "xyzscope0_z_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

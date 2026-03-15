@@ -8,7 +8,12 @@
         "output": "JT-4000M MICRO:JT-4000M MICRO MIDI 1 32:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "vcf": {
+          "cutoff": 30,
+          "env_amount": 48
+        }
+      },
       "class": "Jt4000mmicro"
     },
     {
@@ -98,13 +103,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 74.15429764294262,
+        "output": 76.36441899404201,
         "set_pause": 0,
-        "input": 127.0,
+        "input": 68.7032955637947,
         "filter": "lowpass",
         "mode": "smoothing",
         "cutoff": 3.33,
-        "smoothing": 0.9418951600864323,
+        "smoothing": 0.9662076188872832,
         "poles": 4,
         "type": "continuous"
       },
@@ -117,7 +122,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 102.20084453601403,
+        "output": 24.63856015958027,
         "set_pause": 0,
         "speed": 0.11,
         "subdiv": "1/1",
@@ -139,9 +144,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 40,
+        "output": 72,
         "set_pause": 0,
-        "input": 76.60236141551762,
+        "input": 68.89006592445101,
         "trigger": 1,
         "reset": 0,
         "root": "C",
@@ -179,7 +184,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 119.6206853309769,
+        "output": 122.70836759868497,
         "set_pause": 0,
         "speed": 0.11,
         "subdiv": "1/1",
@@ -201,10 +206,10 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 1.0,
+        "output": 0,
         "set_pause": 0,
-        "input": 0.22796208460527412,
-        "threshold": -1.0,
+        "input": 0.012023165038133277,
+        "threshold": -0.5963200000000011,
         "gain": 4.0
       },
       "proxy": false,
@@ -216,13 +221,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0.0,
+        "output": 0.2018399999999995,
         "set_pause": 0,
         "gate": 0.0,
-        "attack": 0.1,
-        "decay": 0.2,
+        "attack": 0.02,
+        "decay": 0.4,
         "sustain": 0.7,
-        "release": 0.3
+        "release": 0.7
       },
       "proxy": false,
       "class": "ADSREnvelope"
@@ -235,7 +240,7 @@
       "config": {
         "output": 0.0,
         "set_pause": 0,
-        "speed": 0.4685722101201648,
+        "speed": 0.4669005130594107,
         "subdiv": "1/1",
         "phase": 0.0,
         "sampling_rate": 50,
@@ -255,7 +260,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 118.85442996992026,
+        "output": 118.42115338478604,
         "set_pause": 0,
         "speed": 0.67,
         "subdiv": "1/1",
@@ -1487,6 +1492,66 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null
+    },
+    {
+      "id": 4926566365840,
+      "src": {
+        "device": 4926567419280,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4926563749136,
+          "device": 4926567419280,
+          "to_min": 26,
+          "to_max": 49,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4926060172560,
+        "repr": "Jt4000mmicro",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "vcf",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

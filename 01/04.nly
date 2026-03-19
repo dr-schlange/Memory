@@ -41,11 +41,11 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": -2,
         "set_pause": 0,
-        "a": 0,
-        "b": 1,
-        "operator": "and",
+        "a": -2,
+        "b": 18,
+        "operator": "not",
         "type": "ondemand"
       },
       "proxy": false,
@@ -57,84 +57,82 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 73,
         "set_pause": 0,
-        "a": 0,
-        "b": 0,
+        "a": 1,
+        "b": 73,
         "operator": "or",
         "type": "ondemand"
       },
       "proxy": false,
       "class": "Bitwise"
+    },
+    {
+      "id": 4285978903312,
+      "repr": "Sequencer81",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 49.0,
+        "set_pause": 0,
+        "input": 0.0,
+        "write": 0.0,
+        "prev_edit_step": 0.0,
+        "next_edit_step": 0.0,
+        "trigger": 0.0,
+        "play": 1.0,
+        "reset": 0.0,
+        "set_step": 0.0,
+        "length": 8.0,
+        "step0": 37.0,
+        "step1": 50.0,
+        "step2": 28.0,
+        "step3": 32.0,
+        "step4": 49.0,
+        "step5": 44.0,
+        "step6": 47.0,
+        "step7": 44.0,
+        "edit_step": 0,
+        "active0": 1,
+        "active1": 1,
+        "active2": 1,
+        "active3": 1,
+        "active4": 1,
+        "active5": 1,
+        "active6": 1,
+        "active7": 1,
+        "trig_out": 0,
+        "current_step": 4.0
+      },
+      "proxy": false,
+      "class": "Sequencer8"
+    },
+    {
+      "id": 4285978903696,
+      "repr": "ClockDivider1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "set_pause": 0,
+        "trigger": 0.0,
+        "reset": 0.0,
+        "mode": "tick",
+        "div32": 0,
+        "div16": 0,
+        "div8": 0,
+        "div7": 0,
+        "div6": 0,
+        "div5": 0,
+        "div4": 0,
+        "div3": 0,
+        "div2": 0,
+        "div1": 0
+      },
+      "proxy": false,
+      "class": "ClockDivider"
     }
   ],
   "connections": [
-    {
-      "id": 4285977002896,
-      "src": {
-        "device": 4285978902928,
-        "repr": "Bitwise1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4285977002672,
-          "device": 4285978902928,
-          "to_min": null,
-          "to_max": null,
-          "auto": true,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4285978902928,
-        "repr": "Bitwise1",
-        "parameter": {
-          "name": "a",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            null,
-            null
-          ],
-          "accepted_values": [],
-          "conversion_policy": "round",
-          "disable_policy": false,
-          "cv_name": "a_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null,
-      "extra_zero": "none"
-    },
     {
       "id": 4285983097424,
       "src": {
@@ -202,7 +200,7 @@
       "extra_zero": "none"
     },
     {
-      "id": 4285983151760,
+      "id": 4285983120656,
       "src": {
         "device": 4285978902928,
         "repr": "Bitwise1",
@@ -227,7 +225,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4285983154064,
+          "id": 4285978514288,
+          "device": 4285978902928,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4285978903696,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4285983137552,
+      "src": {
+        "device": 4285978902928,
+        "repr": "Bitwise1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4285976873104,
           "device": 4285978902928,
           "to_min": null,
           "to_max": null,
@@ -240,6 +304,72 @@
       "dest": {
         "device": 4285976087376,
         "repr": "Bitwise2",
+        "parameter": {
+          "name": "a",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            null,
+            null
+          ],
+          "accepted_values": [],
+          "conversion_policy": "round",
+          "disable_policy": false,
+          "cv_name": "a_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4285983144080,
+      "src": {
+        "device": 4285978902928,
+        "repr": "Bitwise1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4285976874640,
+          "device": 4285978902928,
+          "to_min": null,
+          "to_max": null,
+          "auto": true,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4285978902928,
+        "repr": "Bitwise1",
         "parameter": {
           "name": "a",
           "stream": false,
@@ -319,6 +449,130 @@
           "conversion_policy": null,
           "disable_policy": false,
           "cv_name": "scope1_data_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4285983131984,
+      "src": {
+        "device": 4285978903312,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4285976871952,
+          "device": 4285978903312,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4286011811536,
+        "repr": "Amsynth",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4285983156176,
+      "src": {
+        "device": 4285978903696,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div16",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div16_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4285976871184,
+          "device": 4285978903696,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4285978903312,
+        "repr": "Sequencer81",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

@@ -1,18 +1,7 @@
 {
   "midi_devices": [
     {
-      "id": 5744219787024,
-      "repr": "Vija",
-      "ports": {
-        "input": "Pico W:Pico W MIDI 1 24:0",
-        "output": "Pico W:Pico W MIDI 1 24:0"
-      },
-      "channel": 0,
-      "config": {},
-      "class": "Vija"
-    },
-    {
-      "id": 5744220904592,
+      "id": 4958809293200,
       "repr": "Minilab3",
       "ports": {
         "input": "Minilab3:Minilab3 MIDI 20:0",
@@ -21,11 +10,22 @@
       "channel": 0,
       "config": {},
       "class": "Minilab3"
+    },
+    {
+      "id": 4958810480144,
+      "repr": "Vija",
+      "ports": {
+        "input": "Pico W:Pico W MIDI 1 32:0",
+        "output": "Pico W:Pico W MIDI 1 32:0"
+      },
+      "channel": 0,
+      "config": {},
+      "class": "Vija"
     }
   ],
   "virtual_devices": [
     {
-      "id": 5743920603408,
+      "id": 4958646231312,
       "repr": "TrevorBus1",
       "paused": false,
       "running": true,
@@ -36,7 +36,7 @@
       "class": "TrevorBus"
     },
     {
-      "id": 5743920601488,
+      "id": 4958646229392,
       "repr": "WebSocketBus1",
       "paused": false,
       "running": true,
@@ -47,7 +47,7 @@
       "class": "WebSocketBus"
     },
     {
-      "id": 5743920601872,
+      "id": 4958646229776,
       "repr": "OSCBus1",
       "paused": false,
       "running": true,
@@ -58,6 +58,57 @@
       "class": "OSCBus"
     }
   ],
-  "connections": [],
-  "playground_code": "vija = connected_devices[0]\n\nvija.note_on(64)"
+  "connections": [
+    {
+      "id": 4958809305872,
+      "src": {
+        "device": 4958809293200,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4958809305488,
+          "device": 4958809293200,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 4958810480144,
+        "repr": "Vija",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    }
+  ],
+  "playground_code": ""
 }

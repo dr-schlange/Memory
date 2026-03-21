@@ -1,60 +1,5 @@
 {
-  "midi_devices": [
-    {
-      "id": 4188065506704,
-      "repr": "Amsynth",
-      "ports": {
-        "input": "amsynth:MIDI OUT 129:1",
-        "output": "amsynth:MIDI IN 129:0"
-      },
-      "channel": 0,
-      "config": {
-        "general": {
-          "bank_select": 49,
-          "preset_select": 15
-        },
-        "oscillators": {
-          "osc1_waveform": 127,
-          "osc1_shape": 56,
-          "osc2_shape": 93,
-          "osc2_oct": 91,
-          "osc2_detune": 31,
-          "sync_oscillators": 0,
-          "mix": 112
-        },
-        "amp": {
-          "volume": 127,
-          "drive": 55,
-          "attack": 60,
-          "decay": 43,
-          "sustain": 18,
-          "release": 54
-        },
-        "filter": {
-          "cutoff": 72,
-          "resonance": 83,
-          "env_amount": 78,
-          "attack": 63,
-          "decay": 39,
-          "sustain": 6,
-          "release": 45
-        },
-        "lfo": {
-          "speed": 78,
-          "freq_mod_amount": 109,
-          "filter_mod_amount": 127,
-          "amp_mod_amount": 2
-        },
-        "reverb": {
-          "amount": 55,
-          "size": 13,
-          "stereo": 0,
-          "damping": 68
-        }
-      },
-      "class": "Amsynth"
-    }
-  ],
+  "midi_devices": [],
   "virtual_devices": [
     {
       "id": 4188001591568,
@@ -68,86 +13,79 @@
       "class": "TrevorBus"
     },
     {
-      "id": 4188165836880,
+      "id": 4190547747600,
       "repr": "WebSocketBus1",
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0,
-        "pads0_p0": 0.0
+        "set_pause": 0
       },
       "proxy": false,
       "class": "WebSocketBus"
     },
     {
-      "id": 4188064060688,
-      "repr": "SeqSwitch1",
+      "id": 4190547748560,
+      "repr": "OSCBus1",
       "paused": false,
       "running": true,
       "config": {
-        "set_pause": 0,
-        "trigger": 1,
-        "reset": 0,
-        "steps": 4,
-        "mode": "IOs->OI",
-        "io4": 35.0,
-        "io3": 49.0,
-        "io2": 53.0,
-        "io1": 69.0,
-        "oi": 53.0
+        "set_pause": 0
       },
       "proxy": false,
-      "class": "SeqSwitch"
+      "class": "OSCBus"
     },
     {
-      "id": 4189815964048,
-      "repr": "ClockDivider1",
+      "id": 4190553769488,
+      "repr": "Crossfade1",
       "paused": false,
       "running": true,
       "config": {
         "set_pause": 0,
-        "trigger": 0.0,
-        "reset": 0.0,
-        "mode": "gate",
-        "div32": 1.0,
-        "div16": 1.0,
-        "div8": 1.0,
-        "div7": 1.0,
-        "div6": 1.0,
-        "div5": 1.0,
-        "div4": 1.0,
-        "div3": 0.0,
-        "div2": 0.0,
-        "div1": 0.0
+        "in0": 0.01009737723262738,
+        "in1": 26.581558023569883,
+        "in2": 20.0,
+        "in3": 0,
+        "level": 99.94951311383686,
+        "type": "continuous",
+        "out0": 26.581558023569883,
+        "out1": 0.01009737723262738
       },
       "proxy": false,
-      "class": "ClockDivider"
+      "class": "Crossfade"
     },
     {
-      "id": 4189315006864,
-      "repr": "PitchShifter1",
+      "id": 4190547741520,
+      "repr": "LFO1",
       "paused": false,
       "running": true,
       "config": {
-        "output": 0,
+        "output": 126.9358816545728,
         "set_pause": 0,
-        "input": 0.0,
-        "shift": 1.02
+        "speed": 2.27,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 45,
+        "waveform": "sine",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
       },
       "proxy": false,
-      "class": "PitchShifter"
+      "class": "LFO"
     }
   ],
   "connections": [
     {
-      "id": 4189311384848,
+      "id": 4190547939280,
       "src": {
-        "device": 4188165836880,
-        "repr": "WebSocketBus1",
+        "device": 4190553769488,
+        "repr": "Crossfade1",
         "parameter": {
-          "name": "pads0_p0",
+          "name": "out1",
           "stream": false,
-          "consumer": true,
+          "consumer": false,
           "description": null,
           "range": [
             0,
@@ -156,7 +94,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "pads0_p0_cv",
+          "cv_name": "out1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -165,10 +103,10 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4189307931152,
-          "device": 4188165836880,
-          "to_min": 0.0,
-          "to_max": 127.0,
+          "id": 4190549574160,
+          "device": 4190553769488,
+          "to_min": 0,
+          "to_max": 127,
           "auto": false,
           "method": "lin",
           "as_int": false
@@ -176,21 +114,21 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4189315006864,
-        "repr": "PitchShifter1",
+        "device": 4190553769488,
+        "repr": "Crossfade1",
         "parameter": {
-          "name": "input",
+          "name": "in0",
           "stream": false,
           "consumer": false,
           "description": null,
           "range": [
-            0.0,
-            127.0
+            0,
+            127
           ],
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "input_cv",
+          "cv_name": "in0_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -206,12 +144,12 @@
       "extra_zero": "none"
     },
     {
-      "id": 4189810132304,
+      "id": 4190547938128,
       "src": {
-        "device": 4188064060688,
-        "repr": "SeqSwitch1",
+        "device": 4190553769488,
+        "repr": "Crossfade1",
         "parameter": {
-          "name": "oi",
+          "name": "out1",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -222,7 +160,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "oi_cv",
+          "cv_name": "out1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -231,8 +169,74 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4189810132080,
-          "device": 4188064060688,
+          "id": 4190549574416,
+          "device": 4190553769488,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4190553769488,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4190547938512,
+      "src": {
+        "device": 4190553769488,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4190549576592,
+          "device": 4190553769488,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -242,7 +246,7 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4188165836880,
+        "device": 4190547747600,
         "repr": "WebSocketBus1",
         "parameter": {
           "name": "scope0_data",
@@ -272,12 +276,12 @@
       "extra_zero": "none"
     },
     {
-      "id": 4189311336848,
+      "id": 4190547938320,
       "src": {
-        "device": 4188064060688,
-        "repr": "SeqSwitch1",
+        "device": 4190553769488,
+        "repr": "Crossfade1",
         "parameter": {
-          "name": "oi",
+          "name": "out1",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -288,7 +292,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "oi_cv",
+          "cv_name": "out1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -297,330 +301,8 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4189311336656,
-          "device": 4188064060688,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4189815964048,
-        "repr": "ClockDivider1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null,
-      "extra_zero": "none"
-    },
-    {
-      "id": 4189311337616,
-      "src": {
-        "device": 4188064060688,
-        "repr": "SeqSwitch1",
-        "parameter": {
-          "name": "oi",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "oi_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4189311337424,
-          "device": 4188064060688,
-          "to_min": 0,
-          "to_max": 127,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4188065506704,
-        "repr": "Amsynth",
-        "parameter": {
-          "channel": null,
-          "keys": {},
-          "section_name": "keys",
-          "name": "notes",
-          "cc_note": -1,
-          "range": [
-            0,
-            127
-          ]
-        },
-        "explicit": -1,
-        "type": "note"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null,
-      "extra_zero": "none"
-    },
-    {
-      "id": 4189311342800,
-      "src": {
-        "device": 4189815964048,
-        "repr": "ClockDivider1",
-        "parameter": {
-          "name": "div7",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "div7_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4189307932560,
-          "device": 4189815964048,
-          "to_min": 0,
-          "to_max": 1,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4188064060688,
-        "repr": "SeqSwitch1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            1
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null,
-      "extra_zero": "none"
-    },
-    {
-      "id": 4189311375824,
-      "src": {
-        "device": 4189315006864,
-        "repr": "PitchShifter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4189307929360,
-          "device": 4189315006864,
-          "to_min": 0.0,
-          "to_max": 127.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4189315006864,
-        "repr": "PitchShifter1",
-        "parameter": {
-          "name": "input",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            127.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "input_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null,
-      "extra_zero": "before"
-    },
-    {
-      "id": 4189311385040,
-      "src": {
-        "device": 4189315006864,
-        "repr": "PitchShifter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4189307929232,
-          "device": 4189315006864,
-          "to_min": 0.0,
-          "to_max": 1.0,
-          "auto": false,
-          "method": "lin",
-          "as_int": false
-        },
-        "type": "virtual"
-      },
-      "dest": {
-        "device": 4189815964048,
-        "repr": "ClockDivider1",
-        "parameter": {
-          "name": "trigger",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0.0,
-            1.0
-          ],
-          "accepted_values": [],
-          "conversion_policy": ">0",
-          "disable_policy": false,
-          "cv_name": "trigger_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "type": "virtual"
-      },
-      "bouncy": false,
-      "muted": false,
-      "velocity": null,
-      "extra_zero": "none"
-    },
-    {
-      "id": 4189311386384,
-      "src": {
-        "device": 4189315006864,
-        "repr": "PitchShifter1",
-        "parameter": {
-          "name": "output",
-          "stream": false,
-          "consumer": false,
-          "description": null,
-          "range": [
-            0,
-            127
-          ],
-          "accepted_values": [],
-          "conversion_policy": null,
-          "disable_policy": false,
-          "cv_name": "output_cv",
-          "section_name": "__virtual__",
-          "cc_note": -1,
-          "hidden": false,
-          "default": null,
-          "no_init": false
-        },
-        "explicit": -1,
-        "chain": {
-          "id": 4189307930384,
-          "device": 4189315006864,
+          "id": 4190549576848,
+          "device": 4190553769488,
           "to_min": null,
           "to_max": null,
           "auto": true,
@@ -630,7 +312,7 @@
         "type": "virtual"
       },
       "dest": {
-        "device": 4188165836880,
+        "device": 4190547747600,
         "repr": "WebSocketBus1",
         "parameter": {
           "name": "scope1_data",
@@ -649,6 +331,204 @@
           "cc_note": -1,
           "hidden": false,
           "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4190547937168,
+      "src": {
+        "device": 4190553769488,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "out0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "out0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4190549576336,
+          "device": 4190553769488,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4190553769488,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4190547936400,
+      "src": {
+        "device": 4190547741520,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4190549574928,
+          "device": 4190547741520,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4190553769488,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "in0",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "in0_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4190547937552,
+      "src": {
+        "device": 4190547741520,
+        "repr": "LFO1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4190549575824,
+          "device": 4190547741520,
+          "to_min": 0,
+          "to_max": 100,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4190553769488,
+        "repr": "Crossfade1",
+        "parameter": {
+          "name": "level",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            100
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "level_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": 50,
           "no_init": false
         },
         "explicit": -1,

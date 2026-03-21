@@ -47,10 +47,10 @@
         "steps": 4,
         "mode": "IOs->OI",
         "io4": 35.0,
-        "io3": 37.0,
-        "io2": 43.0,
-        "io1": 39.0,
-        "oi": 37.0
+        "io3": 49.0,
+        "io2": 53.0,
+        "io1": 69.0,
+        "oi": 53.0
       },
       "proxy": false,
       "class": "SeqSwitch"
@@ -66,18 +66,32 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 0.0,
+        "div16": 1.0,
         "div8": 0.0,
         "div7": 0.0,
-        "div6": 0.0,
-        "div5": 0.0,
+        "div6": 1.0,
+        "div5": 1.0,
         "div4": 0.0,
         "div3": 0.0,
         "div2": 0.0,
-        "div1": 0.0
+        "div1": 1.0
       },
       "proxy": false,
       "class": "ClockDivider"
+    },
+    {
+      "id": 4189315006864,
+      "repr": "PitchShifter1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0,
+        "set_pause": 0,
+        "input": 0.0,
+        "shift": 0.56
+      },
+      "proxy": false,
+      "class": "PitchShifter"
     }
   ],
   "connections": [
@@ -211,7 +225,7 @@
       "bouncy": false,
       "muted": false,
       "velocity": null,
-      "extra_zero": "before"
+      "extra_zero": "none"
     },
     {
       "id": 4189311337616,
@@ -272,12 +286,12 @@
       "extra_zero": "none"
     },
     {
-      "id": 4189311337232,
+      "id": 4189311373328,
       "src": {
         "device": 4189815964048,
         "repr": "ClockDivider1",
         "parameter": {
-          "name": "div2",
+          "name": "div1",
           "stream": false,
           "consumer": false,
           "description": null,
@@ -288,7 +302,7 @@
           "accepted_values": [],
           "conversion_policy": null,
           "disable_policy": false,
-          "cv_name": "div2_cv",
+          "cv_name": "div1_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,
@@ -297,7 +311,73 @@
         },
         "explicit": -1,
         "chain": {
-          "id": 4189311337040,
+          "id": 4189311372752,
+          "device": 4189815964048,
+          "to_min": 1,
+          "to_max": 0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4189815964048,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "trigger",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": ">0",
+          "disable_policy": false,
+          "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "before"
+    },
+    {
+      "id": 4189311376208,
+      "src": {
+        "device": 4189815964048,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div1",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div1_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4189307931280,
           "device": 4189815964048,
           "to_min": 0,
           "to_max": 1,
@@ -323,6 +403,72 @@
           "conversion_policy": ">0",
           "disable_policy": false,
           "cv_name": "trigger_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4189311375824,
+      "src": {
+        "device": 4189315006864,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4189307929360,
+          "device": 4189315006864,
+          "to_min": 0.0,
+          "to_max": 127.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4189315006864,
+        "repr": "PitchShifter1",
+        "parameter": {
+          "name": "input",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            127.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "input_cv",
           "section_name": "__virtual__",
           "cc_note": -1,
           "hidden": false,

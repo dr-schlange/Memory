@@ -8,8 +8,33 @@
         "output": "Pico W:Pico W MIDI 1 28:0"
       },
       "channel": 0,
-      "config": {},
+      "config": {
+        "general": {
+          "master_volume": 127
+        }
+      },
       "class": "Vija"
+    },
+    {
+      "id": 4767012161040,
+      "repr": "Minilab3",
+      "ports": {
+        "input": "Minilab3:Minilab3 MIDI 32:0",
+        "output": "Minilab3:Minilab3 MIDI 32:0"
+      },
+      "channel": 0,
+      "config": {
+        "keys": {
+          "mod": 79
+        },
+        "pads": {
+          "p3": 63
+        },
+        "sliders": {
+          "s4": 127
+        }
+      },
+      "class": "Minilab3"
     }
   ],
   "virtual_devices": [
@@ -47,6 +72,281 @@
       "class": "OSCBus"
     }
   ],
-  "connections": [],
+  "connections": [
+    {
+      "id": 4767012165648,
+      "src": {
+        "device": 4767012161040,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4767012166032,
+          "device": 4767012161040,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 4767013344592,
+        "repr": "Vija",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4767013355152,
+      "src": {
+        "device": 4767012161040,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 82,
+          "channel": null,
+          "name": "s1",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 82,
+        "chain": {
+          "id": 4767013354832,
+          "device": 4767012161040,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 4767013344592,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 11,
+          "channel": null,
+          "name": "attack",
+          "section_name": "envelope",
+          "init_value": 0,
+          "description": "Envelope Attack",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 82,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4767013355792,
+      "src": {
+        "device": 4767012161040,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 83,
+          "channel": null,
+          "name": "s2",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 83,
+        "chain": {
+          "id": 4767013355472,
+          "device": 4767012161040,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 4767013344592,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 12,
+          "channel": null,
+          "name": "release",
+          "section_name": "envelope",
+          "init_value": 0,
+          "description": "Envelope Release",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 83,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4767013356432,
+      "src": {
+        "device": 4767012161040,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 17,
+          "channel": null,
+          "name": "s4",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 17,
+        "chain": {
+          "id": 4767013356112,
+          "device": 4767012161040,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 4767013344592,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "master_volume",
+          "section_name": "general",
+          "init_value": 0,
+          "description": "General Volume",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 17,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4767013357072,
+      "src": {
+        "device": 4767012161040,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "b1",
+          "section_name": "buttons",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "chain": {
+          "id": 4767013356752,
+          "device": 4767012161040,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 4767013344592,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 8,
+          "channel": null,
+          "name": "engine_select",
+          "section_name": "general",
+          "init_value": 0,
+          "description": "Engine Selection",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 74,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    }
+  ],
   "playground_code": ""
 }

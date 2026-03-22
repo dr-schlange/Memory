@@ -10,11 +10,12 @@
       "channel": 0,
       "config": {
         "general": {
-          "master_volume": 74,
+          "master_volume": 103,
           "engine_select": 37
         },
         "modulation": {
-          "FM_mod": 15
+          "timbre": 44,
+          "FM_mod": 26
         }
       },
       "class": "Vija"
@@ -30,10 +31,11 @@
       "config": {
         "buttons": {
           "b1": 37,
-          "b8": 119
+          "b8": 26
         },
         "sliders": {
-          "s4": 74
+          "s1": 85,
+          "s4": 103
         }
       },
       "class": "Minilab3"
@@ -79,12 +81,12 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 127.0,
+        "output": 0.0,
         "set_pause": 0,
-        "speed": 8.43,
+        "speed": 10.0,
         "subdiv": "1/1",
         "phase": 0.0,
-        "sampling_rate": 168,
+        "sampling_rate": 200,
         "waveform": "square",
         "invert_polarity": 0.0,
         "min_value": 0,
@@ -101,13 +103,13 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 43.0,
+        "output": 0.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
         "prev_edit_step": 0.0,
         "next_edit_step": 0.0,
-        "trigger": 1.0,
+        "trigger": 0.0,
         "play": 1.0,
         "reset": 0.0,
         "set_step": 0.0,
@@ -130,7 +132,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 7.0
+        "current_step": 5.0
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -141,9 +143,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 43,
+        "output": 0,
         "set_pause": 0,
-        "input": 43.0,
+        "input": 0.0,
         "trigger": 0,
         "reset": 0,
         "root": "C",
@@ -152,6 +154,28 @@
       },
       "proxy": false,
       "class": "Quantizer"
+    },
+    {
+      "id": 3198310818256,
+      "repr": "LFO2",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 57.02167658739459,
+        "set_pause": 0,
+        "speed": 1.18,
+        "subdiv": "1/1",
+        "phase": 0.0,
+        "sampling_rate": 23,
+        "waveform": "random",
+        "invert_polarity": 0.0,
+        "min_value": 0,
+        "max_value": 127.0,
+        "pulse_width": 0.3,
+        "step_size": 0.2
+      },
+      "proxy": false,
+      "class": "LFO"
     }
   ],
   "connections": [
@@ -623,6 +647,67 @@
         },
         "explicit": -1,
         "type": "note"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 3198309237776,
+      "src": {
+        "device": 3198310818256,
+        "repr": "LFO2",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 3198309238800,
+          "device": 3198310818256,
+          "to_min": 27,
+          "to_max": 64,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 3198342467344,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 9,
+          "channel": null,
+          "name": "timbre",
+          "section_name": "modulation",
+          "init_value": 0,
+          "description": "Timbre",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

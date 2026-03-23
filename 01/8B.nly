@@ -13,17 +13,17 @@
           "mod": 94
         },
         "buttons": {
-          "b1": 29,
+          "b1": 25,
           "b2": 57,
           "b3": 28,
-          "b5": 11,
-          "b6": 18,
-          "b7": 48,
-          "b8": 32
+          "b5": 49,
+          "b6": 10,
+          "b7": 9,
+          "b8": 31
         },
         "sliders": {
           "s3": 49,
-          "s4": 4
+          "s4": 24
         }
       },
       "class": "Minilab3"
@@ -38,17 +38,18 @@
       "channel": 0,
       "config": {
         "general": {
-          "master_volume": 4
+          "master_volume": 24
         },
         "filter": {
-          "resonance": 45
+          "cutoff": 45,
+          "resonance": 29
         },
         "modulation": {
-          "timbre": 79,
-          "timbre_mod": 11,
-          "color": 7,
-          "color_mod": 18,
-          "FM_mod": 32
+          "timbre": 57,
+          "timbre_mod": 49,
+          "color": 5,
+          "color_mod": 10,
+          "FM_mod": 31
         }
       },
       "class": "Vija"
@@ -94,7 +95,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 111.89274566737588,
+        "output": 14.049128478113344,
         "set_pause": 0,
         "speed": 7.85,
         "subdiv": "1/1",
@@ -116,9 +117,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 79,
+        "output": 57,
         "set_pause": 0,
-        "input": 79.55031200278663,
+        "input": 57.20806870760069,
         "trigger": 1,
         "reset": 0,
         "root": "C",
@@ -134,7 +135,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 89.23843881448262,
+        "output": 56.899070727631084,
         "set_pause": 0,
         "speed": 0.13,
         "subdiv": "1/1",
@@ -156,9 +157,9 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 89,
+        "output": 55,
         "set_pause": 0,
-        "input": 89.23843881448262,
+        "input": 56.899070727631084,
         "trigger": 1,
         "reset": 0,
         "root": "C",
@@ -174,7 +175,7 @@
       "paused": false,
       "running": true,
       "config": {
-        "output": 57.0,
+        "output": 48.0,
         "set_pause": 0,
         "input": 0.0,
         "write": 0.0,
@@ -203,7 +204,7 @@
         "active6": 1,
         "active7": 1,
         "trig_out": 0,
-        "current_step": 2
+        "current_step": 5
       },
       "proxy": false,
       "class": "Sequencer8"
@@ -219,18 +220,35 @@
         "reset": 0.0,
         "mode": "gate",
         "div32": 0.0,
-        "div16": 1.0,
+        "div16": 0.0,
         "div8": 0.0,
         "div7": 0.0,
-        "div6": 1.0,
-        "div5": 1.0,
-        "div4": 0.0,
-        "div3": 0.0,
-        "div2": 1.0,
+        "div6": 0.0,
+        "div5": 0.0,
+        "div4": 1.0,
+        "div3": 1.0,
+        "div2": 0.0,
         "div1": 0.0
       },
       "proxy": false,
       "class": "ClockDivider"
+    },
+    {
+      "id": 4441334890640,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.5333333333333333,
+        "set_pause": 0,
+        "gate": 1.0,
+        "attack": 0.03,
+        "decay": 0.179,
+        "sustain": 0.33,
+        "release": 0.55
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
@@ -1256,6 +1274,133 @@
         },
         "explicit": -1,
         "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4441339456784,
+      "src": {
+        "device": 4441909756688,
+        "repr": "ClockDivider1",
+        "parameter": {
+          "name": "div4",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "div4_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4441337109904,
+          "device": 4441909756688,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4441334890640,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4441339460624,
+      "src": {
+        "device": 4441334890640,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4441337134352,
+          "device": 4441334890640,
+          "to_min": 27,
+          "to_max": 54,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4441334881808,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
+        "type": "control_change"
       },
       "bouncy": false,
       "muted": false,

@@ -9,9 +9,25 @@
       },
       "channel": 0,
       "config": {
+        "general": {
+          "master_volume": 38,
+          "engine_select": 60,
+          "sustain": 19
+        },
+        "envelope": {
+          "attack": 20,
+          "release": 35
+        },
         "filter": {
-          "cutoff": 78,
-          "resonance": 74
+          "cutoff": 43,
+          "resonance": 124
+        },
+        "modulation": {
+          "timbre": 116,
+          "timbre_mod": 103,
+          "color": 85,
+          "color_mod": 77,
+          "FM_mod": 109
         }
       },
       "class": "Vija"
@@ -26,13 +42,15 @@
       "channel": 0,
       "config": {
         "buttons": {
-          "b1": 78,
-          "b2": 77,
-          "b5": 74,
-          "b6": 30,
-          "b7": 19
+          "b1": 37,
+          "b2": 69,
+          "b3": 77,
+          "b5": 93,
+          "b6": 40,
+          "b8": 23
         },
         "sliders": {
+          "s3": 50,
           "s4": 127
         }
       },
@@ -61,6 +79,23 @@
       },
       "proxy": false,
       "class": "WebSocketBus"
+    },
+    {
+      "id": 4442207224784,
+      "repr": "ADSREnvelope1",
+      "paused": false,
+      "running": true,
+      "config": {
+        "output": 0.9768571428571429,
+        "set_pause": 0,
+        "gate": 1.0,
+        "attack": 0.0,
+        "decay": 0.7,
+        "sustain": 0.1,
+        "release": 0.3
+      },
+      "proxy": false,
+      "class": "ADSREnvelope"
     }
   ],
   "connections": [
@@ -499,6 +534,181 @@
           "type": "control_change"
         },
         "explicit": 16,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4442205521040,
+      "src": {
+        "device": 4443984367696,
+        "repr": "Minilab3",
+        "parameter": {
+          "cc_note": 17,
+          "channel": null,
+          "name": "s4",
+          "section_name": "sliders",
+          "init_value": 0,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 17,
+        "chain": {
+          "id": 4442207750544,
+          "device": 4443984367696,
+          "to_min": 0,
+          "to_max": 127,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "control_change"
+      },
+      "dest": {
+        "device": 4443984364176,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 7,
+          "channel": null,
+          "name": "master_volume",
+          "section_name": "general",
+          "init_value": 0,
+          "description": "General Volume",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": 17,
+        "type": "control_change"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4442205521616,
+      "src": {
+        "device": 4443984367696,
+        "repr": "Minilab3",
+        "parameter": {
+          "channel": null,
+          "keys": {},
+          "section_name": "keys",
+          "name": "notes",
+          "cc_note": -1,
+          "range": [
+            0,
+            127
+          ]
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4442207748880,
+          "device": 4443984367696,
+          "to_min": 0.0,
+          "to_max": 1.0,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "note"
+      },
+      "dest": {
+        "device": 4442207224784,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "gate",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0.0,
+            1.0
+          ],
+          "accepted_values": [],
+          "conversion_policy": "!=0",
+          "disable_policy": false,
+          "cv_name": "gate_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "type": "virtual"
+      },
+      "bouncy": false,
+      "muted": false,
+      "velocity": null,
+      "extra_zero": "none"
+    },
+    {
+      "id": 4442205521808,
+      "src": {
+        "device": 4442207224784,
+        "repr": "ADSREnvelope1",
+        "parameter": {
+          "name": "output",
+          "stream": false,
+          "consumer": false,
+          "description": null,
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "conversion_policy": null,
+          "disable_policy": false,
+          "cv_name": "output_cv",
+          "section_name": "__virtual__",
+          "cc_note": -1,
+          "hidden": false,
+          "default": null,
+          "no_init": false
+        },
+        "explicit": -1,
+        "chain": {
+          "id": 4442207749008,
+          "device": 4442207224784,
+          "to_min": 10,
+          "to_max": 44,
+          "auto": false,
+          "method": "lin",
+          "as_int": false
+        },
+        "type": "virtual"
+      },
+      "dest": {
+        "device": 4443984364176,
+        "repr": "Vija",
+        "parameter": {
+          "cc_note": 74,
+          "channel": null,
+          "name": "cutoff",
+          "section_name": "filter",
+          "init_value": 0,
+          "description": "Filter Cutoff",
+          "range": [
+            0,
+            127
+          ],
+          "accepted_values": [],
+          "type": "control_change"
+        },
+        "explicit": -1,
         "type": "control_change"
       },
       "bouncy": false,

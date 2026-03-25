@@ -27,6 +27,7 @@ class EchoWithoutDelay(VirtualDevice):
     decay_cv = VirtualParameter(name='decay', range=(0.0, 1.0), default=0.5)
     feedback_cv = VirtualParameter(name='feedback', range=(0.0, 0.99), default=0.6)
     reset_cv = VirtualParameter(name='reset', range=(0.0, 1.0), conversion_policy='round')
+    output_cv = VirtualParameter(name='output', range=(-1.0, 1.0))
 
     @property
     def min_range(self):
@@ -54,3 +55,108 @@ class EchoWithoutDelay(VirtualDevice):
         out = self.input_value + self.shadow * self.decay
         lower, upper = self.range
         return max(lower, min(upper, out))
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...

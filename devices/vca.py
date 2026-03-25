@@ -21,6 +21,7 @@ class VCA(VirtualDevice):
     input_cv = VirtualParameter(name='input', range=(0.0, 127.0))
     amplitude_cv = VirtualParameter(name='amplitude', range=(0.0, 1.0), default=0.0)
     gain_cv = VirtualParameter(name='gain', range=(1.0, 2.0), default=1.0)
+    output_cv = VirtualParameter(name='output', range=(0.0, 127.0))
 
     @property
     def min_range(self):
@@ -32,10 +33,12 @@ class VCA(VirtualDevice):
 
     @on(input_cv, edge='any')
     def sending_modulated_input(self, value, ctx):
-        return value * math.exp(self.amplitude * self.gain)
+        if self.input > 0.2:
+            return value * math.exp(self.amplitude * self.gain)
+        return 0
 
     @on(amplitude_cv, edge='any')
     def change_amplitude(self, value, ctx):
-        if self.amplitude > 0:
+        if self.input > 0.1:
             return self.input * math.exp(self.amplitude * self.gain)
         return 0

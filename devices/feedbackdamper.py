@@ -30,6 +30,7 @@ class FeedbackDamper(VirtualDevice):
     release_cv = VirtualParameter(name='release', range=(0.0, 5.0), default=0.5)
     min_gain_cv = VirtualParameter(name='min_gain', range=(0.0, 1.0), default=0.1)
     reset_cv = VirtualParameter(name='reset', range=(0.0, 1.0), conversion_policy='round')
+    output_cv = VirtualParameter(name='output', range=(-1.0, 1.0))
 
     @property
     def min_range(self):
@@ -69,3 +70,108 @@ class FeedbackDamper(VirtualDevice):
         self.gain = max(self.min_gain, min(1.0, self.gain))
         self.activity *= max(0.0, 1.0 - 2.0 * dt)
         return self.last_value * self.gain
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...
+
+    def main(self, ctx):
+        ...

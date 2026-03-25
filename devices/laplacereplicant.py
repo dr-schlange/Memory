@@ -1,4 +1,3 @@
-from laplace import *
 from nallely import VirtualDevice, VirtualParameter, on
 
 class LaplaceReplicant(VirtualDevice):
